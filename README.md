@@ -11,6 +11,10 @@ Simple scouting system, owned by [Reprezentacija.BA Group](https://reprezentacij
 - **HTML5 + CSS3 (SASS - Bootstrap)**
 - **MSSQL**
 
+### Documentation
+
+Full system requirements and / or documentation, can be downloaded from [here](https://github.com/aladinkapic/scout-reprezentacija.ba/blob/master/storage/Documentation/Technical%20documentation.pdf).
+
 ### License
 
 This system is owned by Reprezentcija.BA and Alkaris d.o.o / CodeCollection.
