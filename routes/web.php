@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
+    Route::get ('/',                                     'HomepageController@home')->name('homepage');
+});
+
+
 Route::group(['namespace' => 'Auth', 'prefix' => '/'], function(){
-    Route::get ('/',                                     'AuthController@login')->name('auth.login');
+    Route::get ('/login-page',                           'AuthController@login')->name('auth.login');
     Route::post('/log-me-in',                            'AuthController@logMeIn')->name('auth.logMeIn');
 
     /*

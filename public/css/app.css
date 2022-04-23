@@ -22,7 +22,7 @@ html ::-webkit-scrollbar-track {
 }
 
 html ::-webkit-scrollbar-thumb {
-  background-color: #184679;
+  background-color: #173668;
   border-radius: 3px;
 }
 
@@ -74,11 +74,11 @@ body select[disabled] {
 }
 
 .b-color {
-  background: #184679;
+  background: #173668;
 }
 
 .tb-color {
-  color: #184679;
+  color: #173668;
 }
 
 /*
@@ -121,7 +121,7 @@ body {
   top: 0px;
   width: 30%;
   height: 100%;
-  background: #184679;
+  background: #173668;
 }
 
 .auth-form .af-image img {
@@ -189,7 +189,7 @@ body {
 }
 
 .auth-form .af-form .aff-container .auth-btn {
-  background: #184679;
+  background: #173668;
   height: 28px;
   padding: 3px 15px;
   color: #fff;
@@ -443,7 +443,7 @@ body {
 }
 
 .s-left-menu .s-lm-subsection .s-lm-wrapper .s-lm-s-elements .extra-elements .ee-t-b {
-  background: #184679;
+  background: #173668;
 }
 
 .s-left-menu .s-lm-subsection .s-lm-wrapper .s-lm-s-elements .extra-elements i {
@@ -459,7 +459,7 @@ body {
 }
 
 .s-left-menu .s-lm-subsection .s-lm-wrapper .s-lm-s-elements:hover .s-lms-e-img i {
-  color: #184679;
+  color: #173668;
 }
 
 .s-left-menu .s-lm-subsection .s-lm-wrapper .s-lm-s-elements:hover a {
@@ -568,7 +568,7 @@ body {
 }
 
 .s-left-menu .bottom-icons .bottom-icon:hover i {
-  color: #184679;
+  color: #173668;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -599,7 +599,7 @@ body {
 .s-top-menu .app-name h1 {
   font-size: 30px;
   margin-left: 20px;
-  color: #184679;
+  color: #173668;
   padding-top: 24px;
 }
 
@@ -613,7 +613,7 @@ body {
 
 .s-top-menu .app-name i:hover {
   cursor: pointer;
-  color: #184679;
+  color: #173668;
 }
 
 .s-top-menu .top-menu-links {
@@ -658,7 +658,7 @@ body {
   right: -6px;
   top: 2px;
   height: 14px;
-  background: #184679;
+  background: #173668;
   border-radius: 2px;
 }
 
@@ -710,7 +710,7 @@ body {
   right: -6px;
   top: 2px;
   height: 14px;
-  background: #184679;
+  background: #173668;
   border-radius: 2px;
 }
 
@@ -807,7 +807,7 @@ body {
 
 .main-content #page-menu .page-menu-icon-w i {
   font-size: 36px;
-  color: #184679;
+  color: #173668;
   margin-top: 22px;
 }
 
@@ -861,11 +861,11 @@ body {
   font-size: 18px;
   left: 0px;
   top: 6px;
-  color: #184679;
+  color: #173668;
 }
 
 .main-content #page-menu .page-menu-navigation a:hover {
-  color: #184679;
+  color: #173668;
 }
 
 .main-content #page-menu .menu-line {

@@ -22,12 +22,12 @@
         <div class="af-form">
             <div class="aff-container">
                 <div class="aff-header">
-                    <h1 class="tb-color mb-4"> <b>{{ __('Agencija za državnu službu FBiH') }}</b> </h1>
+                    <h1 class="tb-color mb-4"> <b>{{ __('Reprezentacija.BA Group') }}</b> </h1>
                 </div>
 
                 <div class="aff-short">
                     <p>
-                        {{ __('Dobro došli nazad. Sistem za generisanje ispitnih pitanja u Agenciji za državnu službu Federacije BiH') }}
+                        {{ __('Dobro došli nazad. Unesite Vaše kredincijale i prijavite se na sistem scout.reprezentacija.BA !') }}
                     </p>
                 </div>
                 <hr>
