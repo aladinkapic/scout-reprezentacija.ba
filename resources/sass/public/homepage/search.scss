@@ -1,0 +1,234 @@
+@import "../variables.scss";
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $gap 0;
+
+  .search-wrapper {
+    width: $maxWidth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .sport-picker {
+      width: 100%;
+    }
+
+    .search-instance {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .field {
+        width: 48%;
+        padding: 5px 10px;
+        background-color: $primary;
+        border-radius: 10px;
+
+        .soccer-field {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          width: 100%;
+          height: 706px;
+          margin: 10px auto;
+          padding: 0 0 60% 0;
+          background-color: $primary;
+
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 38%;
+            display: block;
+            width: 24%;
+            height: 8%;
+            border: 1px solid $fieldLine;
+            z-index: 2;
+          }
+
+          &:after {
+            top: auto;
+            bottom: 0;
+          }
+
+          .pitch-lines {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            border: 1px solid $fieldLine;
+          }
+
+          .half-circle-1:after,
+          .half-circle-2:after {
+            content: "";
+            position: absolute;
+            right: 42%;
+            left: auto;
+            width: 16%;
+            height: 0;
+            margin: -8% 0 0 0;
+            padding-bottom: 16%;
+            border: 1px solid $fieldLine;
+            border-radius: 50%;
+          }
+
+          .half-circle-1 {
+            &::after {
+              bottom: auto;
+              top: 20%
+            }
+          }
+
+          .half-circle-2 {
+            &::after {
+              top: auto;
+              bottom: 14%;
+            }
+          }
+
+          .box16::after,
+          .box16::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            display: block;
+            width: 50%;
+            height: 20%;
+            background-color: $primary;
+            border: 1px solid $fieldLine;
+          }
+
+          .box16::after {
+            top: auto;
+            bottom: 0;
+          }
+
+          .center::before,
+          .center::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 100%;
+            border: 0.5px solid $fieldLine;
+          }
+
+          .center::after {
+            border: unset;
+            background-color: $fieldLine;
+            height: 1px;
+          }
+
+          .center::before {
+            top: calc(50% - 40px);
+            left: calc(50% - 40px);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid $fieldLine;
+          }
+
+          .position {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #4F7EDC;
+            border: 1px solid #324978;
+            border-radius: 50%;
+            z-index: 2;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+              box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 0px 3px;
+            }
+
+            &.gk {
+              top: 95%;
+              left: calc(50% - 12px);
+            }
+
+            &.cb {
+              top: 75%;
+              left: calc(50% - 12px);
+            }
+
+            &.rb {
+              top: 75%;
+              left: calc(10% - 12px);
+            }
+
+            &.lb {
+              top: 75%;
+              left: calc(90% - 12px);
+            }
+
+            &.dm {
+              top: 63%;
+              left: calc(50% - 12px);
+            }
+
+            &.cm {
+              top: calc(50% - 12px);
+              left: calc(50% - 12px);
+            }
+
+            &.rm {
+              top: calc(50% - 12px);
+              left: calc(10% - 12px);
+            }
+
+            &.lm {
+              top: calc(50% - 12px);
+              left: calc(90% - 12px);
+            }
+
+            &.am {
+              top: 35%;
+              left: calc(50% - 12px);
+            }
+
+            &.rw {
+              top: 25%;
+              left: calc(90% - 12px);
+            }
+
+            &.lw {
+              top: 25%;
+              left: calc(10% - 12px);
+            }
+
+            &.ss {
+              top: 21%;
+              left: calc(50% - 12px);
+            }
+
+            &.st {
+              top: 12%;
+              left: calc(50% - 12px);
+            }
+          }
+        }
+      }
+    }
+
+    .search-form {
+      width: 48%;
+    }
+  }
+}

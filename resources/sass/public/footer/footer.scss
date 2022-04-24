@@ -59,7 +59,12 @@ footer {
         color: $white;
         transition: $transition;
         border-radius: 50%;
-        padding: 8px;
+        height: 36px;
+        width: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
 
         &:hover {
           color: $whiteHover;
