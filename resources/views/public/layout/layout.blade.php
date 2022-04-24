@@ -5,9 +5,12 @@
     <title>{{ __('Scout.Reprezentacija.BA') }}</title>
 
     <link rel="stylesheet" href="{{asset('css/public.css')}}">
-    <script src="{{ asset('js/public.js') }}"></script>
+    <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    @include('public.layout.menu')
+    @yield('content')
+    @include('public.layout.footer')
+    <script src="{{ asset('js/public.js') }}"></script>
 </body>
 </html>

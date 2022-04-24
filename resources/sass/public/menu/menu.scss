@@ -1,0 +1,100 @@
+@import "../variables.scss";
+
+header {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary;
+    box-shadow: $boxShadow;
+    z-index: 999;
+
+    .web-header {
+        width: $maxWidth;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: $gap;
+
+                .nav-item {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $white;
+                    text-decoration: none;
+                    transition: $transition;
+
+                    &:hover {
+                        color: $whiteHover
+                    }
+                }
+            }
+
+            .search {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    padding: 10px;
+                    width: 40px;
+                    height: 40px;
+                    background: none;
+                    border: 2px solid $white;
+                    border-radius: 50px;
+                    box-sizing: border-box;
+                    font-family: inherit;
+                    font-size: 16px;
+                    color: $white;
+                    outline: none;
+                    transition: .5s;
+                }
+
+                i {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 14px;
+                    color: $white;
+                    transition: 0.2s;
+                }
+
+                &:hover {
+                    input {
+                        width: 250px;
+                        background: $primaryDark;
+                        border-radius: 10px;
+                        border-color: $whiteHover;
+                    }
+
+                    i {
+                        opacity: 0;
+                        z-index: -1;
+                    }
+                }
+
+
+            }
+        }
+    }
+}
