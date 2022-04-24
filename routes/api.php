@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['namespace' => 'API', 'prefix' => '/keywords'], function (){
+    Route::get('/get-keyword', 'KeywordsAPIController@getKeyword');
+});
+
+Route::get('obuke/fetch', 'KeywordsAPIController@getKeyword')->name('api.keyword.fetch');

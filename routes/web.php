@@ -58,6 +58,19 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
         Route::get ('/my-profile',                       'UsersController@profile')->name('system.users.profile');
         Route::put ('/update-profile',                   'UsersController@updateProfile')->name('system.users.update-profile');
     });
+
+    /*
+     *  Those are core routes for keywords
+     */
+    Route::group(['namespace' => 'Core', 'prefix' => '/settings/core', 'middleware' => 'isRoot'], function(){
+        Route::get ('/',                                 'KeywordsController@index')->name('system.settings.core.keywords.index');
+        Route::get ('/preview/{keyword}',                'KeywordsController@preview')->name('system.settings.core.keywords.preview');
+        Route::get ('/create/{keyword}',                 'KeywordsController@create')->name('system.settings.core.keywords.create');
+        Route::post('/save',                             'KeywordsController@save')->name('system.settings.core.keywords.save');
+        Route::get ('/edit/{id}',                        'KeywordsController@edit')->name('system.settings.core.keywords.edit');
+        Route::put ('/update',                           'KeywordsController@update')->name('system.settings.core.keywords.update');
+        Route::delete('/delete',                         'KeywordsController@delete')->name('system.settings.core.keywords.delete');
+    });
 });
 
 //Route::get('/', function () {

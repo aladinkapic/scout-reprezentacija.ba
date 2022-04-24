@@ -34,7 +34,7 @@
                     <td> {{ $user->countryRel->title ?? ''}} </td>
 
                     <td class="text-center">
-                        <a href="#" title="Pregled korisnika">
+                        <a href="{{route('system.users.edit', ['id' => $user->id] )}}" title="Pregled korisnika">
                             <button class="btn-dark btn-xs">Pregled</button>
                         </a>
                     </td>

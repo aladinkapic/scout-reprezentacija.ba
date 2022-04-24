@@ -32434,7 +32434,7 @@ __webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/s
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! C:\projs\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })
