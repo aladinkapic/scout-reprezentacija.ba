@@ -1,6 +1,14 @@
 <div class="search">
   <div class="search-wrapper">
-    <div class="sport-picker"></div>
+    <div class="search-header">
+      <div class="title">Pretraga</div>
+      <div class="desc">Odaberi detalje pretrage i idi na pretraži</div>
+    </div>
+    <div class="sport-picker">
+      <div class="item active"><i class="fas fa-futbol"></i>Fudbal</div>
+      <div class="item"><i class="fas fa-basketball-ball"></i>Košarka</div>
+      <div class="item"><i class="fas fa-volleyball-ball"></i>Rukomet</div>
+    </div>
     <div class="search-instance">
       <div class="field">
         <div class="soccer-field">

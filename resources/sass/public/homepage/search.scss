@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: $gap 0;
+  margin: calc($gap * 2) 0;
 
   .search-wrapper {
     width: $maxWidth;
@@ -14,8 +14,56 @@
     align-items: center;
     flex-wrap: wrap;
 
+    .search-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: calc($gap / 2);
+      margin: $gap 0;
+
+      .title {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      .desc {
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+    }
+
     .sport-picker {
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: $gap;
+      margin-bottom: calc($gap * 2);
+
+      .item {
+        padding: 8px 16px;
+        min-width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 4px;
+        background-color: $whiteHover;
+        color: $primary;
+        border: 1px solid $primary;
+        border-radius: 4px;
+        box-shadow: $boxShadow;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+          background-color: $primary;
+          color: $whiteHover;
+        }
+      }
     }
 
     .search-instance {
