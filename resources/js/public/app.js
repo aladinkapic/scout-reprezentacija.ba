@@ -9,3 +9,8 @@
 require('../bootstrap');
 window.$ = window.jQuery = require('jquery'); // Include jQuery
 require('../layout/snippets/jquery-ui');
+
+
+// Homepage 
+
+require('./homepage/slider');

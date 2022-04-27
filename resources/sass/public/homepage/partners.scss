@@ -1,0 +1,33 @@
+@import "../variables.scss";
+
+.partners {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $gap 0;
+
+  .partners-wrapper {
+    width: $maxWidth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 2.5%;
+    row-gap: $gap;
+
+    .partners-item {
+      width: 18%;
+
+      img {
+        width: 100%;
+        filter: grayscale(100);
+        transition: $transition;
+
+        &:hover {
+          filter: grayscale(0)
+        }
+      }
+    }
+  }
+}

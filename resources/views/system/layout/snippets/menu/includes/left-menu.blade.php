@@ -93,6 +93,17 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <p>{{__('Postavke')}}</p>
+                    <div class="extra-elements">
+                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="inside-links active-links">
+                    <a href="{{route('system.settings.core.keywords.index')}}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p>{{__('Šifarnici')}}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </a>
