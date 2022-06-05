@@ -10,7 +10,15 @@ require('../bootstrap');
 window.$ = window.jQuery = require('jquery'); // Include jQuery
 require('../layout/snippets/jquery-ui');
 
+window.validator = require('../layout/snippets/validation');
+window.notify = require('../layout/snippets/notify');
+
 
 // Homepage 
 
 require('./homepage/slider');
+
+// JS Form submit
+
+require('../layout/snippets/submit');
+

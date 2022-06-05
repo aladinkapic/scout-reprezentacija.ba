@@ -32405,6 +32405,356 @@ $.widget("ui.tooltip",$.ui.tooltip,{options:{tooltipClass:null},_tooltip:functio
 
 /***/ }),
 
+/***/ "./resources/js/layout/snippets/notify.js":
+/*!************************************************!*\
+  !*** ./resources/js/layout/snippets/notify.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  Me: function Me(options) {
+    var expiration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6000;
+    var params = {
+      "message": "This is default notifyMe message",
+      "class": "nt-success",
+      "expiration": 6000,
+      'icon': "fas fa-check"
+    };
+    var customID = new Date().getTime();
+
+    if (!$(".notifyMeWrapper").length) {
+      $("body").append(function () {
+        return $("<div/>").attr('class', 'notifyMeWrapper');
+      });
+    }
+
+    if (options.length >= 1) params['message'] = options[0];
+
+    if (options.length >= 2) {
+      if (options[1] === 'success') {
+        params['class'] = "nt-success";
+        params['icon'] = "fas fa-check";
+      }
+
+      if (options[1] === 'warn') {
+        params['class'] = "nt-warn";
+        params['icon'] = "fas fa-exclamation-triangle";
+      }
+
+      if (options[1] === 'danger') {
+        params['class'] = "nt-danger";
+        params['icon'] = "fas fa-radiation";
+      }
+    }
+
+    params['expiration'] = expiration;
+    var mainWrapper = $(".notifyMeWrapper");
+    mainWrapper.append(function () {
+      return $("<div/>").attr("id", customID).attr('class', 'notifyMe').append(function () {
+        return $("<div/>").attr('class', 'nt-inline').append(function () {
+          return $("<div/>").attr("class", "nt-icon").append(function () {
+            return $("<i>").attr('class', params['icon']);
+          });
+        }).append(function () {
+          return $("<p>").html(params['message']);
+        });
+      }).addClass(params['class']).hide().fadeIn(500).delay(params['expiration']).queue(function () {
+        $(this).remove();
+        if (!$(".notifyMe").length) mainWrapper.remove();
+      });
+    });
+    $("body").on('click', "#" + customID, function () {
+      $(this).remove();
+      if (!$(".notifyMe").length) mainWrapper.remove();
+    });
+  }
+};
+$(document).ready(function () {});
+
+/***/ }),
+
+/***/ "./resources/js/layout/snippets/submit.js":
+/*!************************************************!*\
+  !*** ./resources/js/layout/snippets/submit.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+$(document).ready(function () {
+  var mainUri = '/requests';
+  /*
+   *  Get csrf_token from header
+   */
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  }); //     let checkData = function (key, value, className = ''){
+  // $(this).attr('type'), $(this).val(), $(this).attr('class')
+
+  var checkData = function checkData($this) {
+    var status = {
+      'code': '0000',
+      'message': ''
+    };
+
+    if ($this.attr('type') === 'email') {
+      if (!validator.email($this.val())) {
+        status['code'] = '6001';
+        status['message'] = 'Email nije validan. Molimo unesite ponovo!';
+      }
+    } else if ($this.attr('type') === 'text' || $this.attr('type') === 'number' || $this.attr('type') === 'password' || $this.is("select")) {
+      /*
+       *  Check all class names and check for their validations
+       */
+      var className = (typeof $this.attr('class') !== "undefined" ? $this.attr('class') : '').split(' '); // Default class name
+
+      for (var i = 0; i < className.length; i++) {
+        if (className[i] === 'phone') {} else if (className[i] === 'datepicker') {
+          if (!validator.date($this.val())) {
+            status['code'] = '6003';
+            status['message'] = 'Datum nije validan. Molimo pokušajte ponovo!';
+          }
+        }
+        /*
+         *  Check for required fields
+         */
+
+
+        if (className[i] === 'required') {
+          if ($this.val() === '') {
+            status['code'] = '6004';
+            status['message'] = 'Polje "' + $this.parent().find('label').text() + '" ne može biti prazno!';
+          }
+        }
+      }
+    } else {// TODO - Last case
+    }
+
+    return status;
+  };
+  /*
+   *  All form with this feature should have ID of #js-form
+   */
+
+
+  $("#js-form").submit(function (e) {
+    e.preventDefault(); // Prevent from default
+
+    var data = {},
+        names = [],
+        counter = 0,
+        foundN = false,
+        send = true,
+        status = [];
+    /*
+    * Method and action
+    */
+
+    var method = $(this).attr('method');
+    var action = $(this).attr('action');
+    $(this).find('input, select').each(function () {
+      for (var i = 0; i < names.length; i++) {
+        if (names[i] === $(this).attr('name')) foundN = true;
+      }
+
+      if (!foundN) {
+        var element = $("[name = '" + $(this).attr('name') + "']");
+
+        if (element.length > 1) {
+          for (var _i = 0; _i < names.length; _i++) {
+            if (names[_i] === $(this).attr('name')) foundN = true;
+          }
+
+          if (!foundN) {
+            names.push($(this).attr('name'));
+          }
+
+          var newData = [];
+          var name = $(this).attr('name').replace('[]', '');
+          var checkBox = $(this).attr('type') === 'checkbox';
+          element.each(function () {
+            if (checkBox) {
+              if ($(this).is(":checked")) newData.push($(this).val());
+            } else {
+              newData.push($(this).val());
+              status.push(checkData($(this)));
+            }
+          });
+          data[name] = newData;
+        } else {
+          data[$(this).attr('name')] = $(this).val();
+          /*
+           *  Check if data is valid
+           */
+
+          status.push(checkData($(this)));
+        }
+      }
+
+      foundN = false;
+    });
+
+    for (var i = 0; i < status.length; i++) {
+      if (status[i]['code'] !== '0000') {
+        notify.Me([status[i]['message'], "warn"]);
+        send = false;
+      }
+    }
+
+    if (send) {
+      /*
+       * Attach api-token to request as parameter
+       */
+      data['api_token'] = $('meta[name=api-token]').attr('content'); // data['api_uri']    = action; // URL for making requests
+      // data['api_method'] = method; // Request method : POST, PUT, DELETE
+
+      /*
+       * Trigger loading cover
+       */
+
+      $(".loading").fadeIn();
+      $.ajax({
+        url: action,
+        method: method,
+        dataType: "json",
+        data: data,
+        success: function success(response) {
+          $(".loading").fadeOut();
+          var code = response['code'];
+
+          if (code === '0000') {
+            if (typeof response['message'] !== 'undefined') notify.Me([response['message'], "success"]);
+            setTimeout(function () {
+              if (typeof response['url'] !== 'undefined') window.location = response['url'];
+            }, 2000);
+          } else {
+            notify.Me([response['message'], "warn"]);
+          }
+
+          console.log(response, _typeof(response['link']));
+        }
+      });
+    }
+  }); // ------------------------------------------------------------------------------------------------------------- //
+
+  /*
+   *  Fit inputs to satisfy form; except it is defined to stay in full width
+   *  If it has class property of "force", than skipp it !!
+   */
+
+  var checkStructure = function checkStructure() {
+    var objects = $(".form-data-row").find('.col-md-6, .col-md-12');
+    var total = objects.length;
+    var totalForced = $(".form-data-row").find('.forced, .d-none').length;
+    var cForced = 0;
+    objects.each(function (index) {
+      if ($(this).hasClass('force') || $(this).hasClass('d-none')) {
+        cForced++;
+      } else {
+        var classes = $(this).attr('class');
+        var classArr = classes.split(' ');
+        var newClass = '';
+
+        for (var i = 0; i < classArr.length; i++) {
+          if (classArr[i] === 'col-md-6' || classArr[i] === 'col-md-12') {
+            classArr[i] = 'col-md-6';
+          }
+
+          if (index === total - 1 && (total - totalForced) % 2 !== 0 || index === total - totalForced && (total - totalForced) % 2 !== 0) {
+            if (classArr[i] === 'col-md-6' || classArr[i] === 'col-md-12') {
+              classArr[i] = 'col-md-12';
+            }
+          } else {// console.log(index, total - totalForced);
+          }
+
+          newClass += classArr[i] + ' ';
+        }
+
+        $(this).attr('class', newClass); // console.log(newClass);
+      }
+    }); // console.log("Total: " + total + ', totalForced: ' + totalForced);
+  };
+
+  checkStructure(); // ------------------------------------------------------------------------------------------------------------- //
+
+  /*
+   *  When class 'trigger-none' is given to html entity, it would trigger action for displaying or hiding form at all
+   *  Also, it takes couple of more attributes:
+   *
+   *      - tr-value : Defines value, when picked element with class 'r-name' would be hidden
+   *      - r-name : class name of entity that would be set as display="block / none"
+   *
+   *  Class name of manipulating entity must match attribute r-name, and has to be unique !
+   */
+
+  $("body").on('change', '.trigger-none', function () {
+    var value = $(this).val();
+    $("." + $(this).attr('tr-name')).each(function () {
+      var trValue = $(this).attr('tr-value');
+      var $this = $(this);
+
+      if (trValue.includes(',')) {
+        var values = trValue.split(',');
+
+        for (var i = 0; i < values.length; i++) {
+          if (value === values[i]) {
+            $this.removeClass('d-none');
+            return true;
+          } else $this.addClass('d-none');
+        }
+      } else {
+        if (value === trValue) {
+          $(this).removeClass('d-none');
+        } else $(this).addClass('d-none');
+      }
+    }); // if(value === trValue){
+    //     $("." + $(this).attr('tr-name')).removeClass('d-none');
+    // }else{
+    //     $("." + $(this).attr('tr-name')).addClass('d-none');
+    // }
+
+    checkStructure();
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/layout/snippets/validation.js":
+/*!****************************************************!*\
+  !*** ./resources/js/layout/snippets/validation.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+ *  Scripts for frontend validations :
+ *      - Length
+ *      - Type
+ *      - Email
+ *      - Number
+ *      - Date
+ *      - Time
+ */
+module.exports = {
+  email: function email(_email) {
+    if (_email === 'root') return true;
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(_email).toLowerCase());
+  },
+  date: function date(_date) {
+    var reg = /^(((0[1-9]|[12]\d|3[01])\.(0[13578]|1[02])\.((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\.(0[13456789]|1[012])\.((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\.02\.((19|[2-9]\d)\d{2}))|(29\.02\.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([1][26]|[2468][048]|[3579][26])00))))$/g;
+    return reg.test(_date);
+  },
+  number: function number(_number) {}
+};
+
+/***/ }),
+
 /***/ "./resources/js/public/app.js":
 /*!************************************!*\
   !*** ./resources/js/public/app.js ***!
@@ -32423,10 +32773,15 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // Include jQuery
 
-__webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/snippets/jquery-ui.js"); // Homepage 
+__webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/snippets/jquery-ui.js");
+
+window.validator = __webpack_require__(/*! ../layout/snippets/validation */ "./resources/js/layout/snippets/validation.js");
+window.notify = __webpack_require__(/*! ../layout/snippets/notify */ "./resources/js/layout/snippets/notify.js"); // Homepage 
+
+__webpack_require__(/*! ./homepage/slider */ "./resources/js/public/homepage/slider.js"); // JS Form submit
 
 
-__webpack_require__(/*! ./homepage/slider */ "./resources/js/public/homepage/slider.js");
+__webpack_require__(/*! ../layout/snippets/submit */ "./resources/js/layout/snippets/submit.js");
 
 /***/ }),
 

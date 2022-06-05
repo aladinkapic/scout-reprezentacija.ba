@@ -5,6 +5,11 @@
     padding-top: calc(80px + ($gap*2));
     padding-bottom: calc($gap*2);
 
+    .header-text {
+        font-size: 30px;
+        letter-spacing: .5px;
+    }
+
     .welcome-text {
         font-size: 18px;
         letter-spacing: 1px;

@@ -12207,6 +12207,73 @@ fieldset:disabled .btn {
   font-family: "Poppins", sans-serif;
 }
 
+.notifyMeWrapper {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  max-width: 500px;
+  z-index: 10000;
+  border-radius: 3px;
+  display: block;
+  transition: 0.3s ease-in-out;
+}
+
+.notifyMeWrapper .notifyMe {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  margin-bottom: 15px;
+  padding: 5px 15px;
+}
+
+.notifyMeWrapper .notifyMe .nt-inline {
+  display: inline-flex;
+}
+
+.notifyMeWrapper .notifyMe .nt-inline .nt-icon {
+  margin-right: 10px;
+  font-size: 15px;
+  padding-top: 0px;
+}
+
+.notifyMeWrapper .notifyMe .nt-inline p {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.notifyMeWrapper .nt-success {
+  background: #DFF0D8;
+}
+
+.notifyMeWrapper .nt-success .nt-inline p,
+.notifyMeWrapper .nt-success .nt-inline i {
+  color: #508F51;
+}
+
+.notifyMeWrapper .nt-warn {
+  background: #FCF8E3;
+}
+
+.notifyMeWrapper .nt-warn .nt-inline p,
+.notifyMeWrapper .nt-warn .nt-inline i {
+  color: #C5A060;
+}
+
+.notifyMeWrapper .nt-danger {
+  background: #F2DEDE;
+}
+
+.notifyMeWrapper .nt-danger .nt-inline p,
+.notifyMeWrapper .nt-danger .nt-inline i {
+  color: #C84040;
+}
+
+@media only screen and (max-width: 800px) {
+  .notifyMeWrapper {
+    max-width: calc(100% - 30px);
+  }
+}
+
 header {
   height: 80px;
   width: 100%;
@@ -12669,6 +12736,11 @@ header .web-header nav .search:hover i {
   margin: 0 calc((100vw - 1200px) / 2);
   padding-top: 120px;
   padding-bottom: 40px;
+}
+
+.register .header-text {
+  font-size: 30px;
+  letter-spacing: 0.5px;
 }
 
 .register .welcome-text {
