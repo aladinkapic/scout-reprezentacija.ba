@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Core\Affiliation;
+use App\Models\Core\Affiliation;
 
 class HomepageController extends Controller {
     protected $_path = 'public.app.';
@@ -18,6 +18,8 @@ class HomepageController extends Controller {
     }
 
     public function register(){
+        $countries = Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id');
+
         return view($this->_path.'register');
     }
 }
