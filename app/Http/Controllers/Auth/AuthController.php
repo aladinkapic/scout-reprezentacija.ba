@@ -21,7 +21,7 @@ class AuthController extends Controller{
             $user = Auth::user();
 
             if(!($user->active ?? '')){
-                return json_encode(array('code' => '0001', 'message' => __('Pristup za korisnika '. ($user->name ?? '') .' zabranjen!')));
+                return json_encode(array('code' => '0001', 'message' => __('Pristup za korisnika '. ($user->name ?? '') .' nije dozvoljen!')));
             }else{
                 return json_encode([
                     'code' => '0000',

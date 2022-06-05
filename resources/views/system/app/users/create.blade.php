@@ -43,30 +43,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name"> <b>{{ __('Ime') }}</b> </label>
+                            <label for="name"> <b>{{ __('Ime i prezime') }}</b> </label>
                             {!! Form::text('name', $user->name ?? '', ['class' => 'form-control required', 'id' => 'name', 'aria-describedby' => 'nameHelp', isset($preview) ? 'readonly' : '']) !!}
-                            <small id="nameHelp" class="form-text text-muted"> {{ __('Ime korisnika') }} </small>
+                            <small id="nameHelp" class="form-text text-muted"> {{ __('Puno ime i prezime') }} </small>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="surname"> <b>{{ __('Prezime') }}</b> </label>
-                            {!! Form::text('surname', $user->surname ?? '', ['class' => 'form-control required', 'id' => 'surname', 'aria-describedby' => 'surnameHelp', isset($preview) ? 'readonly' : '']) !!}
-                            <small id="surnameHelp" class="form-text text-muted"> {{ __('Prezime korisnika') }} </small>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @if(isset($create))
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password"> <b>{{ __('Lozinka / šifra') }}</b> </label>
-                                {!! Form::password('password', ['class' => 'form-control required', 'id' => 'password', 'aria-describedby' => 'passwordHelp']) !!}
-                                <small id="passwordHelp" class="form-text text-muted"> {{ __('Lozinka / šifra za pristup računu') }} </small>
-                            </div>
-                        </div>
-                    @endif
-                    <div class="{{isset($create) ? 'col-md-6' : 'col-md-12'}}">
                         <div class="form-group">
                             <label for="email"> <b>{{ __('Email') }}</b> </label>
                             {!! Form::email('email', $user->email ?? '', ['class' => 'form-control required', 'id' => 'email', 'aria-describedby' => 'emailHelp', isset($preview) ? 'readonly' : '']) !!}
@@ -86,7 +68,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="years_old"> <b>{{ __('Starost') }}</b> </label>
-                            {!! Form::text('years_old', $user->years_old ?? '', ['class' => 'form-control required', 'id' => 'years_old', 'aria-describedby' => 'years_oldHelp', isset($preview) ? 'readonly' : '']) !!}
+                            {!! Form::text('years_old', $user->years_old ?? '', ['class' => 'form-control', 'id' => 'years_old', 'aria-describedby' => 'years_oldHelp', isset($preview) ? 'readonly' : '']) !!}
                             <small id="years_oldHelp" class="form-text text-muted"> {{ __('Broj godina korisnika') }} </small>
                         </div>
                     </div>
@@ -96,15 +78,15 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="citizenship"> <b>{{ __('Državljanstvo') }}</b> </label>
-                            {!! Form::select('citizenship', $countries, $user->citizenship ?? '', ['class' => 'form-control required', 'id' => 'citizenship', 'aria-describedby' => 'citizenshipHelp', isset($preview) ? 'readonly' : '']) !!}
+                            {!! Form::select('citizenship', $countries, $user->citizenship ?? '', ['class' => 'form-control required select-2', 'id' => 'citizenship', 'aria-describedby' => 'citizenshipHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="citizenshipHelp" class="form-text text-muted"> {{ __('Državljanstvo korisnika') }} </small>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for=phone_number"> <b>{{ __('Telefon') }}</b> </label>
-                            {!! Form::text('phone_number', $user->phone_number ?? '', ['class' => 'form-control phone_number', 'id' => 'phone_number', 'aria-describedby' => 'phone_numberHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
-                            <small id="phone_numberHelp" class="form-text text-muted"> {{ __('Broj telefona korisnika - mobilni ili kućni') }} </small>
+                            <label for=phone"> <b>{{ __('Telefon') }}</b> </label>
+                            {!! Form::text('phone', $user->phone_number ?? '', ['class' => 'form-control phone', 'id' => 'phone_number', 'aria-describedby' => 'phoneHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
+                            <small id="phoneHelp" class="form-text text-muted"> {{ __('Broj telefona korisnika - mobilni ili kućni') }} </small>
                         </div>
                     </div>
                 </div>
@@ -113,7 +95,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="gender"> <b>{{ __('Spol') }}</b> </label>
-                            {!! Form::select('gender', [], $user->gender ?? '', ['class' => 'form-control required', 'id' => 'gender', 'aria-describedby' => 'genderHelp', isset($preview) ? 'readonly' : '']) !!}
+                            {!! Form::select('gender', $gender, $user->gender ?? '', ['class' => 'form-control required', 'id' => 'gender', 'aria-describedby' => 'genderHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="genderHelp" class="form-text text-muted"> {{ __('Spol korisnika') }} </small>
                         </div>
                     </div>
@@ -130,14 +112,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="sport"> <b>{{ __('Sport') }}</b> </label>
-                            {!! Form::select('sport', [], $user->sport ?? '', ['class' => 'form-control required', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'readonly' : '']) !!}
+                            {!! Form::select('sport', $sport, $user->sport ?? '', ['class' => 'form-control required', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="sportHelp" class="form-text text-muted"> {{ __('Sport kojim se bavi korisnik') }} </small>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="position"> <b>{{ __('Pozicija') }}</b> </label>
-                            {!! Form::select('position', [], $user->position ?? '', ['class' => 'form-control required', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'readonly' : '']) !!}
+                            {!! Form::text('position', $user->position ?? '', ['class' => 'form-control required', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'readonly' : '']) !!}
                             <small id="positionHelp" class="form-text text-muted"> {{ __('Pozicija koju igra korisnik') }} </small>
                         </div>
                     </div>
@@ -146,9 +128,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="leg_arm"> <b>{{ __('Jača ruka/noga') }}</b> </label>
-                            {!! Form::select('leg_arm', [], $user->leg_arm ?? '', ['class' => 'form-control required', 'id' => 'leg_arm', 'aria-describedby' => 'leg_armHelp', isset($preview) ? 'readonly' : '']) !!}
-                            <small id="leg_armHelp" class="form-text text-muted"> {{ __('Sport kojim se bavi korisnik') }} </small>
+                            <label for="leg_arm"> <b>{{ __('Jača noga') }}</b> </label>
+                            {!! Form::select('stronger_limb', $leg_arm, $user->leg_arm ?? '', ['class' => 'form-control required', 'id' => 'stronger_limb', 'aria-describedby' => 'stronger_limbHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                            <small id="stronger_limbHelp" class="form-text text-muted"> {{ __('Odaberite jaču nogu') }} </small>
                         </div>
                     </div>
                 </div>

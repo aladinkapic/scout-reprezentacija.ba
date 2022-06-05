@@ -7,6 +7,7 @@ use App\Http\Controllers\System\Core\Filters;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -43,11 +44,11 @@ class UsersController extends Controller
         return view($this->_path . 'create', [
             'create' => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'municipalities' => Affiliation::where('keyword', 'O')->pluck('title', 'id')->prepend('Odaberite grad', ''),
-            'gender' => $this->_gender,
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
             'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'leg_arm')->pluck('value', 'id')
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
         ]);
     }
 
@@ -72,11 +73,11 @@ class UsersController extends Controller
             'user' => User::find($id),
             'preview' => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'municipalities' => Affiliation::where('keyword', 'O')->pluck('title', 'id')->prepend('Odaberite grad', ''),
-            'gender' => $this->_gender,
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
             'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
         ]);
     }
 
@@ -86,35 +87,22 @@ class UsersController extends Controller
             'user' => User::find($id),
             'edit' => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'municipalities' => Affiliation::where('keyword', 'O')->pluck('title', 'id')->prepend('Odaberite grad', ''),
-            'gender' => $this->_gender,
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
             'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
         ]);
     }
 
-    public function update(Request $request)
-    {
-        $request = $this::format($request);
+    public function update(Request $request){
+
         try {
-            User::where('id', $request->id)->update([
-                    "name" => $request->name,
-                    "surname" => $request->surname,
-                    "email" => $request->email,
-                    "birth_date" => $request->birth_date,
-                    "years_old" => $request->years_old,
-                    "citizenship" => $request->citizenship,
-                    "phone_number" => $request->phone_number,
-                    "gender" => $request->gender,
-                    "height" => $request->height,
-                    "sport" => $request->sport,
-                    "position" => $request->position,
-                    "leg_arm" => $request->leg_arm,
-                    "role" => $request->role,
-                    "active" => $request->active,
-                ]
-            );
+            $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
+
+            User::where('id', $request->id)->update($request->except('_method', '_token'));
+
+
             return $this::success(route('system.users.preview', ['id' => $request->id]));
         } catch (\Exception $e) {
             return $this::error($e->getCode(), $e->getMessage());

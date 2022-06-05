@@ -10,11 +10,13 @@ class KeywordsController extends Controller{
     protected $_path = 'system.app.core.keywords.';
     protected $_keywords = [
         'yes_no' => 'Da ili Ne',
-        'category' => 'Kategorija akaunta',
-        'citizenship' => 'Državljanstvo',
+        // 'category' => 'Kategorija akaunta',
+        // 'citizenship' => 'Državljanstvo',
         'sport' => 'Sportovi',
         'position' => 'Pozicija',
-        'arm_leg' => 'Jača ruka/noga'
+        'arm_leg' => 'Jača noga',
+        'gender' => 'Spol',
+        // 'active' => 'Status'
     ];
 
     public function index(){
@@ -38,8 +40,6 @@ class KeywordsController extends Controller{
     public function save(Request $request){
         try{
             $keyword = Keyword::create($request->except(['_token']));
-
-//            return $this::success(route('system.settings.core.keywords.edit', ['id' => $keyword->id]));
             return $this::success(route('system.settings.core.keywords.create', [
                 'keyword' => $request->keyword,
             ]));
