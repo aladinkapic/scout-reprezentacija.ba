@@ -30296,31 +30296,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/layout/snippets/classes.js":
-/*!*************************************************!*\
-  !*** ./resources/js/layout/snippets/classes.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-  /*
-   *  Datepicker function -- just add class name as .datepicker
-   */
-  $(function () {
-    $(".datepicker").datepicker({
-      dateFormat: 'dd.mm.yy'
-    });
-  });
-  /*
-   * Select - 2 search dropdown
-   */
-
-  $('.select-2').select2();
-});
-
-/***/ }),
-
 /***/ "./resources/js/layout/snippets/jquery-ui.js":
 /*!***************************************************!*\
   !*** ./resources/js/layout/snippets/jquery-ui.js ***!
@@ -35502,11 +35477,11 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 __webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/snippets/jquery-ui.js");
 
 window.validator = __webpack_require__(/*! ../layout/snippets/validation */ "./resources/js/layout/snippets/validation.js");
-window.notify = __webpack_require__(/*! ../layout/snippets/notify */ "./resources/js/layout/snippets/notify.js");
+window.notify = __webpack_require__(/*! ../layout/snippets/notify */ "./resources/js/layout/snippets/notify.js"); // Select 2
 
 __webpack_require__(/*! ../layout/snippets/select-2 */ "./resources/js/layout/snippets/select-2.js");
 
-__webpack_require__(/*! ../layout/snippets/classes */ "./resources/js/layout/snippets/classes.js"); // Homepage
+__webpack_require__(/*! ./snippets/classes */ "./resources/js/public/snippets/classes.js"); // Homepage
 
 
 __webpack_require__(/*! ./homepage/slider */ "./resources/js/public/homepage/slider.js"); // JS Form submit
@@ -35546,6 +35521,33 @@ $('.slide-nav').on('click', function (e) {
 
 /***/ }),
 
+/***/ "./resources/js/public/snippets/classes.js":
+/*!*************************************************!*\
+  !*** ./resources/js/public/snippets/classes.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  /*
+   *  Datepicker function -- just add class name as .datepicker
+   */
+  $(function () {
+    $(".datepicker").datepicker({
+      dateFormat: 'dd.mm.yy'
+    });
+  });
+  /*
+   * Select - 2 search dropdown
+   */
+
+  $('.select-2').select2({
+    theme: 'bootstrap-5'
+  });
+});
+
+/***/ }),
+
 /***/ 1:
 /*!******************************************!*\
   !*** multi ./resources/js/public/app.js ***!
@@ -35553,7 +35555,7 @@ $('.slide-nav').on('click', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })
