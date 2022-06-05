@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Core\Keywords\Keyword;
 use Illuminate\Http\Request;
 use App\Models\Core\Affiliation;
 
@@ -19,7 +20,8 @@ class HomepageController extends Controller {
 
     public function register(){
         return view($this->_path.'register', [
-            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id')
+            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id')
         ]);
     }
 }
