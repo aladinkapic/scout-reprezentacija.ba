@@ -4,10 +4,20 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Models\Core\Affiliation;
 
-class HomepageController extends Controller{
+class HomepageController extends Controller {
     protected $_path = 'public.app.';
+
     public function home(){
-        return view($this->_path.'home');
+        $countries = array();
+
+        return view($this->_path.'home', [
+            'countries' => $countries
+        ]);
+    }
+
+    public function register(){
+        return view($this->_path.'register');
     }
 }
