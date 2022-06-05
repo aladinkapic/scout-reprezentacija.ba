@@ -69,8 +69,14 @@ body .choose-position .select2-results__option .img-flag {
 }
 
 body input[readonly],
-body select[disabled] {
+body select[disabled],
+body textarea[readonly] {
   background-color: #fff !important;
+}
+
+body .select2-container--default.select2-container--disabled .select2-selection--single {
+  background-color: #fff;
+  cursor: default;
 }
 
 .b-color {

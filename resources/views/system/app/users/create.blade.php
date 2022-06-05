@@ -90,12 +90,18 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="years_old"> <b>{{ __('Starost') }}</b> </label>
-                                {!! Form::text('years_old', $user->years_old ?? '', ['class' => 'form-control', 'id' => 'years_old', 'aria-describedby' => 'years_oldHelp', isset($preview) ? 'readonly' : '']) !!}
-                                <small id="years_oldHelp" class="form-text text-muted"> {{ __('Broj godina korisnika') }} </small>
+                                <label for="birth_place"> <b>{{ __('Mjesto rođenja') }}</b> </label>
+                                {!! Form::text('birth_place', $user->birth_place ?? '', ['class' => 'form-control', 'id' => 'birth_place', 'aria-describedby' => 'birth_placeHelp', isset($preview) ? 'readonly' : '']) !!}
+                                <small id="birth_placeHelp" class="form-text text-muted"> {{ __('Mjesto rođenja') }} </small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="living_place"> <b>{{ __('Mjesto stanovanja') }}</b> </label>
+                                {!! Form::text('living_place', $user->living_place ?? '', ['class' => 'form-control', 'id' => 'living_place', 'aria-describedby' => 'living_placeHelp', isset($preview) ? 'readonly' : '']) !!}
+                                <small id="living_placeHelp" class="form-text text-muted"> {{ __('Mjesto rođenja') }} </small>
                             </div>
                         </div>
                     </div>
@@ -105,14 +111,14 @@
                             <div class="form-group">
                                 <label for="citizenship"> <b>{{ __('Državljanstvo') }}</b> </label>
                                 {!! Form::select('citizenship', $countries, $user->citizenship ?? '', ['class' => 'form-control required select-2', 'id' => 'citizenship', 'aria-describedby' => 'citizenshipHelp', isset($preview) ? 'disabled => true' : '']) !!}
-                                <small id="citizenshipHelp" class="form-text text-muted"> {{ __('Državljanstvo korisnika') }} </small>
+                                <small id="citizenshipHelp" class="form-text text-muted"> {{ __('Vaše državljanstvo') }} </small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for=phone"> <b>{{ __('Telefon') }}</b> </label>
-                                {!! Form::text('phone', $user->phone_number ?? '', ['class' => 'form-control phone', 'id' => 'phone_number', 'aria-describedby' => 'phoneHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
-                                <small id="phoneHelp" class="form-text text-muted"> {{ __('Broj telefona korisnika - mobilni ili kućni') }} </small>
+                                <label for="country"> <b>{{ __('Država stanovanja') }}</b> </label>
+                                {!! Form::select('country', $countries, $user->country ?? '', ['class' => 'form-control required select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                <small id="countryHelp" class="form-text text-muted"> {{ __('Država u kojoj živite') }} </small>
                             </div>
                         </div>
                     </div>
@@ -120,12 +126,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for=phone"> <b>{{ __('Telefon') }}</b> </label>
+                                {!! Form::text('phone', $user->phone_number ?? '', ['class' => 'form-control phone', 'id' => 'phone_number', 'aria-describedby' => 'phoneHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
+                                <small id="phoneHelp" class="form-text text-muted"> {{ __('Broj telefona korisnika - mobilni ili kućni') }} </small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="gender"> <b>{{ __('Spol') }}</b> </label>
                                 {!! Form::select('gender', $gender, $user->gender ?? '', ['class' => 'form-control required', 'id' => 'gender', 'aria-describedby' => 'genderHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                 <small id="genderHelp" class="form-text text-muted"> {{ __('Spol korisnika') }} </small>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="height"> <b>{{ __('Visina (cm)') }}</b> </label>
                                 {!! Form::number('height', $user->height ?? '', ['class' => 'form-control required', 'id' => 'height', 'aria-describedby' => 'heightHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => 230]) !!}
@@ -151,6 +166,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        @if(isset($preview))
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="note"> <b>{{ __('Napomena') }}</b> </label>
+                                        {!! Form::textarea('note', $user->note ?? '', ['class' => 'form-control', 'id' => 'note', 'style' => 'height:120px !important', 'aria-describedby' => 'noteHelp', 'readonly']) !!}
+                                        <small id="noteHelp" class="form-text text-muted"> {{ __('Vidljivo samo administratorima sistema') }} </small>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     @endif
 
                     @if(!isset($preview))

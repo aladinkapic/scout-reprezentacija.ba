@@ -12,17 +12,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UsersController extends Controller
-{
+class UsersController extends Controller{
     protected $_path = 'system.app.users.';
-    protected $_gender = [
-        '0' => 'Muško',
-        '1' => 'Žensko',
-    ];
+    public static function quickRandom($length = 16){
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ#%&()';
+        return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
+    }
 
-    public function index()
-    {
-
+    public function index(){
         $users = User::where('id', '>', 0);
         $users = Filters::filter($users);
         $filters = [
@@ -39,8 +36,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function create()
-    {
+    public function create(){
         return view($this->_path . 'create', [
             'create' => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
@@ -52,8 +48,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function save(Request $request)
-    {
+    public function save(Request $request){
         $request = $this::format($request);
 
         $request['password'] = Hash::make($request->password);
@@ -67,8 +62,7 @@ class UsersController extends Controller
         }
     }
 
-    public function preview($id)
-    {
+    public function preview($id){
         return view($this->_path . 'create', [
             'user' => User::find($id),
             'preview' => true,
@@ -81,8 +75,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         return view($this->_path . 'create', [
             'user' => User::find($id),
             'edit' => true,
@@ -99,9 +92,18 @@ class UsersController extends Controller
 
         try {
             $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
+            if($request->active == 1){
+                $user = User::find($request->id);
+                if($user->active == 0){
+                    $password = $this::quickRandom(10);
+                    $hashed   = Hash::make($password);
 
+
+                    dd($password);
+                    dd("Send new informations !");
+                }
+            }
             User::where('id', $request->id)->update($request->except('_method', '_token'));
-
 
             return $this::success(route('system.users.preview', ['id' => $request->id]));
         } catch (\Exception $e) {
@@ -111,8 +113,7 @@ class UsersController extends Controller
 
     // -------------------------------------------------------------------------------------------------------------- //
 
-    public function profile()
-    {
+    public function profile(){
         return view($this->_path . 'create', [
             'user' => Auth::user(),
             'profile' => true,
@@ -121,16 +122,13 @@ class UsersController extends Controller
         ]);
     }
 
-    public function updateProfile(Request $request)
-    {
+    public function updateProfile(Request $request){
         $request = $this::format($request);
         try {
             User::find($request->id)->update(
                 $request->except(['_token', '_method', 'id'])
             );
             return $this::success(route('system.users.profile'));
-        } catch (\Exception $e) {
-            return $this::error($e->getCode(), $e->getMessage());
-        }
+        } catch (\Exception $e) { return $this::error($e->getCode(), $e->getMessage()); }
     }
 }
