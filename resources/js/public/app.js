@@ -13,8 +13,10 @@ require('../layout/snippets/jquery-ui');
 window.validator = require('../layout/snippets/validation');
 window.notify = require('../layout/snippets/notify');
 
+// Select 2
+
 require('../layout/snippets/select-2');
-require('../layout/snippets/classes');
+require('./snippets/classes')
 // Homepage
 
 require('./homepage/slider');

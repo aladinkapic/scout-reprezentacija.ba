@@ -55,11 +55,9 @@
         </div>
         <div class="form-floating mb-3">
             {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country']) !!}
-          <label for="floatingSelect">Država</label>
         </div>
         <div class="form-floating mb-3">
             {!! Form::select('citizenship', $countries, '', ['class' => 'form-control select-2', 'id' => 'citizenship']) !!}
-          <label for="floatingSelect">Državljanstvo</label>
         </div>
         <div class="form-floating mb-3">
           <textarea class="form-control" id="note" name="note" rows="3"></textarea>
