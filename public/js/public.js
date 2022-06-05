@@ -32467,7 +32467,11 @@ $('.slide-nav').on('click', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+=======
+module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+>>>>>>> Stashed changes
 
 
 /***/ })

@@ -1,0 +1,54 @@
+@import "../variables.scss";
+
+.hero {
+    height: 80vh;
+    width: 100%;
+    background-image: url('/images/hero/hero-wallpaper.jpg');
+    background-size: cover;
+    position: relative;
+
+    .hero-overlay {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .hero-content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            margin: 0 128px;
+            color: $white;
+
+            .hero-header {
+                font-size: 56px;
+                font-weight: 700;
+            }
+
+            .hero-description {
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+
+            .hero-buttons {
+                margin-top: 64px;
+                display: flex;
+                justify-content: center;
+                column-gap: 16px;
+
+                .btn {
+                    letter-spacing: .5px;
+                }
+            }
+        }
+    }
+}

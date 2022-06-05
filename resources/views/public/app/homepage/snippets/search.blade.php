@@ -2,13 +2,14 @@
   <div class="search-wrapper">
     <div class="search-header">
       <div class="title">Pretraga</div>
-      <div class="desc">Odaberi detalje pretrage i idi na pretraži</div>
+      <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laboriosam, deleniti officiis beatae iste doloremque ea suscipit, quidem in, rem iusto illo ipsam recusandae maiores tempore voluptatem id non error?</div>
     </div>
+    <!--
     <div class="sport-picker">
       <div class="item active"><i class="fas fa-futbol"></i>Fudbal</div>
       <div class="item"><i class="fas fa-basketball-ball"></i>Košarka</div>
       <div class="item"><i class="fas fa-volleyball-ball"></i>Rukomet</div>
-    </div>
+    </div> -->
     <div class="search-instance">
       <div class="field">
         <div class="soccer-field">
@@ -34,7 +35,15 @@
       </div>
       <form class="search-form">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="name" placeholder="Npr. Edin Džeko">
+          <select class="form-select" id="floatingSelect" aria-label="Odaberi sport">
+            <option selected disabled>Odaberi</option>
+            <option value="1">Fudbal</option>
+            <option value="2">Futsal</option>
+          </select>
+          <label for="floatingSelect">Odaberi sport</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name" placeholder="Npr. Edin Džeko">
           <label for="name">
             Ime ili prezime
           </label>
@@ -50,7 +59,7 @@
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
-            <div class="form-floating mb-3">
+            <div class="form-floating">
               <input type="number" class="form-control" id="minHeight" placeholder="Minimalna visina"> 
               <label for="minHeight">
                 Minimalna visina (cm)
@@ -58,7 +67,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-floating mb-3">
+            <div class="form-floating">
               <input type="number" class="form-control" id="maxHeight" placeholder="Maksimalna visina"> 
               <label for="maxHeight">
                 Maksimalna visina (cm)
@@ -68,7 +77,7 @@
         </div>        
         <div class="row mb-3">
           <div class="col-md-6">
-            <div class="form-floating mb-3">
+            <div class="form-floating">
               <input type="number" class="form-control" id="minAge" placeholder="Minimalna godina"> 
               <label for="minHeight">
                 Minimalno godina
@@ -76,7 +85,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-floating mb-3">
+            <div class="form-floating">
               <input type="number" class="form-control" id="maxAge" placeholder="Maksimalno godina"> 
               <label for="maxAge">
                 Maksimalno godina
