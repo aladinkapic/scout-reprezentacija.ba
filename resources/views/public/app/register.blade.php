@@ -54,21 +54,11 @@
           </label>
         </div>
         <div class="form-floating mb-3">
-          <select class="form-select" id="country" name="country" aria-label="Klub">
-            <option selected disabled>Odaberi</option>
-            @foreach($countries as $country)
-            <option value="{{ $country->id }}">{{ $country->title }}</option>
-            @endforeach
-          </select>
+            {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country']) !!}
           <label for="floatingSelect">Država</label>
         </div>
         <div class="form-floating mb-3">
-          <select class="form-select" id="citizenship" name="citizenship" aria-label="Klub">
-            <option selected disabled>Odaberi</option>
-            @foreach($countries as $country)
-            <option value="{{ $country->id }}">{{ $country->title }}</option>
-            @endforeach
-          </select>
+            {!! Form::select('citizenship', $countries, '', ['class' => 'form-control select-2', 'id' => 'citizenship']) !!}
           <label for="floatingSelect">Državljanstvo</label>
         </div>
         <div class="form-floating mb-3">
