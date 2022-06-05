@@ -4,6 +4,8 @@ namespace App\Http\Controllers\System\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
+use App\Mail\allowAccess;
+use App\Mail\sendEmail;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
@@ -11,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller{
     protected $_path = 'system.app.users.';
@@ -96,11 +99,9 @@ class UsersController extends Controller{
                 $user = User::find($request->id);
                 if($user->active == 0){
                     $password = $this::quickRandom(10);
-                    $hashed   = Hash::make($password);
+                    $request['password'] = Hash::make($password);
 
-
-                    dd($password);
-                    dd("Send new informations !");
+                    Mail::to($request->email)->send(new allowAccess($user->email, $user->name, $password));
                 }
             }
             User::where('id', $request->id)->update($request->except('_method', '_token'));
@@ -118,7 +119,11 @@ class UsersController extends Controller{
             'user' => Auth::user(),
             'profile' => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'municipalities' => Affiliation::where('keyword', 'O')->pluck('title', 'id')->prepend('Odaberite grad', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
+            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
+            'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
         ]);
     }
 

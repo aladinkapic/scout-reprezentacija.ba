@@ -77,35 +77,37 @@
             </div>
         </a>
 
-        <!-- Settings -->
+        @if($loggedUser->role == 0)
+            <!-- Settings -->
 
-        <div class="subtitle">
-            <h4> {{__('Admin panel')}} </h4>
-            <div class="subtitle-icon">
-                <i class="fas fa-cogs"></i>
-            </div>
-        </div>
-
-        <a href="#" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
+                <div class="subtitle">
+                    <h4> {{__('Admin panel')}} </h4>
+                    <div class="subtitle-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <p>{{__('Postavke')}}</p>
-                    <div class="extra-elements">
-                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
-                    </div>
                 </div>
-                <div class="inside-links active-links">
-                    <a href="{{route('system.settings.core.keywords.index')}}">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('Šifarnici')}}</p>
+
+                <a href="#" class="menu-a-link">
+                    <div class="s-lm-wrapper">
+                        <div class="s-lm-s-elements">
+                            <div class="s-lms-e-img">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <p>{{__('Postavke')}}</p>
+                            <div class="extra-elements">
+                                <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                            </div>
                         </div>
-                    </a>
-                </div>
-            </div>
-        </a>
+                        <div class="inside-links active-links">
+                            <a href="{{route('system.settings.core.keywords.index')}}">
+                                <div class="inside-lm-link">
+                                    <div class="ilm-l"></div><div class="ilm-c"></div>
+                                    <p>{{__('Šifarnici')}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </a>
+        @endif
     </div>
 </div>

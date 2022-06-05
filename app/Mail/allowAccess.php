@@ -30,6 +30,6 @@ class allowAccess extends Mailable{
      * @return $this
      */
     public function build(){
-        return $this->subject($this->subject)->markdown('system.layout.emails.allow-access');
+        return $this->subject('Pristupni podaci')->markdown('system.layout.emails.allow-access');
     }
 }
