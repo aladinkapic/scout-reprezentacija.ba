@@ -20,6 +20,8 @@ class HomepageController extends Controller {
     public function register(){
         $countries = Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id');
 
-        return view($this->_path.'register');
+        return view($this->_path.'register', [
+            'countries' => $countries
+        ]);
     }
 }
