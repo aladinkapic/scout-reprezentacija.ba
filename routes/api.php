@@ -18,8 +18,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace' => 'API', 'prefix' => '/keywords'], function (){
-    Route::get('/get-keyword', 'KeywordsAPIController@getKeyword');
+Route::group(['namespace' => 'API'], function (){
+    /*
+     *  Keywords API
+     */
+    Route::group(['prefix' => '/keywords'], function (){
+        Route::get('/get-keyword',        'KeywordsAPIController@getKeyword');
+        Route::post('/get-countries',      'KeywordsAPIController@getCountries');
+    });
+
+    /*
+     *  Users routes
+     */
+    Route::group(['prefix' => '/users'], function (){
+        Route::post('/create-profile',           'UsersApiController@createProfile');
+    });
 });
 
 Route::get('obuke/fetch', 'KeywordsAPIController@getKeyword')->name('api.keyword.fetch');

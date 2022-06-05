@@ -64,4 +64,23 @@ class Controller extends BaseController{
         self::$_response['message'] = 'Desila se greška, molimo pokušajte ponovo!';
         return self::$_response;
     }
+
+    /*
+     *  Api responses structure
+     */
+    public static function apiSuccess($message, $uri, $data = null){
+        self::$_response['uri'] = $uri;
+        self::$_response['message'] = $message;
+        self::$_response['data'] = $data;
+
+        return json_encode(self::$_response);
+    }
+    public static function apiError($code, $message, $uri = null, $data = null){
+        self::$_response['code'] = $code;
+        self::$_response['uri'] = $uri;
+        self::$_response['message'] = $message;
+        self::$_response['data'] = $data;
+
+        return json_encode(self::$_response);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
@@ -26,8 +27,12 @@ class KeywordsAPIController extends Controller{
             $keyword = Keyword::select('id', 'value', 'description')->where('keyword', $request->keyword)->orderBy('value', 'desc')->get();
 
             return $this::success($keyword, '');
-        }catch (\Exception $e){ return $this::error('8001', $e->getMessage(), 'grska'); }
+        }catch (\Exception $e){ return $this::error('8001', $e->getMessage()); }
 
     }
-
+    public function getCountries(Request $request){
+        try{
+            return $this::apiSuccess(__('Zahtjev zaprimljen!'), '', Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id'));
+        }catch (\Exception $e){ return $this::apiSuccess('5000', __('Desila se greška, molimo kontaktirajte administratore!'), '');}
+    }
 }
