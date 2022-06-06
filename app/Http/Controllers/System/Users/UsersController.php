@@ -28,9 +28,11 @@ class UsersController extends Controller{
         $filters = [
             'name' => __('Ime i prezime'),
             'email' => 'Email',
-            'address' => __('Adresa stanovanja'),
-            'cityRel.title' => 'Grad',
-            'country.title' => __('Država')
+            'sportRel.value' => __('Sport'),
+            'positionRel.value' => __('Pozicija'),
+            'height' => __('Visina'),
+            'strongerLimbRel.value' => __('Snažnija noga'),
+            'genderRel.value' => __('Spol')
         ];
 
         return view($this->_path . '.index', [

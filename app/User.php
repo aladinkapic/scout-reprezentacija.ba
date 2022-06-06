@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Additional\Club;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Keywords\Keyword;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,5 +56,17 @@ class User extends Authenticatable
     }
     public function clubRel(){
         return $this->hasMany(Club::class, 'owner', 'id');
+    }
+    public function sportRel(){
+        return $this->hasOne(Keyword::class, 'id', 'sport');
+    }
+    public function positionRel(){
+        return $this->hasOne(Keyword::class, 'id', 'position');
+    }
+    public function strongerLimbRel(){
+        return $this->hasOne(Keyword::class, 'id', 'stronger_limb');
+    }
+    public function genderRel(){
+        return $this->hasOne(Keyword::class, 'id', 'gender');
     }
 }

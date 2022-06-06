@@ -29,9 +29,11 @@
                     <td class="text-center">{{ $i++}}</td>
                     <td> {{ $user->name ?? ''}} </td>
                     <td> {{ $user->email ?? ''}} </td>
-                    <td> {{ $user->address ?? ''}} </td>
-                    <td> {{ $user->cityRel->title ?? ''}} </td>
-                    <td> {{ $user->countryRel->title ?? ''}} </td>
+                    <td> {{ $user->sportRel->value ?? ''}} </td>
+                    <td> {{ $user->positionRel->value ?? ''}} </td>
+                    <td> {{ $user->height ?? ''}} </td>
+                    <td> {{ $user->strongerLimbRel->value ?? ''}} </td>
+                    <td> {{ $user->genderRel->value ?? ''}} </td>
 
                     <td class="text-center">
                         <a href="{{route('system.users.edit', ['id' => $user->id] )}}" title="Pregled korisnika">
