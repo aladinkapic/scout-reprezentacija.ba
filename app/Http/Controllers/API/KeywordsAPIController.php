@@ -35,4 +35,12 @@ class KeywordsAPIController extends Controller{
             return $this::apiSuccess(__('Zahtjev zaprimljen!'), '', Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id'));
         }catch (\Exception $e){ return $this::apiSuccess('5000', __('Desila se greška, molimo kontaktirajte administratore!'), '');}
     }
+    public function getPositions(Request $request){
+        try{
+            if($request->value == 3) $data = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+            else if($request->value == 4) $data = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
+
+            return $this::apiSuccess(__(''), '', $data);
+        }catch (\Exception $e){ return $this::apiSuccess('5000', __('Desila se greška, molimo kontaktirajte administratore!'), '');}
+    }
 }

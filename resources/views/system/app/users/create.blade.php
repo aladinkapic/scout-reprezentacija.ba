@@ -61,14 +61,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="sport"> <b>{{ __('Sport') }}</b> </label>
-                                {!! Form::select('sport', $sport, $user->sport ?? '', ['class' => 'form-control required', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                {!! Form::select('sport', $sport, $user->sport ?? '', ['class' => 'form-control required pick-a-sport', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                 <small id="sportHelp" class="form-text text-muted"> {{ __('Sport kojim se bavi korisnik') }} </small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="position"> <b>{{ __('Pozicija') }}</b> </label>
-                                {!! Form::text('position', $user->position ?? '', ['class' => 'form-control required', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'readonly' : '']) !!}
+                                {!! Form::select('position', $position, $user->position ?? '', ['class' => 'form-control required picked-position', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                 <small id="positionHelp" class="form-text text-muted"> {{ __('Pozicija koju igra korisnik') }} </small>
                             </div>
                         </div>

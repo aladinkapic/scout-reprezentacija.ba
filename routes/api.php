@@ -23,8 +23,10 @@ Route::group(['namespace' => 'API'], function (){
      *  Keywords API
      */
     Route::group(['prefix' => '/keywords'], function (){
-        Route::get('/get-keyword',        'KeywordsAPIController@getKeyword');
-        Route::post('/get-countries',      'KeywordsAPIController@getCountries');
+        Route::get('/get-keyword',              'KeywordsAPIController@getKeyword');
+        Route::post('/get-countries',           'KeywordsAPIController@getCountries');
+
+        Route::post('/get-positions',           'KeywordsAPIController@getPositions');
     });
 
     /*
@@ -32,6 +34,12 @@ Route::group(['namespace' => 'API'], function (){
      */
     Route::group(['prefix' => '/users'], function (){
         Route::post('/create-profile',           'UsersApiController@createProfile');
+    });
+    /*
+     *  Additional data
+     */
+    Route::group(['prefix' => '/additional'], function (){
+        Route::post('/get-clubs',                'AdditionalController@getClubs')->name('api.additional.get-clubs');
     });
 });
 

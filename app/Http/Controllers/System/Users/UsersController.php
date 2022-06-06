@@ -39,17 +39,25 @@ class UsersController extends Controller{
         ]);
     }
 
-    public function create(){
+    public function data($action = 'create', $id = null){
+        if(isset($id)){
+            $user = User::find($id);
+            if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+            else if($user->sport == 4) $position = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
+        }else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+
         return view($this->_path . 'create', [
-            'create' => true,
+            $action => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
-            'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
+            'position' => $position,
             'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
             'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
+            'user' => isset($id) ? $user : null
         ]);
     }
+    public function create(){ return $this->data(); }
 
     public function save(Request $request){
         $request = $this::format($request);
@@ -65,31 +73,8 @@ class UsersController extends Controller{
         }
     }
 
-    public function preview($id){
-        return view($this->_path . 'create', [
-            'user' => User::find($id),
-            'preview' => true,
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
-            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
-            'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
-            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
-        ]);
-    }
-
-    public function edit($id){
-        return view($this->_path . 'create', [
-            'user' => User::find($id),
-            'edit' => true,
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
-            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
-            'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
-            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
-        ]);
-    }
+    public function preview($id){ return $this->data('preview', $id); }
+    public function edit($id){ return $this->data('edit', $id); }
 
     public function update(Request $request){
 
@@ -114,18 +99,7 @@ class UsersController extends Controller{
 
     // -------------------------------------------------------------------------------------------------------------- //
 
-    public function profile(){
-        return view($this->_path . 'create', [
-            'user' => Auth::user(),
-            'profile' => true,
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
-            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
-            'position' => Keyword::where('keyword', 'position')->pluck('value', 'id'),
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
-            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
-        ]);
-    }
+    public function profile(){ return $this->data('profile', Auth::id()); }
 
     public function updateProfile(Request $request){
         $request = $this::format($request);

@@ -13,7 +13,8 @@ class KeywordsController extends Controller{
         // 'category' => 'Kategorija akaunta',
         // 'citizenship' => 'Državljanstvo',
         'sport' => 'Sportovi',
-        'position' => 'Pozicija',
+        'position_football' => 'Pozicija nogomet',
+        'position_futsal' => 'Pozicija futsal',
         'arm_leg' => 'Jača noga',
         'gender' => 'Spol',
         // 'active' => 'Status'

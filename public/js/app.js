@@ -30314,6 +30314,51 @@ __webpack_require__(/*! ./layout/menu/menu */ "./resources/js/layout/menu/menu.j
 
 
 __webpack_require__(/*! ./auth/auth */ "./resources/js/auth/auth.js");
+/*
+ *  Applications scripts
+ */
+
+
+__webpack_require__(/*! ./app/users */ "./resources/js/app/users.js");
+
+/***/ }),
+
+/***/ "./resources/js/app/users.js":
+/*!***********************************!*\
+  !*** ./resources/js/app/users.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var positionsUri = '/api/keywords/get-positions';
+  $(".pick-a-sport").change(function () {
+    var value = $(this).val();
+    $.ajax({
+      url: positionsUri,
+      method: "post",
+      dataType: "json",
+      data: {
+        value: value
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          $(".picked-position").empty();
+          $.each(response['data'], function (i, item) {
+            $('.picked-position').append($('<option>', {
+              value: i,
+              text: item
+            }));
+          });
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+
+        console.log(response);
+      }
+    });
+  });
+});
 
 /***/ }),
 
@@ -39933,9 +39978,9 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\sass\public\app.scss */"./resources/sass/public/app.scss");
+__webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\sass\public\app.scss */"./resources/sass/public/app.scss");
 
 
 /***/ })

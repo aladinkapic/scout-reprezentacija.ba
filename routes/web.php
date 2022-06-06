@@ -59,7 +59,22 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
         Route::get ('/my-profile',                       'UsersController@profile')->name('system.users.profile');
         Route::put ('/update-profile',                   'UsersController@updateProfile')->name('system.users.update-profile');
     });
-
+    /*
+     *  Clubs, national teams;
+     */
+    Route::group(['namespace' => 'Additional', 'prefix' => '/additional'], function(){
+        /*
+         *  Clubs - CRUD
+         */
+        Route::group(['prefix' => '/clubs'], function(){
+            Route::get ('/',                                 'ClubsController@index')->name('system.additional.clubs.index');
+            Route::get ('/create',                           'ClubsController@create')->name('system.additional.clubs.create');
+            Route::post('/save',                             'ClubsController@save')->name('system.additional.clubs.save');
+            Route::get ('/preview/{id}',                     'ClubsController@preview')->name('system.additional.clubs.preview');
+            Route::get ('/edit/{id}',                        'ClubsController@edit')->name('system.additional.clubs.edit');
+            Route::put ('/update',                           'ClubsController@save')->name('system.additional.clubs.update');
+        });
+    });
     /*
      *  Those are core routes for keywords
      */

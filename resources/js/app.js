@@ -42,3 +42,8 @@ require('./layout/menu/menu');
  */
 
 require('./auth/auth');
+
+/*
+ *  Applications scripts
+ */
+require('./app/users');
