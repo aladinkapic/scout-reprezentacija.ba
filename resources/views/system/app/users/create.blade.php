@@ -181,6 +181,14 @@
                                     </div>
                                 @endif
                             @endif
+
+                            @if(!isset($preview))
+                                <div class="row mt-3 mb-4">
+                                    <div class="col-md-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-sm btn-secondary"> <b>{{__('Ažurirajte informacije')}}</b> </button>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
 
                         @if(isset($preview) or isset($profile))
@@ -188,13 +196,6 @@
                         @endif
                     </div>
 
-                    @if(!isset($preview))
-                        <div class="row mt-3">
-                            <div class="col-md-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-sm btn-secondary"> <b>{{__('Ažurirajte informacije')}}</b> </button>
-                            </div>
-                        </div>
-                    @endif
                 {!! Form::close(); !!}
             </div>
         </div>
