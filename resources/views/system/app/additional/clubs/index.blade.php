@@ -12,35 +12,36 @@
 
 
 @section('content')
-{{--    <div class="content-wrapper content-wrapper-bs">--}}
-{{--        @include('system.layout.snippets.filters.filters', ['var' => $users])--}}
-{{--        <table class="table table-bordered" id="filtering">--}}
-{{--            <thead>--}}
-{{--            <tr>--}}
-{{--                <th scope="col" style="text-align:center;">#</th>--}}
-{{--                @include('system.layout.snippets.filters.filters_header')--}}
-{{--                <th width="120p" class="akcije text-center">{{__('Akcije')}}</th>--}}
-{{--            </tr>--}}
-{{--            </thead>--}}
-{{--            <tbody>--}}
-{{--            @php $i=1; @endphp--}}
-{{--            @foreach($users as $user)--}}
-{{--                <tr>--}}
-{{--                    <td class="text-center">{{ $i++}}</td>--}}
-{{--                    <td> {{ $user->name ?? ''}} </td>--}}
-{{--                    <td> {{ $user->email ?? ''}} </td>--}}
-{{--                    <td> {{ $user->address ?? ''}} </td>--}}
-{{--                    <td> {{ $user->cityRel->title ?? ''}} </td>--}}
-{{--                    <td> {{ $user->countryRel->title ?? ''}} </td>--}}
+    <div class="content-wrapper content-wrapper-bs">
+        @include('system.layout.snippets.filters.filters', ['var' => $clubs])
+        <table class="table table-bordered" id="filtering">
+            <thead>
+            <tr>
+                <th scope="col" style="text-align:center;">#</th>
+                @include('system.layout.snippets.filters.filters_header')
+                <th width="120p" class="akcije text-center">{{__('Akcije')}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            @php $i=1; @endphp
+            @foreach($clubs as $club)
+                <tr>
+                    <td class="text-center">{{ $i++}}</td>
+                    <td> {{ $club->title ?? ''}} </td>
+                    <td> {{ $club->year ?? ''}} </td>
+                    <td> {{ $club->city ?? ''}} </td>
+                    <td> {{ $club->countryRel->title ?? ''}} </td>
+                    <td> {{ $club->categoryRel->value ?? ''}} </td>
+                    <td> {{ $club->ownerRel->name ?? ''}} </td>
 
-{{--                    <td class="text-center">--}}
-{{--                        <a href="{{route('system.users.edit', ['id' => $user->id] )}}" title="Pregled korisnika">--}}
-{{--                            <button class="btn-dark btn-xs">Pregled</button>--}}
-{{--                        </a>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
-{{--            </tbody>--}}
-{{--        </table>--}}
-{{--    </div>--}}
+                    <td class="text-center">
+                        <a href="{{route('system.additional.clubs.preview', ['id' => $club->id] )}}" title="{{ __('Pregled kluba') }}">
+                            <button class="btn-dark btn-xs">{{ __('Pregled') }}</button>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

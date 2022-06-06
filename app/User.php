@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Additional\Club;
 use App\Models\Core\Affiliation;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -41,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function birtDate(){ return ($this->birth_date) ? Carbon::parse($this->birth_date)->format('d.m.Y') : ''; }
+    public function yearsOld(){ return Carbon::parse($this->birth_date)->age; }
 
     /**
      * Relationship with User model
@@ -50,5 +52,8 @@ class User extends Authenticatable
     }
     public function countryRel(){
         return $this->hasOne(Affiliation::class, 'id', 'country');
+    }
+    public function clubRel(){
+        return $this->hasMany(Club::class, 'owner', 'id');
     }
 }

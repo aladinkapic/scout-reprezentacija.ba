@@ -72,7 +72,7 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
             Route::post('/save',                             'ClubsController@save')->name('system.additional.clubs.save');
             Route::get ('/preview/{id}',                     'ClubsController@preview')->name('system.additional.clubs.preview');
             Route::get ('/edit/{id}',                        'ClubsController@edit')->name('system.additional.clubs.edit');
-            Route::put ('/update',                           'ClubsController@save')->name('system.additional.clubs.update');
+            Route::put ('/update',                           'ClubsController@update')->name('system.additional.clubs.update');
         });
     });
     /*

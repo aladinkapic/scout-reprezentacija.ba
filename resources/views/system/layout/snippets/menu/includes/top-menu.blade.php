@@ -44,7 +44,7 @@
                     <i class="fas fa-power-off"></i>
                 </a>
             </div>
-            <a href="#">
+            <a href="{{ route('system.users.profile') }}">
                 <div class="single-li user-name">
                     <p><b> Root Admin </b></p>
                 </div>

@@ -44,6 +44,7 @@ class UsersController extends Controller{
             $user = User::find($id);
             if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
             else if($user->sport == 4) $position = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
+            else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
         }else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
 
         return view($this->_path . 'create', [

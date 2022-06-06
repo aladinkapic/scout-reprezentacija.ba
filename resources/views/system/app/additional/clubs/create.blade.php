@@ -67,13 +67,22 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="@if($loggedUser->role == 0) col-md-6 @else col-md-12 @endif">
                             <div class="form-group">
                                 <label for="category"> <b>{{ __('Kategorija') }}</b> </label>
                                 {!! Form::select('category', $sport, $club->category ?? '', ['class' => 'form-control required', 'id' => 'category', 'aria-describedby' => 'categoryHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                 <small id="categoryHelp" class="form-text text-muted"> {{ __('Kategorija kojoj klub pripada') }} </small>
                             </div>
                         </div>
+                        @if($loggedUser->role == 0)
+                            <div class="@if($loggedUser->role == 0) col-md-6 @else col-md-12 @endif">
+                                <div class="form-group">
+                                    <label for="owner"> <b>{{ __('Odgovorna osoba') }}</b> </label>
+                                    {!! Form::select('owner', $users, $club->owner ?? '', ['class' => 'form-control select-2', 'id' => 'owner', 'aria-describedby' => 'ownerHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                    <small id="ownerHelp" class="form-text text-muted"> {{ __('Odaberite odgovornu osobu koja će imati pristup informacijama kluba') }} </small>
+                                </div>
+                            </div>
+                        @endif
                     </div>
 
 

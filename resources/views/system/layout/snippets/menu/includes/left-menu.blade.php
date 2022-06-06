@@ -5,11 +5,11 @@
             <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="{{ asset('images/user.png') }} " alt="">
         </div>
         <div class="user-desc">
-            <h4> Root Admin </h4>
-            <p> Living address, Town - Country</p>
+            <h4> {{ $loggedUser->name ?? '' }} </h4>
+            <p> {{ $loggedUser->living_place ?? '' }} </p>
             <p>
                 <i class="fas fa-circle"></i>
-                Online
+                {{ __('Starost') }}: {{ $loggedUser->yearsOld() }} {{ __('godina') }}
             </p>
         </div>
     </div>
@@ -46,36 +46,71 @@
         </div>
 
         <!-- Users -->
-        <a href="#" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
-                        <i class="far fa-user"></i>
-                    </div>
-                    <p>{{__('Korisnici')}}</p>
-                    <div class="extra-elements">
-                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="inside-links active-links">
-                    <a href="{{route('system.users.index')}}">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('Pregled svih korisnika')}}</p>
+        @if($loggedUser->role == 0)
+            <a href="#" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="far fa-user"></i>
                         </div>
-                    </a>
-                    <a href="{{route('system.users.create')}}">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p> {{__('Unos novog')}} </p>
-                            <div class="additional-icon">
-                                <i class="fas fa-plus"></i>
+                        <p>{{__('Korisnici')}}</p>
+                        <div class="extra-elements">
+                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="inside-links active-links">
+                        <a href="{{route('system.users.index')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p>{{__('Pregled svih korisnika')}}</p>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                        <a href="{{route('system.users.create')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Unos novog')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        @else
+            <a href="#" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <p>{{__('Moje informacije')}}</p>
+                        <div class="extra-elements">
+                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="inside-links active-links">
+                        <a href="{{route('system.users.profile')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p>{{__('Moj profil')}}</p>
+                            </div>
+                        </a>
+                        @if($loggedUser->clubRel->count())
+                            @foreach($loggedUser->clubRel as $club)
+                                <a href="{{route('system.additional.clubs.preview', ['id' => $club->id ])}}">
+                                    <div class="inside-lm-link">
+                                        <div class="ilm-l"></div><div class="ilm-c"></div>
+                                        <p> {{ $club->title ?? '' }} </p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            </a>
+
+        @endif
 
         @if($loggedUser->role == 0)
             <a href="#" class="menu-a-link">
