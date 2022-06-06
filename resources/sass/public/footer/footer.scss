@@ -12,7 +12,8 @@ footer {
   padding-bottom: $gap;
 
   .footer-wrapper {
-    width: $maxWidth;
+    width: 100%;
+    max-width: $maxWidth;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,6 +79,12 @@ footer {
       color: $white;
       font-size: 12px;
       letter-spacing: 1px;
+    }
+  }
+
+  @media screen and (max-width: $maxWidth) {
+    .footer-wrapper {
+      width: 90%;
     }
   }
 }

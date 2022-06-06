@@ -17,9 +17,10 @@ window.notify = require('../layout/snippets/notify');
 
 require('../layout/snippets/select-2');
 require('./snippets/classes')
+
 // Homepage
 
-require('./homepage/slider');
+require('./snippets/partners')
 
 // JS Form submit
 

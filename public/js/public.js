@@ -35484,40 +35484,10 @@ __webpack_require__(/*! ../layout/snippets/select-2 */ "./resources/js/layout/sn
 __webpack_require__(/*! ./snippets/classes */ "./resources/js/public/snippets/classes.js"); // Homepage
 
 
-__webpack_require__(/*! ./homepage/slider */ "./resources/js/public/homepage/slider.js"); // JS Form submit
+__webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/partners.js"); // JS Form submit
 
 
 __webpack_require__(/*! ../layout/snippets/submit */ "./resources/js/layout/snippets/submit.js");
-
-/***/ }),
-
-/***/ "./resources/js/public/homepage/slider.js":
-/*!************************************************!*\
-  !*** ./resources/js/public/homepage/slider.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$('.slide-nav').on('click', function (e) {
-  e.preventDefault(); // get current slide
-
-  var current = $('.slide-active').data('slide'),
-      // get button data-slide
-  next = $(this).data('slide');
-  $('.slide-nav').removeClass('active');
-  $(this).addClass('active');
-
-  if (current === next) {
-    return false;
-  } else {
-    $('.slider').find('.slider-item[data-slide=' + next + ']').addClass('slide-prestart');
-    $('.slide-active').addClass('animate-end');
-    setTimeout(function () {
-      $('.slide-prestart').removeClass('animate-start slide-prestart').addClass('slide-active');
-      $('.animate-end').addClass('animate-start').removeClass('animate-end slide-active');
-    }, 800);
-  }
-});
 
 /***/ }),
 
@@ -35548,6 +35518,38 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/public/snippets/partners.js":
+/*!**************************************************!*\
+  !*** ./resources/js/public/snippets/partners.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('.partners-wrapper').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4
+      }
+    }, {
+      breakpoint: 520,
+      settings: {
+        slidesToShow: 3
+      }
+    }]
+  });
+});
+
+/***/ }),
+
 /***/ 1:
 /*!******************************************!*\
   !*** multi ./resources/js/public/app.js ***!
@@ -35555,7 +35557,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })

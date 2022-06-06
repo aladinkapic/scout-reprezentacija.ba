@@ -276,4 +276,27 @@
       width: 48%;
     }
   }
+
+  @media screen and (max-width: $maxWidth) {
+    .search-wrapper {
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .search-wrapper {
+      .search-instance {
+        flex-direction: column;
+        row-gap: $gap;
+
+        .field {
+          width: 100%;
+        }
+
+        .search-form {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

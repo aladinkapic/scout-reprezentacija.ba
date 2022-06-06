@@ -51,4 +51,41 @@
             }
         }
     }
+
+    @media screen and (max-width: $maxWidth) {
+        height: 100vh;
+
+        .hero-overlay {
+            .hero-content {
+                margin: 0 24px;
+
+                .hero-header {
+                    font-size: 30px;
+                    line-height: normal;
+                }
+
+                .hero-description {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    
+    @media screen and (max-width: 720px) {
+        .hero-overlay {
+            .hero-content {
+                .hero-buttons {
+                    width: 100%;
+                    flex-direction: column;
+                    row-gap: 16px;
+
+                    .btn {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+    }
 }
