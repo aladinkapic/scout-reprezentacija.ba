@@ -18,6 +18,7 @@ class KeywordsController extends Controller{
         'arm_leg' => 'Jača noga',
         'gender' => 'Spol',
         // 'active' => 'Status'
+        'nat_team' => 'Tim reprezentacija',
     ];
 
     public function index(){

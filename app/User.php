@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Additional\Club;
 use App\Models\Additional\ClubData;
+use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use Carbon\Carbon;
@@ -72,5 +73,8 @@ class User extends Authenticatable
     }
     public function clubDataRel(){
         return $this->hasMany(ClubData::class, 'user_id', 'id')->orderBy('season', 'DESC');
+    }
+    public function natTeamDataRel(){
+        return $this->hasMany(NatTeamData::class, 'user_id', 'id')->orderBy('season', 'DESC');
     }
 }

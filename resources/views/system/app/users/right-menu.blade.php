@@ -26,12 +26,16 @@
                     <div class="row">
                         <div class="col-md-12 d-flex justify-content-between">
                             <h6 class="pt-1"> {{ __('Reprezentacija') }} </h6>
-                            <a href="#" title=" {{ __('Unesite informacije o nastupima za reprezentaciju') }} ">
+                            <a href="{{ route('system.additional.nat-team-data.create') }}" title=" {{ __('Unesite informacije o nastupima za reprezentaciju') }} ">
                                 <small><i class="fas fa-plus"></i></small>
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <p class="m-0"> <small> 2020 / 2021 - <b> A Selekcija BiH </b> </small> </p>
+                            @foreach($loggedUser->natTeamDataRel as $natTeamData)
+                                <a href="{{ route('system.additional.nat-team-data.preview', ['id' => $natTeamData->id ?? '']) }}">
+                                    <p class="m-0"> <small> {{ $natTeamData->season }} - <b> {{ ucwords(strtolower($natTeamData->countryRel->title)) ?? '' }} </b> </small> </p>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     <hr>
