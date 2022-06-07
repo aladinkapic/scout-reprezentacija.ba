@@ -24,7 +24,7 @@
                 </label>
             </div>
             <div class="form-floating mb-3">
-                {!! Form::select('sport', $sport, '', ['class' => 'form-control', 'id' => 'sport']) !!}
+                {!! Form::select('sport', $sports, '', ['class' => 'form-control', 'id' => 'sport']) !!}
                 <label for="floatingSelect">Sport</label>
             </div>
             <div class="form-floating mb-3">

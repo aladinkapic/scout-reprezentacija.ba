@@ -35,11 +35,7 @@
       </div>
       <form class="search-form">
         <div class="form-floating mb-3">
-          <select class="form-select" id="floatingSelect" aria-label="Odaberi sport">
-            <option selected disabled>Odaberi</option>
-            <option value="1">Fudbal</option>
-            <option value="2">Futsal</option>
-          </select>
+          {!! Form::select('sport', $sports, '', ['class' => 'form-control select-2', 'id' => 'sport']) !!}
           <label for="floatingSelect">Odaberi sport</label>
         </div>
         <div class="form-floating mb-3">
@@ -119,23 +115,11 @@
           <label for="floatingSelect">Spol</label>
         </div>
         <div class="form-floating mb-3">
-          <select class="form-select" id="floatingSelect" aria-label="Država">
-            <option selected disabled>Odaberi</option>
-            <option value="1">Bosna i Hercegovina</option>
-            <option value="1">Crna gora</option>
-            <option value="1">Hrvatska</option>
-            <option value="1">Slovenija</option>
-            <option value="1">Srbija</option>
-          </select>
-          <label for="floatingSelect">Država</label>
+          {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country']) !!}
+          <label for="floatingSelect">Odaberi državu</label>
         </div>
         <div class="form-floating mb-3">
-          <select class="form-select" id="floatingSelect" aria-label="Klub">
-            <option selected disabled>Odaberi</option>
-            <option value="1">FK Željezničar</option>
-            <option value="1">FK Sarajevo</option>
-            <option value="1">FK Velež</option>
-          </select>
+          {!! Form::select('club', $clubs, '', ['class' => 'form-control select-2', 'id' => 'club']) !!}
           <label for="floatingSelect">Trenutni klub</label>
         </div>
         <button type="button" class="btn btn-primary w-100">Pretraži</button>

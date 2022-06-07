@@ -1,0 +1,25 @@
+@import "../variables.scss";
+
+.news {
+  max-width: $maxWidth;
+  margin: calc($gap * 2) auto;
+
+  .news-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .news-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .news-desc {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+}

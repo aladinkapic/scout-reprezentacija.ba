@@ -12281,7 +12281,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #193a6f;
+  background-color: #2D68C8;
   z-index: 999;
 }
 
@@ -12357,7 +12357,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12380,7 +12380,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 }
 
 .hero .hero-overlay .hero-content .hero-description {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   letter-spacing: 1px;
 }
@@ -12481,8 +12481,8 @@ header .web-header nav .nav-menu .nav-item:hover {
   -moz-column-gap: 4px;
        column-gap: 4px;
   background-color: #ffffff;
-  color: #193a6f;
-  border: 1px solid #193a6f;
+  color: #2D68C8;
+  border: 1px solid #2D68C8;
   border-radius: 4px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: all 0.4s ease-in-out;
@@ -12491,7 +12491,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .search .search-wrapper .sport-picker .item:hover,
 .search .search-wrapper .sport-picker .item.active {
-  background-color: #193a6f;
+  background-color: #2D68C8;
   color: #ffffff;
 }
 
@@ -12514,7 +12514,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   display: inline-block;
   vertical-align: middle;
   width: 100%;
-  height: 750px;
+  height: 690px;
   margin: 10px auto;
   padding: 0 0 60% 0;
   background-color: #193a6f;
@@ -12623,7 +12623,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   display: block;
   width: 20px;
   height: 20px;
-  background-color: #4F7EDC;
+  background-color: #2D68C8;
   border: 1px solid #324978;
   border-radius: 50%;
   z-index: 2;
@@ -12864,6 +12864,30 @@ header .web-header nav .nav-menu .nav-item:hover {
   display: none;
 }
 
+.news {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.news .news-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.news .news-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.news .news-desc {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
 .register {
   margin: 0 calc((100vw - 1200px) / 2);
   padding-top: 120px;
@@ -12881,13 +12905,87 @@ header .web-header nav .nav-menu .nav-item:hover {
   margin-bottom: 40px;
 }
 
+.players-list {
+  margin: 0 calc((100vw - 1200px) / 2);
+  padding-top: 120px;
+  padding-bottom: 40px;
+}
+
+.players-list .main-box.no-header {
+  padding-top: 20px;
+}
+
+.players-list .main-box {
+  background: #FFFFFF;
+  -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+  box-shadow: 1px 1px 2px 0 #CCCCCC;
+  margin-bottom: 16px;
+  -webikt-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.players-list .table a.table-link.danger {
+  color: #e74c3c;
+}
+
+.players-list .label {
+  border-radius: 3px;
+  font-size: 0.875em;
+  font-weight: 600;
+}
+
+.players-list .user-list tbody td .user-subhead {
+  font-size: 14px;
+}
+
+.players-list .user-list tbody td .user-link {
+  display: block;
+  font-size: 24px;
+  padding-top: 3px;
+  margin-left: 60px;
+  text-decoration: none;
+}
+
+.players-list .user-list tbody td > img {
+  position: relative;
+  max-width: 50px;
+  float: left;
+  margin-right: 15px;
+}
+
+.players-list .table thead tr th {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.players-list .table thead tr th {
+  border-bottom: 2px solid #e7ebee;
+}
+
+.players-list .table tbody tr td:first-child {
+  font-size: 1.125em;
+  font-weight: 300;
+}
+
+.players-list .table tbody tr td {
+  font-size: 0.875em;
+  vertical-align: middle;
+  border-top: 1px solid #e7ebee;
+  padding: 12px 8px;
+}
+
+.players-list a:hover {
+  text-decoration: none;
+}
+
 footer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #193a6f;
+  background-color: #2D68C8;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding-top: 20px;
   padding-bottom: 20px;
