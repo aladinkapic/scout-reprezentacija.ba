@@ -75,6 +75,18 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
             Route::get ('/edit/{id}',                        'ClubsController@edit')->name('system.additional.clubs.edit');
             Route::put ('/update',                           'ClubsController@update')->name('system.additional.clubs.update');
         });
+        /*
+         *  Clubs data
+         */
+        Route::group(['prefix' => '/clubs-data'], function(){
+            Route::get ('/',                                 'ClubDataController@index')->name('system.additional.club-data.index');
+            Route::get ('/create',                           'ClubDataController@create')->name('system.additional.club-data.create');
+            Route::post('/save',                             'ClubDataController@save')->name('system.additional.club-data.save');
+            Route::get ('/preview/{id}',                     'ClubDataController@preview')->name('system.additional.club-data.preview');
+            Route::get ('/edit/{id}',                        'ClubDataController@edit')->name('system.additional.club-data.edit');
+            Route::put ('/update',                           'ClubDataController@update')->name('system.additional.club-data.update');
+            Route::get ('/delete/{id}',                      'ClubDataController@delete')->name('system.additional.club-data.delete');
+        });
     });
     /*
      *  Those are core routes for keywords

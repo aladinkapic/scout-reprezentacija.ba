@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Additional\Club;
+use App\Models\Additional\ClubData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use Carbon\Carbon;
@@ -68,5 +69,8 @@ class User extends Authenticatable
     }
     public function genderRel(){
         return $this->hasOne(Keyword::class, 'id', 'gender');
+    }
+    public function clubDataRel(){
+        return $this->hasMany(ClubData::class, 'user_id', 'id')->orderBy('season', 'DESC');
     }
 }

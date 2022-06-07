@@ -8,13 +8,16 @@
                     <div class="row">
                         <div class="col-md-12 d-flex justify-content-between">
                             <h6 class="pt-1"> {{ __('Klubovi') }} </h6>
-                            <a href="#" title=" {{ __('Unesite informacije o klubovima') }} ">
+                            <a href="{{ route('system.additional.club-data.create') }}" title=" {{ __('Unesite informacije o klubovima') }} ">
                                 <small><i class="fas fa-plus"></i></small>
                             </a>
                         </div>
                         <div class="col-md-12">
-                            <p class="m-0"> <small> 2020 / 2021 - <b> FK Željezničar </b> </small> </p>
-                            <p class="m-0"> <small> 2019 / 2020 - <b> FK Sloboda </b> </small> </p>
+                            @foreach($loggedUser->clubDataRel as $clubData)
+                                <a href="{{ route('system.additional.club-data.preview', ['id' => $clubData->id ?? '']) }}">
+                                    <p class="m-0"> <small> {{ $clubData->season }} - <b> {{ $clubData->clubRel->title ?? '' }} </b> </small> </p>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
 
