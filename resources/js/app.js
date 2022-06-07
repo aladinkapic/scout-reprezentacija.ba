@@ -47,3 +47,4 @@ require('./auth/auth');
  *  Applications scripts
  */
 require('./app/users');
+require('./layout/image-cropper');

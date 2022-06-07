@@ -2,7 +2,10 @@
     <!-- user Info -->
     <div class="user-info">
         <div class="user-image">
-            <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="{{ asset('images/user.png') }} " alt="">
+            <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="@if($loggedUser->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
+
+            <label for="profile-image" title="{{ __('Promijenite sliku profila') }}"> <div class="hover-effect"></div> </label>
+            <input type="file" name="image" class="image d-none" id="profile-image">
         </div>
         <div class="user-desc">
             <h4> {{ $loggedUser->name ?? '' }} </h4>

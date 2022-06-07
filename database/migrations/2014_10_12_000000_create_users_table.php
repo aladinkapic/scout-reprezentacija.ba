@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(true);
             $table->integer('role')->default(0); // 0 stands for Root Admin
 
+            $table->string('image')->nullable();
             $table->integer('category')->nullable();
             $table->date('birth_date')->nullable();
             $table->integer('years_old')->nullable();

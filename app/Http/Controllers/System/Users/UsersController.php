@@ -12,6 +12,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -112,5 +113,23 @@ class UsersController extends Controller{
             );
             return $this::success(route('system.users.profile'));
         } catch (\Exception $e) { return $this::error($e->getCode(), $e->getMessage()); }
+    }
+
+    // -------------------------------------------------------------------------------------------------------------- //
+
+    public function changeProfileImage (Request $request){
+        try{
+            $image = $request->image;  // your base64 encoded
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = md5(time() . (Auth::user()->name ?? 'JohnDoe') ).'.'.'png';
+            File::put(public_path(). '/images/profile-images/' . $imageName, base64_decode($image));
+
+            User::where('id', Auth::id())->update(['image' => $imageName]);
+        }catch (\Exception $e){ return $this::error($e->getCode(), $e->getMessage()); }
+        return $this::success('');
+    }
+    public function imageCrop(){
+        return view($this->_path.'snippets.image-crop');
     }
 }

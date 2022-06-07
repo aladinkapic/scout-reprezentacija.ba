@@ -49,4 +49,20 @@ body{
     .select2-container--default.select2-container--disabled .select2-selection--single {
         background-color: #fff;
         cursor: default; }
+
+    /* Image cropper */
+    img {
+        display: block;
+        max-width: 100%;
+    }
+    .preview {
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 10px;
+        border: 1px solid red;
+    }
+    .modal-lg{
+        max-width: 1000px !important;
+    }
 }

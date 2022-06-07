@@ -13,12 +13,17 @@
 
         <!-- JavaScript files -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Crop images -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
     </head>
     <body>
         <div id="main-div"></div>
         <!-- Import MENU -->
         @include("system.layout.snippets.menu.menu")
-
+        @include('system.app.users.snippets.crop-image')
         <div class="main-content">
             <!-- Basic header of every page -->
             @include("system.layout.snippets.page-header")
