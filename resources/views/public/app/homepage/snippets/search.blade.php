@@ -35,7 +35,7 @@
       </div>
       <form class="search-form">
         <div class="form-floating mb-3">
-          {!! Form::select('sport', $sports, '', ['class' => 'form-control select-2', 'id' => 'sport']) !!}
+          {!! Form::select('sport', $sports, '', ['class' => 'form-control select-2 pick-a-sport', 'id' => 'sport']) !!}
           <label for="floatingSelect">Odaberi sport</label>
         </div>
         <div class="form-floating mb-3">
@@ -45,7 +45,7 @@
           </label>
         </div>
         <div class="form-floating mb-3">
-          <select class="form-select" id="floatingSelect" aria-label="Odaberi poziciju">
+          <select class="form-select picked-position" id="floatingSelect" aria-label="Odaberi poziciju">
             <option selected disabled>Odaberi</option>
             <option value="1">Golman</option>
             <option value="2">Štoper</option>

@@ -26,3 +26,5 @@ require('./snippets/partners')
 
 require('../layout/snippets/submit');
 
+require('../app/users');
+
