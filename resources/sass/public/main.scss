@@ -1,3 +1,8 @@
+@import "variables.scss";
+
 body {
     font-family: 'Poppins', sans-serif;
+}
+.public-container{
+    position: relative; left:calc(50% - 670px); width: $maxWidth; height: auto; min-height: 200px;
 }

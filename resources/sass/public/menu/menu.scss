@@ -3,11 +3,11 @@
 header {
     height: 80px;
     width: 100%;
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $primary;
+    background-color: $primaryDark;
     z-index: 999;
 
     .web-header {
