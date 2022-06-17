@@ -41,27 +41,16 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col-md-12 d-flex justify-content-between">
-                            <h6 class="pt-1"> {{ __('Ostale informacije') }} </h6>
+                        <div class="col-md-12 text-center">
+                            <a href="{{ route('system.users.edit-my-profile') }}">
+                                <div class="btn btn-sm btn-info w-100 text-white">
+                                    <b> {{ __('Uredite Vaše informacije') }} </b>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="row" title="{{ __('Ukupan radni staž') }}">
-                        <div class="col-md 12 d-flex justify-content-start mt-2">
-                            <i class="fab fa-buromobelexperte pt-1"></i>
-                            <p class="m-0 ml-3"> <small> 12 </small> </p>
-                        </div>
-                    </div>
-                    <div class="row" title="{{__('Starost zaposlenika')}}">
-                        <div class="col-md 12 d-flex justify-content-start mt-2">
-                            <i class="fas fa-user-clock pt-1"></i>
-                            <p class="m-0 ml-3"> <small>44 </small> </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

@@ -104,6 +104,7 @@ class UsersController extends Controller{
     // -------------------------------------------------------------------------------------------------------------- //
 
     public function profile(){ return $this->data('profile', Auth::id()); }
+    public function editMyProfile(){ return $this->data('editMyProfile', Auth::id()); }
 
     public function updateProfile(Request $request){
         $request = $this::format($request);

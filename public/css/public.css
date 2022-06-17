@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;
 
-0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-@import url(//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css);@charset "UTF-8";
+0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);@import url(//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -14301,6 +14300,11 @@ footer .copyright-social .copyright {
   width: 40px;
   height: 40px;
   text-align: right;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .single-post .sp-header .sp-h-data .love-it:hover,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .single-post .sp-header .sp-h-data .love-it:hover {
+  cursor: pointer;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .single-post .sp-header .sp-h-data .loved-it i,
