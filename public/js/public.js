@@ -30264,6 +30264,45 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/app/users.js":
+/*!***********************************!*\
+  !*** ./resources/js/app/users.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var positionsUri = '/api/keywords/get-positions';
+  $(".pick-a-sport").change(function () {
+    var value = $(this).val();
+    $.ajax({
+      url: positionsUri,
+      method: "post",
+      dataType: "json",
+      data: {
+        value: value
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          $(".picked-position").empty();
+          $.each(response['data'], function (i, item) {
+            $('.picked-position').append($('<option>', {
+              value: i,
+              text: item
+            }));
+          });
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+
+        console.log(response);
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -35489,6 +35528,8 @@ __webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/p
 
 __webpack_require__(/*! ../layout/snippets/submit */ "./resources/js/layout/snippets/submit.js");
 
+__webpack_require__(/*! ../app/users */ "./resources/js/app/users.js");
+
 /***/ }),
 
 /***/ "./resources/js/public/snippets/classes.js":
@@ -35557,7 +35598,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })
