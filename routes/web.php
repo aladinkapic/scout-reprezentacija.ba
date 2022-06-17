@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
     Route::get ('/pretraga',                             'HomepageController@searchResults')->name('searchResults');
 
     Route::group(['namespace' => 'Players', 'prefix' => '/players'], function(){
-        Route::get ('/preview',                          'PlayersController@preview')->name('home.players.preview');
+        Route::get ('/preview/{id}/{what}',              'PlayersController@preview')->name('home.players.preview');
     });
 });
 

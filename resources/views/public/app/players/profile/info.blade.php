@@ -1,15 +1,15 @@
 <div class="info-header">
     <div class="ih-element">
         <p><span> {{ __('Nacionalnost') }} </span></p>
-        <p>Bosna i Hercegovina</p>
+        <p> {{ ucwords(strtolower($player->citizenshipRel->title ?? '')) ?? '' }}</p>
     </div>
     <div class="ih-element">
         <p><span> {{ __('Datum rođenja') }} </span></p>
-        <p>03.05.1994</p>
+        <p> {{ $player->birtDate() }} </p>
     </div>
     <div class="ih-element">
         <p><span> {{ __('Visina') }} </span></p>
-        <p>180cm</p>
+        <p> {{ $player->height ?? '' }} cm </p>
     </div>
 </div>
 
@@ -23,38 +23,41 @@
     <div class="td more"> {{ __('Više') }} </div>
 </div>
 
-<div class="info-t-r-wrapper">
-    <div class="info-table-header info-table-row info-table-first-row">
-        <div class="td season"> 2021 / 2022 </div>
-        <div class="td club"> FK Željezničar </div>
-        <div class="td asist"> 3 </div>
-        <div class="td goals"> 4 </div>
-        <div class="td more preview-more-info"> <i class="fas fa-chevron-down"></i> </div>
-    </div>
-    <div class="more-info">
-        <div class="mi-row d-hidden">
-            <div class="text"><p>{{ __('Asistencija') }}</p></div>
-            <div class="value"><p>16</p></div>
+@foreach($player->clubDataRel as $clubData)
+    <div class="info-t-r-wrapper">
+        <div class="info-table-header info-table-row info-table-first-row">
+            <div class="td season"> {{ $clubData->season ?? '' }} </div>
+            <div class="td club"> {{ $clubData->clubRel->title ?? '' }} </div>
+            <div class="td asist"> {{ $clubData->assistance ?? '' }} </div>
+            <div class="td goals"> {{ $clubData->goals ?? '' }} </div>
+            <div class="td more preview-more-info"> <i class="fas fa-chevron-down"></i> </div>
         </div>
-        <div class="mi-row d-hidden">
-            <div class="text"><p>{{ __('Golova') }}</p></div>
-            <div class="value"><p>12</p></div>
-        </div>
+        <div class="more-info">
+            <div class="mi-row d-hidden">
+                <div class="text"><p>{{ __('Asistencija') }}</p></div>
+                <div class="value"><p>{{ $clubData->assistance ?? '' }}</p></div>
+            </div>
+            <div class="mi-row d-hidden">
+                <div class="text"><p>{{ __('Golova') }}</p></div>
+                <div class="value"><p>{{ $clubData->goals ?? '' }}</p></div>
+            </div>
 
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj minuta') }}</p></div>
-            <div class="value"><p>320</p></div>
-        </div>
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj crvenih kartona') }}</p></div>
-            <div class="value"><p>2</p></div>
-        </div>
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj žutih kartona') }}</p></div>
-            <div class="value"><p>4</p></div>
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj minuta') }}</p></div>
+                <div class="value"><p>{{ $clubData->minutes ?? '' }}</p></div>
+            </div>
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj crvenih kartona') }}</p></div>
+                <div class="value"><p>{{ $clubData->red_cards ?? '' }}</p></div>
+            </div>
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj žutih kartona') }}</p></div>
+                <div class="value"><p>{{ $clubData->yellow_cards ?? '' }}</p></div>
+            </div>
         </div>
     </div>
-</div>
+@endforeach
+
 
 
 <!-- National team -->
@@ -67,30 +70,37 @@
     <div class="td goals"> {{ __('Golova') }} </div>
     <div class="td more"> {{ __('Više') }} </div>
 </div>
-<div class="info-t-r-wrapper">
-    <div class="info-table-header info-table-row info-table-first-row">
-        <div class="td season"> 2021 / 2022 </div>
-        <div class="td club"> FK Željezničar </div>
-        <div class="td asist"> 3 </div>
-        <div class="td goals"> 4 </div>
-        <div class="td more preview-more-info"> <i class="fas fa-chevron-down"></i> </div>
+@foreach($player->natTeamDataRel as $natTeamData)
+    <div class="info-t-r-wrapper">
+        <div class="info-table-header info-table-row info-table-first-row">
+            <div class="td season"> {{ $natTeamData->season ?? '' }} </div>
+            <div class="td club"> {{ ucwords(strtolower($natTeamData->countryRel->title ?? '')) ?? '' }}  </div>
+            <div class="td asist"> {{ $natTeamData->assistance ?? '' }} </div>
+            <div class="td goals"> {{ $natTeamData->goals ?? '' }} </div>
+            <div class="td more preview-more-info"> <i class="fas fa-chevron-down"></i> </div>
+        </div>
+        <div class="more-info">
+            <div class="mi-row d-hidden">
+                <div class="text"><p>{{ __('Asistencija') }}</p></div>
+                <div class="value"><p>{{ $natTeamData->assistance ?? '' }}</p></div>
+            </div>
+            <div class="mi-row d-hidden">
+                <div class="text"><p>{{ __('Golova') }}</p></div>
+                <div class="value"><p>{{ $natTeamData->goals ?? '' }}</p></div>
+            </div>
+
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj minuta') }}</p></div>
+                <div class="value"><p>{{ $natTeamData->minutes ?? '' }}</p></div>
+            </div>
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj crvenih kartona') }}</p></div>
+                <div class="value"><p>{{ $natTeamData->red_cards ?? '' }}</p></div>
+            </div>
+            <div class="mi-row">
+                <div class="text"><p>{{ __('Broj žutih kartona') }}</p></div>
+                <div class="value"><p>{{ $natTeamData->yellow_cards ?? '' }}</p></div>
+            </div>
+        </div>
     </div>
-    <div class="more-info">
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj minuta') }}</p></div>
-            <div class="value"><p>320</p></div>
-        </div>
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj crvenih kartona') }}</p></div>
-            <div class="value"><p>320</p></div>
-        </div>
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Broj žutih kartona') }}</p></div>
-            <div class="value"><p>320</p></div>
-        </div>
-        <div class="mi-row">
-            <div class="text"><p>{{ __('Tim') }}</p></div>
-            <div class="value"><p>U 21</p></div>
-        </div>
-    </div>
-</div>
+@endforeach

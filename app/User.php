@@ -56,6 +56,9 @@ class User extends Authenticatable
     public function countryRel(){
         return $this->hasOne(Affiliation::class, 'id', 'country');
     }
+    public function citizenshipRel(){
+        return $this->hasOne(Affiliation::class, 'id', 'citizenship');
+    }
     public function clubRel(){
         return $this->hasMany(Club::class, 'owner', 'id');
     }

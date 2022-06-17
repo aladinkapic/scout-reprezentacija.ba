@@ -9,7 +9,11 @@
             @include('public.app.players.profile.left-side')
             <div class="pw-right pw-right-body">
                 <div class="pw-r-b-info">
-                    @include('public.app.players.profile.info')
+                    @if($what == 'info')
+                        @include('public.app.players.profile.info')
+                    @else
+                        @include('public.app.players.profile.timeline')
+                    @endif
                 </div>
             </div>
         </div>
