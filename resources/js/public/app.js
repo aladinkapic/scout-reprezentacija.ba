@@ -28,3 +28,7 @@ require('../layout/snippets/submit');
 
 require('../app/users');
 
+/*
+ *  Players data
+ */
+require('./players/preview');

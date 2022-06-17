@@ -35529,6 +35529,29 @@ __webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/p
 __webpack_require__(/*! ../layout/snippets/submit */ "./resources/js/layout/snippets/submit.js");
 
 __webpack_require__(/*! ../app/users */ "./resources/js/app/users.js");
+/*
+ *  Players data
+ */
+
+
+__webpack_require__(/*! ./players/preview */ "./resources/js/public/players/preview.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/players/preview.js":
+/*!************************************************!*\
+  !*** ./resources/js/public/players/preview.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".preview-more-info").click(function () {
+    $(this).find('i').toggleClass('fa-chevron-down');
+    $(this).find('i').toggleClass('fa-chevron-up');
+    $(this).parent().parent().toggleClass('col-active');
+  });
+});
 
 /***/ }),
 
@@ -35598,7 +35621,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Edin\Projects\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })

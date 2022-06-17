@@ -6,3 +6,21 @@ body {
 .public-container{
     position: relative; left:calc(50% - 670px); width: $maxWidth; height: auto; min-height: 200px;
 }
+
+@media only screen and (max-width: 1400px){
+    .public-container{
+        width: 1200px; left: calc(50% - 600px);
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .public-container{
+        left: 30px; width: calc(100% - 60px);
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .public-container{
+        left: 20px; width: calc(100% - 40px);
+    }
+}
