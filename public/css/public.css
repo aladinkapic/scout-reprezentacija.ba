@@ -12204,7 +12204,7 @@ fieldset:disabled .btn {
     display: none !important
   }
 }body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .public-container {
@@ -12213,6 +12213,10 @@ fieldset:disabled .btn {
   width: 1340px;
   height: auto;
   min-height: 200px;
+}
+
+.min-height-100 {
+  min-height: 700px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -13807,6 +13811,7 @@ footer .copyright-social .copyright {
   display: inline-flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  min-height: 400px;
 }
 
 .public-container .preview-wrapper .pw-left,
@@ -14514,5 +14519,19 @@ footer .copyright-social .copyright {
     left: calc(100% - 105px);
     width: 100px;
   }
+}
+
+.select2-selection__rendered {
+  line-height: 60px !important;
+  background: none;
+}
+
+.select2-container .select2-selection--single {
+  height: 60px !important;
+  background: none !important;
+}
+
+.select2-selection__arrow {
+  height: 34px !important;
 }
 

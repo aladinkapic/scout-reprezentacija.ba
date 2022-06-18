@@ -37,6 +37,11 @@ class CreateUsersTable extends Migration
             $table->integer('position')->nullable();
             $table->integer('stronger_limb')->nullable();
             $table->text('note')->nullable();
+            $table->string('under_contract')->default('Ne')->nullable();
+
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

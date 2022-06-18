@@ -36,6 +36,19 @@
     font-size:14px;
 }
 
+#filtering tbody tr .user-with-image{
+    display: inline-flex; border-right: none;
+    .img-wrapper{
+        position: relative; width: 30px; height: 30px; border-radius: 50%; overflow: hidden;
+        img{
+            position: absolute; left:0px; top:0px; right: 0px; bottom: 0px; margin: auto; max-width: 100%;
+        }
+    }
+    p{
+        margin-left: 10px; margin-top:0px; padding-top:5px; margin-bottom: 0px;
+    }
+}
+
 #filtering .w-120{width: 120px;}
 
 #loading-bar {

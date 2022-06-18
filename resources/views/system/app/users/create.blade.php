@@ -44,7 +44,7 @@
                 @endif
 
                     <div class="row">
-                        <div class="@if(isset($preview) or isset($profile)) col-md-9 @else col-md-12 @endif">
+                        <div class="@if(isset($profile)) col-md-9 @else col-md-12 @endif">
                             @if(isset($profile))
                                 @include('system.app.users.posts.timeline')
                             @else
@@ -145,11 +145,43 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="height"> <b>{{ __('Visina (cm)') }}</b> </label>
                                             {!! Form::number('height', $user->height ?? '', ['class' => 'form-control required', 'id' => 'height', 'aria-describedby' => 'heightHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => 230]) !!}
                                             <small id="heightHelp" class="form-text text-muted"> {{ __('Visina korisnika u cm') }} </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="height"> <b>{{ __('Pod ugovorom') }}</b> </label>
+                                            {!! Form::select('under_contract', ['Ne' => 'Ne', 'Da' => 'Da'], $user->under_contract ?? '', ['class' => 'form-control required', 'id' => 'under_contract', 'aria-describedby' => 'under_contractHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            <small id="under_contractHelp" class="form-text text-muted"> {{ __('Da li ste trenutno pod ugovorom?') }} </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for=facebook"> <b>{{ __('Facebook profil') }}</b> </label>
+                                            {!! Form::text('facebook', $user->facebook ?? '', ['class' => 'form-control', 'id' => 'facebook', 'aria-describedby' => 'facebookHelp', isset($preview) ? 'readonly' : '']) !!}
+                                            <small id="facebookHelp" class="form-text text-muted"> {{ __('Unesite link Vašeg facebook profila') }} </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for=twitter"> <b>{{ __('Twitter profil') }}</b> </label>
+                                            {!! Form::text('twitter', $user->twitter ?? '', ['class' => 'form-control', 'id' => 'twitter', 'aria-describedby' => 'twitterHelp', isset($preview) ? 'readonly' : '']) !!}
+                                            <small id="twitterHelp" class="form-text text-muted"> {{ __('Unesite link Vašeg twitter profila') }} </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for=instagram"> <b>{{ __('Instagram profil') }}</b> </label>
+                                            {!! Form::text('instagram', $user->instagram ?? '', ['class' => 'form-control', 'id' => 'instagram', 'aria-describedby' => 'instagramHelp', isset($preview) ? 'readonly' : '']) !!}
+                                            <small id="instagramHelp" class="form-text text-muted"> {{ __('Unesite link Vašeg instagram profila') }} </small>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +227,7 @@
                             @endif
                         </div>
 
-                        @if(isset($preview) or isset($profile))
+                        @if(isset($profile))
                             @include('system.app.users.right-menu')
                         @endif
                     </div>

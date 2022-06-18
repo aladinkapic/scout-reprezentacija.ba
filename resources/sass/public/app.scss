@@ -34,3 +34,13 @@
 
 @import "../style/layout/snippets/select-2";
 @import "players/preview";
+
+.select2-selection__rendered {
+    line-height: 60px !important; background: none;
+}
+.select2-container .select2-selection--single {
+    height: 60px !important; background: none !important;
+}
+.select2-selection__arrow {
+    height: 34px !important;
+}

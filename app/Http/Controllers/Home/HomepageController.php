@@ -34,23 +34,6 @@ class HomepageController extends Controller {
     }
 
     public function searchResults(){
-        $users = User::where('role', 1);
-        $users = Filters::filter($users);
-        $filters = [
-            'name' => __('Ime i prezime'),
-            'sportRel.value' => __('Sport'),
-            'positionRel.value' => __('Pozicija'),
-            'height' => __('Visina'),
-            'years_old' => __('Starost'),
-            'strongerLimbRel.value' => __('Snažnija noga'),
-            'genderRel.value' => __('Spol'),
-            'natTeamDataRel.countryRel.title' => __('Državljanstvo'),
-            'clubDataRel.clubRel.title' => __('Klub')
-        ];
 
-        return view($this->_path . '.search-results', [
-            'filters' => $filters,
-            'users' => $users
-        ]);
     }
 }
