@@ -68,11 +68,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="Da li je igrač pod ugovorom?">
-                        <option selected disabled>Odaberi</option>
-                        <option value="1">Da</option>
-                        <option value="2">Ne</option>
-                    </select>
+                    {!! Form::select('under_contract', ['' => 'Odaberite', 'Ne' => 'Ne', 'Da' => 'Da'], '', ['class' => 'form-control', 'id' => 'under_contract', 'filter' => 'under_contract']) !!}
                     <label for="floatingSelect">Da li je igrač pod ugovorom?</label>
                 </div>
 

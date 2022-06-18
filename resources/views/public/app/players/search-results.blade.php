@@ -31,6 +31,7 @@
                     <td> {{ $user->years_old ?? ''}} </td>
                     <td> {{ $user->strongerLimbRel->value ?? ''}} </td>
                     <td> {{ $user->genderRel->value ?? ''}} </td>
+                    <td> {{ $user->under_contract ?? ''}} </td>
                     <td>
                         <ul class="m-0">
                             @foreach($user->natTeamDataRel as $natTeam)

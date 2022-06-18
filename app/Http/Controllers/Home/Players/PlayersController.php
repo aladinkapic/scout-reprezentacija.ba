@@ -21,6 +21,7 @@ class PlayersController extends Controller{
             'years_old' => __('Starost'),
             'strongerLimbRel.value' => __('Snažnija noga'),
             'genderRel.value' => __('Spol'),
+            'under_contract' => __('Pod ugovorom'),
             'natTeamDataRel.countryRel.title' => __('Državljanstvo'),
             'clubDataRel.clubRel.title' => __('Klub')
         ];
