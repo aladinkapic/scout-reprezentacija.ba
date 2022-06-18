@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/public.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
     @include('public.layout.menu')

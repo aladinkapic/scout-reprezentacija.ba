@@ -21,6 +21,10 @@ Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
         Route::get ('/',                                 'PlayersController@search')->name('home.players');
         Route::get ('/preview/{id}/{what}',              'PlayersController@preview')->name('home.players.preview');
     });
+    Route::group(['namespace' => 'Clubs', 'prefix' => '/clubs'], function(){
+        // Route::get ('/',                                 'PlayersController@search')->name('home.players');
+        Route::get ('/preview/{id}',                     'ClubController@preview')->name('home.clubs.preview');
+    });
 });
 
 

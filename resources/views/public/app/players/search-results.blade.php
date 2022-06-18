@@ -6,7 +6,7 @@
         <script src="{{ asset('js/app.js') }}"></script>
 
         @include('system.layout.snippets.filters.filter-header', ['var' => $users])
-        <table class="table table-bordered" id="filtering">
+        <table class="table table-bordered m-0 p-0" id="filtering">
             <thead>
             <tr>
                 <th scope="col" style="text-align:center;">#</th>
@@ -42,7 +42,10 @@
                     <td>
                         <ul class="m-0">
                             @foreach($user->clubDataRel as $clubData)
-                                <li> {{ $clubData->clubRel->title ?? '' }} </li>
+                                <a href="{{ route('home.clubs.preview', ['id' => $clubData->clubRel->id ?? '']) }}" class="text-info text-decoration-none">
+                                    <li> {{ $clubData->clubRel->title ?? '' }} </li>
+                                </a>
+
                             @endforeach
                         </ul>
                     </td>

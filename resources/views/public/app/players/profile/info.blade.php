@@ -27,7 +27,11 @@
     <div class="info-t-r-wrapper">
         <div class="info-table-header info-table-row info-table-first-row">
             <div class="td season"> {{ $clubData->season ?? '' }} </div>
-            <div class="td club"> {{ $clubData->clubRel->title ?? '' }} </div>
+            <div class="td club">
+                <a href="{{ route('home.clubs.preview', ['id' => $clubData->clubRel->id ?? '']) }}" class="text-info text-decoration-none">
+                    {{ $clubData->clubRel->title ?? '' }}
+                </a>
+            </div>
             <div class="td asist"> {{ $clubData->assistance ?? '' }} </div>
             <div class="td goals"> {{ $clubData->goals ?? '' }} </div>
             <div class="td more preview-more-info"> <i class="fas fa-chevron-down"></i> </div>

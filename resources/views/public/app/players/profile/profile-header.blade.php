@@ -16,7 +16,7 @@
                         <div class="icon-wrapper">
                             <i class="fa fa-info"></i>
                         </div>
-                        <h2>Detaljne informacije </h2>
+                        <h2> {{ __('Detaljne informacije') }} </h2>
                     </div>
                     <div class="bw-buttons">
                         <a href="{{ route('home.players.preview', ['id' => $player->id, 'what' => 'timeline']) }}" title="{{ __('Timeline') }}">
