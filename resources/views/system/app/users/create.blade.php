@@ -36,6 +36,9 @@
                 @elseif(isset($editMyProfile))
                     {!! Form::open(array('route' => 'system.users.update-profile', 'id' => 'js-form', 'method' => 'PUT')) !!}
                     {!! Form::hidden('id', $user->id ?? '', ['class' => 'form-control']) !!}
+                @elseif(isset($profile))
+                    {!! Form::open(array('route' => 'system.users.save-post', 'id' => 'js-form', 'method' => 'POST')) !!}
+                    {!! Form::hidden('id', $user->id ?? '', ['class' => 'form-control']) !!}
                 @else
                     {!! Form::open(array('route' => 'system.users.save', 'id' => 'js-form', 'method' => 'POST')) !!}
                 @endif
@@ -43,7 +46,7 @@
                     <div class="row">
                         <div class="@if(isset($preview) or isset($profile)) col-md-9 @else col-md-12 @endif">
                             @if(isset($profile))
-                                @include('system.app.users.snippets.timeline')
+                                @include('system.app.users.posts.timeline')
                             @else
                                 <div class="row">
                                     <div class="col-md-6">

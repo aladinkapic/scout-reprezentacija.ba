@@ -62,6 +62,11 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
          *  My profile -- user data for currently logged user
          */
         Route::get ('/my-profile',                       'UsersController@profile')->name('system.users.profile');
+        Route::post('/save-post',                        'UsersController@savePost')->name('system.users.save-post');
+        Route::get ('/edit-post/{id}',                   'UsersController@editPost')->name('system.users.edit-post');
+        Route::put ('/update-post',                      'UsersController@updatePost')->name('system.users.update-post');
+        Route::get ('/delete-post/{id}',                 'UsersController@deletePost')->name('system.users.delete-post');
+
         Route::get ('/edit-my-profile',                  'UsersController@editMyProfile')->name('system.users.edit-my-profile');
         Route::put ('/update-profile',                   'UsersController@updateProfile')->name('system.users.update-profile');
         Route::post('/change-profile-image',             'UsersController@changeProfileImage')->name('system.users.change-profile-image');

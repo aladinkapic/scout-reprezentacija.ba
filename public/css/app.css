@@ -1837,7 +1837,8 @@ body {
   bottom: -2px;
 }
 
-.single-post .sp-header .sp-h-data .love-it {
+.single-post .sp-header .sp-h-data .love-it,
+.single-post .sp-header .sp-h-data .edit-it {
   position: absolute;
   right: 15px;
   top: 0px;

@@ -8,6 +8,7 @@ use App\Mail\allowAccess;
 use App\Mail\sendEmail;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
+use App\Models\Posts\Post;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -102,10 +103,44 @@ class UsersController extends Controller{
     }
 
     // -------------------------------------------------------------------------------------------------------------- //
-
+    /*
+     *  Posts data
+     */
     public function profile(){ return $this->data('profile', Auth::id()); }
-    public function editMyProfile(){ return $this->data('editMyProfile', Auth::id()); }
+    public function savePost(Request $request){
+        try{
+            Post::create([
+                'owner' => Auth::id(),
+                'content' => $request->summernoteDesc
+            ]);
+            return $this::success(route('system.users.profile'));
+        }catch (\Exception $e){ return $this::error($e->getCode(), $e->getMessage()); }
+    }
+    public function editPost ($id){
+        $post = Post::find($id);
+        if($post->owner != Auth::id()) return redirect()->route('system.users.profile');
+        return view($this->_path.'posts.edit-post', [
+            'post' => $post
+        ]);
+    }
+    public function updatePost(Request $request){
+        try{
+            Post::where('id', $request->id)->update(['content' => $request->summernoteDesc]);
+            return $this::success(route('system.users.profile'));
+        }catch (\Exception $e){ return $this::error($e->getCode(), $e->getMessage()); }
+    }
+    public function deletePost ($id){
+        try{
+            $post = Post::find($id);
+            if($post->owner == Auth::id()) $post->delete();
+        }catch (\Exception $e){}
+        return redirect()->route('system.users.profile');
+    }
 
+    /*
+     *  Edit profile by user, not admin
+     */
+    public function editMyProfile(){ return $this->data('editMyProfile', Auth::id()); }
     public function updateProfile(Request $request){
         $request = $this::format($request);
         try {

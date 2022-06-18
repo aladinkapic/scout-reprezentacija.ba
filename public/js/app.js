@@ -39834,7 +39834,7 @@ $(document).ready(function () {
 
     var method = $(this).attr('method');
     var action = $(this).attr('action');
-    $(this).find('input, select').each(function () {
+    $(this).find('input, select, textarea').each(function () {
       for (var i = 0; i < names.length; i++) {
         if (names[i] === $(this).attr('name')) foundN = true;
       }
@@ -39884,6 +39884,10 @@ $(document).ready(function () {
     }
 
     if (send) {
+      var beforeSubmit = function beforeSubmit() {
+        jQuery('.summernoteDesc').text(jQuery('.summernoteDesc').code());
+      };
+
       /*
        * Attach api-token to request as parameter
        */

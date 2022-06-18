@@ -74,7 +74,7 @@ $(document).ready(function (){
         let method = $(this).attr('method');
         let action = $(this).attr('action');
 
-        $(this).find('input, select').each(function (){
+        $(this).find('input, select, textarea').each(function (){
 
             for(let i=0; i<names.length; i++){ if(names[i] === $(this).attr('name')) foundN = true; }
 
@@ -135,6 +135,8 @@ $(document).ready(function (){
              * Trigger loading cover
              */
             $(".loading").fadeIn();
+
+            function beforeSubmit() { jQuery('.summernoteDesc').text(jQuery('.summernoteDesc').code()); }
 
             $.ajax({
                 url: action,

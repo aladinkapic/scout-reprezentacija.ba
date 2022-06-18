@@ -7,6 +7,7 @@ use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
+use App\Models\Posts\Post;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -79,5 +80,8 @@ class User extends Authenticatable
     }
     public function natTeamDataRel(){
         return $this->hasMany(NatTeamData::class, 'user_id', 'id')->orderBy('season', 'DESC');
+    }
+    public function posts(){
+        return $this->hasMany(Post::class, 'owner', 'id')->where('what', 0);
     }
 }
