@@ -32,3 +32,4 @@ require('../app/users');
  *  Players data
  */
 require('./players/preview');
+require('./players/search');

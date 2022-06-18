@@ -35540,6 +35540,8 @@ __webpack_require__(/*! ../app/users */ "./resources/js/app/users.js");
 
 __webpack_require__(/*! ./players/preview */ "./resources/js/public/players/preview.js");
 
+__webpack_require__(/*! ./players/search */ "./resources/js/public/players/search.js");
+
 /***/ }),
 
 /***/ "./resources/js/public/players/preview.js":
@@ -35554,6 +35556,32 @@ $(document).ready(function () {
     $(this).find('i').toggleClass('fa-chevron-down');
     $(this).find('i').toggleClass('fa-chevron-up');
     $(this).parent().parent().toggleClass('col-active');
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/public/players/search.js":
+/*!***********************************************!*\
+  !*** ./resources/js/public/players/search.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  // ?filter%5B%5D=name&filter_values%5B%5D=Aladin&filter%5B%5D=sportRel.value&filter_values%5B%5D=fut&filter%5B%5D=positionRel.value&filter_values%5B%5D=gol&filter%5B%5D=height&filter_values%5B%5D=180&filter%5B%5D=strongerLimbRel.value&filter_values%5B%5D=lije&filter%5B%5D=genderRel.value&filter_values%5B%5D=m&filter%5B%5D=natTeamDataRel.countryRel.title&filter_values%5B%5D=b&filter%5B%5D=clubDataRel.clubRel.title&filter_values%5B%5D=f&limit=15
+  $(".search-players").click(function () {
+    $(".search-players-wrapper").find('input, select, textarea').each(function () {
+      var queryString = '?';
+      var counter = 0;
+
+      if ($(this).val() !== '' && $(this).val() !== null) {
+        queryString += "filter%5B%5D=" + $(this).attr('filter') + "&filter_values%5B%5D=" + $(this).val();
+        console.log($(this).val());
+      }
+
+      console.log(queryString);
+    });
   });
 });
 

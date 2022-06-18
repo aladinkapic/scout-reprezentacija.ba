@@ -21,6 +21,7 @@
                 <td> {{ $user->sportRel->value ?? ''}} </td>
                 <td> {{ $user->positionRel->value ?? ''}} </td>
                 <td> {{ $user->height ?? ''}} </td>
+                <td> {{ $user->years_old ?? ''}} </td>
                 <td> {{ $user->strongerLimbRel->value ?? ''}} </td>
                 <td> {{ $user->genderRel->value ?? ''}} </td>
                 <td>

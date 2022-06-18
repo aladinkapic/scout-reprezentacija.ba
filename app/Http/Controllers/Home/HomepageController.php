@@ -19,6 +19,9 @@ class HomepageController extends Controller {
             'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id')->prepend('Odaberite državu', ''),
             'clubs' => Club::pluck('title', 'id')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
             'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite poziciju', ''),
+            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite spol', ''),
         ]);
     }
 
@@ -38,10 +41,11 @@ class HomepageController extends Controller {
             'sportRel.value' => __('Sport'),
             'positionRel.value' => __('Pozicija'),
             'height' => __('Visina'),
+            'years_old' => __('Starost'),
             'strongerLimbRel.value' => __('Snažnija noga'),
             'genderRel.value' => __('Spol'),
-            'natTeamDataRel.title' => __('Državljanstvo'),
-            'clubDataRel.title' => __('Klub')
+            'natTeamDataRel.countryRel.title' => __('Državljanstvo'),
+            'clubDataRel.clubRel.title' => __('Klub')
         ];
 
         return view($this->_path . '.search-results', [
