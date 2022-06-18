@@ -82,6 +82,6 @@ class User extends Authenticatable
         return $this->hasMany(NatTeamData::class, 'user_id', 'id')->orderBy('season', 'DESC');
     }
     public function posts(){
-        return $this->hasMany(Post::class, 'owner', 'id')->where('what', 0);
+        return $this->hasMany(Post::class, 'owner', 'id')->where('what', 0)->orderBy('id', 'DESC');
     }
 }

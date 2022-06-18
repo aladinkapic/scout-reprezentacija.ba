@@ -28,3 +28,6 @@ $bColor : #173668;
 @import "style/layout/snippets/filters";
 
 @import "style/users/timeline";
+select::-ms-expand {
+    display: block;
+}

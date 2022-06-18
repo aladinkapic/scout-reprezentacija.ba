@@ -13,7 +13,7 @@
 
 @section('content')
     <div class="content-wrapper content-wrapper-bs">
-        @include('system.layout.snippets.filters.filters', ['var' => $users])
+        @include('system.layout.snippets.filters.filter-header', ['var' => $users])
         <table class="table table-bordered" id="filtering">
             <thead>
             <tr>
@@ -44,5 +44,6 @@
             @endforeach
             </tbody>
         </table>
+        @include('system.layout.snippets.filters.pagination', ['var' => $users])
     </div>
 @endsection
