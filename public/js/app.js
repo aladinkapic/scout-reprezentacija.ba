@@ -30464,10 +30464,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 $(document).ready(function () {
   var cropperURI = '/users/change-profile-image';
+  var club = false;
   var $modal = $('#modal');
   var image = document.getElementById('image');
   var cropper;
   $("body").on("change", ".image", function (e) {
+    if ($(this).hasClass('club_image')) {
+      cropperURI = '/additional/clubs/update-image';
+      club = $("#club_image_id").val();
+    }
+
     var files = e.target.files;
 
     var done = function done(url) {
@@ -30523,7 +30529,8 @@ $(document).ready(function () {
           url: cropperURI,
           data: {
             '_token': $('meta[name="_token"]').attr('content'),
-            'image': base64data
+            'image': base64data,
+            'club': club
           },
           success: function success(data) {
             if (data['code'] === '0000') location.reload();else alert("Desila se greška, pokušajte ponovo!");

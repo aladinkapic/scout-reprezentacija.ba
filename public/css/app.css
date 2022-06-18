@@ -1997,3 +1997,45 @@ select::-ms-expand {
   display: block;
 }
 
+.club-image-wrapper {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.club-image-wrapper img {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+.club-image-wrapper label {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.club-image-wrapper label .hover-effect {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  z-index: 1000;
+}
+
+.club-image-wrapper input {
+  display: none;
+}
+
+.club-image-wrapper .hover-effect:hover {
+  opacity: 1;
+}
+

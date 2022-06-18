@@ -46,7 +46,7 @@
             </div>
             <a href="{{ route('system.users.profile') }}">
                 <div class="single-li user-name">
-                    <p><b> Root Admin </b></p>
+                    <p><b> {{ $loggedUser->name ?? '' }} </b></p>
                 </div>
             </a>
         </div>

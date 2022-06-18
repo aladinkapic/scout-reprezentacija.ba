@@ -4,6 +4,7 @@ namespace App\Models\Additional;
 
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
+use App\Models\Posts\Post;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,8 @@ class Club extends Model{
     }
     public function ownerRel(){
         return $this->hasOne(User::class, 'id', 'owner');
+    }
+    public function posts(){
+        return $this->hasMany(Post::class, 'owner', 'id')->where('what', 1)->orderBy('id', 'DESC');
     }
 }

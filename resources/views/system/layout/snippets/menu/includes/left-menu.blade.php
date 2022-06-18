@@ -101,7 +101,7 @@
                         </a>
                         @if($loggedUser->clubRel->count())
                             @foreach($loggedUser->clubRel as $club)
-                                <a href="{{route('system.additional.clubs.preview', ['id' => $club->id ])}}">
+                                <a href="{{route('system.additional.clubs.timeline', ['id' => $club->id ])}}">
                                     <div class="inside-lm-link">
                                         <div class="ilm-l"></div><div class="ilm-c"></div>
                                         <p> {{ $club->title ?? '' }} </p>

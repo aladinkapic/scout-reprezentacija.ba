@@ -85,8 +85,19 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
             Route::get ('/create',                           'ClubsController@create')->name('system.additional.clubs.create');
             Route::post('/save',                             'ClubsController@save')->name('system.additional.clubs.save');
             Route::get ('/preview/{id}',                     'ClubsController@preview')->name('system.additional.clubs.preview');
+            Route::get ('/timeline/{id}',                    'ClubsController@timeline')->name('system.additional.clubs.timeline');
             Route::get ('/edit/{id}',                        'ClubsController@edit')->name('system.additional.clubs.edit');
             Route::put ('/update',                           'ClubsController@update')->name('system.additional.clubs.update');
+
+            Route::post('/update-image',                     'ClubsController@updateImage')->name('system.additional.clubs.update-image');
+
+            /*
+             *  Posts data; ToDO - Security risk!
+             */
+            Route::post('/save-post',                        'ClubsController@savePost')->name('system.additional.clubs.save-post');
+            Route::get ('/edit-post/{id}',                   'ClubsController@editPost')->name('system.additional.clubs.edit-post');
+            Route::put ('/update-post',                      'ClubsController@updatePost')->name('system.additional.clubs.update-post');
+            Route::get ('/delete-post/{id}',                 'ClubsController@deletePost')->name('system.additional.clubs.delete-post');
         });
         /*
          *  Clubs data

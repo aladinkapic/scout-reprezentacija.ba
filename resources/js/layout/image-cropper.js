@@ -1,10 +1,17 @@
 $(document).ready(function () {
     let cropperURI = '/users/change-profile-image';
+    let club = false;
 
     var $modal = $('#modal');
     var image = document.getElementById('image');
     var cropper;
+
     $("body").on("change", ".image", function(e){
+        if($(this).hasClass('club_image')) {
+            cropperURI = '/additional/clubs/update-image';
+            club = $("#club_image_id").val();
+        }
+
         var files = e.target.files;
         var done = function (url) {
             image.src = url;
@@ -51,7 +58,7 @@ $(document).ready(function () {
                     type: "POST",
                     dataType: "json",
                     url: cropperURI,
-                    data: {'_token': $('meta[name="_token"]').attr('content'), 'image': base64data},
+                    data: {'_token': $('meta[name="_token"]').attr('content'), 'image': base64data, 'club' : club},
                     success: function(data){
                         if(data['code'] === '0000') location.reload();
                         else alert("Desila se greška, pokušajte ponovo!");

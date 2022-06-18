@@ -5,7 +5,7 @@
                 <img src="@if($player->image != '') {{ asset('images/profile-images/'.$player->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
             </div>
             <div class="sp-h-data">
-                <p> {{ $loggedUser->name ?? '' }} </p>
+                <p> {{ $post->userRel->name ?? '' }} </p>
                 <span> {{ $post->getDate() }} </span>
                 <div class="love-it loved-it">
                     <i class="fas fa-heart"></i>

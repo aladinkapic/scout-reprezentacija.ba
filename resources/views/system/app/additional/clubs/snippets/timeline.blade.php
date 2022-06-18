@@ -1,7 +1,7 @@
 <div class="row mb-3">
     <div class="col-md-12">
         <div class="form-group">
-            {!! Form::textarea('summernoteDesc', '', ['class' => 'form-control required', 'id' => 'summernoteDesc', 'style' => 'height:200px !important;', 'maxlength' => '500']) !!}
+            {!! Form::textarea('description', '', ['class' => 'form-control required', 'id' => 'description', 'style' => 'height:200px !important;', 'maxlength' => '500']) !!}
         </div>
     </div>
     <div class="col-md-12 d-flex justify-content-end mt-3">
@@ -9,16 +9,16 @@
     </div>
 </div>
 
-@foreach($loggedUser->posts as $post)
+@foreach($club->posts as $post)
     <div class="single-post">
         <div class="sp-header">
             <div class="sp-h-iw">
-                <img src="@if($loggedUser->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
+                <img src="@if($club->image != '') {{ asset('images/club-images/'.$club->image) }} @else {{ asset('images/club-images/blank.jpg') }} @endif " alt="">
             </div>
             <div class="sp-h-data">
-                <p> {{ $loggedUser->name ?? '' }} </p>
+                <p> {{ $club->title ?? '' }} </p>
                 <span> {{ $post->getDate() }} </span>
-                <a href="{{ route('system.users.edit-post', ['id' => $post->id ]) }}">
+                <a href="{{ route('system.additional.clubs.edit-post', ['id' => $post->id ]) }}">
                     <div class="edit-it">
                         <i class="fas fa-edit"></i>
                     </div>
@@ -34,17 +34,10 @@
 
 <script>
     $(document).ready(function() {
-        $('#summernoteDesc').summernote({
+        $('#description').summernote({
             height: 'auto',
             disableResizeEditor: true,
-            toolbar: [
-                // ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline']],
-                // ['color', ['color']],
-                // ['para', ['ul', 'ol', 'paragraph']],
-                // ['table', ['table']],
-                ['insert', ['link' /*, 'picture', 'hr' */]]
-            ],
+            toolbar: [ ['font', ['bold', 'italic', 'underline']], ['insert', ['link']] ],
         });
         $('.dropdown-toggle').dropdown();
     });

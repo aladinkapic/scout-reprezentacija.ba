@@ -14037,6 +14037,12 @@ footer .copyright-social .copyright {
   color: #2A60B7;
 }
 
+.public-container .preview-wrapper .pw-left-body,
+.public-container .preview-body-wrapper .pw-left-body {
+  height: auto;
+  margin-bottom: 30px;
+}
+
 .public-container .preview-wrapper .pw-right-body,
 .public-container .preview-body-wrapper .pw-right-body {
   border-left: 2px solid rgba(0, 0, 0, 0.1);

@@ -7,6 +7,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model{
     use SoftDeletes;
@@ -17,6 +18,9 @@ class Post extends Model{
         return Carbon::parse($this->created_at)->format('d') . '. '
             . ($this->_months[(int)Carbon::parse($this->created_at)->format('m') - 1]) . ' '
             . Carbon::parse($this->created_at)->format('Y h:i');
+    }
+    public function getContent(){
+        return Storage::get('posts/'.$this->content);
     }
 
     public function userRel(){
