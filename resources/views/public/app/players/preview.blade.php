@@ -1,6 +1,7 @@
 @extends('public.layout.layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <!-- Profile Header -->
     @include('public.app.players.profile.profile-header')
 

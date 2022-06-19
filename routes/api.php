@@ -41,6 +41,11 @@ Route::group(['namespace' => 'API'], function (){
     Route::group(['prefix' => '/additional'], function (){
         Route::post('/get-clubs',                'AdditionalController@getClubs')->name('api.additional.get-clubs');
     });
-});
 
-Route::get('obuke/fetch', 'KeywordsAPIController@getKeyword')->name('api.keyword.fetch');
+    /*
+     *  Players API system
+     */
+    Route::group(['namespace' => 'Players', 'prefix' => '/players'], function (){
+        Route::post('/like-post',                'PostsController@like')->name('api.players.posts.like');
+    });
+});

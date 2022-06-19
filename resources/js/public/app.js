@@ -33,3 +33,4 @@ require('../app/users');
  */
 require('./players/preview');
 require('./players/search');
+require('./players/post-like');

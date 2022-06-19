@@ -45,7 +45,7 @@
                     .bw-b-button{
                         background: grey; padding:3px 15px; height: 30px; margin-top:5px; margin-right:20px; border-radius:3px;
                         p{
-                            color:#fff; text-decoration: none; margin-top:0px; padding-top:0px; font-size: 15px;
+                            color:#fff; text-decoration: none; margin-top:0px; padding-top:1px; font-size: 15px;
                         }
                     }
                     .active{background: $primaryDark;}
@@ -80,6 +80,10 @@
                         i{color:grey;}
                         i:hover{color:$primaryDark;}
                     }
+                    img{
+                        position: relative; width: 16px; color:#ffc107;
+                    }
+                    .yellow-star{color:#FFC107;}
                 }
             }
         }
@@ -134,10 +138,13 @@
                 .more-info-active{height: auto; border-bottom: 1px solid #333; }
                 .col-active{
                     .info-table-first-row{
-                        background: linear-gradient(270deg,#ff2882,#963cff 40%);
-                        .td{color:#fff;}
+                        background: linear-gradient(45deg, #2A60B7, rgba(0,0,0,0.2))!important;
+                        .td{
+                            color:#fff;
+                            .text-info{color:#fff !important;}
+                        }
                     }
-                    .more-info{height: auto; border-bottom: 1px solid #333;}
+                    .more-info{height: auto; border-bottom: 1px solid rgba(0,0,0,0.1);}
                 }
 
                 /* User posts - timeline */
@@ -268,14 +275,16 @@
                         flex-wrap: wrap; left: 0px; width: 100%; border-right: 0px; border-left: 0px;
                         .ih-element{width: 100%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1);}
                     }
-                    h4{margin-left: 5px;}
+                    h4{margin-left: 10px;}
                     .info-table-header{
-                        left: 5px; width: calc(100% - 10px);
-                        .season{text-align: left;}
-                        .club{width: calc(100% - 220px);}
+                        left: 10px; width: calc(100% - 20px); padding-left:5px;
+                        .season{text-align: left; width: 100px;}
+                        .club{width: calc(100% - 180px);}
                         .asist, .goals{display: none;}
+                        .more{width: 80px;}
                     }
                     .more-info{
+                        padding-left: 5px;
                         .d-hidden{display: block;}
                         .mi-row{
                             min-height: 30px;

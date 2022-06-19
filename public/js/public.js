@@ -35542,6 +35542,39 @@ __webpack_require__(/*! ./players/preview */ "./resources/js/public/players/prev
 
 __webpack_require__(/*! ./players/search */ "./resources/js/public/players/search.js");
 
+__webpack_require__(/*! ./players/post-like */ "./resources/js/public/players/post-like.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/players/post-like.js":
+/*!**************************************************!*\
+  !*** ./resources/js/public/players/post-like.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var uri = '/api/players/like-post';
+  $(".love-it-trigger").click(function () {
+    var id = $(this).attr('post-id');
+    var $this = $(this);
+    $.ajax({
+      url: uri,
+      method: "POST",
+      dataType: "json",
+      data: {
+        id: id
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          $this.toggleClass(' loved-it');
+          $this.attr('title', 'Ukupno ' + response['message'] + ' sviđanja');
+        }
+      }
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/public/players/preview.js":

@@ -2,6 +2,7 @@
 
 namespace App\Models\Posts;
 
+use App\Http\Controllers\Controller;
 use App\Models\Additional\Club;
 use App\User;
 use Carbon\Carbon;
@@ -22,11 +23,20 @@ class Post extends Model{
     public function getContent(){
         return Storage::get('posts/'.$this->content);
     }
+    public function getUserIP(){ return Controller::getIP(); }
+    public function checkIfLiked(){
+        try{
+            return PostLike::where('post_id', $this->id)->where('ip', Controller::getIP())->count();
+        }catch (\Exception $e){ return false; }
+    }
 
     public function userRel(){
         return $this->hasOne(User::class, 'id', 'owner');
     }
     public function clubRel(){
         return $this->hasOne(Club::class, 'id', 'owner');
+    }
+    public function likesRel(){
+        return $this->hasMany(PostLike::class, 'post_id', 'id');
     }
 }

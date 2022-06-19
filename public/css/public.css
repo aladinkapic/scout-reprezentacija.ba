@@ -13925,7 +13925,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   color: #fff;
   text-decoration: none;
   margin-top: 0px;
-  padding-top: 0px;
+  padding-top: 1px;
   font-size: 15px;
 }
 
@@ -14006,6 +14006,18 @@ header .web-header nav .nav-menu .nav-item:hover {
 .public-container .preview-wrapper .pw-left .tb-row p a i:hover,
 .public-container .preview-body-wrapper .pw-left .tb-row p a i:hover {
   color: #2A60B7;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row p img,
+.public-container .preview-body-wrapper .pw-left .tb-row p img {
+  position: relative;
+  width: 16px;
+  color: #ffc107;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row p .yellow-star,
+.public-container .preview-body-wrapper .pw-left .tb-row p .yellow-star {
+  color: #FFC107;
 }
 
 .public-container .preview-wrapper .pw-left-body,
@@ -14190,7 +14202,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .col-active .info-table-first-row,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .col-active .info-table-first-row {
-  background: linear-gradient(270deg, #ff2882, #963cff 40%);
+  background: linear-gradient(45deg, #2A60B7, rgba(0, 0, 0, 0.2)) !important;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .col-active .info-table-first-row .td,
@@ -14198,10 +14210,15 @@ header .web-header nav .nav-menu .nav-item:hover {
   color: #fff;
 }
 
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .col-active .info-table-first-row .td .text-info,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .col-active .info-table-first-row .td .text-info {
+  color: #fff !important;
+}
+
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .col-active .more-info,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .col-active .more-info {
   height: auto;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .single-post,
@@ -14458,25 +14475,35 @@ header .web-header nav .nav-menu .nav-item:hover {
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info h4 {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header {
-    left: 5px;
-    width: calc(100% - 10px);
+    left: 10px;
+    width: calc(100% - 20px);
+    padding-left: 5px;
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header .season {
     text-align: left;
+    width: 100px;
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header .club {
-    width: calc(100% - 220px);
+    width: calc(100% - 180px);
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header .asist,
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header .goals {
     display: none;
+  }
+
+  .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header .more {
+    width: 80px;
+  }
+
+  .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .more-info {
+    padding-left: 5px;
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .more-info .d-hidden {

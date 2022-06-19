@@ -19,12 +19,13 @@
 {{--    </div>--}}
 {{--</footer>--}}
 
+<hr>
 
 <div class="footer-basic">
     <footer>
         <div class="social">
             <a href="#">
-                <i class="icon ion-social-instagram"></i>
+                <i class="icon ion-social-instagram"></i> <ion-icon name="star"></ion-icon>
             </a>
             <a href="#">
                 <i class="icon ion-social-snapchat"></i>
@@ -43,6 +44,6 @@
             <li class="list-inline-item"><a href="#"><small>O nama</small></a></li>
             <li class="list-inline-item"><a href="#"><small>Uslovi korištenja</small></a></li>
         </ul>
-        <p class="copyright">Created by <a href="https://alkaris.com" target="_blank" class="text-info text-decoration-none"> Alkaris d.o.o </a></p>
+        <p class="copyright">Created by <a href="https://alkaris.com" target="_blank" class="text-info text-decoration-none"> <b>Alkaris d.o.o</b> </a></p>
     </footer>
 </div>

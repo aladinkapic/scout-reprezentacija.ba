@@ -21,6 +21,16 @@ class Controller extends BaseController{
     /*
      *  Format request : If date is dd.mm.yyy, format it to yyyy-mm-dd
      */
+    public static function getIP(){
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
 
     public static function getDate($datum){
         return Carbon::parse($datum)->format('Y-m-d');

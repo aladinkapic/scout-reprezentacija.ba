@@ -19,6 +19,7 @@ class Posts extends Migration
             $table->integer('what')->default(0);    // 0 => Player, 1 => Club
             $table->integer('owner');
             $table->longText('content');
+            $table->integer('likes')->default(0)->nullable();
 
             $table->softDeletes();
             $table->timestamps();
