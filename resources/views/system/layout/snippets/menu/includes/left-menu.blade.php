@@ -22,26 +22,6 @@
     <div class="s-lm-subsection">
 
         <div class="subtitle">
-            <h4>{{__('Grafičko sučelje')}}</h4>
-            <div class="subtitle-icon">
-                <i class="fas fa-chart-area"></i>
-            </div>
-        </div>
-        <a href="#" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <p>{{__('Dashboard')}}</p>
-                    <div class="extra-elements">
-                        <div class="ee-t ee-t-b"><p>{{__('Graph')}}</p></div>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <div class="subtitle">
             <h4> {{__('Sistemske funkcionalnosti')}} </h4>
             <div class="subtitle-icon">
                 <i class="fas fa-history"></i>
@@ -140,6 +120,20 @@
                                 <p>{{__('Unos kluba')}}</p>
                             </div>
                         </a>
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{ route('system.additional.partners.index') }}" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <p>{{__('Partneri')}}</p>
+                        <div class="extra-elements">
+                            <div class="ee-t ee-t-b"><p>{{__('Image')}}</p></div>
+                        </div>
                     </div>
                 </div>
             </a>

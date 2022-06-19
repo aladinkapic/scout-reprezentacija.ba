@@ -1,302 +1,307 @@
 @import "../variables.scss";
 
 .search {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: calc($gap * 2) 0;
-
-  .search-wrapper {
-    width: $maxWidth;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    margin: calc($gap * 2) 0;
 
-    .search-header {
-      width: 100%;
-      flex-direction: column;
-      margin-bottom: calc($gap * 2);
-      row-gap: calc($gap / 2);
-
-      .title {
-        font-size: 32px;
-        font-weight: 600;
-      }
-
-      .desc {
-        font-size: 15px;
-        font-weight: 400;
-        letter-spacing: 1px;
-      }
-    }
-
-    .sport-picker {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      column-gap: $gap;
-      margin-bottom: calc($gap * 2);
-
-      .item {
-        padding: 8px 16px;
-        min-width: 80px;
+    .search-wrapper {
+        width: $maxWidth;
         display: flex;
         justify-content: center;
         align-items: center;
-        column-gap: 4px;
-        background-color: $whiteHover;
-        color: $primary;
-        border: 1px solid $primary;
-        border-radius: 4px;
-        box-shadow: $boxShadow;
-        transition: $transition;
-        cursor: pointer;
+        flex-wrap: wrap;
 
-        &:hover,
-        &.active {
-          background-color: $primary;
-          color: $whiteHover;
-        }
-      }
-    }
-
-    .search-instance {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-
-      .field {
-        width: 45%;
-        padding: 5px 10px;
-        background-color: #193a6f;
-        border-radius: 10px;
-
-        .soccer-field {
-          position: relative;
-          display: inline-block;
-          vertical-align: middle;
-          width: 100%;
-          height: 652px;
-          margin: 10px auto;
-          padding: 0 0 60% 0;
-          background-color: #193a6f;
-
-          &:before,
-          &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 38%;
-            display: block;
-            width: 24%;
-            height: 8%;
-            border: 1px solid $fieldLine;
-            z-index: 2;
-          }
-
-          &:after {
-            top: auto;
-            bottom: 0;
-          }
-
-          .pitch-lines {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .search-header {
             width: 100%;
-            height: 100%;
-            margin: auto;
-            border: 1px solid $fieldLine;
-          }
+            flex-direction: column;
+            margin-bottom: calc($gap * 2);
+            row-gap: calc($gap / 2);
 
-          .half-circle-1:after,
-          .half-circle-2:after {
-            content: "";
-            position: absolute;
-            right: 42%;
-            left: auto;
-            width: 16%;
-            height: 0;
-            margin: -8% 0 0 0;
-            padding-bottom: 16%;
-            border: 1px solid $fieldLine;
-            border-radius: 50%;
-          }
-
-          .half-circle-1 {
-            &::after {
-              bottom: auto;
-              top: 20%
-            }
-          }
-
-          .half-circle-2 {
-            &::after {
-              top: auto;
-              bottom: 14%;
-            }
-          }
-
-          .box16::after,
-          .box16::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 25%;
-            display: block;
-            width: 50%;
-            height: 20%;
-            background-color: #193a6f;
-            border: 1px solid $fieldLine;
-          }
-
-          .box16::after {
-            top: auto;
-            bottom: 0;
-          }
-
-          .center::before,
-          .center::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            display: block;
-            width: 100%;
-            border: 0.5px solid $fieldLine;
-          }
-
-          .center::after {
-            border: unset;
-            background-color: $fieldLine;
-            height: 1px;
-          }
-
-          .center::before {
-            top: calc(50% - 50px);
-            left: calc(50% - 50px);
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 1px solid $fieldLine;
-          }
-
-          .position {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background-color: $primary;
-            border: 1px solid #324978;
-            border-radius: 50%;
-            z-index: 2;
-            cursor: pointer;
-            transition: $transition;
-
-            &:hover {
-              box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 0px 3px;
+            .title {
+                font-size: 32px;
+                font-weight: 600;
             }
 
-            &.gk {
-              top: 95%;
-              left: calc(50% - 12px);
+            .desc {
+                font-size: 15px;
+                font-weight: 400;
+                letter-spacing: 1px;
             }
-
-            &.cb {
-              top: 75%;
-              left: calc(50% - 12px);
-            }
-
-            &.rb {
-              top: 75%;
-              left: calc(10% - 12px);
-            }
-
-            &.lb {
-              top: 75%;
-              left: calc(90% - 12px);
-            }
-
-            &.dm {
-              top: 63%;
-              left: calc(50% - 12px);
-            }
-
-            &.cm {
-              top: calc(50% - 12px);
-              left: calc(50% - 12px);
-            }
-
-            &.rm {
-              top: calc(50% - 12px);
-              left: calc(10% - 12px);
-            }
-
-            &.lm {
-              top: calc(50% - 12px);
-              left: calc(90% - 12px);
-            }
-
-            &.am {
-              top: 35%;
-              left: calc(50% - 12px);
-            }
-
-            &.rw {
-              top: 25%;
-              left: calc(90% - 12px);
-            }
-
-            &.lw {
-              top: 25%;
-              left: calc(10% - 12px);
-            }
-
-            &.ss {
-              top: 21%;
-              left: calc(50% - 12px);
-            }
-
-            &.st {
-              top: 12%;
-              left: calc(50% - 12px);
-            }
-          }
         }
-      }
-    }
 
-    .search-form {
-      width: 50%;
-    }
-  }
+        .sport-picker {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: $gap;
+            margin-bottom: calc($gap * 2);
 
-  @media screen and (max-width: $maxWidth) {
-    .search-wrapper {
-      width: 90%;
-    }
-  }
+            .item {
+                padding: 8px 16px;
+                min-width: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 4px;
+                background-color: $whiteHover;
+                color: $primary;
+                border: 1px solid $primary;
+                border-radius: 4px;
+                box-shadow: $boxShadow;
+                transition: $transition;
+                cursor: pointer;
 
-  @media screen and (max-width: 960px) {
-    .search-wrapper {
-      .search-instance {
-        flex-direction: column;
-        row-gap: $gap;
+                &:hover,
+                &.active {
+                    background-color: $primary;
+                    color: $whiteHover;
+                }
+            }
+        }
 
-        .field {
-          width: 100%;
+        .search-instance {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .field {
+                width: 45%;
+                padding: 5px 10px;
+                background-color: #193a6f;
+                border-radius: 10px;
+
+                .soccer-field {
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 100%;
+                    height: 604px;
+                    margin: 10px auto;
+                    padding: 0 0 60% 0;
+                    background-color: #193a6f;
+
+                    &:before,
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 38%;
+                        display: block;
+                        width: 24%;
+                        height: 8%;
+                        border: 1px solid $fieldLine;
+                        z-index: 2;
+                    }
+
+                    &:after {
+                        top: auto;
+                        bottom: 0;
+                    }
+
+                    .pitch-lines {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        margin: auto;
+                        border: 1px solid $fieldLine;
+                    }
+
+                    .half-circle-1:after,
+                    .half-circle-2:after {
+                        content: "";
+                        position: absolute;
+                        right: 42%;
+                        left: auto;
+                        width: 16%;
+                        height: 0;
+                        margin: -8% 0 0 0;
+                        padding-bottom: 16%;
+                        border: 1px solid $fieldLine;
+                        border-radius: 50%;
+                    }
+
+                    .half-circle-1 {
+                        &::after {
+                            bottom: auto;
+                            top: 20%
+                        }
+                    }
+
+                    .half-circle-2 {
+                        &::after {
+                            top: auto;
+                            bottom: 14%;
+                        }
+                    }
+
+                    .box16::after,
+                    .box16::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 25%;
+                        display: block;
+                        width: 50%;
+                        height: 20%;
+                        background-color: #193a6f;
+                        border: 1px solid $fieldLine;
+                    }
+
+                    .box16::after {
+                        top: auto;
+                        bottom: 0;
+                    }
+
+                    .center::before,
+                    .center::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        display: block;
+                        width: 100%;
+                        border: 0.5px solid $fieldLine;
+                    }
+
+                    .center::after {
+                        border: unset;
+                        background-color: $fieldLine;
+                        height: 1px;
+                    }
+
+                    .center::before {
+                        top: calc(50% - 50px);
+                        left: calc(50% - 50px);
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        border: 1px solid $fieldLine;
+                    }
+
+                    .position {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background-color: $primary;
+                        border: 1px solid #324978;
+                        border-radius: 50%;
+                        z-index: 2;
+                        cursor: pointer;
+                        transition: $transition;
+
+                        &:hover {
+                            box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 0px 3px;
+                        }
+
+                        &.gk {
+                            top: 95%;
+                            left: calc(50% - 12px);
+                        }
+
+                        &.cb {
+                            top: 75%;
+                            left: calc(50% - 12px);
+                        }
+
+                        &.rb {
+                            top: 75%;
+                            left: calc(10% - 12px);
+                        }
+
+                        &.lb {
+                            top: 75%;
+                            left: calc(90% - 12px);
+                        }
+
+                        &.dm {
+                            top: 63%;
+                            left: calc(50% - 12px);
+                        }
+
+                        &.cm {
+                            top: calc(50% - 12px);
+                            left: calc(50% - 12px);
+                        }
+
+                        &.rm {
+                            top: calc(50% - 12px);
+                            left: calc(10% - 12px);
+                        }
+
+                        &.lm {
+                            top: calc(50% - 12px);
+                            left: calc(90% - 12px);
+                        }
+
+                        &.am {
+                            top: 35%;
+                            left: calc(50% - 12px);
+                        }
+
+                        &.rw {
+                            top: 25%;
+                            left: calc(90% - 12px);
+                        }
+
+                        &.lw {
+                            top: 25%;
+                            left: calc(10% - 12px);
+                        }
+
+                        &.ss {
+                            top: 21%;
+                            left: calc(50% - 12px);
+                        }
+
+                        &.st {
+                            top: 12%;
+                            left: calc(50% - 12px);
+                        }
+                    }
+                }
+            }
         }
 
         .search-form {
-          width: 100%;
+            width: 50%;
         }
-      }
     }
-  }
+
+    @media screen and (max-width: $maxWidth) {
+        .search-wrapper {
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .search-wrapper {
+            .search-instance {
+                flex-direction: column;
+                row-gap: $gap;
+
+                .field {
+                    width: 100%;
+                }
+
+                .search-form {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px){
+        .years_old_w{margin-top:15px;}
+    }
+
 }

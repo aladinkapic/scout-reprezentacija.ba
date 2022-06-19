@@ -58,4 +58,10 @@
     margin-bottom:0;
 }
 
+@media screen and (max-width: 600px){
+    ul{
+        li{width: 100%;}
+    }
+}
+
 /* Credit to https://epicbootstrap.com/snippets/footer-basic */

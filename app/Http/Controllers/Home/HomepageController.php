@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
+use App\Models\Additional\Partner;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
@@ -22,6 +23,8 @@ class HomepageController extends Controller {
             'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Odaberite poziciju', ''),
             'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend('Odaberite', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
+
+            'partners' => Partner::get()
         ]);
     }
 

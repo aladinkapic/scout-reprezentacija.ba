@@ -127,6 +127,16 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
             Route::put ('/update',                           'NatTeamDataController@update')->name('system.additional.nat-team-data.update');
             Route::get ('/delete/{id}',                      'NatTeamDataController@delete')->name('system.additional.nat-team-data.delete');
         });
+
+        /*
+         *  Partners data
+         */
+        Route::group(['prefix' => '/partners', 'middleware' => 'isRoot'], function(){
+            Route::get ('/',                                 'PartnersController@index')->name('system.additional.partners.index');
+            Route::get ('/create',                           'PartnersController@create')->name('system.additional.partners.create');
+            Route::post('/save',                             'PartnersController@save')->name('system.additional.partners.save');
+            Route::get ('/delete/{id}',                      'PartnersController@delete')->name('system.additional.partners.delete');
+        });
     });
     /*
      *  Those are core routes for keywords

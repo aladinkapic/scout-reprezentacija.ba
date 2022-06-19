@@ -54,7 +54,7 @@
                             <label for="height"> {{ __('Visina (cm)') }} </label>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 years_old_w">
                         <div class="form-floating">
                             {!! Form::text('years_old', '', ['class' => 'form-control', 'id' => 'years_old', 'filter' => 'years_old', 'placeholder' => 'Broj godina igrača', 'min' => '0', 'max' => '250', 'step' => '1']) !!}
                             <label for="years_old"> {{ __('Starost igrača') }} </label>
