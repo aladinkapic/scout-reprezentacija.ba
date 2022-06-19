@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 600px){
     ul{
-        li{width: 100%;}
+        li{width: calc(100% - 20px);}
     }
 }
 
