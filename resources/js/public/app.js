@@ -34,3 +34,4 @@ require('../app/users');
 require('./players/preview');
 require('./players/search');
 require('./players/post-like');
+require('./players/player-rating');

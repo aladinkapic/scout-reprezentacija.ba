@@ -35544,6 +35544,61 @@ __webpack_require__(/*! ./players/search */ "./resources/js/public/players/searc
 
 __webpack_require__(/*! ./players/post-like */ "./resources/js/public/players/post-like.js");
 
+__webpack_require__(/*! ./players/player-rating */ "./resources/js/public/players/player-rating.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/players/player-rating.js":
+/*!******************************************************!*\
+  !*** ./resources/js/public/players/player-rating.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var uri = '/api/players/rate-player';
+  $("body").on('click', '.star-trigger', function () {
+    var index = $(this).attr('star-index');
+    var id = $(this).attr('player-id');
+    var $this = $(this);
+    var rateW = $(".player-reviewed");
+    $.ajax({
+      url: uri,
+      method: "POST",
+      dataType: "json",
+      data: {
+        id: id,
+        index: index
+      },
+      success: function success(response) {
+        var counter = 0;
+
+        if (response['code'] === '0000') {
+          var mainReview = parseInt(response['message']['average']);
+          rateW.empty();
+
+          for (var i = 1; i <= parseInt(mainReview / 2); i++) {
+            rateW.append('<i class="fas fa-star yellow-star star-trigger ys-r" star-index="' + (counter + 1) + '" player-id="' + id + '"> </i>');
+            counter++;
+          }
+
+          if (mainReview / 2 !== parseInt(mainReview / 2)) {
+            rateW.append('<i class="fas fa-star-half-alt yellow-star star-trigger ys-r" star-index="' + (counter + 1) + '" player-id="' + id + '"> </i>');
+            counter++;
+          }
+
+          for (var _i = counter; _i < 5; _i++) {
+            rateW.append('<i class="far fa-star star-trigger ys-r" star-index="' + (counter + 1) + '" player-id="' + id + '"> </i>');
+          }
+
+          rateW.append('<span class="fs-6 fw-normal"> ' + mainReview / 2 + ' / 5 </span>');
+          $(".player-reviewed-wrapper").attr('title', 'Bazirano na ' + response['message']['total'] + ' ocjene/a !');
+        }
+      }
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/public/players/post-like.js":

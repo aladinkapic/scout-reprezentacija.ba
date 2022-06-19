@@ -14018,6 +14018,23 @@ header .web-header nav .nav-menu .nav-item:hover {
 .public-container .preview-wrapper .pw-left .tb-row p .yellow-star,
 .public-container .preview-body-wrapper .pw-left .tb-row p .yellow-star {
   color: #FFC107;
+  margin-right: 0px !important;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row p .star-trigger:hover,
+.public-container .preview-body-wrapper .pw-left .tb-row p .star-trigger:hover {
+  cursor: pointer;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row .player-reviewed i,
+.public-container .preview-body-wrapper .pw-left .tb-row .player-reviewed i {
+  margin-left: 0px;
+  margin-right: 5px;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row .player-reviewed .ys-r,
+.public-container .preview-body-wrapper .pw-left .tb-row .player-reviewed .ys-r {
+  margin-right: 4px !important;
 }
 
 .public-container .preview-wrapper .pw-left-body,

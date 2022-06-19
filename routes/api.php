@@ -43,9 +43,16 @@ Route::group(['namespace' => 'API'], function (){
     });
 
     /*
-     *  Players API system
+     *  Players & Posts API system
      */
     Route::group(['namespace' => 'Players', 'prefix' => '/players'], function (){
+        /*
+         *  Post API system
+         */
         Route::post('/like-post',                'PostsController@like')->name('api.players.posts.like');
+        /*
+         *  Players API system
+         */
+        Route::post('/rate-player',              'PlayersController@rate')->name('api.players.players.rate');
     });
 });

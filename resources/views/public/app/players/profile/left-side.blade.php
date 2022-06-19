@@ -28,24 +28,24 @@
         </p>
     </div>
 
-    <div class="tb-row pb-2" title="{{ __('Bazirano na ') }} 189 {{ __('ocjene/a!') }}">
+    <div class="tb-row pb-2 player-reviewed-wrapper" title="{{ __('Bazirano na ') }} {{ $player->rateRelCount() }} {{ __('ocjene/a!') }}">
         <h6>{{ __('Ocjena publike') }}</h6>
-        <p class="text-muted">
-            @php $counter = 0; $mainReview = 9; @endphp
+        <p class="text-muted player-reviewed">
+            @php $counter = 0; $mainReview = 7; @endphp
             @for($i=1; $i<=(int)($mainReview) / 2; $i++)
-                <i class="fas fa-star yellow-star"></i>
+                <i class="fas fa-star yellow-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
                 @php $counter++; @endphp
             @endfor
             <!-- Check if odd or even -->
             @if(($mainReview / 2) != (int)($mainReview / 2))
-                <i class="fas fa-star-half-alt yellow-star"></i>
+                <i class="fas fa-star-half-alt yellow-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
                 @php $counter++; @endphp
             @endif
             @for($i=$counter; $i<5; $i++)
-                <i class="far fa-star"></i>
+                <i class="far fa-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
             @endfor
 
-            <span class="fs-6 fw-normal">4.6 / 5</span>
+            <span class="fs-6 fw-normal">{{ $mainReview / 2 }} / 5</span>
         </p>
     </div>
 </div>

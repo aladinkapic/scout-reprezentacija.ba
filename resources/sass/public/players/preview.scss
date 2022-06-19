@@ -83,7 +83,12 @@
                     img{
                         position: relative; width: 16px; color:#ffc107;
                     }
-                    .yellow-star{color:#FFC107;}
+                    .yellow-star{color:#FFC107; margin-right: 0px !important;}
+                    .star-trigger:hover{cursor: pointer; }
+                }
+                .player-reviewed{
+                    i{margin-left:0px; margin-right: 5px;}
+                    .ys-r{margin-right: 4px !important;}
                 }
             }
         }

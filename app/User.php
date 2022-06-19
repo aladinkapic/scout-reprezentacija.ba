@@ -7,6 +7,7 @@ use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
+use App\Models\Players\PlayerRate;
 use App\Models\Posts\Post;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -84,5 +85,11 @@ class User extends Authenticatable
     }
     public function posts(){
         return $this->hasMany(Post::class, 'owner', 'id')->where('what', 0)->orderBy('id', 'DESC');
+    }
+    public function rateRel(){
+        return $this->hasMany(PlayerRate::class, 'user_id', 'id');
+    }
+    public function rateRelCount(){
+        return $this->hasMany(PlayerRate::class, 'user_id', 'id')->count();
     }
 }
