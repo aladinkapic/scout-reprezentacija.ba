@@ -48,3 +48,6 @@ require('./auth/auth');
  */
 require('./app/users');
 require('./layout/image-cropper');
+
+/* Blog functions */
+require('./blog/new-post');

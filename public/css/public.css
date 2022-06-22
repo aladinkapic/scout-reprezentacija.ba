@@ -12209,8 +12209,8 @@ fieldset:disabled .btn {
 
 .public-container {
   position: relative;
-  left: calc(50% - 670px);
-  width: 1340px;
+  left: calc(50% - 600px);
+  width: 1200px;
   height: auto;
   min-height: 200px;
 }
@@ -12319,7 +12319,7 @@ header {
 }
 
 header .web-header {
-  width: 1340px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12362,7 +12362,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   color: #ffffff;
 }
 
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1200px) {
   header .web-header {
     width: 95%;
   }
@@ -12480,7 +12480,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 }
 
 .search .search-wrapper {
-  width: 1340px;
+  width: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12747,7 +12747,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   width: 50%;
 }
 
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1200px) {
   .search .search-wrapper {
     width: 90%;
   }
@@ -13095,7 +13095,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 }
 
 .register {
-  margin: 0 calc((100vw - 1340px) / 2);
+  margin: 0 calc((100vw - 1200px) / 2);
   padding-top: 120px;
   padding-bottom: 40px;
 }
@@ -13112,7 +13112,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 }
 
 .players-list {
-  margin: 0 calc((100vw - 1340px) / 2);
+  margin: 0 calc((100vw - 1200px) / 2);
   padding-top: 120px;
   padding-bottom: 40px;
 }

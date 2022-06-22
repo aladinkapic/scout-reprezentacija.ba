@@ -37,7 +37,7 @@
                     {!! Form::open(array('route' => 'system.users.update-profile', 'id' => 'js-form', 'method' => 'PUT')) !!}
                     {!! Form::hidden('id', $user->id ?? '', ['class' => 'form-control']) !!}
                 @elseif(isset($profile))
-                    {!! Form::open(array('route' => 'system.users.save-post', 'id' => 'js-form', 'method' => 'POST')) !!}
+                    {!! Form::open(array('route' => 'system.users.save-post', 'method' => 'POST')) !!}
                     {!! Form::hidden('id', $user->id ?? '', ['class' => 'form-control']) !!}
                 @else
                     {!! Form::open(array('route' => 'system.users.save', 'id' => 'js-form', 'method' => 'POST')) !!}
@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="@if(isset($profile)) col-md-9 @else col-md-12 @endif">
                             @if(isset($profile))
-                                @include('system.app.users.posts.timeline')
+                                @include('system.app.blog.new-post')
                             @else
                                 <div class="row">
                                     <div class="col-md-6">

@@ -1,0 +1,42 @@
+.t-3{
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+
+.b-new-post{
+    position: relative; left:0px; top:0px; width: 100%; height: 128px; border-radius:4px; background:#fff;
+    border:1px solid rgba(0,0,0,0.06); text-align:center;
+    .b-np-text-field{
+        position: relative; left:0px; top:0px; width:calc(100% - 30px); height:68px; margin-left: 0px; border-bottom: 1px solid rgba(0,0,0,0.1);
+        display: inline-flex; justify-content: space-between;
+        .b-np-tf-image-wrapper{
+            position: relative; left:0px; width:40px; height:40px; margin-top:14px; border-radius:50%; overflow:hidden;
+            img{position: absolute; left:0px; top:0px; right:0px; bottom: 0px; margin: auto; max-width: 100%;}
+        }
+        .b-np-tf-text{
+            position: relative; left:0px; top: 0px; width: calc(100% - 60px); height: 40px; margin-top:14px; background: #F5F5F5;
+            text-align: left; border-radius: 4px;
+            p{
+                margin-left: 15px; padding-top:8px;
+            }
+        }
+    }
+    .b-np-text-field:hover{ cursor: text; }
+    .b-np-media{
+        position:relative; left:0px; width: calc(100% - 30px); height: 58px; display: inline-flex; justify-content: flex-end;
+        .b-np-m-element{
+            position: relative; height: 40px; min-width: 120px; margin-top: 9px; display: inline-flex; justify-content: space-between; border-radius:4px;
+            background: #F5F5F5;
+            i{font-size: 20px; padding-top:10px; margin-left: 30px;}
+            p{
+                margin-left: 10px; font-size: 15px; font-weight: bold; padding-top:9px; margin-right: 30px;
+            }
+        }
+        .b-np-m-element:hover{
+            background: #CCCCCC; cursor: pointer;
+        }
+    }
+}

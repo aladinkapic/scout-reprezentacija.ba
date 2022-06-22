@@ -30322,6 +30322,10 @@ __webpack_require__(/*! ./auth/auth */ "./resources/js/auth/auth.js");
 __webpack_require__(/*! ./app/users */ "./resources/js/app/users.js");
 
 __webpack_require__(/*! ./layout/image-cropper */ "./resources/js/layout/image-cropper.js");
+/* Blog functions */
+
+
+__webpack_require__(/*! ./blog/new-post */ "./resources/js/blog/new-post.js");
 
 /***/ }),
 
@@ -30418,6 +30422,49 @@ $(document).ready(function () {
     if (e.which === 13) {
       if ($(".auth-btn").length) signMeIn();
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/blog/new-post.js":
+/*!***************************************!*\
+  !*** ./resources/js/blog/new-post.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  /* Auto resize textarea depending on input */
+  $(document).on('input', '.post-text', function () {
+    $(this).outerHeight(60).outerHeight(this.scrollHeight);
+    var postBtn = $(".b-np-pb-post");
+    if ($(this).val() !== '') postBtn.removeClass('b-np-pb-post-greyed');else postBtn.addClass('b-np-pb-post-greyed');
+  });
+  /*
+   *  Close popup and set text from textarea into the main wrapper .. Only first 50 letters
+   */
+
+  $(".b-np-ph-exit").click(function () {
+    $(".b-new-post-popup-wrapper").fadeOut(); // I'm thinking about you, my soul mate ..
+
+    var postText = $(".post-text"),
+        mainPost = '';
+
+    if (postText.val() !== '') {
+      var length = postText.val().length > 50 ? 50 : postText.val().length;
+
+      for (var i = 0; i < length; i++) {
+        mainPost += postText.val()[i];
+      }
+
+      if (length === 50) mainPost += ' ..';
+    } else mainPost = 'Šta Vam je na mislima?';
+
+    $(".b-np-tf-text").find("p").text(mainPost);
+  });
+  $(".b-np-tf-text").click(function () {
+    $(".b-new-post-popup-wrapper").fadeIn();
   });
 });
 
