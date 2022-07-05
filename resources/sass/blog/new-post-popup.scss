@@ -64,6 +64,16 @@
                     .post-image{display: none;}
                 }
                 .b-np-bp-image-preview:hover{background: rgba(0,0,0,0.1);}
+
+                /* Youtube video preview */
+                .youtube-preview{
+                    position: relative; left: 0px; width: calc(100% - 8px); border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;
+                    padding-bottom: 56.25%; /* 16:9 */
+                    height: 0;
+                    iframe{
+                        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                    }
+                }
             }
             .b-np-pb-text::-webkit-scrollbar, .scroller  {
                 width: 4px;

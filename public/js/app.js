@@ -30443,12 +30443,25 @@ $(document).ready(function () {
     var target = jQuery(this).val();
     var regExp = /(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})(?:\?t=|)(\d+|)([\S\s]*)/i;
     var match = target.match(regExp);
-    console.log("Video ID:");
-    console.log(match[6]);
-    console.log("Video start time:");
-    console.log(match[7]);
-    console.log("After:");
-    console.log(match[8]);
+    console.log(match);
+
+    if (typeof match !== 'undefined' && match !== null) {
+      var ytWrapper = $(".youtube-preview"),
+          ytVideo = $("#youtube-link-preview");
+
+      if ($(".b-np-bp-image-preview").hasClass('d-none')) {
+        ytVideo.attr('src', 'https://www.youtube.com/embed/' + match[6]);
+        ytWrapper.removeClass('d-none');
+        $(".b-np-pb-text").css('height', '280px');
+        setPopupPosition();
+        $(".post-text").css('font-size', '14px');
+      } else {
+        ytWrapper.addClass('d-none');
+      }
+    } // console.log("Video ID:"); console.log(match[6]);
+    // console.log("Video start time:"); console.log(match[7]);
+    // console.log("After:"); console.log(match[8]);
+
   });
   /*
    *  Close popup and set text from textarea into the main wrapper .. Only first 50 letters
@@ -30489,6 +30502,7 @@ $(document).ready(function () {
     $(".b-np-pb-text").css('height', '280px');
     setPopupPosition();
     $(".post-text").css('font-size', '14px');
+    $(".youtube-preview").addClass('d-none');
   });
   $(".close-image").click(function () {
     var postText = $(".post-text");

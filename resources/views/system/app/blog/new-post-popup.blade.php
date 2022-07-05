@@ -30,8 +30,10 @@
                     </label>
                     <img src="#" alt="" class="post-image-preview d-none">
                     {!! Form::file('image', ['class' => 'post-image', 'id' => 'post-image']) !!}
-
-{{--                    <iframe src="https://www.youtube.com/embed/JwfjVT27ELM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
+                </div>
+                <div class="youtube-preview d-none">
+                    <iframe src="https://www.youtube.com/embed/IMf7qjzTPwQ" id="youtube-link-preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    <div class="close-iframe"> <i class="fas fa-times"></i> </div>
                 </div>
             </div>
 
