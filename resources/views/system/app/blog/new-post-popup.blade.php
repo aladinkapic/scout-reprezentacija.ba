@@ -32,21 +32,19 @@
                     {!! Form::file('image', ['class' => 'post-image', 'id' => 'post-image']) !!}
                 </div>
                 <div class="youtube-preview d-none">
-                    <iframe src="https://www.youtube.com/embed/IMf7qjzTPwQ" id="youtube-link-preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    <iframe src="" id="youtube-link-preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     <div class="close-iframe"> <i class="fas fa-times"></i> </div>
+                    {!! Form::hidden('youtubeLink', '', ['class' => 'youtubeLink', 'id' => 'youtubeLink']) !!}
                 </div>
             </div>
 
             <div class="b-np-pb-add-to-post">
                 <p> {{ __('Dodajte na objavu ..') }} </p>
                 <div class="b-np-pb-add-to-post-icon-wrapper">
-{{--                    <i class="fab fa-youtube" title="{{ __('Nova fotografija') }}"></i>--}}
                     <i class="fas fa-camera-retro new-photo-trigger" title="{{ __('Nova fotografija') }}"></i>
                 </div>
             </div>
-            <div class="b-np-pb-post b-np-pb-post-greyed">
-                <p> {{ __('Objavite') }} </p>
-            </div>
+            <button class="b-np-pb-post b-np-pb-post-greyed"> {{ __('Objavite') }} </button>
         </div>
     </div>
 </div>

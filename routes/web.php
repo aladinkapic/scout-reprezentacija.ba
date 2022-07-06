@@ -47,6 +47,14 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
     Route::get ('/home',                                 'HomeController@home')->name('system.home');
 
     /*
+     *  Blog posts
+     */
+
+    Route::group(['namespace' => 'BlogPosts', 'prefix' => '/blog-posts'], function(){
+        Route::post('/save',                             'BlogController@save')->name('system.blog-posts.save');
+    });
+
+    /*
      *  Users graphical interface
      */
     Route::group(['namespace' => 'Users', 'prefix' => '/users'], function(){

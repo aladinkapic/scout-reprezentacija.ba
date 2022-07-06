@@ -1,5 +1,5 @@
 .b-new-post-popup-wrapper{
-    position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1000;
+    position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1000; display: none;
 
     .b-np-popup{
         position: absolute; width: 500px; min-height: 420px; left: calc(50% - 250px); top: calc(50% - 210px); background: #fff; border-radius: 4px;
@@ -73,6 +73,13 @@
                     iframe{
                         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
                     }
+                    .close-iframe{
+                        position: absolute; right: 10px; top: 10px; width: 26px; height: 26px; border-radius: 50%; border:1px solid rgba(0,0,0,0.05); text-align: center; background: #fff; z-index: 100;
+                        i{
+                            padding-top: 3px; font-size: 14px;
+                        }
+                    }
+                    .close-iframe:hover{cursor:pointer;}
                 }
             }
             .b-np-pb-text::-webkit-scrollbar, .scroller  {
@@ -97,7 +104,8 @@
             }
             .b-np-pb-post{
                 position: relative; left:20px; width: calc(100% - 40px); height: 32px; background: #173668; border-radius:4px; margin-top:15px; text-align: center;
-                p{color:#fff; padding-top:3px;} margin-bottom: 20px;
+                margin-bottom: 20px; border:none; color:#fff;
+                p{color:#fff; padding-top:3px;}
             }
             .b-np-pb-post-greyed{
                 background: #636b6f;

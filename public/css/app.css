@@ -2161,6 +2161,7 @@ select::-ms-expand {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  display: none;
 }
 
 .b-new-post-popup-wrapper .b-np-popup {
@@ -2416,6 +2417,28 @@ select::-ms-expand {
   height: 100%;
 }
 
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .youtube-preview .close-iframe {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  background: #fff;
+  z-index: 100;
+}
+
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .youtube-preview .close-iframe i {
+  padding-top: 3px;
+  font-size: 14px;
+}
+
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .youtube-preview .close-iframe:hover {
+  cursor: pointer;
+}
+
 .b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text::-webkit-scrollbar,
 .b-new-post-popup-wrapper .b-np-popup .b-np-p-body .scroller {
   width: 4px;
@@ -2481,6 +2504,8 @@ select::-ms-expand {
   margin-top: 15px;
   text-align: center;
   margin-bottom: 20px;
+  border: none;
+  color: #fff;
 }
 
 .b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-post p {
@@ -2498,5 +2523,151 @@ select::-ms-expand {
 
 .b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-post-greyed:hover {
   cursor: no-drop;
+}
+
+.posts-wrapper {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  /* Single post preview */
+}
+
+.posts-wrapper .single-post {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  min-height: 128px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: center;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 20px;
+  padding-top: 5px;
+  /* Header: Image, title, date time + number of likes */
+  /* Iframe stylesheet */
+  /* Images stylesheet */
+}
+
+.posts-wrapper .single-post .sp-header {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: calc(100% - 0px);
+  height: 60px;
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.posts-wrapper .single-post .sp-header .sp-h-img-wrapper {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.posts-wrapper .single-post .sp-header .sp-h-img-wrapper img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  max-width: 100%;
+}
+
+.posts-wrapper .single-post .sp-header .sp-h-name-field {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: calc(100% - 60px);
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.posts-wrapper .single-post .sp-header .sp-h-name-field p {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.posts-wrapper .single-post .sp-header .sp-h-name-field span {
+  font-size: 14px;
+  margin-top: -2px;
+  padding: 0px;
+  display: block;
+}
+
+.posts-wrapper .single-post .sp-header .love-it {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  color: #bb2d3b;
+}
+
+.posts-wrapper .single-post .sp-header .love-it:hover {
+  cursor: pointer;
+}
+
+.posts-wrapper .single-post .sp-post {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.posts-wrapper .single-post .iframe-wrapper {
+  position: relative;
+  left: 0px;
+  width: calc(100% - 8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.posts-wrapper .single-post .iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.posts-wrapper .single-post .image-wrapper {
+  position: relative;
+  left: -13px;
+  top: 0px;
+  width: calc(100% + 32px);
+  height: 360px;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+}
+
+.posts-wrapper .single-post .image-wrapper img {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  margin: auto;
 }
 

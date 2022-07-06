@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Additional\Club;
 use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
+use App\Models\Blog\BlogPosts;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Players\PlayerRate;
@@ -91,5 +92,9 @@ class User extends Authenticatable
     }
     public function rateRelCount(){
         return $this->hasMany(PlayerRate::class, 'user_id', 'id')->count();
+    }
+
+    public function blogPosts(){
+        return $this->hasMany(BlogPosts::class, 'owner', 'id')->where('category', 0)->orderBy('id', 'DESC');
     }
 }
