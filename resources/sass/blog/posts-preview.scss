@@ -55,3 +55,13 @@
         }
     }
 }
+
+@media only screen and (max-width: 800px){
+    .posts-wrapper{
+        .single-post{
+            .image-wrapper{
+                height: auto; overflow: hidden; background: none;
+            }
+        }
+    }
+}

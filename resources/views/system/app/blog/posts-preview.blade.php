@@ -7,7 +7,7 @@
                 </div>
                 <div class="sp-h-name-field">
                     <p> {{ $loggedUser->name ?? '' }} </p>
-                    <span> {{ __('Objavljeno') }} prije 45 min </span>
+                    <span> {{ __('Objavljeno') }} {{ $post->createdAt() }} </span>
                 </div>
                 <div class="sp-icons">
                     <div class="sp-i-wrapper edit-blog-post" title="{{ __('Uredite post') }}" post-id="{{ $post->id }}">

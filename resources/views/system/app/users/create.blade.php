@@ -27,7 +27,7 @@
 
 
 @section('content')
-    <div class="content-wrapper p-3">
+    <div class="content-wrapper @if(isset($profile)) p-0 border-none @else p-3 @endif">
         <div class="row">
             <div class="col-md-12">
                 @if(isset($edit))

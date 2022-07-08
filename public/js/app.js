@@ -30463,8 +30463,7 @@ $(document).ready(function () {
   var setText = function setText() {
     var font = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 14;
     var popUp = $(".b-np-pb-text");
-    console.log("Font: " + font);
-    popUp.css('height', font === 14 ? '280px' : '140px');
+    if (window.innerWidth >= 800) popUp.css('height', font === 14 ? '280px' : '140px');
     $(".post-text").css('font-size', font + 'px');
     setPopupPosition();
   };

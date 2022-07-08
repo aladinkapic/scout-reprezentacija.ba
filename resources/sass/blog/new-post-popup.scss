@@ -6,7 +6,7 @@
         .b-np-p-header{
             position: relative; left:0px; top: 0px; width:100%; height:60px; border-bottom:1px solid rgba(0,0,0,0.1); display: inline-flex; justify-content: space-between;
             h4{
-                margin-left: 20px; padding-top: 15px; font-weight: bolder;
+                margin-left: 20px; padding-top: 18px; font-weight: bolder;
             }
             .b-np-ph-exit{
                 position: relative; width: 36px; height: 36px; border-radius: 50%; background: #F5F5F5; margin-top: 12px; margin-right: 20px; text-align: center;
@@ -112,6 +112,19 @@
             }
             .b-np-pb-post:hover{cursor:pointer;}
             .b-np-pb-post-greyed:hover{cursor: no-drop;}
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .b-new-post-popup-wrapper{
+        .b-np-popup{
+            left: 0px; top:0px; width: 100%; height: 100%;
+            .b-np-p-body{
+                .b-np-pb-text{
+                    height: calc(100% - 220px);
+                }
+            }
         }
     }
 }
