@@ -1,7 +1,11 @@
 @import "variables.scss";
+html{
+    position: relative; left: 0px; top:0px; width: 100%; height: 100%;
 
-body {
-    font-family: 'Nunito', sans-serif;
+    body {
+        position: relative; left: 0px; top: 0px; width: 100%; height: 100%;
+        font-family: 'Nunito', sans-serif;
+    }
 }
 .public-container{
     position: relative; left:calc(50% - 600px); width: $maxWidth; height: auto; min-height: 200px;
