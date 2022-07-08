@@ -19,10 +19,18 @@
                 p{margin:0px; font-weight: bold; font-size: 15px;}
                 span{font-size: 14px; margin-top:-2px; padding:0px; display: block;}
             }
-            .love-it{
-                position: absolute; right: 0px; top: 10px; color:#bb2d3b;
+            .sp-icons{
+                position: absolute; right: 0px; top:10px; width: 60px; height: 20px;
+                display: inline-flex; justify-content: flex-end;
+                .sp-i-wrapper{
+                    position: relative; width: 20px; height: 20px; margin-left: 10px;
+                    .fa-heart{color:#bb2d3b;}
+                    .fa-edit{color:#00AEEB;}
+                    i:hover{
+                        cursor:pointer;
+                    }
+                }
             }
-            .love-it:hover{cursor:pointer;}
         }
         .sp-post{
             position: relative; left:0px; top:0px; width: 100%; text-align: left; margin-bottom:15px;

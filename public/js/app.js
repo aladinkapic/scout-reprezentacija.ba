@@ -30327,6 +30327,8 @@ __webpack_require__(/*! ./layout/image-cropper */ "./resources/js/layout/image-c
 
 __webpack_require__(/*! ./blog/new-post */ "./resources/js/blog/new-post.js");
 
+__webpack_require__(/*! ./blog/get-data */ "./resources/js/blog/get-data.js");
+
 /***/ }),
 
 /***/ "./resources/js/app/users.js":
@@ -30424,6 +30426,17 @@ $(document).ready(function () {
     }
   });
 });
+
+/***/ }),
+
+/***/ "./resources/js/blog/get-data.js":
+/*!***************************************!*\
+  !*** ./resources/js/blog/get-data.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {});
 
 /***/ }),
 
@@ -30548,12 +30561,61 @@ $(document).ready(function () {
     $(".post-image").prop("value", "");
     if (postText.val() === '') $(".b-np-pb-post").addClass('b-np-pb-post-greyed');
     setText(20);
+    $("#edit_post_image").val('');
   });
   /* On change, preview image */
 
   $(".post-image").change(function (e) {
     $(".post-image-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
     $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
+  });
+  /* -------------------------------------------------------------------------------------------------------------- */
+
+  /*
+   *  Edit posts; Create new HTTP to fetch data from post
+   */
+
+  $(".edit-blog-post").click(function () {
+    var id = $(this).attr('post-id');
+    $("#edit_post_image").val(''); // Reset edit post image
+
+    $("#post_id").val(id);
+    $.ajax({
+      url: '/blog-posts/get-data',
+      method: 'POST',
+      dataType: "json",
+      data: {
+        id: id
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          /*
+           *  In form, set hidden input to true; Edit post
+           */
+          $("#edit_post").val(1);
+          $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
+          var data = response['data'];
+          var popUpWrapper = $(".b-new-post-popup-wrapper");
+          popUpWrapper.fadeIn();
+          $(".post-text").val(data['post']);
+
+          if (data['image'] !== '' && data['image'] !== null) {
+            $(".b-np-bp-image-preview").removeClass('d-none');
+            $(".post-image-preview").removeClass('d-none').attr('src', '/images/blog/' + data['image']);
+            $("#edit_post_image").val(data['image']);
+            setText(14);
+          } else if (data['youtube'] !== '' && data['youtube'] !== null) {
+            $(".youtube-preview").removeClass('d-none');
+            $("#youtube-link-preview").attr('src', data['youtube']);
+            $("#youtubeLink").val(data['youtube']);
+            setText(14);
+          }
+        }
+
+        console.log(response['data']);
+      }
+    });
+    console.log(id);
   });
 });
 

@@ -51,3 +51,4 @@ require('./layout/image-cropper');
 
 /* Blog functions */
 require('./blog/new-post');
+require('./blog/get-data');

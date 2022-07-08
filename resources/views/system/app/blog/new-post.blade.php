@@ -15,6 +15,4 @@
     </div>
 </div>
 
-{!! Form::open(array('route' => 'system.blog-posts.save', 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
-    @include('system.app.blog.new-post-popup')
-{!! Form::close(); !!}
+@include('system.app.blog.new-post-popup')

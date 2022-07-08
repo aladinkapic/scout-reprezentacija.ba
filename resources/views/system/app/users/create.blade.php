@@ -45,7 +45,15 @@
                     <div class="row">
                         <div class="@if(isset($profile)) col-md-9 @else col-md-12 @endif">
                             @if(isset($profile))
-                                @include('system.app.blog.new-post')
+                                {!! Form::open(array('route' => 'system.blog-posts.save', 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
+                                    {!! Form::hidden('category', '0', ['class' => 'form-control']) !!}
+
+                                    {!! Form::hidden('edit_post', '', ['class' => 'form-control', 'id' => 'edit_post']) !!}
+                                    {!! Form::hidden('edit_post_image', '', ['class' => 'form-control', 'id' => 'edit_post_image']) !!}
+                                    {!! Form::hidden('post_id', '', ['class' => 'form-control', 'id' => 'post_id']) !!}
+
+                                    @include('system.app.blog.new-post')
+                                {!! Form::close(); !!}
                                 <!-- Preview all created posts -->
                                 @include('system.app.blog.posts-preview')
                             @else

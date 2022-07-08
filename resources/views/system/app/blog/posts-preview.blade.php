@@ -9,8 +9,18 @@
                     <p> {{ $loggedUser->name ?? '' }} </p>
                     <span> {{ __('Objavljeno') }} prije 45 min </span>
                 </div>
-                <div class="love-it" title="{{ __('Ukupno ') . 15 . __(' sviđanja')}}">
-                    <i class="fas fa-heart"></i>
+                <div class="sp-icons">
+                    <div class="sp-i-wrapper edit-blog-post" title="{{ __('Uredite post') }}" post-id="{{ $post->id }}">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <a href="{{ route('system.blog-posts.delete', ['id' => $post->id]) }}">
+                        <div class="sp-i-wrapper" title="{{ __('Obrišite post') }}">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </a>
+                    <div class="sp-i-wrapper love-it" title="{{ __('Ukupno ') . 15 . __(' sviđanja')}}">
+                        <i class="fas fa-heart"></i>
+                    </div>
                 </div>
             </div>
             <div class="sp-post">
@@ -30,8 +40,6 @@
                     <img src="{{ asset('images/blog/' . $post->image ?? '') }}" alt="">
                 </div>
             @endif
-
-
         </div>
     @endforeach
 </div>

@@ -2609,14 +2609,32 @@ select::-ms-expand {
   display: block;
 }
 
-.posts-wrapper .single-post .sp-header .love-it {
+.posts-wrapper .single-post .sp-header .sp-icons {
   position: absolute;
   right: 0px;
   top: 10px;
+  width: 60px;
+  height: 20px;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper .fa-heart {
   color: #bb2d3b;
 }
 
-.posts-wrapper .single-post .sp-header .love-it:hover {
+.posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper .fa-edit {
+  color: #00AEEB;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper i:hover {
   cursor: pointer;
 }
 

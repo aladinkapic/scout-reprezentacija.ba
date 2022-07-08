@@ -52,6 +52,10 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
 
     Route::group(['namespace' => 'BlogPosts', 'prefix' => '/blog-posts'], function(){
         Route::post('/save',                             'BlogController@save')->name('system.blog-posts.save');
+
+        Route::post('/get-data',                         'BlogController@getData')->name('system.blog-posts.get-data');
+
+        Route::get('/delete/{id}',                       'BlogController@delete')->name('system.blog-posts.delete');
     });
 
     /*
