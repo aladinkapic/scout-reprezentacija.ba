@@ -1,72 +1,109 @@
 @import "../variables.scss";
 
+html{
+    scroll-behavior: smooth; position: relative; left:0px; top:0px; width: 100%; height: 100%;
+
+    ::-webkit-scrollbar, .scroller  {
+        width: 8px;
+        height:8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $primaryDark;
+        border-radius: 3px;
+    }
+}
+
 header {
-    height: 80px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $primaryDark;
-    z-index: 999;
-
-    .web-header {
-        width: $maxWidth;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .logo {
-            width: 240px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                width: 100%;
+    position: relative; left: 0px; top:0px; width: 100%; height: 60px; background: $primaryDark;
+    .menu-wrapper{
+        position: relative; left:calc(50% - 600px); width: $maxWidth; height: 60px; display: inline-flex; justify-content: space-between;
+        .mw-logo{
+            img{ margin-top:15px; height: 30px;}
+        }
+        .mobile-burger{
+            position: absolute; right: 0px; top:10px; width: 40px; height: 40px; text-align: right; display: none;
+            .fa-bars{
+                color:#fff !important; font-size: 30px; margin-top: 6px;
             }
         }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .nav-menu {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                column-gap: $gap;
-
-                .nav-item {
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: $white;
-                    text-decoration: none;
-                    transition: $transition;
-
-                    &:hover {
-                        color: $whiteHover;
-                    }
+        .mw-links{
+            position: relative; top:0px; width: calc(100% - 200px); height: 40px; margin-top:10px; display: inline-flex; justify-content: flex-end;
+            .single-link{
+                position: relative; height: 40px; margin-left: 30px; display: inline-flex;
+                a{
+                    color:#fff; text-decoration: none; padding-top: 8px;
                 }
             }
         }
     }
+}
 
-    @media screen and (max-width: $maxWidth) {
-        .web-header {
-            width: 95%;
-
-            .logo {
-                width: 180px;
+.mobile-menu{
+    position: fixed; right: 0px; top: 0px; width: calc(100% - 60px); height: calc(100% - 0px); background: #fff; z-index: 10000; display: none;
+    box-shadow: -8px 0px 20px 0px rgb(0 0 0 / 75%);
+    .mm-header{
+        position: relative; left: 20px; top: 0px; width: calc(100% - 40px); height: 60px; text-align: right;
+        i{
+            font-size: 30px; margin-top:15px;
+        }
+    }
+    .mm-body{
+        position: relative; left: 20px; width: calc(100% - 40px);
+        .single-link{
+            position: relative; height: 60px; margin-bottom: 2px;
+            a{
+                text-decoration: none; padding-top: 12px; width: 100%; display: block; color:#333; font-weight: bold;
+                font-size: 24px;
             }
+        }
+    }
+    .mm-footer{
+        position: absolute; left: 20px; bottom: 20px; width: calc(100% - 40px); height: 60px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center;
+        a{
+            text-decoration: none; padding-top: 20px; display: inline-block;
+            i{
+                font-size: 26px; margin-right: 15px; margin-left: 15px; color:#333; margin-top: 10px;
+            }
+        }
+    }
+}
 
-            nav {
-                .nav-menu {
-                    .nav-item {
-                        font-size: 13px;
-                    }
-                }
+
+@media only screen and (max-width: 1400px){
+    header {
+        .menu-wrapper{
+            width: 1200px; left: calc(50% - 600px);
+        }
+    }
+}
+@media only screen and (max-width: 1200px){
+    header {
+        .menu-wrapper{
+            left: 30px; width: calc(100% - 60px);
+        }
+    }
+}
+@media only screen and (max-width: 1000px){
+    header {
+        position: fixed; z-index: 1000;
+        .menu-wrapper{
+            left: 20px; width: calc(100% - 40px);
+            .mobile-burger{display: block;}
+            .mw-links{
+                display: none;
+                //position: absolute; right: -20px; top: 60px; margin:0px; width: calc(100% + 40px); height: 120px; background: #fff;
+                //flex-wrap: wrap;
+                //.single-link{
+                //    width: 100%; background: red; margin-left: 0px;
+                //    a{
+                //        color:#333; margin-left: 20px;
+                //    }
+                //}
             }
         }
     }

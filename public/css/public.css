@@ -12307,72 +12307,195 @@ fieldset:disabled .btn {
   }
 }
 
-header {
-  height: 80px;
-  width: 100%;
+html {
+  scroll-behavior: smooth;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #2A60B7;
-  z-index: 999;
-}
-
-header .web-header {
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .web-header .logo {
-  width: 240px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header .web-header .logo img {
+  left: 0px;
+  top: 0px;
   width: 100%;
+  height: 100%;
 }
 
-header .web-header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html ::-webkit-scrollbar,
+html .scroller {
+  width: 8px;
+  height: 8px;
 }
 
-header .web-header nav .nav-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+html ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-header .web-header nav .nav-menu .nav-item {
-  font-size: 16px;
-  font-weight: 600;
-  color: #eeeeee;
+html ::-webkit-scrollbar-thumb {
+  background-color: #142D56;
+  border-radius: 3px;
+}
+
+header {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  background: #142D56;
+}
+
+header .menu-wrapper {
+  position: relative;
+  left: calc(50% - 600px);
+  width: 1200px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+header .menu-wrapper .mw-logo img {
+  margin-top: 15px;
+  height: 30px;
+}
+
+header .menu-wrapper .mobile-burger {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  text-align: right;
+  display: none;
+}
+
+header .menu-wrapper .mobile-burger .fa-bars {
+  color: #fff !important;
+  font-size: 30px;
+  margin-top: 6px;
+}
+
+header .menu-wrapper .mw-links {
+  position: relative;
+  top: 0px;
+  width: calc(100% - 200px);
+  height: 40px;
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+header .menu-wrapper .mw-links .single-link {
+  position: relative;
+  height: 40px;
+  margin-left: 30px;
+  display: inline-flex;
+}
+
+header .menu-wrapper .mw-links .single-link a {
+  color: #fff;
   text-decoration: none;
-  transition: all 0.4s ease-in-out;
+  padding-top: 8px;
 }
 
-header .web-header nav .nav-menu .nav-item:hover {
-  color: #ffffff;
+.mobile-menu {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: calc(100% - 60px);
+  height: calc(100% - 0px);
+  background: #fff;
+  z-index: 10000;
+  display: none;
+  box-shadow: -8px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
-@media screen and (max-width: 1200px) {
-  header .web-header {
-    width: 95%;
+.mobile-menu .mm-header {
+  position: relative;
+  left: 20px;
+  top: 0px;
+  width: calc(100% - 40px);
+  height: 60px;
+  text-align: right;
+}
+
+.mobile-menu .mm-header i {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.mobile-menu .mm-body {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 40px);
+}
+
+.mobile-menu .mm-body .single-link {
+  position: relative;
+  height: 60px;
+  margin-bottom: 2px;
+}
+
+.mobile-menu .mm-body .single-link a {
+  text-decoration: none;
+  padding-top: 12px;
+  width: 100%;
+  display: block;
+  color: #333;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.mobile-menu .mm-footer {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  height: 60px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.mobile-menu .mm-footer a {
+  text-decoration: none;
+  padding-top: 20px;
+  display: inline-block;
+}
+
+.mobile-menu .mm-footer a i {
+  font-size: 26px;
+  margin-right: 15px;
+  margin-left: 15px;
+  color: #333;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 1400px) {
+  header .menu-wrapper {
+    width: 1200px;
+    left: calc(50% - 600px);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  header .menu-wrapper {
+    left: 30px;
+    width: calc(100% - 60px);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    position: fixed;
+    z-index: 1000;
   }
 
-  header .web-header .logo {
-    width: 180px;
+  header .menu-wrapper {
+    left: 20px;
+    width: calc(100% - 40px);
   }
 
-  header .web-header nav .nav-menu .nav-item {
-    font-size: 13px;
+  header .menu-wrapper .mobile-burger {
+    display: block;
+  }
+
+  header .menu-wrapper .mw-links {
+    display: none;
   }
 }
 
@@ -12941,7 +13064,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   position: relative;
   width: 100%;
   height: 3px;
-  background: #2A60B7;
+  background: #142D56;
   margin-top: 26px;
 }
 
@@ -13029,7 +13152,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 }
 
 .h-latest-news .h-ln-preview .h-lnp-rest h5 {
-  color: #2A60B7;
+  color: #142D56;
   font-size: 14px;
   margin-top: 10px;
 }
@@ -13058,7 +13181,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .h-latest-news .h-ln-preview:hover .h-lnp-img-part .h-lnp-published {
   cursor: pointer;
-  background: #2A60B7;
+  background: #142D56;
 }
 
 .h-latest-news .h-ln-preview:hover .h-lnp-img-part .h-lnp-published span {
@@ -13998,7 +14121,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .public-container .preview-wrapper .pw-right-header .social-networks i:hover,
 .public-container .preview-body-wrapper .pw-right-header .social-networks i:hover {
-  color: #2A60B7;
+  color: #142D56;
 }
 
 .public-container .preview-wrapper .pw-right-header .bottom-white,
@@ -14034,7 +14157,7 @@ header .web-header nav .nav-menu .nav-item:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #2A60B7;
+  background: #142D56;
   text-align: center;
 }
 
@@ -14081,7 +14204,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .active,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-buttons .active {
-  background: #2A60B7;
+  background: #142D56;
 }
 
 .public-container .preview-wrapper .pw-left .tb-row,
@@ -14155,7 +14278,7 @@ header .web-header nav .nav-menu .nav-item:hover {
 
 .public-container .preview-wrapper .pw-left .tb-row p a i:hover,
 .public-container .preview-body-wrapper .pw-left .tb-row p a i:hover {
-  color: #2A60B7;
+  color: #142D56;
 }
 
 .public-container .preview-wrapper .pw-left .tb-row p img,

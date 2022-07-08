@@ -28,6 +28,7 @@ require('../layout/snippets/submit');
 
 require('../app/users');
 
+require('./homepage/slider');
 /*
  *  Players data
  */

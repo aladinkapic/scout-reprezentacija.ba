@@ -35533,6 +35533,8 @@ __webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/p
 __webpack_require__(/*! ../layout/snippets/submit */ "./resources/js/layout/snippets/submit.js");
 
 __webpack_require__(/*! ../app/users */ "./resources/js/app/users.js");
+
+__webpack_require__(/*! ./homepage/slider */ "./resources/js/public/homepage/slider.js");
 /*
  *  Players data
  */
@@ -35545,6 +35547,44 @@ __webpack_require__(/*! ./players/search */ "./resources/js/public/players/searc
 __webpack_require__(/*! ./players/post-like */ "./resources/js/public/players/post-like.js");
 
 __webpack_require__(/*! ./players/player-rating */ "./resources/js/public/players/player-rating.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/homepage/slider.js":
+/*!************************************************!*\
+  !*** ./resources/js/public/homepage/slider.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.slide-nav').on('click', function (e) {
+  e.preventDefault(); // get current slide
+
+  var current = $('.slide-active').data('slide'),
+      // get button data-slide
+  next = $(this).data('slide');
+  $('.slide-nav').removeClass('active');
+  $(this).addClass('active');
+
+  if (current === next) {
+    return false;
+  } else {
+    $('.slider').find('.slider-item[data-slide=' + next + ']').addClass('slide-prestart');
+    $('.slide-active').addClass('animate-end');
+    setTimeout(function () {
+      $('.slide-prestart').removeClass('animate-start slide-prestart').addClass('slide-active');
+      $('.animate-end').addClass('animate-start').removeClass('animate-end slide-active');
+    }, 800);
+  }
+});
+$(document).ready(function () {
+  $(".mobile-burger").click(function () {
+    $(".mobile-menu").fadeIn();
+  });
+  $(".mm-header").click(function () {
+    $(".mobile-menu").fadeOut();
+  });
+});
 
 /***/ }),
 

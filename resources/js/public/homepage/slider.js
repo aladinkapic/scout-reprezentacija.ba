@@ -19,3 +19,13 @@ $('.slide-nav').on('click', function(e) {
     }, 800);
   }
 });
+
+
+$(document).ready(function () {
+    $(".mobile-burger").click(function () {
+        $(".mobile-menu").fadeIn();
+    });
+    $(".mm-header").click(function(){
+        $(".mobile-menu").fadeOut();
+    });
+});
