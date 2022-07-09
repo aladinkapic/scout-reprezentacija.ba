@@ -81,6 +81,9 @@ class User extends Authenticatable
     public function clubDataRel(){
         return $this->hasMany(ClubData::class, 'user_id', 'id')->orderBy('season', 'DESC');
     }
+    public function lastClub(){
+        return $this->hasOne(ClubData::class, 'user_id', 'id')->orderBy('season', 'DESC');
+    }
     public function natTeamDataRel(){
         return $this->hasMany(NatTeamData::class, 'user_id', 'id')->orderBy('season', 'DESC');
     }

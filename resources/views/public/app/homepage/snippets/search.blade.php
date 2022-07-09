@@ -47,19 +47,9 @@
                     <label for="position"> {{ __('Pozicija') }} </label>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            {!! Form::text('height', '', ['class' => 'form-control', 'id' => 'height', 'filter' => 'height', 'placeholder' => 'Visina (cm)', 'min' => '0', 'max' => '250', 'step' => '1']) !!}
-                            <label for="height"> {{ __('Visina (cm)') }} </label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 years_old_w">
-                        <div class="form-floating">
-                            {!! Form::text('years_old', '', ['class' => 'form-control', 'id' => 'years_old', 'filter' => 'years_old', 'placeholder' => 'Broj godina igrača', 'min' => '0', 'max' => '250', 'step' => '1']) !!}
-                            <label for="years_old"> {{ __('Starost igrača') }} </label>
-                        </div>
-                    </div>
+                <div class="form-floating mb-3">
+                    {!! Form::select('birth_year', $range, '', ['class' => 'form-control select-2', 'id' => 'birth_year', 'placeholder' => 'Godište igrača', 'filter' => 'birth_year']) !!}
+                    <label for="strongerLimb">{{ __('Godište igrača') }}</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -69,7 +59,7 @@
 
                 <div class="form-floating mb-3">
                     {!! Form::select('under_contract', ['' => 'Odaberite', 'Ne' => 'Ne', 'Da' => 'Da'], '', ['class' => 'form-control', 'id' => 'under_contract', 'filter' => 'under_contract']) !!}
-                    <label for="floatingSelect">Da li je igrač pod ugovorom?</label>
+                    <label for="floatingSelect">{{ __('Da li je igrač pod ugovorom?') }}</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -80,8 +70,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'filter' => 'natTeamDataRel.countryRel.title']) !!}
-                            <label for="floatingSelect">{{ __('Odaberi državu') }}</label>
+                            {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'filter' => 'citizenshipRel.title']) !!}
+                            <label for="floatingSelect">{{ __('Država boravišta') }}</label>
                         </div>
                     </div>
                     <div class="col-md-6">

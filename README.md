@@ -17,4 +17,4 @@ Full system requirements and / or documentation, can be downloaded from [here](h
 
 ### License
 
-This system is owned by Reprezentcija.BA and Alkaris d.o.o / CodeCollection.
+This system is owned by Reprezentcija.BA and Alkaris d.o.o.

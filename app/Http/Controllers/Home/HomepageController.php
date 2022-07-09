@@ -14,6 +14,12 @@ use App\Models\Additional\Club;
 class HomepageController extends Controller {
     protected $_path = 'public.app.';
 
+    public function getYearRange(){
+        $array = [];
+        for($i = date('Y'); $i > 1970; $i--) $array[$i] = $i;
+        return $array;
+    }
+
     public function home(){
 
         return view($this->_path.'home', [
@@ -24,7 +30,8 @@ class HomepageController extends Controller {
             'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend('Odaberite', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
 
-            'partners' => Partner::get()
+            'partners' => Partner::get(),
+            'range' => $this->getYearRange()
         ]);
     }
 

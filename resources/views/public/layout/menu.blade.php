@@ -12,13 +12,13 @@
 
         <div class="mw-links">
             <div class="single-link">
-                <a href=""> {{ __('Naslovna') }} </a>
+                <a href="{{ route('homepage') }}"> {{ __('Naslovna') }} </a>
             </div>
             <div class="single-link">
-                <a href=""> {{ __('Igrači') }} </a>
+                <a href="{{ route('home.players') }}"> {{ __('Igrači') }} </a>
             </div>
             <div class="single-link">
-                <a href=""> {{ __('Prijavite se') }} </a>
+                <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
             </div>
         </div>
     </div>
@@ -31,13 +31,13 @@
 
     <div class="mm-body">
         <div class="single-link">
-            <a href=""> {{ __('Naslovna') }} </a>
+            <a href="{{ route('homepage') }}"> {{ __('Naslovna') }} </a>
         </div>
         <div class="single-link">
-            <a href=""> {{ __('Igrači') }} </a>
+            <a href="{{ route('home.players') }}"> {{ __('Igrači') }} </a>
         </div>
         <div class="single-link">
-            <a href=""> {{ __('Prijavite se') }} </a>
+            <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
         </div>
     </div>
 

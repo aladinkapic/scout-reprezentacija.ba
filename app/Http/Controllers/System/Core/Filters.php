@@ -13,7 +13,7 @@ class Filters extends Controller{
         }return $date;
     }
 
-    private static $limit = 25;
+    private static $limit = 12;
 
     public static function filter($query, $frontRequest = NULL){
 

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Home\Players;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Home\HomepageController;
 use App\Http\Controllers\System\Core\Filters;
+use App\Models\Additional\Club;
+use App\Models\Core\Affiliation;
+use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -13,22 +17,37 @@ class PlayersController extends Controller{
     public function search(){
         $users = User::where('role', 1);
         $users = Filters::filter($users);
-        $filters = [
-            'name' => __('Ime i prezime'),
-            'sportRel.value' => __('Sport'),
-            'positionRel.value' => __('Pozicija'),
-            'height' => __('Visina'),
-            'years_old' => __('Starost'),
-            'strongerLimbRel.value' => __('Snažnija noga'),
-            'genderRel.value' => __('Spol'),
-            'under_contract' => __('Pod ugovorom'),
-            'natTeamDataRel.countryRel.title' => __('Državljanstvo'),
-            'clubDataRel.clubRel.title' => __('Klub')
-        ];
+
+        $positions = Keyword::where('keyword', 'position_futsal')->pluck('value', 'value');
+
+        $noPages  = (($users->total() / 12) === (int)($users->total() / 12)) ? ($users->total() / 12) : ((int)($users->total() / 12) + 1);
+        $nextPage = isset($_GET['page']) ? ($_GET['page'] + 1) : 2;
+        $nextPage = ($nextPage > $noPages) ? $nextPage = $noPages : $nextPage;
+
+        if(isset(\request()->filter)){
+            foreach (\request()->filter as $key => $val){
+                if($val == 'sportRel.value'){
+                    if(\request()->filter_values[$key] == 'Futsal'){
+                        $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
+                    }else{
+                        $positions = Keyword::where('keyword', 'position_futsal')->pluck('value', 'value');
+                    }
+                }
+            }
+        }
 
         return view($this->_path . 'search-results', [
-            'filters' => $filters,
-            'users' => $users
+            'users' => $users,
+
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
+            'range' => (new HomepageController())->getYearRange(),
+            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value'),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value'),
+            'positions' => $positions,
+            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title'),
+            'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', ''),
+            'noPages' => $noPages,
+            'nextPage' => $nextPage
         ]);
     }
     public function preview($id, $what = 'info'){

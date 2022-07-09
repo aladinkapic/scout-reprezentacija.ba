@@ -266,7 +266,7 @@ html{
                         }
                     }
                     .arrow-down{
-                        position: relative; width: 36px; height: 36px; border-radius: 50%; background: #2AA7B8; text-align: center; margin-top: 20px;
+                        position: relative; width: 36px; height: 36px; border-radius: 50%; background: #2AA7B8; text-align: center; margin-top: 20px; display: none;
                         i{
                             font-size: 20px; padding-top: 8px; color:#fff;
                         }
@@ -329,6 +329,7 @@ html{
                                 color:#142D56;
                             }
                         }
+                        .arrow-down{display: initial;}
                     }
                 }
             }

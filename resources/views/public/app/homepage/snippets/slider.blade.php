@@ -49,11 +49,11 @@
                     </div>
                 </div>
                 <div class="buttons-wrapper">
-                    <a href="">
+                    <a href="{{ route('auth.login') }}">
                         <button> PRIJAVITE SE </button>
                     </a>
                     <p>
-                        Nemate svoj profil? <a href="">Registrujte se!</a>
+                        Nemate svoj profil? <a href="{{ route('register') }}">Registrujte se!</a>
                     </p>
 
                     <div class="arrow-down">
