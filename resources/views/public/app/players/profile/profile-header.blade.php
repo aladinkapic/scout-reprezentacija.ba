@@ -9,7 +9,7 @@
             <div class="pw-right pw-right-header">
                 <h1> {{ $player->name ?? '' }} </h1>
                 <div class="social-networks">
-                    <p> {{ $player->living_place ?? '' }}, {{ $player->countryRel->title ?? '' }} </p>
+                    <p> {{ $player->living_place ?? '' }}, {{ ucwords(strtolower($player->citizenshipRel->title ?? '')) ?? '' }} </p>
                 </div>
                 <div class="bottom-white">
                     <div class="bw-title">

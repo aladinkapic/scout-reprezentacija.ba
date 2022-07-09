@@ -1,4 +1,4 @@
-<div class="search">
+<div class="search" id="search-home-players">
     <div class="search-wrapper">
         <div class="search-header">
             <div class="title">{{ __('Pretražite igrače') }}</div>

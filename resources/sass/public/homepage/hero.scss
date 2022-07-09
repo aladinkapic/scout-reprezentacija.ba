@@ -293,7 +293,7 @@ html{
 
 @media only screen and (max-width: 800px){
     .main-slider{
-        margin-top: 60px; height: calc(100% - 60px); background: none;
+        margin-top: 60px; height: calc(100% - 60px); background: none; border-bottom:1px solid rgba(0,0,0,0.1);
         .main-slider-wrapper{
             position: relative; background: none;
             .main-text{

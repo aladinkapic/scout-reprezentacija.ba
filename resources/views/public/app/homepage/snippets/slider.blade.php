@@ -56,8 +56,10 @@
                         Nemate svoj profil? <a href="{{ route('register') }}">Registrujte se!</a>
                     </p>
 
-                    <div class="arrow-down">
-                        <i class="fas fa-arrow-down"></i>
+                    <div class="arrow-down" id="arrow-down-trigger">
+                        <a href="#arrow-down-trigger">
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
                     </div>
                 </div>
             </div>
