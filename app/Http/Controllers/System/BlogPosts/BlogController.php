@@ -58,7 +58,7 @@ class BlogController extends Controller{
 
             $post = BlogPosts::create([
                 'category' => $request->category,
-                'owner' => Auth::id(),
+                'owner' => $request->owner,
                 'post' => $request->post,
                 'youtube' => $youtubeLink,
                 'image' => isset($name) ? $name : ''

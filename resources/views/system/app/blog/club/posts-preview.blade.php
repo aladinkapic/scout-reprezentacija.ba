@@ -3,10 +3,10 @@
         <div class="single-post">
             <div class="sp-header">
                 <div class="sp-h-img-wrapper">
-                    <img src="@if($loggedUser->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
+                    <img class="mp-club-image" src="@if($club->image != '') {{ asset('images/club-images/'.$club->image) }} @else {{ asset('images/club-images/blank.jpg') }} @endif " alt="">
                 </div>
                 <div class="sp-h-name-field">
-                    <p> {{ $loggedUser->name ?? '' }} </p>
+                    <p> {{ $club->title ?? '' }} </p>
                     <span> {{ __('Objavljeno') }} {{ $post->createdAt() }} </span>
                 </div>
                 <div class="sp-icons">

@@ -31,15 +31,26 @@
                     {!! Form::open(array('route' => 'system.additional.clubs.update', 'id' => 'js-form', 'method' => 'PUT')) !!}
                     {!! Form::hidden('id', $club->id ?? '', ['class' => 'form-control']) !!}
                 @elseif(isset($timeline))
-                    {!! Form::open(array('route' => 'system.additional.clubs.save-post', 'id' => 'js-form', 'method' => 'POST')) !!}
-                    {!! Form::hidden('id', $club->id ?? '', ['class' => 'form-control']) !!}
+{{--                    {!! Form::open(array('route' => 'system.additional.clubs.save-post', 'id' => 'js-form', 'method' => 'POST')) !!}--}}
+{{--                    {!! Form::hidden('id', $club->id ?? '', ['class' => 'form-control']) !!}--}}
                 @else
                     {!! Form::open(array('route' => 'system.additional.clubs.save', 'id' => 'js-form', 'method' => 'POST')) !!}
                 @endif
                     <div class="row">
                         <div class="@if(isset($timeline)) col-md-9 @else col-md-12 @endif">
                             @if(isset($timeline))
-                                @include('system.app.additional.clubs.snippets.timeline')
+                                {!! Form::open(array('route' => 'system.blog-posts.save', 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
+                                {!! Form::hidden('category', '1', ['class' => 'form-control']) !!}
+
+                                {!! Form::hidden('edit_post', '', ['class' => 'form-control', 'id' => 'edit_post']) !!}
+                                {!! Form::hidden('owner', $club->id, ['class' => 'form-control', 'id' => 'edit_post']) !!}
+                                {!! Form::hidden('edit_post_image', '', ['class' => 'form-control', 'id' => 'edit_post_image']) !!}
+                                {!! Form::hidden('post_id', '', ['class' => 'form-control', 'id' => 'post_id']) !!}
+
+                                @include('system.app.blog.club.new-post')
+                                {!! Form::close(); !!}
+                                <!-- Preview all created posts -->
+                                @include('system.app.blog.club.posts-preview', ['data' => $club->blogPosts])
                             @else
                                 <div class="row">
                                     <div class="col-md-6">
