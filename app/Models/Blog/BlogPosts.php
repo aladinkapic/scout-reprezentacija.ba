@@ -2,6 +2,8 @@
 
 namespace App\Models\Blog;
 
+use App\Models\Additional\Club;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,5 +21,10 @@ class BlogPosts extends Model{
             $date = Carbon::parse($this->created_at);
             return ($date->format('d')).'. '.self::$_months[$date->month - 1].' '.($date->format('Y')).' - '.($date->format('H:i')).'h';
         }catch (\Exception $e){}
+    }
+    public function ownerRel(){
+        if($this->category == 0){
+            return $this->hasOne(User::class, 'id', 'owner');
+        }else return $this->hasOne(Club::class, 'id', 'owner');
     }
 }

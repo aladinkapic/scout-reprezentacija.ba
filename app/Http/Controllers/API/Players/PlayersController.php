@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\API\Players;
 
 use App\Http\Controllers\Controller;
+use App\Models\Additional\Club;
+use App\Models\Blog\BlogPosts;
 use App\Models\Players\PlayerRate;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -39,5 +42,23 @@ class PlayersController extends Controller{
                 'total' => PlayerRate::where('user_id', $request->id)->count()
             ]);
         }catch (\Exception $e){ return $this::error('8001', $e->getMessage()); }
+    }
+    public function getImage(Request $request){
+        try{
+            $post = BlogPosts::find($request->id);
+
+            $owner = ($post->category == 0) ? User::find($post->owner)->name : Club::find($post->owner)->title;
+
+            $next = BlogPosts::where('id', '<', $post->id)->where('image', '!=', '')->where('owner', $post->owner)->orderBy('id', 'DESC')->first();
+            $previous = BlogPosts::where('id', '>', $post->id)->where('image', '!=', '')->where('owner', $post->owner)->orderBy('id', 'ASC')->first();
+
+            return $this::success("", [
+                'post' => $post,
+                'owner' => $owner,
+                'date' => $post->createdAt(),
+                'next' => $next->id ?? '',
+                'previous' => $previous->id ?? ''
+            ]);
+        }catch (\Exception $e){dd($e);}
     }
 }

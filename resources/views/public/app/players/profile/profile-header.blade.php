@@ -20,10 +20,10 @@
                     </div>
                     <div class="bw-buttons">
                         <a href="{{ route('home.players.preview', ['id' => $player->id, 'what' => 'timeline']) }}" title="{{ __('Timeline') }}">
-                            <div class="bw-b-button @if($what == 'timeline') active @endif"> <p>Timeline</p> </div>
+                            <div class="bw-b-button @if($what == 'timeline') active @endif"> <p> {{ __('Timeline') }} </p> </div>
                         </a>
                         <a href="{{ route('home.players.preview', ['id' => $player->id, 'what' => 'info']) }}" title="{{ __('Detaljne informacije o igraču') }}">
-                            <div class="bw-b-button @if($what == 'info') active @endif"> <p>Informacije</p> </div>
+                            <div class="bw-b-button @if($what == 'info') active @endif"> <p> {{ __('Statistika') }} </p> </div>
                         </a>
                     </div>
                 </div>

@@ -54,5 +54,9 @@ Route::group(['namespace' => 'API'], function (){
          *  Players API system
          */
         Route::post('/rate-player',              'PlayersController@rate')->name('api.players.players.rate');
+        /*
+         *  Get post image
+         */
+        Route::post('/get-image',               'PlayersController@getImage')->name('api.players.players.get-image');
     });
 });

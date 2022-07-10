@@ -56,3 +56,31 @@
         </div>
     @endforeach
 </div>
+
+<div class="image-preview d-none">
+    <div class="ip-post-preview">
+        <div class="upper-icons">
+            <div class="ui-icon-wrapper">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <img class="post-image-src" src="/images/blog/81299a99dca41ec9d03a0c3e12128820.jpeg" alt="">
+        </div>
+        <div class="post-details">
+            <h4 class="post-title">  </h4>
+            <p> <span class="post-date"></span> <i class="fas fa-clock"></i> </p>
+
+            <p class="description post-description">
+
+            </p>
+        </div>
+
+        <div class="arrow-icon-wrapper left-arrow-icon-wrapper" post-id="">
+            <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="arrow-icon-wrapper right-arrow-icon-wrapper" post-id="">
+            <i class="fas fa-angle-right"></i>
+        </div>
+    </div>
+</div>
