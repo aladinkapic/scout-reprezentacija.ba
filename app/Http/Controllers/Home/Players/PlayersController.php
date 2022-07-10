@@ -8,6 +8,7 @@ use App\Http\Controllers\System\Core\Filters;
 use App\Models\Additional\Club;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Keywords\Keyword;
+use App\Models\Players\PlayerRate;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -51,9 +52,14 @@ class PlayersController extends Controller{
         ]);
     }
     public function preview($id, $what = 'info'){
+        try{
+            $mainReview = (int) ( (PlayerRate::where('user_id', $id)->sum('rate')) / PlayerRate::where('user_id', $id)->count() );
+        }catch (\Exception $e){ $mainReview = 0;}
+
         return view($this->_path.'preview', [
             'player' => User::find($id),
-            'what' => $what
+            'what' => $what,
+            'mainReview' => $mainReview
         ]);
     }
 }

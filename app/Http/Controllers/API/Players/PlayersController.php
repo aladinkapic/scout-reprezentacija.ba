@@ -16,7 +16,7 @@ class PlayersController extends Controller{
      */
     public function saveRate(Request $request){
         try{
-            return PlayerRate::create(['user_id' => $request->id, 'ip' => $this::getIP(), 'rate' => $request->index * 2]);
+            return PlayerRate::create(['user_id' => $request->id, 'ip' => $this::getIP(), 'rate' => $request->index]);
         }catch (\Exception $e){ return false; }
     }
     public function getRate(Request $request){

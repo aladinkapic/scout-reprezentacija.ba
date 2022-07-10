@@ -33,30 +33,35 @@
             @if(($player->twitter ?? '') != '')
                 <a href="{{ $player->twitter ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
             @endif
+            @if(($player->youtube ?? '') != '')
+                <a href="{{ $player->youtube ?? '' }}" target="_blank"><i class="fab fa-youtube"></i></a>
+            @endif
             @if(($player->instagram ?? '') != '')
                 <a href="{{ $player->instagram ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
             @endif
         </p>
     </div>
 
-    <div class="tb-row pb-2 player-reviewed-wrapper" title="{{ __('Bazirano na ') }} {{ $player->rateRelCount() }} {{ __('ocjene/a!') }}">
-        <h6>{{ __('Ocjena publike') }}</h6>
-        <p class="text-muted player-reviewed">
-            @php $counter = 0; $mainReview = 7; @endphp
-            @for($i=1; $i<=(int)($mainReview) / 2; $i++)
-                <i class="fas fa-star yellow-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
-                @php $counter++; @endphp
-            @endfor
+    @if($player->allow_rating == 1)
+        <div class="tb-row pb-2 player-reviewed-wrapper" title="{{ __('Bazirano na ') }} {{ $player->rateRelCount() }} {{ __('ocjene/a!') }}">
+            <h6>{{ __('Ocjena publike') }}</h6>
+            <p class="text-muted player-reviewed">
+                @php $counter = 0; $mainCounter = 0;  @endphp
+                @for($i=1; $i<=(int)($mainReview) / 2; $i++)
+                    <i class="fas fa-star yellow-star star-trigger" star-index="{{ $mainCounter += 2 }}" player-id="{{ $player->id }}"></i>
+                    @php $counter++; @endphp
+                @endfor
             <!-- Check if odd or even -->
-            @if(($mainReview / 2) != (int)($mainReview / 2))
-                <i class="fas fa-star-half-alt yellow-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
-                @php $counter++; @endphp
-            @endif
-            @for($i=$counter; $i<5; $i++)
-                <i class="far fa-star star-trigger" star-index="{{ $counter + 1 }}" player-id="{{ $player->id }}"></i>
-            @endfor
+                @if(($mainReview / 2) != (int)($mainReview / 2))
+                    <i class="fas fa-star-half-alt yellow-star star-trigger" star-index="{{ $mainCounter += 2 }}" player-id="{{ $player->id }}"></i>
+                    @php $counter++; @endphp
+                @endif
+                @for($i=$counter; $i<5; $i++)
+                    <i class="far fa-star star-trigger" star-index="{{ $mainCounter += 2 }}" player-id="{{ $player->id }}"></i>
+                @endfor
 
-            <span class="fs-6 fw-normal">{{ $mainReview / 2 }} / 5</span>
-        </p>
-    </div>
+                <span class="fs-6 fw-normal">{{ $mainReview / 2 }} / 5</span>
+            </p>
+        </div>
+    @endif
 </div>

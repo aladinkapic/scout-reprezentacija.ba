@@ -40,9 +40,12 @@ class CreateUsersTable extends Migration
             $table->text('note')->nullable();
             $table->string('under_contract')->default('Ne')->nullable();
 
+            $table->integer('allow_rating')->default(0)->nullable();
+
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

@@ -24,11 +24,13 @@
                 display: inline-flex; justify-content: flex-end;
                 .sp-i-wrapper{
                     position: relative; width: 20px; height: 20px; margin-left: 10px;
-                    .fa-heart{color:#bb2d3b;}
                     .fa-edit{color:#00AEEB;}
                     i:hover{
                         cursor:pointer;
                     }
+                }
+                .loved-it{
+                    .fa-heart{color:#bb2d3b;}
                 }
             }
         }

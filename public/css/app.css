@@ -2639,16 +2639,16 @@ select::-ms-expand {
   margin-left: 10px;
 }
 
-.posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper .fa-heart {
-  color: #bb2d3b;
-}
-
 .posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper .fa-edit {
   color: #00AEEB;
 }
 
 .posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper i:hover {
   cursor: pointer;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .loved-it .fa-heart {
+  color: #bb2d3b;
 }
 
 .posts-wrapper .single-post .sp-post {

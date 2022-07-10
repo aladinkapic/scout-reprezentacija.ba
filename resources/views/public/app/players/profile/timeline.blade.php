@@ -31,7 +31,7 @@
                     <span> {{ __('Objavljeno') }} {{ $post->createdAt() }} </span>
                 </div>
                 <div class="sp-icons">
-                    <div class="sp-i-wrapper love-it" title="{{ __('Ukupno ') . 15 . __(' sviđanja')}}">
+                    <div class="sp-i-wrapper love-it-trigger @if($post->checkIfLiked()) loved-it @endif" post-id="{{ $post->id }}" title="{{ __('Ukupno ') }} {{ $post->likesRel->count() }} {{ __('sviđanja') }}">
                         <i class="fas fa-heart"></i>
                     </div>
                 </div>

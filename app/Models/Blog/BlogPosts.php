@@ -2,7 +2,9 @@
 
 namespace App\Models\Blog;
 
+use App\Http\Controllers\Controller;
 use App\Models\Additional\Club;
+use App\Models\Posts\PostLike;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +18,14 @@ class BlogPosts extends Model{
     protected $table = 'blog_posts';
     protected $guarded = ['id'];
 
+    public function checkIfLiked(){
+        try{
+            return PostLike::where('post_id', $this->id)->where('ip', Controller::getIP())->count();
+        }catch (\Exception $e){ return false; }
+    }
+    public function likesRel(){
+        return $this->hasMany(PostLike::class, 'post_id', 'id');
+    }
     public function createdAt(){
         try{
             $date = Carbon::parse($this->created_at);
