@@ -14,15 +14,17 @@
         </div>
     </div>
 
-    <div class="tb-row img-thumb-wrapper">
-        @foreach($player->blogPosts as $post)
-            @if(isset($post->image) and $post->image != '')
-                <div class="img-thumb" post-id="{{ $post->id }}">
-                    <img src="{{ asset('images/blog/' . $post->image ?? '') }}" alt="">
-                </div>
-            @endif
-        @endforeach
-    </div>
+    @if($what == 'timeline')
+        <div class="tb-row img-thumb-wrapper">
+            @foreach($player->blogPosts as $post)
+                @if(isset($post->image) and $post->image != '')
+                    <div class="img-thumb" post-id="{{ $post->id }}">
+                        <img src="{{ asset('images/blog/' . $post->image ?? '') }}" alt="">
+                    </div>
+                @endif
+            @endforeach
+        </div>
+    @endif
 
     <div class="tb-row">
         <h6>{{ __('Društvene mreže') }}</h6>
