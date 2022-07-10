@@ -35685,6 +35685,12 @@ $(document).ready(function () {
     $(this).find('i').toggleClass('fa-chevron-up');
     $(this).parent().parent().toggleClass('col-active');
   });
+  $(".sw-data").click(function () {
+    $(this).parent().find(".sw-data").addClass('sw-data-hidden');
+    $(this).parent().find(".fas").removeClass('fa-minus').addClass('fa-plus');
+    $(this).removeClass('sw-data-hidden');
+    $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
+  });
   /* Preview post images */
 
   var uri = '/api/players/get-image';

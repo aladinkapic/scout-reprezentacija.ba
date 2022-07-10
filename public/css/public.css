@@ -14667,6 +14667,157 @@ header .menu-wrapper .mw-links .single-link a {
   border: none;
 }
 
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .line,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .line {
+  position: absolute;
+  left: 14px;
+  width: 2px;
+  height: 100%;
+  background: grey;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper {
+  position: relative;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  background: #142D56;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper i,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper i {
+  color: #fff;
+  margin-top: 7px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p {
+  margin-left: 20px;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span {
+  font-weight: bold;
+  color: #142D56;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row {
+  position: relative;
+  margin-left: 50px;
+  width: calc(100% - 50px);
+  height: 36px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 36px;
+  height: 36px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img img,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row h5,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row h5 {
+  width: calc(100% - 80px);
+  padding-left: 10px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-total,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-total {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 36px;
+  height: 36px;
+  text-align: right;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-total p,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-total p {
+  font-weight: bold;
+  margin-top: 4px;
+  font-size: 18px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data:first-child .line,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data:first-child .line {
+  top: 14px;
+  height: calc(100% - 14px);
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data:last-child .line,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data:last-child .line {
+  height: calc(100% - 14px);
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data-hidden .sw-data-body,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data-hidden .sw-data-body {
+  height: 0px;
+  overflow: hidden;
+}
+
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .info-table-header,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-table-header {
   position: relative;

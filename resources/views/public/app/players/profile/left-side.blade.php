@@ -24,29 +24,29 @@
                 @endif
             @endforeach
         </div>
+
+        <div class="tb-row">
+            <h6>{{ __('Društvene mreže') }}</h6>
+            <p>
+                @if(($player->facebook ?? '') != '')
+                    <a href="{{ $player->facebook ?? '' }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                @endif
+                @if(($player->twitter ?? '') != '')
+                    <a href="{{ $player->twitter ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                @endif
+                @if(($player->youtube ?? '') != '')
+                    <a href="{{ $player->youtube ?? '' }}" target="_blank"><i class="fab fa-youtube"></i></a>
+                @endif
+                @if(($player->instagram ?? '') != '')
+                    <a href="{{ $player->instagram ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                @endif
+            </p>
+        </div>
     @endif
 
-    <div class="tb-row">
-        <h6>{{ __('Društvene mreže') }}</h6>
-        <p>
-            @if(($player->facebook ?? '') != '')
-                <a href="{{ $player->facebook ?? '' }}" target="_blank"><i class="fab fa-facebook"></i></a>
-            @endif
-            @if(($player->twitter ?? '') != '')
-                <a href="{{ $player->twitter ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
-            @endif
-            @if(($player->youtube ?? '') != '')
-                <a href="{{ $player->youtube ?? '' }}" target="_blank"><i class="fab fa-youtube"></i></a>
-            @endif
-            @if(($player->instagram ?? '') != '')
-                <a href="{{ $player->instagram ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
-            @endif
-        </p>
-    </div>
-
-    @if($player->allow_rating == 1)
+    @if($player->allow_rating == 1 and $what == 'info')
         <div class="tb-row pb-2 player-reviewed-wrapper" title="{{ __('Bazirano na ') }} {{ $player->rateRelCount() }} {{ __('ocjene/a!') }}">
-            <h6>{{ __('Ocjena publike') }}</h6>
+            <h6>{{ __('Ocijenite igrača') }}</h6>
             <p class="text-muted player-reviewed">
                 @php $counter = 0; $mainCounter = 0;  @endphp
                 @for($i=1; $i<=(int)($mainReview) / 2; $i++)

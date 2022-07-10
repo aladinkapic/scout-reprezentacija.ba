@@ -126,6 +126,62 @@
                     }
                     .ih-element:last-child{border: none;}
                 }
+
+                .statistics-wrapper{
+                    position: relative; left:0px; top:0px; width: 100%; display: inline-flex; justify-content: space-between; flex-wrap: wrap;
+                    .sw-data{
+                        position: relative; left:0px; top:0px; width: 100%;
+                        .line{
+                            position: absolute; left: 14px; width: 2px; height: 100%; background: grey;
+                        }
+                        .sw-data-row{
+                            position: relative; left:0px; top:0px; width: 100%; height: 50px; display: inline-flex; justify-content: flex-start;
+                            .sw-dr-icon-wrapper{
+                                position: relative; top:10px; width: 30px; height: 30px; background: #142D56; border-radius:50%; text-align:center;
+                                i{color:#fff; margin-top: 7px;}
+                            }
+                            p{
+                                margin-left: 20px; font-size: 20px; padding-top: 10px;
+                                span{font-weight: bold; color:#142D56;}
+                            }
+                        }
+                        .sw-data-body{
+                            position: relative; left:0px; top:0px; width: 100%;
+                            .sw-db-row{
+                                position: relative; margin-left: 50px; width: calc(100% - 50px); height: 36px; display: inline-flex; justify-content: space-between;
+                                .sw-dbr-img{
+                                    position: relative; left:0px; top:0px; width: 36px; height: 36px;
+                                    img{
+                                        position: absolute; left:0px; top:0px; right: 0px; bottom: 0px; max-width: 50%; max-height: 50%; margin:auto;
+                                    }
+                                }
+                                h5{
+                                    width: calc(100% - 80px); padding-left: 10px; margin-top: 8px; font-weight: bold; font-size: 18px;
+                                }
+                                .sw-dbr-total{
+                                    position: relative; left:0px; top:0px; width: 36px; height: 36px; text-align: right;
+                                    p{
+                                        font-weight: bold; margin-top: 4px; font-size: 18px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .sw-data:first-child{
+                        .line{
+                            top: 14px; height: calc(100% - 14px);
+                        }
+                    }
+                    .sw-data:last-child{
+                        .line{height: calc(100% - 14px);}
+                    }
+                    .sw-data-hidden{
+                        .sw-data-body{
+                            height: 0px; overflow: hidden;
+                        }
+                    }
+                }
+
                 .info-table-header{
                     position: relative; left:0px; top:0px; width: 100%; height: 30px; background: rgba(0,0,0,0.03); display: inline-flex; justify-content: space-between;
                     .season{width: 120px; text-align: center;}
@@ -326,6 +382,7 @@
                         .asist, .goals{display: none;}
                         .more{width: 80px;}
                     }
+
                     .more-info{
                         padding-left: 5px;
                         .d-hidden{display: block;}
