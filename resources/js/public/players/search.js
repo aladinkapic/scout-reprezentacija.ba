@@ -154,6 +154,8 @@ $(document).ready(function() {
         let id           = $(this).attr('id');
         let value        = $(this).attr('value');
 
+        localStorage.removeItem("checkbox-values");
+
         $(".check-wrapper").each(function () {
             $(this).find(".check-place").empty();
             $(this).find(".check-place").css("background", "#fff");

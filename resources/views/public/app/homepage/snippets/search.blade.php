@@ -38,6 +38,11 @@
                 </div>
 
                 <div class="form-floating mb-3">
+                    {!! Form::select('gender', $gender, '', ['class' => 'form-control', 'id' => 'gender', 'filter' => 'genderRel.value']) !!}
+                    <label for="gender">{{ __('Spol') }}</label>
+                </div>
+
+                <div class="form-floating mb-3">
                     {!! Form::text('name', '', ['class' => 'form-control', 'id' => 'name', 'filter' => 'name', 'placeholder' => 'Ime i prezime']) !!}
                     <label for="name"> {{ __('Ime ili prezime') }} </label>
                 </div>
@@ -60,11 +65,6 @@
                 <div class="form-floating mb-3">
                     {!! Form::select('under_contract', ['' => 'Odaberite', 'Ne' => 'Ne', 'Da' => 'Da'], '', ['class' => 'form-control', 'id' => 'under_contract', 'filter' => 'under_contract']) !!}
                     <label for="floatingSelect">{{ __('Da li je igrač pod ugovorom?') }}</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    {!! Form::select('gender', $gender, '', ['class' => 'form-control', 'id' => 'gender', 'filter' => 'genderRel.value']) !!}
-                    <label for="gender">{{ __('Spol igrača') }}</label>
                 </div>
 
                 <div class="row">

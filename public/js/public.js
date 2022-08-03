@@ -35896,6 +35896,7 @@ $(document).ready(function () {
     var custom_value = $(this).attr('custom_value');
     var id = $(this).attr('id');
     var value = $(this).attr('value');
+    localStorage.removeItem("checkbox-values");
     $(".check-wrapper").each(function () {
       $(this).find(".check-place").empty();
       $(this).find(".check-place").css("background", "#fff");

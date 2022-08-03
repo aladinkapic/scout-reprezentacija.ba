@@ -53,7 +53,7 @@
                         <button> PRIJAVITE SE </button>
                     </a>
                     <p>
-                        Nemate svoj profil? <a href="{{ route('register') }}">Registrujte se!</a>
+                        Niste registrovani? <a href="{{ route('register') }}">Kreirajte svoj profil!</a>
                     </p>
 
                     <div class="arrow-down" id="arrow-down-trigger">
@@ -69,7 +69,7 @@
 
 
 <script>
-    typing_effect(['selektorima', 'klubovima', 'agentima', 'medijima'], ['#2AA7B8']);
+    // typing_effect(['selektorima', 'klubovima', 'agentima', 'medijima'], ['#2AA7B8']);
 
     function typing_effect(words, colors) {
         if(window.innerWidth >= 800) return;
