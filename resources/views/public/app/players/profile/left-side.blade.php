@@ -12,6 +12,14 @@
             <p class="key"><span>{{ __('Pozicija') }}</span></p>
             <p class="value"> {{ $player->positionRel->value ?? '' }} </p>
         </div>
+        <div class="tb-row-col-flex">
+            <p class="key"><span>{{ __('Visina') }}</span></p>
+            <p class="value"> {{ $player->height ?? '' }} {{ __('cm') }} </p>
+        </div>
+        <div class="tb-row-col-flex">
+            <p class="key"><span>{{ __('Datum rođenja') }}</span></p>
+            <p class="value"> {{ $player->birtDate() ?? '' }} </p>
+        </div>
     </div>
 
     @if($what == 'timeline')
@@ -26,7 +34,7 @@
         </div>
 
         <div class="tb-row">
-            <h6>{{ __('Društvene mreže') }}</h6>
+            <h6><b>{{ __('Društvene mreže') }}</b></h6>
             <p>
                 @if(($player->facebook ?? '') != '')
                     <a href="{{ $player->facebook ?? '' }}" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -41,6 +49,19 @@
                     <a href="{{ $player->instagram ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
                 @endif
             </p>
+        </div>
+
+        <div class="custom-buttons">
+            <div class="button bg-danger">
+                <a href = "mailto: press@reprezentacija.ba">
+                    <small> {{ __('Prijavi netačne podatke') }} </small>
+                </a>
+            </div>
+            <div class="button bg-info">
+                <a href="{{ route('register') }}">
+                    <small> {{ __('Kreiraj profil') }} </small>
+                </a>
+            </div>
         </div>
     @endif
 

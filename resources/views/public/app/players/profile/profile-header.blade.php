@@ -7,9 +7,14 @@
                 </div>
             </div>
             <div class="pw-right pw-right-header">
-                <h1> {{ $player->name ?? '' }} </h1>
+                <h1> <b> {{ $player->name ?? '' }} </b> </h1>
                 <div class="social-networks">
-                    <p> {{ $player->living_place ?? '' }}, {{ ucwords(strtolower($player->citizenshipRel->title ?? '')) ?? '' }} </p>
+                    @if($player->under_contract == 'Da')
+                        <h5 class="mt-2 text-info fw-bold"> {{ $player->lastClub->clubRel->title ?? '' }} </h5>
+                    @else
+                        <p class="mt-2 text-danger fw-bold"> {{ __('Igrač trenutno nije pod ugovorom') }} </p>
+                    @endif
+                    <p class="m-0 fw-bold"> {{ $player->living_place ?? '' }}, {{ ucwords(strtolower($player->citizenshipRel->title ?? '')) ?? '' }} </p>
                 </div>
                 <div class="bottom-white">
                     <div class="bw-title">

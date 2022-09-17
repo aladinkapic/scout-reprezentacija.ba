@@ -60,6 +60,36 @@
                     </div>
                 </div>
             </a>
+            <a href="#" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <p>{{__('Citati korisnika')}}</p>
+                        <div class="extra-elements">
+                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="inside-links active-links">
+                        <a href="{{route('system.additional.quote.index')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p>{{__('Pregled svih citata')}}</p>
+                            </div>
+                        </a>
+                        <a href="{{route('system.additional.quote.create')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Unos novog')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </a>
         @else
             <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">

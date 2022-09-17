@@ -94,10 +94,10 @@
     }
 
     .container-r-header{
-        flex-wrap: wrap; justify-content: flex-end;
+        flex-wrap: wrap; justify-content: flex-end; margin: 0px !important;
         .crh-line{margin-top:0px;}
         h2{
-            margin-top:20px; font-size: 20px;
+            margin-top:20px; font-size: 28px;
         }
     }
 }

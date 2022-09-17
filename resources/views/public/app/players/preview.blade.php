@@ -5,7 +5,7 @@
     <!-- Profile Header -->
     @include('public.app.players.profile.profile-header')
 
-    <div class="public-container">
+    <div class="public-container public-container-margin-zero">
         <div class="preview-body-wrapper">
             @include('public.app.players.profile.left-side')
             <div class="pw-right pw-right-body">

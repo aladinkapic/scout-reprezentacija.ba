@@ -30275,6 +30275,7 @@ $(document).ready(function () {
   var positionsUri = '/api/keywords/get-positions';
   $(".pick-a-sport").change(function () {
     var value = $(this).val();
+    console.log(value);
     $.ajax({
       url: positionsUri,
       method: "post",
@@ -30291,6 +30292,14 @@ $(document).ready(function () {
               text: item
             }));
           });
+
+          if (value === 'Futsal') {
+            $(".soccer-field").addClass('d-none');
+            $(".futsal-field").removeClass('d-none');
+          } else {
+            $(".futsal-field").addClass('d-none');
+            $(".soccer-field").removeClass('d-none');
+          }
         } else {
           notify.Me([response['message'], "warn"]);
         }
@@ -30298,6 +30307,22 @@ $(document).ready(function () {
         console.log(response);
       }
     });
+  });
+  /* Mark picked positions - Interaction with field */
+
+  $(".position").click(function () {
+    $(".position").removeClass('active');
+    $('[value="' + $(this).attr('value') + '"]').addClass('active'); // $(this).addClass('active');
+
+    $(".picked-position option").prop("selected", false);
+    $('.picked-position option[value="' + $(this).attr('value') + '"]').prop("selected", "selected");
+  });
+  /* Reverse field interaction */
+
+  $(".picked-position").change(function () {
+    console.log($(this).val());
+    $(".position").removeClass('active');
+    $('[value="' + $(this).val() + '"]').addClass('active');
   });
 });
 

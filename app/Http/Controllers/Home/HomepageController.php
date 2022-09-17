@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
 use App\Models\Additional\Partner;
+use App\Models\Additional\Quote;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class HomepageController extends Controller {
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
 
             'partners' => Partner::get(),
-            'range' => $this->getYearRange()
+            'range' => $this->getYearRange(),
+            'quotes' => Quote::inRandomOrder()->get()->take(2)
         ]);
     }
 

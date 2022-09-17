@@ -84,7 +84,7 @@
 {{--</div>--}}
 
 
-<div class="public-container">
+<div class="public-container public-container-margin-zero">
     <div class="container-r-header">
         <div class="crh-line"></div>
         <h2> {{__('POSLJEDNJE NOVOSTI')}} </h2>

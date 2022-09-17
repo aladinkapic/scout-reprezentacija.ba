@@ -2556,7 +2556,7 @@ select::-ms-expand {
   min-height: 128px;
   border-radius: 4px;
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-top: 15px;
   padding-left: 15px;
@@ -2658,6 +2658,7 @@ select::-ms-expand {
   width: 100%;
   text-align: left;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .posts-wrapper .single-post .iframe-wrapper {

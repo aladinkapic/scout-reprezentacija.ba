@@ -1,0 +1,50 @@
+.home-quotes{
+    position: relative; left: 0px; top:0px; width: 100%;
+
+    .hq-wrapper{
+        position: relative; left: calc(50% - 600px); width: 1200px; display: inline-flex; justify-content: space-between;
+        min-height: 60px; margin-top: 50px;
+
+        .hq-quote{
+            position: relative; left: 0px; top:0px; width: calc(50% - 15px); border:1px solid rgba(0,0,0,0.1); display: inline-flex; justify-content: space-between; padding:15px;
+            .hq-q-img{
+                position: relative; left:0px; width: 100px; border-radius: 4px; overflow: hidden;
+                img{
+                    position: relative; left: 0px; width: 100%;
+                }
+            }
+            .hq-q-text{
+                position: relative; left: 0px; top: 0px; width: calc(100% - 130px);
+                p{
+                    font-size: 15px; text-align: justify; margin: 0px;
+                }
+                footer{
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1200px){
+        .hq-wrapper{
+            left: 50px; width: calc(100% - 100px);
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .hq-wrapper{
+            left: 20px; width: calc(100% - 40px);
+            .hq-quote{
+                width: 100%;
+                .hq-q-img{
+                    width: 60px; display: none;
+                }
+                .hq-q-text{
+                    width: calc(100% - 0px);
+                }
+            }
+            .hq-quote:last-child{display: none;}
+
+            margin-bottom: -20px;
+        }
+    }
+}

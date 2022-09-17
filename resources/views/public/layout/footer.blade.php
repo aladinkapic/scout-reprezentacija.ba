@@ -44,6 +44,6 @@
             <li class="list-inline-item"><a href="#"><small>Pretražite</small></a></li>
             <li class="list-inline-item"><a href="#"><small>O nama</small></a></li>
         </ul>
-        <p class="copyright">Created by <a href="https://alkaris.com" target="_blank" class="text-info text-decoration-none"> <b>Alkaris d.o.o</b> </a></p>
+        <p class="copyright">Crafter with <i class="fas fa-heart text-danger"></i> by <a href="https://alkaris.com" class="text-info text-decoration-none"> <b>Alkaris d.o.o</b> </a></p>
     </footer>
 </div>

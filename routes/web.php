@@ -149,6 +149,16 @@ Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthe
             Route::post('/save',                             'PartnersController@save')->name('system.additional.partners.save');
             Route::get ('/delete/{id}',                      'PartnersController@delete')->name('system.additional.partners.delete');
         });
+
+        /*
+         *  Quote data
+         */
+        Route::group(['prefix' => '/quotes', 'middleware' => 'isRoot'], function(){
+            Route::get ('/',                                 'QuoteController@index')->name('system.additional.quote.index');
+            Route::get ('/create',                           'QuoteController@create')->name('system.additional.quote.create');
+            Route::post('/save',                             'QuoteController@save')->name('system.additional.quote.save');
+            Route::get ('/delete/{id}',                      'QuoteController@delete')->name('system.additional.quote.delete');
+        });
     });
     /*
      *  Those are core routes for keywords
