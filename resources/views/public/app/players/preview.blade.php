@@ -1,5 +1,11 @@
 @extends('public.layout.layout')
 
+@section('page_title') {{ $player->name ?? '' }} @endsection
+@section('seo_title'){{ $player->name ?? '' }}@endsection
+@section('seo_uri'){{ route("home.players.preview", ["id" => $player->id, "what" => "timeline"]) }}@endsection
+@section('seo_description'){{ __('Pratite i Vi ' . ($player->name ?? '') . ' na Scout.Reprezentacija.BA!' ) }}@endsection
+@section('seo_image'){{ asset(($player->image != '') ? ('images/profile-images/'.$player->image ?? '') : ('images/user.png')) }}@endsection
+
 @section('content')
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <!-- Profile Header -->

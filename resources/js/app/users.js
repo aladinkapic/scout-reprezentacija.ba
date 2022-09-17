@@ -28,6 +28,8 @@ $(document).ready(function () {
                         $(".futsal-field").addClass('d-none');
                         $(".soccer-field").removeClass('d-none');
                     }
+
+                    $(".position").removeClass('active');
                 }else{
                     notify.Me([response['message'], "warn"]);
                 }
@@ -50,7 +52,6 @@ $(document).ready(function () {
 
     /* Reverse field interaction */
     $(".picked-position").change(function () {
-        console.log($(this).val());
 
         $(".position").removeClass('active');
         $('[value="' + $(this).val() + '"]').addClass('active');

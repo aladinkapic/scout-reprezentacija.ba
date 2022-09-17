@@ -9,6 +9,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- First content sentence -->
+    <meta name="description" content="@yield('seo_description', 'Scout.Reprezentacija.BA Vam predstavlja igrače iz Bosne i Hercegovine i ...')">
+    <!-- Current URI -->
+    <link rel="canonical" href="@yield('seo_uri', 'https://scout.reprezentacija.ba/')">
+
+    <meta property="fb:app_id" content="1747958558874326"/>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta property="og:url" content="@yield('seo_uri', 'https://scout.reprezentacija.ba/')">
+    <meta property="og:title" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta property="og:description" content="@yield('seo_description', 'Scout.Reprezentacija.BA Vam predstavlja igrače iz Bosne i Hercegovine i ...')">
+    <meta property="og:image" content="@yield('seo_image', asset('images/hero/hero-wallpaper.jpg'))">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@scout-reprezentacija-ba">
+    <meta name="twitter:title" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta name="twitter:description" content="@yield('seo_description', 'Scout.Reprezentacija.BA Vam predstavlja igrače iz Bosne i Hercegovine i ...')">
+    <meta name="twitter:image" content="@yield('seo_image', asset('images/hero/hero-wallpaper.jpg'))">
 </head>
 <body>
     @include('public.layout.menu')

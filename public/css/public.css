@@ -14465,6 +14465,49 @@ header .menu-wrapper .mw-links .single-link a {
   height: 260px;
 }
 
+.public-container .preview-wrapper .share-on-social-networks,
+.public-container .preview-body-wrapper .share-on-social-networks {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  width: 200px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.public-container .preview-wrapper .share-on-social-networks .sos-wrapper,
+.public-container .preview-body-wrapper .share-on-social-networks .sos-wrapper {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-left: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.public-container .preview-wrapper .share-on-social-networks .sos-wrapper i,
+.public-container .preview-body-wrapper .share-on-social-networks .sos-wrapper i {
+  font-size: 18px;
+  padding-top: 4px;
+}
+
+.public-container .preview-wrapper .share-on-social-networks .sos-wrapper .fa-facebook,
+.public-container .preview-body-wrapper .share-on-social-networks .sos-wrapper .fa-facebook {
+  color: #4267B2;
+}
+
+.public-container .preview-wrapper .share-on-social-networks .sos-wrapper .fa-twitter,
+.public-container .preview-body-wrapper .share-on-social-networks .sos-wrapper .fa-twitter {
+  color: #1DA1F2;
+}
+
+.public-container .preview-wrapper .share-on-social-networks .sos-wrapper:hover,
+.public-container .preview-body-wrapper .share-on-social-networks .sos-wrapper:hover {
+  cursor: pointer;
+  background: #fff;
+}
+
 .public-container .preview-wrapper .pw-right-header h1,
 .public-container .preview-body-wrapper .pw-right-header h1 {
   color: #333;

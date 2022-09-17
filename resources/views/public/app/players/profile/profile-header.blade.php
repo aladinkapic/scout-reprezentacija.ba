@@ -33,6 +33,14 @@
                     </div>
                 </div>
             </div>
+            <div class="share-on-social-networks">
+                <div class="sos-wrapper" title="Podijelite na Facebook-u" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ route("home.players.preview", ["id" => $player->id, "what" => "timeline"]) }}', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <div class="sos-wrapper" title="Podijelite na Twitter-u" onclick="window.open('https://twitter.com/intent/tweet?url={{ route("home.players.preview", ["id" => $player->id, "what" => "timeline"]) }}', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
         </div>
     </div>
 </div>
