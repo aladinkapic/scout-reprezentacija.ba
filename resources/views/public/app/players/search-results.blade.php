@@ -1,9 +1,10 @@
 @extends('public.layout.layout')
 
+@section('title') {{ __('Pretraga igrača na Scout.Reprezentacija.BA') }} @endsection
+
 @section('content')
 
     @include('public.app.players.snippets.search')
-
 
     <div class="public-container players-list">
         @foreach($users as $user)

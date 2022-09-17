@@ -1,5 +1,6 @@
 @extends('public.layout.layout')
 
+@section('title') {{ $player->name ?? '' }} @endsection
 @section('page_title') {{ $player->name ?? '' }} @endsection
 @section('seo_title'){{ $player->name ?? '' }}@endsection
 @section('seo_uri'){{ route("home.players.preview", ["id" => $player->id, "what" => "timeline"]) }}@endsection
