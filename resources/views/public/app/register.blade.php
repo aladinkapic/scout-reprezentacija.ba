@@ -8,7 +8,7 @@
             bosanski, engleski, njemački, talijanski, francuski, švedski...
         </div>
         <form class="search-form" id="js-form" method="POST"
-              action={{ "http://" . env('API_LINK') . "/api/users/create-profile" }}>
+              action={{ env('API_LINK') . "/api/users/create-profile" }}>
             @csrf
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Npr. Edin Džeko">

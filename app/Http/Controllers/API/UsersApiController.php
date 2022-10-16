@@ -18,6 +18,8 @@ class UsersApiController extends Controller{
             $request['api_token'] = hash('sha256', 'root'. '+'. time());
             $request['active'] = 0;
 
+            dd($request->all());
+
             $user = User::create($request->all());
             /*
              *  Send emails; ToDo - Add admin emails!
