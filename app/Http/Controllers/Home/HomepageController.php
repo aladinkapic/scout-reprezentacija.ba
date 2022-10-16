@@ -38,10 +38,16 @@ class HomepageController extends Controller {
     }
 
     public function register(){
+
+        $countries = Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id');
+
+        $citizenship = $countries->prepend('')->prepend('Odaberite državljanstvo', '');
+
         return view($this->_path.'register', [
-            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'countries' => $countries->prepend('Odaberite državu stanovanja', ''),
             'clubs' => Club::pluck('title', 'id')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite državu', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'citizenship' => $citizenship
         ]);
     }
 

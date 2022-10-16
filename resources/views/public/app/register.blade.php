@@ -56,14 +56,20 @@
                     Grad u kojem živiš
                 </label>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 pt-0">
                 {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country']) !!}
+                <label for="name">
+                    Država u kojoj stanuješ
+                </label>
             </div>
             <div class="form-floating mb-3">
-                {!! Form::select('citizenship', $countries, '', ['class' => 'form-control select-2', 'id' => 'citizenship']) !!}
+                {!! Form::select('citizenship', $citizenship, '', ['class' => 'form-control select-2', 'id' => 'citizenship']) !!}
+                <label for="name">
+                    Državavljanstvo
+                </label>
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                <textarea class="form-control" id="note" name="note" rows="3" placeholder="Dodatne napomene" style="height: 120px;"></textarea>
             </div>
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary" type="submit">Kreiraj svoj profil</button>
