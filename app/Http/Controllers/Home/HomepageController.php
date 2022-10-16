@@ -41,13 +41,11 @@ class HomepageController extends Controller {
 
         $countries = Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id');
 
-        $citizenship = $countries->prepend('')->prepend('Odaberite državljanstvo', '');
-
         return view($this->_path.'register', [
-            'countries' => $countries->prepend('Odaberite državu stanovanja', ''),
+            'countries' => $countries,
             'clubs' => Club::pluck('title', 'id')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
             'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
-            'citizenship' => $citizenship
+            'citizenship' => $countries
         ]);
     }
 
