@@ -33,6 +33,6 @@ class UsersApiController extends Controller{
                 __('Vaš zahtjev za kreiranje profila na portalu scout.reprezentacija.ba uspješno kreiran. Skauti Reprezentacija.ba će provjeriti ove podatke, te će Vas kontaktirati ukoliko ispunjavate kriterije.!'),
                 $user
             );
-        }catch (\Exception $e){ return $this::apiSuccess('5000', __('Desila se greška, molimo kontaktirajte administratore!'), '');}
+        }catch (\Exception $e){ return $this::apiSuccess(__('Desila se greška, molimo kontaktirajte administratore!'), '');}
     }
 }
