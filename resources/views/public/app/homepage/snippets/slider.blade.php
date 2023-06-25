@@ -53,7 +53,7 @@
                         <button> PRIJAVITE SE </button>
                     </a>
                     <p>
-                        Niste registrovani? <a href="{{ route('register') }}">Kreirajte svoj profil!</a>
+                        Niste registrovani? <a href="{{ route('auth.create-profile') }}">Kreirajte svoj profil!</a>
                     </p>
 
                     <div class="arrow-down" id="arrow-down-trigger">

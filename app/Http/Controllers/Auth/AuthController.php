@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Core\Affiliation;
+use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,5 +41,15 @@ class AuthController extends Controller{
     public function logout(){
         Auth::logout();
         return redirect()->route('auth.login');
+    }
+
+    /*
+     *  Create new profile (new users)
+     */
+    public function createProfile(){
+        return view($this->_path.'create-profile', [
+            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title')->prepend('Odaberite državu', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Odaberite sport', '')
+        ]);
     }
 }

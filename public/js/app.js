@@ -30451,6 +30451,14 @@ $(document).ready(function () {
       if ($(".auth-btn").length) signMeIn();
     }
   });
+  /* Create new profile */
+
+  var step = 0;
+  $(".create-profile-btn").click(function () {
+    if (step === 0) {
+      step++;
+    }
+  });
 });
 
 /***/ }),
@@ -40295,9 +40303,9 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! E:\Web apps\scout.reprezentacija.ba\resources\sass\public\app.scss */"./resources/sass/public/app.scss");
+__webpack_require__(/*! F:\webApps\scout.reprezentacija.ba\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! F:\webApps\scout.reprezentacija.ba\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! F:\webApps\scout.reprezentacija.ba\resources\sass\public\app.scss */"./resources/sass/public/app.scss");
 
 
 /***/ })

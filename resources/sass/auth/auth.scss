@@ -1,15 +1,18 @@
 html, body{ position: relative; left:0px; top:0px; width: 100%; height: 100%; margin:0px; padding:0px; }
 .auth-form{
     position: relative; left:0px; top:0px; width: 100%; height: 100%; display: inline-flex; justify-content: space-between;
+    padding: 0px;
 
     /*
      *  Auth form image - left part of page
      */
 
     .af-image{
-        position: relative; left:0px; top:0px; width: 30%; height: 100%; background: $bColor;
+        position: absolute; left:0px; top:0px; width: 30%; height: 100%; background: $bColor; margin: 0px;
         img{
-            position: absolute; left:0px; top:0px; right:0px; bottom: 0px; margin:auto;
+            position: absolute; left:0px; top:0px; right:0px; bottom: 0px; margin:auto; max-height: 80%;
+
+
         }
     }
 
@@ -17,7 +20,7 @@ html, body{ position: relative; left:0px; top:0px; width: 100%; height: 100%; ma
      *  Auth form form - input elements for authentication
      */
     .af-form{
-        position: relative; left:0px; top:0px; width: 70%; height: 100%; display: inline-flex; align-items: center;
+        position: relative; left:30%; top:0px; width: 70%; height: 100%; display: inline-flex; align-items: center;
 
         .aff-container{
             position: relative; display: inline-flex; flex-wrap: wrap; left:120px; width: calc(100% - 240px);

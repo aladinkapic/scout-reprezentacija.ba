@@ -23,7 +23,7 @@ header {
     .menu-wrapper{
         position: relative; left:calc(50% - 600px); width: $maxWidth; height: 60px; display: inline-flex; justify-content: space-between;
         .mw-logo{
-            img{ margin-top:15px; height: 30px;}
+            img{ margin-top:16px; height: 28px;}
         }
         .mobile-burger{
             position: absolute; right: 0px; top:10px; width: 40px; height: 40px; text-align: right; display: none;
@@ -44,31 +44,85 @@ header {
 }
 
 .mobile-menu{
-    position: fixed; right: 0px; top: 0px; width: calc(100% - 60px); height: calc(100% - 0px); background: #fff; z-index: 10000; display: none;
+    position: fixed; right: 0px; top: 0px; width: calc(100% - 40px); height: calc(100% - 0px); background: #fff; z-index: 10000; display: none;
     box-shadow: -8px 0px 20px 0px rgb(0 0 0 / 75%);
     .mm-header{
-        position: relative; left: 20px; top: 0px; width: calc(100% - 40px); height: 60px; text-align: right;
+        position: relative; left: 35px; top: 0px; width: calc(100% - 70px); height: 100px; text-align: right;
         i{
-            font-size: 30px; margin-top:15px;
+            font-size: 30px; margin-top:30px;
+        }
+
+        .mm-social-networks{
+            position: absolute; left: 0px; bottom: 0px; height: 30px; display: inline-flex; justify-content: left;
+
+            a{
+                color:grey; text-decoration: none;
+                svg{
+                    margin-top: 4px;
+                }
+            }
+
+            .vertical-line{position: relative; width: 1px; height: 100%; background: grey; margin: 0px 10px; }
         }
     }
     .mm-body{
-        position: relative; left: 20px; width: calc(100% - 40px);
+        //position: relative; left: 20px; width: calc(100% - 40px);
+        //.single-link{
+        //    position: relative; height: 60px; margin-bottom: 2px;
+        //    a{
+        //        text-decoration: none; padding-top: 12px; width: 100%; display: block; color:#333; font-weight: bold;
+        //        font-size: 24px;
+        //    }
+        //}
+
+        position: absolute; left: 35px; top: 150px; width: calc(100% - 70px); height: calc(100% - 260px); overflow: auto;
+
         .single-link{
-            position: relative; height: 60px; margin-bottom: 2px;
+            position: relative; left: 0px; top: 0px; width: 100%; height: 70px;
             a{
-                text-decoration: none; padding-top: 12px; width: 100%; display: block; color:#333; font-weight: bold;
-                font-size: 24px;
+                text-decoration: none;
+                p{font-size:35px; color:grey; font-weight: bold; }
+            }
+        }
+
+        .rest-of-links{
+            position: relative; left: 0px; top: 0px; width: 100%; height: auto; margin-bottom: 20px;
+            a{
+                text-decoration: none;
+                .rol-link{
+                    position: relative; width: 100%; height: 40px;
+                    .rol-l-line{
+                        position: absolute;
+                        left: 20px;
+                        top: 0px;
+                        height: 100%;
+                        width: 1px;
+                        background: #EFEFEF;
+                        .rol-l-l-circle{
+                            position: absolute;
+                            left: -3px;
+                            width: 7px;
+                            height: 7px;
+                            top: calc(50% - 3px);
+                            background: #EFEFEF;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    p{
+                        font-size: 20px;
+                        margin-left: 36px;
+                        padding-top: 7px;
+                        color:grey;
+                    }
+                }
             }
         }
     }
     .mm-footer{
-        position: absolute; left: 20px; bottom: 20px; width: calc(100% - 40px); height: 60px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center;
-        a{
-            text-decoration: none; padding-top: 20px; display: inline-block;
-            i{
-                font-size: 26px; margin-right: 15px; margin-left: 15px; color:#333; margin-top: 10px;
-            }
+        position: absolute; left: 35px; bottom: 0px; width: calc(100% - 70px); height: 60px;
+        p{
+            color: #000000; font-weight: bold;
         }
     }
 }

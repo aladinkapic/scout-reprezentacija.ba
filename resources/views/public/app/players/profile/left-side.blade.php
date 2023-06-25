@@ -52,14 +52,14 @@
         </div>
 
         <div class="custom-buttons">
-            <div class="button bg-danger">
-                <a href = "mailto: press@reprezentacija.ba">
-                    <small> {{ __('Prijavi netačne podatke') }} </small>
-                </a>
-            </div>
-            <div class="button bg-info">
-                <a href="{{ route('register') }}">
-                    <small> {{ __('Kreiraj profil') }} </small>
+{{--            <div class="button bg-danger">--}}
+{{--                <a >--}}
+{{--                    <small> {{ __('Prijavi netačne podatke') }} </small>--}}
+{{--                </a>--}}
+{{--            </div>--}}
+            <div class="button">
+                <a href="{{ route('register') }}" title="{{ __('Kreirajte Vaš profil na scout.reprezentacija.ba!') }}">
+                    <small> {{ __('Kreirajte svoj profil') }} </small>
                 </a>
             </div>
         </div>

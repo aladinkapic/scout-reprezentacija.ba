@@ -47,9 +47,18 @@
 }
 
 .footer-basic .social > a:hover {
-    opacity:0.9;
+    opacity:1;
+    transition: all 0.2s;
+    border:1px solid #F6C500;
 }
 
+.footer-basic .social a svg{
+    margin-top: -4px;
+}
+.footer-basic .social a:hover svg{
+    transition: all 0.2s;
+    color:#F6C500;
+}
 .footer-basic .copyright {
     margin-top:15px;
     text-align:center;

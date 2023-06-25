@@ -49,4 +49,16 @@ $( document ).ready(function() {
     });
 
 
+
+    /* Create new profile */
+
+    let step = 0;
+
+    $(".create-profile-btn").click(function () {
+        if(step === 0){
+            step ++;
+
+
+        }
+    });
 });

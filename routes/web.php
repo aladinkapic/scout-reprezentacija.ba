@@ -31,6 +31,10 @@ Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
 Route::group(['namespace' => 'Auth', 'prefix' => '/'], function(){
     Route::get ('/login-page',                           'AuthController@login')->name('auth.login');
     Route::post('/log-me-in',                            'AuthController@logMeIn')->name('auth.logMeIn');
+    /*
+     *  Register new user
+     */
+    Route::get ('/create-profile',                       'AuthController@createProfile')->name('auth.create-profile');
 
     /*
      *  Logout
