@@ -19,6 +19,7 @@ class KeywordsController extends Controller{
         'gender' => 'Spol',
         // 'active' => 'Status'
         'nat_team' => 'Tim reprezentacija',
+        'phone_prefixes' => 'Pozivni brojevi telefona',
     ];
 
     public function index(){

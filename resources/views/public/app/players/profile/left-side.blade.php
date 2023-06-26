@@ -58,7 +58,7 @@
 {{--                </a>--}}
 {{--            </div>--}}
             <div class="button">
-                <a href="{{ route('register') }}" title="{{ __('Kreirajte Vaš profil na scout.reprezentacija.ba!') }}">
+                <a href="{{ route('auth.create-profile') }}" title="{{ __('Kreirajte Vaš profil na scout.reprezentacija.ba!') }}">
                     <small> {{ __('Kreirajte svoj profil') }} </small>
                 </a>
             </div>

@@ -30453,11 +30453,127 @@ $(document).ready(function () {
   });
   /* Create new profile */
 
-  var step = 0;
-  $(".create-profile-btn").click(function () {
-    if (step === 0) {
-      step++;
+  var step = 1;
+
+  var progressElements = function progressElements() {
+    $(".rf-body-element").addClass('d-none');
+    $(".rf-body-element-" + step).removeClass('d-none');
+    step === 1 ? $(".create-profile-back-btn").addClass('d-none') : $(".create-profile-back-btn").removeClass('d-none');
+
+    if (step === 2) {
+      $(".pl-e-bar-fill").css('width', '37.5%');
+    } else if (step === 3) {
+      $(".pl-e-bar-fill").css('width', '62.5%');
+    } else if (step === 4) {
+      $(".pl-e-bar-fill").css('width', '87.5%');
+      $(".button-wrapper").addClass('d-none');
+    } else if (step === 1) {
+      $(".pl-e-bar-fill").css('width', '12.5%');
     }
+  };
+
+  $(".create-profile-next-btn").click(function () {
+    if (step === 1) {
+      if ($("#name").val() === '') {
+        notify.Me(["Ime i prezime ne mogu biti prazni", "warn"]);
+        return;
+      }
+
+      if (!validator.email($("#email").val())) {
+        notify.Me(["Molimo da unesete validnu email adresu !", "warn"]);
+        return;
+      }
+
+      if ($("#phone").val() === '') {
+        notify.Me(["Unesite Vaš broj telefona", "warn"]);
+        return;
+      }
+
+      if (!validator.date($("#birth_date").val())) {
+        notify.Me(["Molimo da odaberete datum Vašeg rođenja. Ispravan format je dd.mm.YYYY ", "warn"]);
+        return;
+      }
+
+      if ($("#gender").val() === '') {
+        notify.Me(["Molimo da odaberete Vaš spol", "warn"]);
+        return;
+      }
+    } else if (step === 2) {
+      if ($("#address").val() === '') {
+        notify.Me(["Molimo da unesete Vašu adresu stanovanja", "warn"]);
+        return;
+      }
+
+      if ($("#living_place").val() === '') {
+        notify.Me(["Molimo unesite grad u kojem živite", "warn"]);
+        return;
+      }
+
+      if ($("#country").val() === '') {
+        notify.Me(["Molimo da odaberete državu u kojoj trenutno živite", "warn"]);
+        return;
+      }
+
+      if ($("#citizenship").val() === '') {
+        notify.Me(["Molimo da odaberete Vaše državljanstvo", "warn"]);
+        return;
+      }
+    } else if (step === 3) {
+      if ($("#sport").val() === '') {
+        notify.Me(["Molimo da odaberete sport kojim se bavite", "warn"]);
+        return;
+      }
+
+      if ($("#club").val() === '') {
+        notify.Me(["Molimo da unesete klub za koji igrate", "warn"]);
+        return;
+      }
+      /* Process request */
+
+
+      $(".pl-e-bar-fill").css('width', '87.5%');
+      $(".loading-gif").removeClass('d-none');
+      $.ajax({
+        url: '/api/users/create-profile',
+        method: 'POST',
+        dataType: "json",
+        data: {
+          name: $("#name").val(),
+          email: $("#email").val(),
+          phone: $("#prefix").val() + $("#phone").val(),
+          birth_date: $("#birth_date").val(),
+          gender: $("#gender").val(),
+          address: $("#address").val(),
+          living_place: $("#living_place").val(),
+          country: $("#country").val(),
+          citizenship: $("#citizenship").val(),
+          citizenship_2: $("#citizenship_2").val(),
+          sport: $("#sport").val(),
+          club: $("#club").val(),
+          note: $("#note").val()
+        },
+        success: function success(response) {
+          $(".loading-gif").addClass('d-none');
+          var code = response['code'];
+
+          if (code === '0000') {
+            step++;
+            progressElements();
+          } else {
+            notify.Me([response['message'], "warn"]);
+          }
+
+          console.log(response);
+        }
+      });
+    }
+
+    if (step < 3) step++;
+    progressElements();
+  });
+  $(".create-profile-back-btn").click(function () {
+    if (step > 1) step--;
+    progressElements();
   });
 });
 

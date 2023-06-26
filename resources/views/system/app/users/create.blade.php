@@ -213,6 +213,17 @@
                                 </div>
 
                                 @if($loggedUser->role == 0 and !isset($profile))
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="init_club"> <b>{{ __('Klub za koji igra') }}</b> </label>
+                                                {!! Form::text('role', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                                <small id="init_clubHelp" class="form-text text-muted"> {{ __('Inicijalni klub za koji igrač igra') }} </small>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -230,17 +241,15 @@
                                         </div>
                                     </div>
 
-                                    @if(isset($preview))
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="note"> <b>{{ __('Napomena') }}</b> </label>
-                                                    {!! Form::textarea('note', $user->note ?? '', ['class' => 'form-control', 'id' => 'note', 'style' => 'height:120px !important', 'aria-describedby' => 'noteHelp', 'readonly']) !!}
-                                                    <small id="noteHelp" class="form-text text-muted"> {{ __('Vidljivo samo administratorima sistema') }} </small>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="note"> <b>{{ __('Napomena') }}</b> </label>
+                                                {!! Form::textarea('note', $user->note ?? '', ['class' => 'form-control', 'id' => 'note', 'style' => 'height:120px !important', 'aria-describedby' => 'noteHelp', 'readonly']) !!}
+                                                <small id="noteHelp" class="form-text text-muted"> {{ __('Vidljivo samo administratorima sistema') }} </small>
                                             </div>
                                         </div>
-                                    @endif
+                                    </div>
                                 @endif
 
                                 @if(!isset($preview))

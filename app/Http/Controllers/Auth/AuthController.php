@@ -48,8 +48,10 @@ class AuthController extends Controller{
      */
     public function createProfile(){
         return view($this->_path.'create-profile', [
-            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title')->prepend('Odaberite državu', ''),
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Odaberite sport', '')
+            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite spol', ''),
+            'phone_prefixes' => Keyword::where('keyword', 'phone_prefixes')->orderBy('value')->get()->pluck('value', 'value'),
         ]);
     }
 }

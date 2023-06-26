@@ -1,3 +1,9 @@
+.loading-gif{
+    position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(255,255,255,0.3); z-index: 100;
+    img{
+        position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; margin: auto;
+    }
+}
 .register-form{
     position: relative; left:0px; top:0px; width: 100%; height: 100%; display: inline-flex; justify-content: space-between;
     padding: 0px; margin: 0px;
@@ -27,14 +33,16 @@
 
                 .progress-line{
                     position: relative; left: 0px; top:0px; width: 100%; height: 50px; display: inline-flex; justify-content: space-between;
+                    .pl-e-bar{
+                        position: absolute; left: 0px; height: 6px; top: 22px; width: 100%; background: #EFEFEF;
+                        .pl-e-bar-fill{
+                            position: absolute; left: 0px; top: 0px; height: 100%; background: #173668; transition: all 0.2s; transition-timing-function: linear;
+                            width: 12.5%;
+                        }
+                    }
+
                     .pl-element{
                         position: relative; width: 33.33%; height: 50px; display: inline-flex; justify-content: center;
-                        .pl-e-bar{
-                            position: absolute; left: 0px; height: 6px; top: 22px; width: 100%; background: #EFEFEF;
-                            .pl-e-bar-fill{
-                                position: absolute; left: 0px; top: 0px; width: 0%; height: 100%; background: #173668;
-                            }
-                        }
                         .pl-e-icon-w{
                             position: relative; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #173668; margin-top: 8px; text-align: center; background: #173668;
                             i{
@@ -43,12 +51,20 @@
                         }
                     }
 
-                    .pl-e-first{
-                        .pl-e-bar{
-                            .pl-e-bar-fill{width: 50%;}
-                        }
-                    }
+                    //.pl-e-first{
+                    //    .pl-e-bar{
+                    //        .pl-e-bar-fill{width: 50%;}
+                    //    }
+                    //}
                 }
+                //.pl-1{
+                //    .pl-e-first{ .pl-e-bar{ .pl-e-bar-fill{ width: 100%; } } }
+                //    .pl-e-second{ .pl-e-bar{ .pl-e-bar-fill{ transition-delay: 0.2s; width: 50%; } } }
+                //}
+                //.pl-1{
+                //    .pl-e-second{ .pl-e-bar{ .pl-e-bar-fill{ transition-delay: 0s; width: 100%; } } }
+                //    .pl-e-second{ .pl-e-bar{ .pl-e-bar-fill{ transition-delay: 0.2s; width: 50%; } } }
+                //}
             }
 
             .rf-f-body{
@@ -67,7 +83,18 @@
                 .button-wrapper{
                     background: #173668; color:#ffffff; padding-left: 20px; padding-right: 20px; padding-top: 3px; padding-bottom: 4px; border-radius: 4px; font-size: 15px;
                 }
+                .create-profile-back-btn{ margin-right: 20px; }
                 .button-wrapper:hover{cursor: pointer;}
+
+                .success-icon-wrapper{
+                    position: relative; left: 0px; width: 100%; display: inline-flex; justify-content: center;
+                    .success-icon{
+                        width: 80px; height: 80px; text-align: center; border-radius: 50%; background: #20c997;
+                        i{
+                            font-size: 30px; color: #ffffff; padding-top: 25px;
+                        }
+                    }
+                }
             }
         }
     }

@@ -18,7 +18,11 @@
                 <a href="{{ route('home.players') }}"> {{ __('Igrači') }} </a>
             </div>
             <div class="single-link">
-                <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
+                @if(auth())
+                    <a href="{{ route('system.users.profile') }}"> {{ auth()->user()->name ?? '' }} </a>
+                @else
+                    <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
+                @endif
             </div>
         </div>
     </div>

@@ -46,19 +46,19 @@ class UsersController extends Controller{
     public function data($action = 'create', $id = null){
         if(isset($id)){
             $user = User::find($id);
-            if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
-            else if($user->sport == 4) $position = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
-            else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+            if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite', '');
+            else if($user->sport == 4) $position = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id')->prepend('Odaberite', '');
+            else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite', '');
         }else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
 
         return view($this->_path . 'create', [
             $action => true,
             'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id'),
-            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite', ''),
             'position' => $position,
-            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id'),
-            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id'),
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id')->prepend('Odaberite', ''),
             'user' => isset($id) ? $user : null
         ]);
     }

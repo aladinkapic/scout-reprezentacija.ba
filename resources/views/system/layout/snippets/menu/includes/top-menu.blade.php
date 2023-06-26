@@ -20,15 +20,15 @@
 {{--                <div class="number-of"><p>3</p></div>--}}
 {{--            </div>--}}
 
-            <a href="#" target="_blank">
+            <a href="{{ route('homepage') }}">
                 <div class="single-li">
-                    <p> {{__('Additional link')}} </p>
+                    <p> {{__('Naslovna strana')}} </p>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="https://reprezentacija.ba" target="_blank">
                 <div class="single-li">
-                    <p> {{__('More links')}} </p>
+                    <p> {{__('Reprezentacija.BA')}} </p>
                 </div>
             </a>
         </div>

@@ -29,12 +29,15 @@ class CreateUsersTable extends Migration
             $table->integer('years_old')->nullable();
             $table->integer('birth_year')->nullable();
             $table->string('birth_place', 100)->nullable();
+            $table->string('address', 100)->nullable();
             $table->string('living_place', 100)->nullable();
             $table->integer('citizenship')->nullable();
+            $table->integer('citizenship_2')->nullable();
             $table->string('phone', 30)->nullable();
             $table->integer('gender')->nullable();
             $table->string('height')->nullable();
             $table->string('sport')->nullable();
+            $table->string('init_club')->nullable();
             $table->integer('position')->nullable();
             $table->integer('stronger_limb')->nullable();
             $table->text('note')->nullable();
