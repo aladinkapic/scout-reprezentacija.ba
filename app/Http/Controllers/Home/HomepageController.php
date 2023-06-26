@@ -11,9 +11,11 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Models\Core\Affiliation;
 use App\Models\Additional\Club;
+use Illuminate\Support\Facades\Http;
 
 class HomepageController extends Controller {
     protected $_path = 'public.app.';
+    protected $_api_images = [];
 
     public function getYearRange(){
         $array = [];
@@ -22,6 +24,21 @@ class HomepageController extends Controller {
     }
 
     public function home(){
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/wp/v2/posts');
+        $apiData  = json_decode($response->getBody()->getContents());
+
+        $counter = 0;
+        foreach ($apiData as $data){
+            $imageResponse = $client->request('GET', $apiData[$counter]->_links->{'wp:featuredmedia'}[0]->href);
+            $data->image_url = json_decode($imageResponse->getBody()->getContents())->source_url;
+
+            $counter ++;
+
+            if($counter > 3) break;
+        }
+
+//        dd($apiData);
 
         return view($this->_path.'home', [
             'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title')->prepend('Odaberite državu', ''),
@@ -33,7 +50,8 @@ class HomepageController extends Controller {
 
             'partners' => Partner::get(),
             'range' => $this->getYearRange(),
-            'quotes' => Quote::inRandomOrder()->get()->take(2)
+            'quotes' => Quote::inRandomOrder()->get()->take(2),
+            'apiData' => $apiData
         ]);
     }
 

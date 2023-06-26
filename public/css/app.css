@@ -490,6 +490,45 @@ body {
   padding-top: 25px;
 }
 
+@media only screen and (max-width: 1500px) {
+  .register-form .rf-form .center-element .rf-f-header,
+  .register-form .rf-form .center-element .rf-f-body {
+    left: 50px;
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .register-form .rf-image {
+    display: none;
+  }
+
+  .register-form .rf-form {
+    left: 0px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .register-form .rf-form {
+    align-items: start;
+  }
+
+  .register-form .rf-form .center-element .rf-f-header {
+    margin-top: 30px;
+  }
+
+  .register-form .rf-form .center-element .rf-f-header,
+  .register-form .rf-form .center-element .rf-f-body {
+    left: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .register-form .rf-form .center-element .rf-f-body {
+    margin-bottom: 30px;
+  }
+}
+
 /*
  *  System layout
  */

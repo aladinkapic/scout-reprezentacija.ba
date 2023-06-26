@@ -94,11 +94,10 @@
     <div class="m-container m-container-f h-latest-news">
 
         <!-- Img should be 450x300px -->
-
         @for($i=0; $i<3; $i++)
             <div class="h-ln-preview t-3">
                 <div class="h-lnp-img-part">
-                    <img src="https://media.reprezentacija.ba/2022/06/finska-bih-10-1500x1000.jpg" alt="">
+                    <img src="{{ $apiData[$i]->image_url }}" alt="">
                     <div class="h-lnp-published t-3" title="Objavljeno 17. Marta 2021 godine">
                         <span class="s-digit t-3"> 12 </span>
                         <div class="h-lnp-p-line t-3"></div>
@@ -106,10 +105,10 @@
                     </div>
                 </div>
                 <div class="h-lnp-rest">
-                    <h5> Category title </h5>
-                    <h3> New Post </h3>
+                    <h5> {{ __('Novosti') }} </h5>
+                    <h3> {{ $apiData[$i]->title->rendered }} </h3>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio iure, tempora officia architecto maiores assumenda labore expedita eveniet minus eum fugit accusamus rerum recusandae ex eligendi. Quaerat cum nam sapiente. </p>
-                    <a href="#">
+                    <a href="{{ $apiData[$i]->link }}">
                         <p>Više informacija</p>
                     </a>
                 </div>
