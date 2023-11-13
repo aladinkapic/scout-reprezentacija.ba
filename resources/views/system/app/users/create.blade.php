@@ -219,7 +219,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="init_club"> <b>{{ __('Klub za koji igra') }}</b> </label>
-                                                {!! Form::text('role', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                                {!! Form::text('init_club', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                                 <small id="init_clubHelp" class="form-text text-muted"> {{ __('Inicijalni klub za koji igrač igra') }} </small>
                                             </div>
                                         </div>
