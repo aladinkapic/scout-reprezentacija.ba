@@ -51,15 +51,23 @@ class PlayersController extends Controller{
             'nextPage' => $nextPage
         ]);
     }
-    public function preview($id, $what = 'info'){
+    public function getData($username, $what){
+        $player = User::where('username', $username)->first();
+
         try{
-            $mainReview = (int) ( (PlayerRate::where('user_id', $id)->sum('rate')) / PlayerRate::where('user_id', $id)->count() );
+            $mainReview = (int) ( (PlayerRate::where('user_id', $player->id)->sum('rate')) / PlayerRate::where('user_id', $id)->count() );
         }catch (\Exception $e){ $mainReview = 0;}
 
         return view($this->_path.'preview', [
-            'player' => User::find($id),
+            'player' => $player,
             'what' => $what,
             'mainReview' => $mainReview
         ]);
+    }
+    public function preview($username){
+        return $this->getData($username, "timeline");
+    }
+    public function previewInfo($username){
+        return $this->getData($username, "info");
     }
 }

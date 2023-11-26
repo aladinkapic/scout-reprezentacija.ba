@@ -9,7 +9,7 @@
     <div class="public-container players-list">
         @foreach($users as $user)
             <div class="player-card">
-                <a href="{{route('home.players.preview', ['id' => $user->id, 'what' => 'timeline'] )}}" class="text-center d-block mb-4">
+                <a href="{{route('home.players.player-timeline', ['username' => $user->username] )}}" class="text-center d-block mb-4">
                 <div class="pc-img-wrapper">
                     <img src="@if($user->image != '') {{ asset('images/profile-images/'.$user->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
@@ -24,7 +24,7 @@
 
                     <p class="text-center mt-0"> <i class="fas fa-map-pin"></i> {{ ucwords(strtolower( $user->citizenshipRel->title ?? '')) ?? '' }}  </p>
 
-                    <a href="{{route('home.players.preview', ['id' => $user->id, 'what' => 'timeline'] )}}" class="text-center d-block mb-4">
+                    <a href="{{route('home.players.player-timeline', ['username' => $user->username] )}}" class="text-center d-block mb-4">
                         <button class="btn btn-dark btn-sm"> <p class="m-0">{{ __('Profil igrača') }}</p> </button>
                     </a>
                 </div>

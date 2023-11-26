@@ -15,12 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
     Route::get ('/',                                     'HomepageController@home')->name('homepage');
-    Route::get ('/registracija',                         'HomepageController@register')->name('register');
+    // Route::get ('/registracija',                         'HomepageController@register')->name('register');
 
-    Route::group(['namespace' => 'Players', 'prefix' => '/players'], function(){
+    Route::group(['namespace' => 'Players', 'prefix' => '/players/search'], function(){
         Route::get ('/',                                 'PlayersController@search')->name('home.players');
         Route::get ('/preview/{id}/{what}',              'PlayersController@preview')->name('home.players.preview');
     });
+
+    Route::group(['namespace' => 'Players'], function(){
+        Route::get ('/{username}',                       'PlayersController@preview')->name('home.players.player-timeline');
+        Route::get ('/{username}/info',                  'PlayersController@previewInfo')->name('home.players.player-info');
+    });
+
+    /* Clubs preview */
     Route::group(['namespace' => 'Clubs', 'prefix' => '/clubs'], function(){
         // Route::get ('/',                                 'PlayersController@search')->name('home.players');
         Route::get ('/preview/{id}',                     'ClubController@preview')->name('home.clubs.preview');
@@ -28,7 +35,7 @@ Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
 });
 
 
-Route::group(['namespace' => 'Auth', 'prefix' => '/'], function(){
+Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
     Route::get ('/login-page',                           'AuthController@login')->name('auth.login');
     Route::post('/log-me-in',                            'AuthController@logMeIn')->name('auth.logMeIn');
     /*
@@ -42,13 +49,13 @@ Route::group(['namespace' => 'Auth', 'prefix' => '/'], function(){
     Route::get ('/logout',                               'AuthController@logout')->name('auth.logout');
 });
 
-Route::group(['namespace' => 'System', 'prefix' => '/', 'middleware' => 'isAuthenticated'], function(){
+Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'isAuthenticated'], function(){
 
     /*
      *  Dashboard -- simple homepage for logged users
      */
 
-    Route::get ('/home',                                 'HomeController@home')->name('system.home');
+    // Route::get ('/home',                                 'HomeController@home')->name('system.home');
 
     /*
      *  Blog posts

@@ -111,7 +111,7 @@
                             <div class="col-md-6">
                                 <label for="address"><b>{{ __('Adresa stanovanja') }}</b></label>
                                 {!! Form::text('address', '', ['class' => 'form-control', 'id' => 'address', 'aria-describedby' => 'addressHelp', 'maxlength' => '50']) !!}
-                                <small id="addressHelp" class="form-text text-muted">{{ __('Vaša adresa stanovanja') }}</small>
+                                <small id="addressHelp" class="form-text text-muted">{{ __('Vaša adresa stanovanja (Nije obavezno polje)') }}</small>
                             </div>
                             <div class="col-md-6">
                                 <label for="living_place"><b>{{ __('Grad') }}</b></label>
@@ -149,7 +149,7 @@
                     <div class="rf-body-element rf-body-element-3 d-none">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="sport"><b>{{ __('Sport') }}</b></label>
+                            <label for="sport"><b>{{ __('Fudbal / Futsal?') }}</b></label>
                             {!! Form::select('sport', $sports, '', ['class' => 'form-control', 'id' => 'sport', 'aria-describedby' => 'sportHelp']) !!}
                             <small id="sportHelp" class="form-text text-muted">{{ __('Sport kojim se bavite') }}</small>
                         </div>

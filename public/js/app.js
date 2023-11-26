@@ -30404,7 +30404,7 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var loginUrl = '/log-me-in';
+  var loginUrl = '/auth/log-me-in';
   var mainUrl = '/users/my-profile';
   $.ajaxSetup({
     headers: {
@@ -30499,9 +30499,8 @@ $(document).ready(function () {
         return;
       }
     } else if (step === 2) {
-      if ($("#address").val() === '') {
-        notify.Me(["Molimo da unesete Vašu adresu stanovanja", "warn"]);
-        return;
+      if ($("#address").val() === '') {// notify.Me(["Molimo da unesete Vašu adresu stanovanja", "warn"]);
+        // return;
       }
 
       if ($("#living_place").val() === '') {

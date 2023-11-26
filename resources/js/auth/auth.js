@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    let loginUrl = '/log-me-in';
+    let loginUrl = '/auth/log-me-in';
     let mainUrl  = '/users/my-profile';
 
     $.ajaxSetup({
@@ -95,8 +95,8 @@ $( document ).ready(function() {
             }
         }else if(step === 2){
             if($("#address").val() === ''){
-                notify.Me(["Molimo da unesete Vašu adresu stanovanja", "warn"]);
-                return;
+                // notify.Me(["Molimo da unesete Vašu adresu stanovanja", "warn"]);
+                // return;
             }
             if($("#living_place").val() === ''){
                 notify.Me(["Molimo unesite grad u kojem živite", "warn"]);
