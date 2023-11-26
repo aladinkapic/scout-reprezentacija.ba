@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let cropperURI = '/users/change-profile-image';
+    let cropperURI = '/system/users/change-profile-image';
     let club = false;
 
     var $modal = $('#modal');
