@@ -22,9 +22,9 @@
     <div class="s-lm-subsection">
 
         <div class="subtitle">
-            <h4> {{__('Sistemske funkcionalnosti')}} </h4>
+            <h4> {{__('Osnovne funkcionalnosti')}} </h4>
             <div class="subtitle-icon">
-                <i class="fas fa-history"></i>
+                <i class="fas fa-home"></i>
             </div>
         </div>
 
@@ -123,6 +123,57 @@
                 </div>
             </a>
 
+            <a href="#" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <p>{{__('Statistika')}}</p>
+                        <div class="extra-elements">
+                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="inside-links active-links">
+                        <a href="{{route('system.additional.club-data.create')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Klubovi')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('system.additional.nat-team-data.create')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Reprezentacija')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </a>
+
+            <div class="subtitle">
+                <h4> {{__('Ostalo')}} </h4>
+                <div class="subtitle-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+            </div>
+
+            <a href="{{ route('system.users.edit-my-profile') }}" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <p>{{__('Uredite profil')}}</p>
+                    </div>
+                </div>
+            </a>
         @endif
 
         @if($loggedUser->role == 0)

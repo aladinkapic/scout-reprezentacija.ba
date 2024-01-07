@@ -28,7 +28,7 @@ class NatTeamDataController extends Controller{
     public function data($action = 'create', $id = null){
         return view($this->_path.'create', [
             $action => true,
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'countries' => Affiliation::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'team' => Keyword::where('keyword', 'nat_team')->pluck('value', 'id'),
             'seasons' => $this->getSeasons(),
             'clubData' => isset($id) ? NatTeamData::find($id) : null

@@ -53,7 +53,7 @@ class UsersController extends Controller{
 
         return view($this->_path . 'create', [
             $action => true,
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'countries' => Affiliation::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite', ''),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite', ''),
             'position' => $position,

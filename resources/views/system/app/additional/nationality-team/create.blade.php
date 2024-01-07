@@ -7,8 +7,8 @@
 @section('ph-short')
     {{__('Unesite / uredite informacije o Vašim nastupima u reprezentaciji')}}
     @if(isset($preview))
-        | <a href="{{route('system.additional.club-data.edit', ['id' => $clubData->id ?? ''])}}"> {{ __('Uredite') }} </a>
-        | <a href="{{route('system.additional.club-data.delete', ['id' => $clubData->id ?? ''])}}"> {{ __('Obrišite') }} </a>
+        | <a href="{{route('system.additional.nat-team-data.edit', ['id' => $clubData->id ?? ''])}}"> {{ __('Uredite') }} </a>
+        | <a href="{{route('system.additional.nat-team-data.delete', ['id' => $clubData->id ?? ''])}}"> {{ __('Obrišite') }} </a>
     @endif
 @endsection
 

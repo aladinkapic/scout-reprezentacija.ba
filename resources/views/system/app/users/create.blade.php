@@ -93,7 +93,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="leg_arm"> <b>{{ __('Jača noga') }}</b> </label>
-                                            {!! Form::select('stronger_limb', $leg_arm, $user->leg_arm ?? '', ['class' => 'form-control required', 'id' => 'stronger_limb', 'aria-describedby' => 'stronger_limbHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            {!! Form::select('stronger_limb', $leg_arm, $user->stronger_limb ?? '', ['class' => 'form-control required', 'id' => 'stronger_limb', 'aria-describedby' => 'stronger_limbHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                             <small id="stronger_limbHelp" class="form-text text-muted"> {{ __('Odaberite jaču nogu') }} </small>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for=phone"> <b>{{ __('Telefon') }}</b> </label>
-                                            {!! Form::text('phone', $user->phone_number ?? '', ['class' => 'form-control phone', 'id' => 'phone_number', 'aria-describedby' => 'phoneHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
+                                            {!! Form::text('phone', $user->phone ?? '', ['class' => 'form-control phone', 'id' => 'phone_number', 'aria-describedby' => 'phoneHelp', isset($preview) ? 'readonly' : '', 'maxlength' => '15']) !!}
                                             <small id="phoneHelp" class="form-text text-muted"> {{ __('Broj telefona korisnika - mobilni ili kućni') }} </small>
                                         </div>
                                     </div>
