@@ -1,7 +1,7 @@
 <div class="info-header">
     <div class="ih-element">
         <p><span> {{ __('Nacionalnost') }} </span></p>
-        <p> {{ ucwords(strtolower($player->citizenshipRel->title ?? '')) ?? '' }} </p>
+        <p> {{ ucwords(strtolower($player->citizenshipRel->name_ba ?? '')) ?? '' }} </p>
     </div>
     <div class="ih-element">
         <p><span> {{ __('Datum rođenja') }} </span></p>
