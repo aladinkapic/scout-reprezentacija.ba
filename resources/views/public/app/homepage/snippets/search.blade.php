@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
-                        {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'filter' => 'citizenshipRel.title']) !!}
+                        {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'filter' => 'citizenshipRel.name_ba']) !!}
                         <label for="floatingSelect">{{ __('Država boravišta') }}</label>
                     </div>
                 </div>

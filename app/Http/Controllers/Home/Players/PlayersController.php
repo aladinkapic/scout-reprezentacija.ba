@@ -7,6 +7,7 @@ use App\Http\Controllers\Home\HomepageController;
 use App\Http\Controllers\System\Core\Filters;
 use App\Models\Additional\Club;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Players\PlayerRate;
 use App\User;
@@ -45,7 +46,7 @@ class PlayersController extends Controller{
             'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value'),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value'),
             'positions' => $positions,
-            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title'),
+            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba'),
             'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', ''),
             'noPages' => $noPages,
             'nextPage' => $nextPage

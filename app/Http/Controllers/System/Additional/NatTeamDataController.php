@@ -7,6 +7,7 @@ use App\Models\Additional\Club;
 use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ class NatTeamDataController extends Controller{
     public function data($action = 'create', $id = null){
         return view($this->_path.'create', [
             $action => true,
-            'countries' => Affiliation::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'team' => Keyword::where('keyword', 'nat_team')->pluck('value', 'id'),
             'seasons' => $this->getSeasons(),
             'clubData' => isset($id) ? NatTeamData::find($id) : null

@@ -1,11 +1,11 @@
 @extends('public.layout.layout')
 
-@section('title') {{ $player->name ?? '' }} @endsection
-@section('page_title') {{ $player->name ?? '' }} @endsection
-@section('seo_title'){{ $player->name ?? '' }}@endsection
-@section('seo_uri'){{route('home.players.player-timeline', ['username' => $player->username] )}}@endsection
-@section('seo_description'){{ __('Pratite i Vi ' . ($player->name ?? '') . ' na Scout.Reprezentacija.BA!' ) }}@endsection
-@section('seo_image'){{ asset(($player->image != '') ? ('images/profile-images/'.$player->image ?? '') : ('images/user.png')) }}@endsection
+{{--@section('title') {{ $player->name ?? '' }} @endsection--}}
+{{--@section('page_title') {{ $player->name ?? '' }} @endsection--}}
+{{--@section('seo_title'){{ $player->name ?? '' }}@endsection--}}
+{{--@section('seo_uri') {{ isset($player) ? route('home.players.player-timeline', ['username' => $player->username] ) : "www.scout.reprezentacija.ba" }}@endsection--}}
+{{--@section('seo_description'){{ __('Pratite i Vi ' . ($player->name ?? '') . ' na Scout.Reprezentacija.BA!' ) }}@endsection--}}
+{{--@section('seo_image'){{ asset(($player->image != '') ? ('images/profile-images/'.$player->image ?? '') : ('images/user.png')) }}@endsection--}}
 
 @section('content')
     <link rel="stylesheet" href="{{asset('css/app.css')}}">

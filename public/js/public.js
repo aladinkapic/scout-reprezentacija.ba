@@ -35788,7 +35788,7 @@ $(document).ready(function () {
       console.log(queryString);
     });
     queryString += '&limit=15';
-    window.location = 'players' + queryString;
+    window.location = 'players/search' + queryString;
   });
 });
 var lastOne = null,
@@ -35872,7 +35872,7 @@ $(document).ready(function () {
     searchIt();
   });
   $(".main-option").click(function () {
-    window.location = '/players';
+    window.location = '/players/search';
   });
   /*******************************************************************************************************************
    *      When we click "reveal rest of menu, it should :
@@ -35974,7 +35974,7 @@ $(document).ready(function () {
 
   var searchIt = function searchIt() {
     var categories = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    var url = '/players';
+    var url = '/players/search';
     var main_filter = 'positionRel.value';
     var index = 0;
 
@@ -36008,7 +36008,7 @@ $(document).ready(function () {
       });
     }
 
-    if (url !== '/players') {
+    if (url !== '/players/search') {
       url += '&limit=12&page=' + current_page;
       window.location = url;
     } else window.location = url + '?&page=' + current_page;

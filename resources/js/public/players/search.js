@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         queryString += '&limit=15';
 
-        window.location = 'players' + queryString;
+        window.location = 'players/search' + queryString;
     });
 });
 
@@ -97,7 +97,7 @@ $(document).ready(function() {
         searchIt();
     });
     $(".main-option").click(function () {
-        window.location = '/players';
+        window.location = '/players/search';
     });
 
 
@@ -204,7 +204,7 @@ $(document).ready(function() {
      *
      ******************************************************************************************************************/
     let searchIt = function(categories = null){
-        let url = '/players';
+        let url = '/players/search';
         let main_filter = 'positionRel.value';
 
         let index = 0;
@@ -244,7 +244,7 @@ $(document).ready(function() {
             });
         }
 
-        if(url !== '/players'){
+        if(url !== '/players/search'){
             url += '&limit=12&page='+current_page;
             window.location = url;
         }else window.location = (url + '?&page=' + current_page);

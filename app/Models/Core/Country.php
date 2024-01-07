@@ -4,7 +4,7 @@ namespace App\Models\Core;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Affiliation extends Model{
-    protected $table = 'affiliation';
+class Country extends Model{
+    protected $table = 'api__countries';
     protected $guarded = ['id'];
 }

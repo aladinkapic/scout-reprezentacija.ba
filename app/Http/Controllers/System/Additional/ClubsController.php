@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
 use App\Models\Additional\Club;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Posts\Post;
 use App\User;
@@ -23,7 +24,7 @@ class ClubsController extends Controller{
             'title' => __('Naziv kluba'),
             'year' => 'Godina osnivanja',
             'city' => __('Grad'),
-            'countryRel.title' => 'Država',
+            'countryRel.name_ba' => 'Država',
             'categoryRel.value' => __('Kategorija'),
             'ownerRel.name' => __('Odgovorna osoba')
         ];
@@ -31,7 +32,7 @@ class ClubsController extends Controller{
     }
     public function data($action = 'create', $id = null){
         return view($this->_path.'create', [
-            'countries' => Affiliation::where('keyword', 'D')->pluck('title', 'id')->prepend('Odaberite državu', ''),
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
             $action => true,
             'club' => isset($id) ? Club::find($id) : null,

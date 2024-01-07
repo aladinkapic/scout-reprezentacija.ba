@@ -4,6 +4,7 @@ namespace App\Models\Additional;
 
 use App\Models\Blog\BlogPosts;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Posts\Post;
 use App\User;
@@ -13,7 +14,7 @@ class Club extends Model{
     protected $guarded = ['id'];
 
     public function countryRel(){
-        return $this->hasOne(Affiliation::class, 'id', 'country');
+        return $this->hasOne(Country::class, 'id', 'country');
     }
     public function categoryRel(){
         return $this->hasOne(Keyword::class, 'id', 'category');

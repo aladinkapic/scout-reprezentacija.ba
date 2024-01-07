@@ -114,7 +114,7 @@
 
         <div class="search-row">
             <div class="other-first other-first-50">
-                <div class="my-select-wrapper" title="" id="citizenshipRel.title" custom-id="citizenshipRel" value="0">
+                <div class="my-select-wrapper" title="" id="citizenshipRel.name_ba" custom-id="citizenshipRel" value="0">
                     <div class="my-select-value">
                         <p id="svrha-paragraph"> Država boravišta </p>
                         <div class="select-arrow">

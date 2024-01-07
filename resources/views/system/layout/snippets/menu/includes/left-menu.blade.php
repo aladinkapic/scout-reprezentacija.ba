@@ -245,6 +245,14 @@
                                 <p>{{__('Šifarnici')}}</p>
                             </div>
                         </a>
+
+                        <!-- Sys API -->
+                        <a href="{{route('system.sys-api.main-sys-api')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p>{{__('Sistem API')}}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </a>

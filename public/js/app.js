@@ -30809,7 +30809,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var cropperURI = '/users/change-profile-image';
+  var cropperURI = '/system/users/change-profile-image';
   var club = false;
   var $modal = $('#modal');
   var image = document.getElementById('image');

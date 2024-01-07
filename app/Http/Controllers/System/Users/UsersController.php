@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\System\Users;
 
+use App\Http\Controllers\API\UsersApiController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
 use App\Mail\allowAccess;
 use App\Mail\sendEmail;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Posts\Post;
 use App\User;
@@ -53,7 +55,7 @@ class UsersController extends Controller{
 
         return view($this->_path . 'create', [
             $action => true,
-            'countries' => Affiliation::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite', ''),
             'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite', ''),
             'position' => $position,
@@ -69,6 +71,9 @@ class UsersController extends Controller{
 
         $request['password'] = Hash::make($request->password);
         $request->request->add(['api_token' => hash('sha256', $request->email . '+' . time())]);
+
+        $apiController = new UsersApiController();
+        $request['username'] = $apiController->getSlug($request->name);
 
         try {
             $user = User::create($request->all());

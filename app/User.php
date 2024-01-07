@@ -2,11 +2,13 @@
 
 namespace App;
 
+use App\Models\Additional\ApiStatistics;
 use App\Models\Additional\Club;
 use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Blog\BlogPosts;
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Players\PlayerRate;
 use App\Models\Posts\Post;
@@ -25,10 +27,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'email_verified_at', 'api_token', 'active', 'role', 'category', 'sport', 'init_club',
+        'name', 'username', 'email', 'password', 'email_verified_at', 'api_token', 'active', 'role', 'image', 'category', 'sport', 'init_club',
         'position', 'stronger_limb', 'birth_date', 'years_old', 'birth_place', 'address', 'living_place', 'citizenship', 'citizenship_2',
         'country', 'phone', 'gender', 'height', 'remember_token', 'note', 'facebook', 'twitter', 'instagram',
-        'under_contract', 'youtube', 'allow_rating'
+        'under_contract', 'youtube', 'allow_rating', 'from_api', 'player_id'
     ];
 
     /**
@@ -58,10 +60,10 @@ class User extends Authenticatable
         return $this->hasOne(Affiliation::class, 'id', 'city');
     }
     public function countryRel(){
-        return $this->hasOne(Affiliation::class, 'id', 'country');
+        return $this->hasOne(Country::class, 'id', 'country');
     }
     public function citizenshipRel(){
-        return $this->hasOne(Affiliation::class, 'id', 'citizenship');
+        return $this->hasOne(Country::class, 'id', 'citizenship');
     }
     public function clubRel(){
         return $this->hasMany(Club::class, 'owner', 'id');
@@ -99,5 +101,8 @@ class User extends Authenticatable
 
     public function blogPosts(){
         return $this->hasMany(BlogPosts::class, 'owner', 'id')->where('category', 0)->orderBy('id', 'DESC');
+    }
+    public function statisticsRel(){
+        return $this->hasMany(ApiStatistics::class, 'user_id', 'id');
     }
 }

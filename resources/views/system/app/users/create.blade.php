@@ -219,11 +219,29 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="init_club"> <b>{{ __('Klub za koji igra') }}</b> </label>
-                                                {!! Form::text('init_club', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                                {!! Form::text('init_club', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'readonly' : '']) !!}
                                                 <small id="init_clubHelp" class="form-text text-muted"> {{ __('Inicijalni klub za koji igrač igra') }} </small>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="from_api"> <b>{{ __('Automatsko ažuriranje') }}</b> </label>
+                                                {!! Form::select('from_api', ['0' => 'Ne', '1' => 'Da'], $user->from_api ?? '', ['class' => 'form-control', 'id' => 'from_api', 'aria-describedby' => 'from_apiHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                                <small id="from_apiHelp" class="form-text text-muted"> {{ __('Da li se podaci automatski ažuriraju sa API-a?') }} </small>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="player_id"> <b>{{ __('Id igrača') }}</b> </label>
+                                                {!! Form::text('player_id', $user->player_id ?? '', ['class' => 'form-control', 'id' => 'player_id', 'aria-describedby' => 'player_idHelp', isset($preview) ? 'readonly' : '']) !!}
+                                                <small id="player_id" class="form-text text-muted"> {{ __('Id igrača sa reprezentacija.ba API-a') }} </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">

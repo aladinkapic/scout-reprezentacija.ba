@@ -15461,6 +15461,14 @@ header .menu-wrapper .mw-links .single-link a {
     font-size: 20px;
   }
 
+  .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .bw-b-a-btn-1 {
+    width: 100%;
+  }
+
+  .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .bw-b-a-btn-1 .bw-b-button {
+    width: 100%;
+  }
+
   .public-container .preview-body-wrapper .pw-left .tb-row h6,
   .public-container .preview-body-wrapper .pw-left .tb-row p {
     text-align: center;

@@ -18,7 +18,7 @@ class UsersApiController extends Controller{
             else return $total;
         }catch (\Exception $e){ return ''; }
     }
-    protected function getSlug($slug){
+    public function getSlug($slug){
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//IGNORE', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $slug);

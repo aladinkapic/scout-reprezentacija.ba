@@ -51,6 +51,10 @@ class CreateUsersTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
 
+            /* For special players; Update api */
+            $table->tinyInteger('from_api')->default(false)->nullable();
+            $table->integer('player_id')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

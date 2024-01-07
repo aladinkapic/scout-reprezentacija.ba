@@ -79,7 +79,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="country"> <b>{{ __('Država') }}</b> </label>
-                                            {!! Form::select('country', $countries, $club->country ?? '30', ['class' => 'form-control required select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            {!! Form::select('country', $countries, $club->country ?? '21', ['class' => 'form-control required select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                             <small id="countryHelp" class="form-text text-muted"> {{ __('Država u kojoj se klub nalazi') }} </small>
                                         </div>
                                     </div>

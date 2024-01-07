@@ -30,7 +30,7 @@
                     <td> {{ $club->title ?? ''}} </td>
                     <td> {{ $club->year ?? ''}} </td>
                     <td> {{ $club->city ?? ''}} </td>
-                    <td> {{ $club->countryRel->title ?? ''}} </td>
+                    <td> {{ $club->countryRel->name_ba ?? ''}} </td>
                     <td> {{ $club->categoryRel->value ?? ''}} </td>
                     <td> {{ $club->ownerRel->name ?? ''}} </td>
 

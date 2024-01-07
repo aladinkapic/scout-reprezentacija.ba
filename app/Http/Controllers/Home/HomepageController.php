@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
 use App\Models\Additional\Partner;
 use App\Models\Additional\Quote;
+use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class HomepageController extends Controller {
 //        dd($apiData);
 
         return view($this->_path.'home', [
-            'countries' => Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'title')->prepend('Odaberite državu', ''),
+            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend('Odaberite državu', ''),
             'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
             'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Odaberite sport', ''),
             'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Odaberite poziciju', ''),
@@ -57,7 +58,7 @@ class HomepageController extends Controller {
 
     public function register(){
 
-        $countries = Affiliation::where('keyword', 'D')->orderBy('title')->pluck('title', 'id');
+        $countries = Country::orderBy('name_ba')->pluck('name_ba', 'id');
 
         return view($this->_path.'register', [
             'countries' => $countries,

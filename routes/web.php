@@ -185,6 +185,18 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
     });
 });
 
+
+/* Special routes for artisal calls */
+Route::group(['namespace' => 'API\\SysAPI', 'prefix' => '/system/sys-api', 'middleware' => 'isAuthenticated'], function(){
+
+    Route::get ('/',                                 'MainSysAPIController@index')->name('system.sys-api.main-sys-api');
+
+    /* Fetch users statistics */
+    Route::group(['prefix' => '/fetch-statistics', 'middleware' => 'isRoot'], function(){
+        Route::get ('/',                             'FetchStatisticsController@index')->name('system.sys-api.fetch-statistics');
+    });
+});
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});

@@ -24,10 +24,12 @@
                         <h2> {{ __('Detaljne informacije') }} </h2>
                     </div>
                     <div class="bw-buttons">
-                        <a href="{{ route('home.players.player-timeline', ['username' => $player->username] ) }}" title="{{ __('Timeline') }}">
-                            <div class="bw-b-button @if($what == 'timeline') active @endif"> <p> {{ __('Timeline') }} </p> </div>
-                        </a>
-                        <a href="{{ route('home.players.player-info', ['username' => $player->username] ) }}" title="{{ __('Detaljne informacije o igraču') }}">
+                        @if($player->from_api == 0)
+                            <a href="{{ route('home.players.player-timeline', ['username' => $player->username] ) }}" title="{{ __('Timeline') }}">
+                                <div class="bw-b-button @if($what == 'timeline') active @endif"> <p> {{ __('Timeline') }} </p> </div>
+                            </a>
+                        @endif
+                        <a href="{{ route('home.players.player-info', ['username' => $player->username] ) }}" title="{{ __('Detaljne informacije o igraču') }}" class="bw-b-a-btn-{{$player->from_api}}">
                             <div class="bw-b-button @if($what == 'info') active @endif"> <p> {{ __('Statistika') }} </p> </div>
                         </a>
                     </div>

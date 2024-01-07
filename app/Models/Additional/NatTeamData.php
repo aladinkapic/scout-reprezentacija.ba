@@ -3,6 +3,7 @@
 namespace App\Models\Additional;
 
 use App\Models\Core\Affiliation;
+use App\Models\Core\Country;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,6 +17,6 @@ class NatTeamData extends Model{
         return $this->hasOne(User::class, 'id', 'user_id');
     }
     public function countryRel(){
-        return $this->hasOne(Affiliation::class, 'id', 'country_id');
+        return $this->hasOne(Country::class, 'id', 'country_id');
     }
 }
