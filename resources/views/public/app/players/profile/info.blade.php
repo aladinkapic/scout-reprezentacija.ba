@@ -1,11 +1,14 @@
 <div class="info-header">
-    <div class="ih-element">
-        <p><span> {{ __('Nacionalnost') }} </span></p>
-        <p> {{ ucwords(strtolower($player->citizenshipRel->name_ba ?? '')) ?? '' }} </p>
+    <div class="ih-element" title="{{ $player->citizenshipRel->name_ba ?? '' }}">
+        <p><span> {{ __('Državljanstvo') }} </span></p>
+        <p class="nationality">
+            <img src="{{ $player->citizenshipRel->flag ?? '' }}" alt="">
+            {{ $player->citizenshipRel->short_ba ?? '' }}
+        </p>
     </div>
     <div class="ih-element">
         <p><span> {{ __('Datum rođenja') }} </span></p>
-        <p> {{ $player->birtDate() }} </p>
+        <p> {{ $player->birtDate() }} ({{ PlayersHelper::age($player->birth_date) }}) </p>
     </div>
     <div class="ih-element">
         <p><span> {{ __('Visina') }} </span></p>

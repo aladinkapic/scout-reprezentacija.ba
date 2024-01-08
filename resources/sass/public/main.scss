@@ -12,6 +12,8 @@ html{
 }
 .min-height-100{min-height: 700px;}
 
+$defBlue: #142D56;
+
 @media only screen and (max-width: 1400px){
     .public-container{
         width: 1200px; left: calc(50% - 600px);
