@@ -28,7 +28,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'username', 'email', 'password', 'email_verified_at', 'api_token', 'active', 'role', 'image', 'category', 'sport', 'init_club',
-        'position', 'stronger_limb', 'birth_date', 'years_old', 'birth_place', 'address', 'living_place', 'citizenship', 'citizenship_2',
+        'position', 'position_2', 'stronger_limb', 'birth_date', 'years_old', 'birth_place', 'address', 'living_place', 'citizenship', 'citizenship_2',
         'country', 'phone', 'gender', 'height', 'remember_token', 'note', 'facebook', 'twitter', 'instagram',
         'under_contract', 'youtube', 'allow_rating', 'from_api', 'player_id'
     ];
@@ -65,6 +65,9 @@ class User extends Authenticatable
     public function citizenshipRel(){
         return $this->hasOne(Country::class, 'id', 'citizenship');
     }
+    public function secondCitizenshipRel(){
+        return $this->hasOne(Country::class, 'id', 'citizenship_2');
+    }
     public function clubRel(){
         return $this->hasMany(Club::class, 'owner', 'id');
     }
@@ -73,6 +76,9 @@ class User extends Authenticatable
     }
     public function positionRel(){
         return $this->hasOne(Keyword::class, 'id', 'position');
+    }
+    public function secondPositionRel(){
+        return $this->hasOne(Keyword::class, 'id', 'position_2');
     }
     public function strongerLimbRel(){
         return $this->hasOne(Keyword::class, 'id', 'stronger_limb');

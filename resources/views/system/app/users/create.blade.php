@@ -74,18 +74,27 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="sport"> <b>{{ __('Sport') }}</b> </label>
                                             {!! Form::select('sport', $sport, $user->sport ?? '', ['class' => 'form-control required pick-a-sport', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'disabled => true' : '']) !!}
-                                            <small id="sportHelp" class="form-text text-muted"> {{ __('Sport kojim se bavi korisnik') }} </small>
+                                            <small id="sportHelp" class="form-text text-muted"> {{ __('Sport kojim se igrač bavi') }} </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="position"> <b>{{ __('Pozicija') }}</b> </label>
+                                            {!! Form::select('position', $position, $user->position ?? '', ['class' => 'form-control required', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            <small id="positionHelp" class="form-text text-muted"> {{ __('Pozicija na kojoj igrač igra') }} </small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="position"> <b>{{ __('Pozicija') }}</b> </label>
-                                            {!! Form::select('position', $position, $user->position ?? '', ['class' => 'form-control required picked-position', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'disabled => true' : '']) !!}
-                                            <small id="positionHelp" class="form-text text-muted"> {{ __('Pozicija koju igra korisnik') }} </small>
+                                            <label for="position_2"> <b>{{ __('Druga pozicija') }}</b> </label>
+                                            {!! Form::select('position_2', $position, $user->position_2 ?? '', ['class' => 'form-control', 'id' => 'position_2', 'aria-describedby' => 'position_2Help', isset($preview) ? 'disabled => true' : '']) !!}
+                                            <small id="position_2Help" class="form-text text-muted"> {{ __('Druga pozicija na kojoj igrač igra') }} </small>
                                         </div>
                                     </div>
                                 </div>
@@ -122,6 +131,16 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="country"> <b>{{ __('Država stanovanja') }}</b> </label>
+                                            {!! Form::select('country', $countries, $user->country ?? '', ['class' => 'form-control required select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            <small id="countryHelp" class="form-text text-muted"> {{ __('Država u kojoj živite') }} </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="citizenship"> <b>{{ __('Državljanstvo') }}</b> </label>
@@ -131,9 +150,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="country"> <b>{{ __('Država stanovanja') }}</b> </label>
-                                            {!! Form::select('country', $countries, $user->country ?? '', ['class' => 'form-control required select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', isset($preview) ? 'disabled => true' : '']) !!}
-                                            <small id="countryHelp" class="form-text text-muted"> {{ __('Država u kojoj živite') }} </small>
+                                            <label for="citizenship_2"> <b>{{ __('Drugo državljanstvo') }}</b> </label>
+                                            {!! Form::select('citizenship_2', $countries, $user->citizenship_2 ?? '', ['class' => 'form-control select-2', 'id' => 'citizenship_2', 'aria-describedby' => 'citizenship_2Help', isset($preview) ? 'disabled => true' : '']) !!}
+                                            <small id="citizenship_2Help" class="form-text text-muted"> {{ __('Odaberite drugu državu čiji ste državljanin (ukoliko imate)') }} </small>
                                         </div>
                                     </div>
                                 </div>

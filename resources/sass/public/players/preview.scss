@@ -105,6 +105,13 @@
                     .key, .value{
                         height: 30px; margin:5px 10px;
                     }
+
+                    .value-img{
+                        display: inline-flex;
+                        img{
+                            margin-top: 3px; margin-right: 5px; height: 15px; width: auto;
+                        }
+                    }
                 }
                 h6{
                     margin:10px; padding-top:10px;

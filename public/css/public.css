@@ -14781,6 +14781,19 @@ header .menu-wrapper .mw-links .single-link a {
   margin: 5px 10px;
 }
 
+.public-container .preview-wrapper .pw-left .tb-row .tb-row-col-flex .value-img,
+.public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex .value-img {
+  display: inline-flex;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row .tb-row-col-flex .value-img img,
+.public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex .value-img img {
+  margin-top: 3px;
+  margin-right: 5px;
+  height: 15px;
+  width: auto;
+}
+
 .public-container .preview-wrapper .pw-left .tb-row h6,
 .public-container .preview-body-wrapper .pw-left .tb-row h6 {
   margin: 10px;

@@ -40,6 +40,7 @@ class CreateUsersTable extends Migration
             $table->string('sport')->nullable();
             $table->string('init_club')->nullable();
             $table->integer('position')->nullable();
+            $table->integer('position_2')->nullable();
             $table->integer('stronger_limb')->nullable();
             $table->text('note')->nullable();
             $table->string('under_contract')->default('Ne')->nullable();

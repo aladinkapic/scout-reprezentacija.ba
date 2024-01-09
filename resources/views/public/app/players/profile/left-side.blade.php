@@ -12,11 +12,33 @@
             <p class="key"><span>{{ __('Pozicija') }}</span></p>
             <p class="value"> {{ $player->positionRel->value ?? '' }} </p>
         </div>
+        @if($player->position_2)
+            <div class="tb-row-col-flex">
+                <p class="key"><span>{{ __('Druga pozicija') }}</span></p>
+                <p class="value"> {{ $player->secondPositionRel->value ?? '' }} </p>
+            </div>
+        @endif
+        <div class="tb-row-col-flex">
+            <p class="key"><span>{{ __('Državljanstvo') }}</span></p>
+            <p class="value value-img">
+                <img src="{{ $player->citizenshipRel->flag ?? '' }}" alt="">
+                <span>{{ $player->citizenshipRel->short_ba ?? '' }}</span>
+            </p>
+        </div>
+        @if($player->citizenship_2)
+            <div class="tb-row-col-flex">
+                <p class="key"><span>{{ __('Drugo državljanstvo') }}</span></p>
+                <p class="value value-img">
+                    <img src="{{ $player->secondCitizenshipRel->flag ?? '' }}" alt="">
+                    <span>{{ $player->secondCitizenshipRel->short_ba ?? '' }}</span>
+                </p>
+            </div>
+        @endif
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Visina') }}</span></p>
             <p class="value"> {{ $player->height ?? '' }} {{ __('cm') }} </p>
         </div>
-        <div class="tb-row-col-flex">
+        <div class="tb-row-col-flex" title="{{ __('Starost') }} {{ PlayersHelper::age($player->birth_date) }} {{ __('godina') }}">
             <p class="key"><span>{{ __('Datum rođenja') }}</span></p>
             <p class="value"> {{ $player->birtDate() ?? '' }} </p>
         </div>
