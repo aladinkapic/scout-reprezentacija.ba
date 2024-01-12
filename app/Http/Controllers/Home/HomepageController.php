@@ -43,9 +43,9 @@ class HomepageController extends Controller {
 
         return view($this->_path.'home', [
             'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend('Odaberite državu', ''),
-            'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Odaberite sport', ''),
-            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Odaberite poziciju', ''),
+            // 'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Svi sportovi', ''),
+            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Sve pozicije', ''),
             'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend('Odaberite', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
 

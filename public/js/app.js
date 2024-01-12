@@ -30976,8 +30976,6 @@ $(document).ready(function () {
   var searchClubsURI = '/system/search/clubs/by-name';
 
   function formatState(state) {
-    console.log(state);
-
     if (!state.id) {
       return state.text;
     }
@@ -31001,7 +30999,6 @@ $(document).ready(function () {
           };
         },
         processResults: function processResults(data) {
-          console.log(data);
           return {
             results: $.map(data, function (item) {
               return {

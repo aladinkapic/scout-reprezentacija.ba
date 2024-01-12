@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
-                        {!! Form::select('club', $clubs, '', ['class' => 'form-control select-2', 'id' => 'club', 'filter' => 'clubDataRel.clubRel.title']) !!}
+                        {!! Form::text('club', '', ['class' => 'form-control', 'id' => 'club', 'filter' => 'clubDataRel.clubRel.title']) !!}
                         <label for="floatingSelect">{{ __('Trenutni klub') }}</label>
                     </div>
                 </div>

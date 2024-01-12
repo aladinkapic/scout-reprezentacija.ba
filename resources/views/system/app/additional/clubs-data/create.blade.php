@@ -25,7 +25,7 @@
 
 
 @section('content')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+    <link href="" rel="stylesheet" />
 
     <div class="content-wrapper p-3">
         <div class="row">

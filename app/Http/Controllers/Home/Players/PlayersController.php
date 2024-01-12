@@ -55,8 +55,11 @@ class PlayersController extends Controller{
     public function getData($username, $what){
         $player = User::where('username', $username)->first();
 
+        /* Special players, do not allow timeline; Force redirect */
+        if($what == 'timeline' and $player->from_api == 1) return redirect()->route('home.players.player-info', ['username' => $player->username] );
+
         try{
-            $mainReview = (int) ( (PlayerRate::where('user_id', $player->id)->sum('rate')) / PlayerRate::where('user_id', $id)->count() );
+            $mainReview = (int) ( (PlayerRate::where('user_id', $player->id)->sum('rate')) / PlayerRate::where('user_id', $player->id)->count() );
         }catch (\Exception $e){ $mainReview = 0;}
 
         return view($this->_path.'preview', [

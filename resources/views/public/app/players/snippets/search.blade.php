@@ -132,21 +132,28 @@
             </div>
 
             <div class="other-first other-first-50">
-                <div class="my-select-wrapper" title="" id="clubDataRel.clubRel.title" custom-id="clubDataRel" value="0">
-                    <div class="my-select-value">
-                        <p id="svrha-paragraph"> Klub </p>
-                        <div class="select-arrow">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-
-                    <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
-                        @foreach($clubs as $val)
-                            <div class="my-option second-option" value="{{ $val }}"> {{ $val }} </div>
-                        @endforeach
-                    </div>
+                <div class="select-input">
+                    <input type="text" name="searchClubTitle" id="searchClubTitle" placeholder="{{ __('Naziv kluba') }}" autocomplete="off">
                 </div>
+
+
+{{--                <div class="my-select-wrapper" id="clubDataRel.clubRel.title" custom-id="clubDataRel" value="0">--}}
+{{--                    <div class="my-select-value">--}}
+{{--                        <p id="svrha-paragraph"> Klub </p>--}}
+{{--                        <div class="select-arrow">--}}
+{{--                            <i class="fas fa-chevron-down"></i>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <input type="text" name="searchClubTitle" id=searchClubTitle" placeholder="{{ __('Trenutni klub') }}" autocomplete="off">--}}
+
+{{--                    <div class="select-values">--}}
+{{--                        <div class="my-option second-option" value="0"> Odaberite </div>--}}
+{{--                        @foreach($clubs as $val)--}}
+{{--                            <div class="my-option second-option" value="{{ $val }}"> {{ $val }} </div>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
 

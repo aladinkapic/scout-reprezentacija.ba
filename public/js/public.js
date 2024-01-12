@@ -35986,19 +35986,29 @@ $(document).ready(function () {
         if (index++ === 0) url += '?';else url += '&';
         url += 'filter%5B%5D=name&filter_values%5B%5D=' + name;
       } else localStorage.removeItem("title-of-product");
+      /* Get current club */
+
+
+      var club = $("#searchClubTitle").val();
+
+      if (club !== '') {
+        localStorage.setItem("club-title", club);
+        if (index++ === 0) url += '?';else url += '&';
+        url += 'filter%5B%5D=clubDataRel.clubRel.title&filter_values%5B%5D=' + club;
+      } else localStorage.removeItem("club-title");
 
       $(".my-select-wrapper").each(function () {
         if ($(this).attr('value') !== "0") {
           if (index++ === 0) url += '?';else url += '&';
           url += 'filter%5B%5D=' + $(this).attr('id') + '&filter_values%5B%5D=' + $(this).attr('value');
         }
-      });
-      $(".check-wrapper").each(function () {
-        if ($(this).attr('value') !== "0") {
-          if (index++ === 0) url += '?';else url += '&';
-          url += 'filter%5B%5D=' + main_filter + '&filter_values%5B%5D=' + $(this).attr('value');
-        }
-      });
+      }); // $(".check-wrapper").each(function () {
+      //     if($(this).attr('value') !== "0"){
+      //         if(index++ === 0) url += '?';
+      //         else url += '&';
+      //         url += 'filter%5B%5D='+main_filter+'&filter_values%5B%5D=' + $(this).attr('value');
+      //     }
+      // });
     } else {
       $(".product-main-category").each(function () {
         if ($(this).attr('value') !== "0") {
@@ -36055,6 +36065,10 @@ $(document).ready(function () {
 
     if (localStorage.getItem("title-of-product") !== null) {
       $("#title_of_product").val(localStorage.getItem("title-of-product"));
+    }
+
+    if (localStorage.getItem("club-title") !== null) {
+      $("#searchClubTitle").val(localStorage.getItem("club-title"));
     }
   } else {
     localStorage.removeItem("filter-values");

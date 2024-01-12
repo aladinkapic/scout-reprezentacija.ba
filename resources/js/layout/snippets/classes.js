@@ -30,7 +30,6 @@ $(document).ready(function () {
     let searchClubsURI = '/system/search/clubs/by-name';
 
     function formatState(state) {
-        console.log(state);
         if (!state.id) {
             return state.text;
         }
@@ -55,8 +54,6 @@ $(document).ready(function () {
                     };
                 },
                 processResults: function (data) {
-                    console.log(data);
-
                     return {
                         results: $.map(data, function (item) {
                             return {
