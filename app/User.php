@@ -108,7 +108,13 @@ class User extends Authenticatable
     public function blogPosts(){
         return $this->hasMany(BlogPosts::class, 'owner', 'id')->where('category', 0)->orderBy('id', 'DESC');
     }
+
+    /* Special players */
     public function statisticsRel(){
         return $this->hasMany(ApiStatistics::class, 'user_id', 'id');
+    }
+    /* Last club from special players */
+    public function lastClubRel(){
+        return $this->hasOne(ApiStatistics::class, 'user_id', 'id')->orderBy('id', 'ASC');
     }
 }

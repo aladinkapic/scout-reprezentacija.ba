@@ -183,6 +183,17 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::put ('/update',                           'KeywordsController@update')->name('system.settings.core.keywords.update');
         Route::delete('/delete',                         'KeywordsController@delete')->name('system.settings.core.keywords.delete');
     });
+
+
+    /**
+     *  Search data
+     */
+    Route::group(['namespace' => 'Search', 'prefix' => '/search'], function(){
+        /* Search clubs */
+        Route::group(['prefix' => '/clubs'], function(){
+            Route::post('/by-name',                    'SearchClubsController@byName')->name('system.search.clubs.by-name');
+        });
+    });
 });
 
 

@@ -16,6 +16,7 @@ class Clubs extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('api_id')->nullable();
             $table->string('title');
             $table->string('image')->nullable();
             $table->integer('year');

@@ -21,10 +21,14 @@
             <div class="pw-right pw-right-header">
                 <h1> <b> {{ $player->name ?? '' }} </b> </h1>
                 <div class="social-networks">
-                    @if($player->under_contract == 'Da')
-                        <h5 class="mt-2 text-info fw-bold"> {{ $player->lastClub->clubRel->title ?? '' }} </h5>
+                    @if($player->from_api == 1 and $player->player_id != null)
+                        <h5 class="mt-2 text-info fw-bold"> {{ $player->lastClubRel->team_name ?? '' }} </h5>
                     @else
-                        <p class="mt-2 text-danger fw-bold"> {{ __('Igrač trenutno nije pod ugovorom') }} </p>
+                        @if($player->under_contract == 'Da')
+                            <h5 class="mt-2 text-info fw-bold"> {{ $player->lastClub->clubRel->title ?? '' }} </h5>
+                        @else
+                            <p class="mt-2 text-danger fw-bold"> {{ __('Igrač trenutno nije pod ugovorom') }} </p>
+                        @endif
                     @endif
                     <p class="m-0 fw-bold"> {{ $player->living_place ?? '' }}, {{ ucwords(strtolower($player->citizenshipRel->name_ba ?? '')) ?? '' }} </p>
                 </div>

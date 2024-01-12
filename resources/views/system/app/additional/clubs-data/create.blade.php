@@ -25,6 +25,8 @@
 
 
 @section('content')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+
     <div class="content-wrapper p-3">
         <div class="row">
             <div class="col-md-12">
@@ -39,7 +41,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="club_id"> <b>{{ __('Naziv kluba') }}</b> </label>
-                                {!! Form::select('club_id', $clubs, $clubData->club_id ?? '', ['class' => 'form-control required select-2', 'id' => 'club_id', 'aria-describedby' => 'club_idHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                {!! Form::select('club_id', $clubs, $clubData->club_id ?? '', ['class' => 'form-control required s2-search-clubs', 'id' => 'club_id', 'aria-describedby' => 'club_idHelp']) !!}
                                 <small id="club_idHelp" class="form-text text-muted"> {{ __('Odaberite klub u kojem ste igrali') }} </small>
                             </div>
                         </div>

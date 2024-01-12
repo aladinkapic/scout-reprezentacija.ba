@@ -2960,3 +2960,22 @@ select::-ms-expand {
   }
 }
 
+/* Layout classes */
+
+.s2-img-flag {
+  height: 15px;
+}
+
+.s2-search-clubs option {
+  display: inline-flex;
+}
+
+.select2-results__option span {
+  display: inline-flex !important;
+}
+
+.select2-results__option span img {
+  margin-top: 4px;
+  margin-right: 5px;
+}
+
