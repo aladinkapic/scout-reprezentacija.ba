@@ -21,7 +21,7 @@ class PlayersController extends Controller{
         $users = Filters::filter($users);
 
         // $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
-        $positions = null;
+        $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
 
         $noPages  = (($users->total() / Filters::getLimit()) === (int)($users->total() / Filters::getLimit())) ? ($users->total() / Filters::getLimit()) : ((int)($users->total() / Filters::getLimit()) + 1);
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
