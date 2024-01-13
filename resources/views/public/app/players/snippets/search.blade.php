@@ -158,21 +158,22 @@
         </div>
 
         <!-- checkable console -->
+        @if(isset($positions))
+            <div class="check-boxes">
+                <div class="check-boxed-header">
+                    <h4>POZICIJA IGRAČA</h4>
+                </div>
 
-        <div class="check-boxes">
-            <div class="check-boxed-header">
-                <h4>POZICIJA IGRAČA</h4>
+                <div class="check-boxed-body">
+                    @foreach($positions as $key => $val)
+                        <div class="check-wrapper" id="checkbox-{{ $key }}" value="0" custom_value="{{ $val }}">
+                            <div class="check-place"></div>
+                            <p>{{ $val }}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-
-            <div class="check-boxed-body">
-                @foreach($positions as $key => $val)
-                    <div class="check-wrapper" id="checkbox-{{ $key }}" value="0" custom_value="{{ $val }}">
-                        <div class="check-place"></div>
-                        <p>{{ $val }}</p>
-                    </div>
-                @endforeach
-            </div>
-        </div>
+        @endif
 
     </div>
 </div>

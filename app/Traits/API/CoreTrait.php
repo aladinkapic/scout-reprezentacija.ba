@@ -24,4 +24,14 @@ trait CoreTrait{
             'x-apisports-key' => '00cdc2ab50670b5cee20a42ed29d59e3'
         ];
     }
+
+
+    /**
+     *  Seasons in format CurrentYear / NextYear
+     */
+    public function getSeasonsYears(): array{
+        $seasons = [];
+        for($i=date('Y'); $i>=1980; $i--) $seasons[($i-1).' / '.$i] = ($i-1).' / '.$i;
+        return $seasons;
+    }
 }

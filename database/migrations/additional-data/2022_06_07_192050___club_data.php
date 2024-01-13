@@ -18,7 +18,8 @@ class ClubData extends Migration
 
             $table->integer('user_id');
             $table->string('season');
-            $table->integer('club_id');
+            $table->string('season_name')->nullable();
+            $table->integer('club_id')->nullable();
             $table->integer('no_games')->default(0);
             $table->integer('goals')->default(0);
             $table->integer('assistance')->default(0);

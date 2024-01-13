@@ -14542,6 +14542,29 @@ header .menu-wrapper .mw-links .single-link a {
   height: 100%;
 }
 
+.public-container .preview-wrapper .pw-left .club-icon,
+.public-container .preview-body-wrapper .pw-left .club-icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+  bottom: 20px;
+  border: 2px solid #ffffff;
+}
+
+.public-container .preview-wrapper .pw-left .club-icon img,
+.public-container .preview-body-wrapper .pw-left .club-icon img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
 .public-container .preview-wrapper .pw-right,
 .public-container .preview-body-wrapper .pw-right {
   position: relative;

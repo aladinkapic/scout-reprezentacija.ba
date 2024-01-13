@@ -20,7 +20,8 @@ class PlayersController extends Controller{
         $users = User::where('role', 1);
         $users = Filters::filter($users);
 
-        $positions = Keyword::where('keyword', 'position_futsal')->pluck('value', 'value');
+        // $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
+        $positions = null;
 
         $noPages  = (($users->total() / 12) === (int)($users->total() / 12)) ? ($users->total() / 12) : ((int)($users->total() / 12) + 1);
         $nextPage = isset($_GET['page']) ? ($_GET['page'] + 1) : 2;
@@ -30,9 +31,9 @@ class PlayersController extends Controller{
             foreach (\request()->filter as $key => $val){
                 if($val == 'sportRel.value'){
                     if(\request()->filter_values[$key] == 'Futsal'){
-                        $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
-                    }else{
                         $positions = Keyword::where('keyword', 'position_futsal')->pluck('value', 'value');
+                    }else{
+                        $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
                     }
                 }
             }

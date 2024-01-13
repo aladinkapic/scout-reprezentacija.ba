@@ -17,6 +17,16 @@
                 <div class="image-wrapper">
                     <img src="@if($player->image != '') {{ asset('images/profile-images/'.$player->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
+
+                @if($player->from_api == 1 and $player->player_id != null)
+
+                @else
+                    @if($player->under_contract == 'Da')
+                        <div class="club-icon" title="{{ $player->lastClub->clubRel->title ?? '' }}">
+                            <img src="{{ asset('images/club-images/' . ($player->lastClub->clubRel->image ?? '')) }}" alt="">
+                        </div>
+                    @endif
+                @endif
             </div>
             <div class="pw-right pw-right-header">
                 <h1> <b> {{ $player->name ?? '' }} </b> </h1>

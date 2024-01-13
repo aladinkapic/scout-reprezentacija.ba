@@ -13,8 +13,8 @@ class FetchClubs extends Command{
     use FilesTrait, CoreTrait;
 
     protected $_euro_countries = [
-        'Croatia',
-        'Austria'
+        // 'Croatia',
+        'Spain'
     ];
 
     /**

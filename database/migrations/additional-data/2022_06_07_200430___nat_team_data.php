@@ -18,8 +18,9 @@ class NatTeamData extends Migration
 
             $table->integer('user_id');
             $table->string('season');
+            $table->string('season_name')->nullable();
             $table->integer('country_id');
-            $table->integer('category');
+            $table->integer('category')->nullable();
             $table->integer('no_games')->default(0);
             $table->integer('goals')->default(0);
             $table->integer('assistance')->default(0);

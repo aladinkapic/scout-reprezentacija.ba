@@ -3,6 +3,10 @@
 namespace App\Console\Commands\SysAPI;
 
 use App\Models\Additional\ApiStatistics;
+use App\Models\Additional\Club;
+use App\Models\Additional\ClubData;
+use App\Models\Additional\NatTeamData;
+use App\Models\Core\Country;
 use App\Traits\API\CoreTrait;
 use App\Traits\API\FilesTrait;
 use App\User;
@@ -10,6 +14,8 @@ use Illuminate\Console\Command;
 
 class FetchPlayersStatistics extends Command{
     use FilesTrait, CoreTrait;
+
+    protected $_seasons = [];
 
     /**
      * The name and signature of the console command.
@@ -30,9 +36,14 @@ class FetchPlayersStatistics extends Command{
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
+    }
+
+    protected function getSeasons(){
+        for ($i=(date('Y') + 1); $i>1970; $i--){
+            $this->_seasons[$i] = $i;
+        }
     }
 
     /**
@@ -43,6 +54,8 @@ class FetchPlayersStatistics extends Command{
     public function handle(){
         $users = User::where('from_api', 1)->where('player_id', '!=', null)->get();
         $client = new \GuzzleHttp\Client(['base_uri' => $this->getPlayersBaseURI(2983)]);
+
+        $this->getSeasons();
 
         foreach ($users as $user){
             try{
@@ -67,32 +80,69 @@ class FetchPlayersStatistics extends Command{
 
                 /* User Statistics */
                 foreach ($player->player->stat as $statistics){
-                    $apiStat = ApiStatistics::where('user_id', $user->id)->where('season', $statistics->season_name)->first();
-                    if(!$apiStat){
-                        try{
-                            $redCards = 0; $yellowCards = 0;
-                            foreach ($statistics as $key => $val){
-                                if($key == "Red card") $redCards = $val;
-                                if($key == "Yellow card") $yellowCards = $val;
+                    try{
+                        $redCards = 0; $yellowCards = 0;
+                        foreach ($statistics as $key => $val){
+                            if($key == "Red card") $redCards = $val;
+                            if($key == "Yellow card") $yellowCards = $val;
+                        }
+
+                        $season = "";
+
+                        /* Get season name */
+                        foreach ($this->_seasons as $_season){
+                            $year = (string)$_season;
+                            if(strpos($statistics->season_name, $year) ){
+                                $season = ($_season) . " / " . ($_season + 1);
                             }
+                        }
 
+                        $country = Country::where('name', $statistics->team_name)->first();
+                        if($country){
+                            $apiNat = NatTeamData::where('user_id', $user->id)->where('season_name', $statistics->season_name)->first();
 
-                            ApiStatistics::create([
-                                'user_id' => $user->id,
-                                'season' => $statistics->season_name,
-                                'team_name' => $statistics->team_name,
-                                'no_games' => $statistics->played,
-                                'goals' => $statistics->Goals,
-                                'assistance' => $statistics->Assist,
-                                'minutes' => $statistics->career_minutes,
-                                'red_cards' => $redCards,
-                                'yellow_cards' => $yellowCards
-                            ]);
-                        }catch (\Exception $e){ dd($e); }
-                    }
+                            if(!$apiNat){
+                                try{
+                                    NatTeamData::create([
+                                        'user_id' => $user->id,
+                                        'season' => $season,
+                                        'season_name' => $statistics->season_name,
+                                        'country_id' => $country->id,
+                                        'no_games' => $statistics->played,
+                                        'goals' => $statistics->Goals,
+                                        'assistance' => $statistics->Assist,
+                                        'minutes' => $statistics->career_minutes,
+                                        'red_cards' => $redCards,
+                                        'yellow_cards' => $yellowCards
+                                    ]);
+                                }catch (\Exception $e){ dump($e->getMessage()); }
+                            }
+                        }else{
+                            $club   = Club::where('title', 'like', '%'. $statistics->team_name .'%' )->first();
+                            $apiStat = ClubData::where('user_id', $user->id)->where('season_name', $statistics->season_name)->first();
+
+                            if(!$apiStat){
+                                try{
+                                    ClubData::create([
+                                        'user_id' => $user->id,
+                                        'season' => $season,
+                                        'season_name' => $statistics->season_name,
+                                        'club_id' => $club->id ?? NULL,
+                                        'no_games' => $statistics->played,
+                                        'goals' => $statistics->Goals,
+                                        'assistance' => $statistics->Assist,
+                                        'minutes' => $statistics->career_minutes,
+                                        'red_cards' => $redCards,
+                                        'yellow_cards' => $yellowCards
+                                    ]);
+                                }catch (\Exception $e){ dump($e->getMessage()); }
+                            }
+                        }
+                    }catch (\Exception $e){ dump($e->getMessage()); }
                 }
             }catch (\Exception $e){ dump($e->getMessage()); }
         }
+
         return 0;
     }
 }
