@@ -21,7 +21,7 @@
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Državljanstvo') }}</span></p>
             <p class="value value-img">
-                <img src="{{ $player->citizenshipRel->flag ?? '' }}" alt="">
+                <img src="{{ asset('images/country-flags/' . ($player->citizenshipRel->flag ?? '')) }}" alt="">
                 <span>{{ $player->citizenshipRel->short_ba ?? '' }}</span>
             </p>
         </div>
@@ -29,7 +29,7 @@
             <div class="tb-row-col-flex">
                 <p class="key"><span>{{ __('Drugo državljanstvo') }}</span></p>
                 <p class="value value-img">
-                    <img src="{{ $player->secondCitizenshipRel->flag ?? '' }}" alt="">
+                    <img src="{{ asset('images/country-flags/' . ($player->secondCitizenshipRel->flag ?? '')) }}" alt="">
                     <span>{{ $player->secondCitizenshipRel->short_ba ?? '' }}</span>
                 </p>
             </div>

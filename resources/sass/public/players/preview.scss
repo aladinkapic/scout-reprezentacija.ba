@@ -1,10 +1,20 @@
 .pp-header{
     position: relative; left:0px; top:0px; width: 100%; height: 360px;
-    background: linear-gradient(45deg, rgba(0,0,0,0.2),#ffffff)!important;
+    background: linear-gradient(45deg, rgba(0,0,0,0.5), #ffffff) !important;
     // background: rgba(0,0,0,0.1);F
+    //background-repeat: repeat;
+    //.header-bcg{
+    //    left: 0px; top: 0px; height: 30px;
+    //
+    //}
 
-    .header-bcg{
-        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
+    .pp-h-img-wrapper{
+        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-repeat: repeat; padding: 10px;
+        display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 21px; overflow: hidden;
+
+        .header-bcg{
+            position: relative; height: 30px; opacity: 0.2;
+        }
     }
 }
 
@@ -68,6 +78,10 @@
                 p{
                     font-size: 24px;
                 }
+
+                .club-name-bcg{
+                    color: $bColor;
+                }
             }
             .bottom-white{
                 position: absolute; left: 0px; bottom: 0px; width: 100%; height: 80px; background: #fff; border-top-left-radius: 3px; border-top-right-radius: 3px;
@@ -117,6 +131,9 @@
                         display: inline-flex;
                         img{
                             margin-top: 3px; margin-right: 5px; height: 15px; width: auto;
+                        }
+                        span{
+                            color: #333333;
                         }
                     }
                 }
@@ -390,15 +407,19 @@
             flex-wrap: wrap;
             .pw-left, .pw-right{width: 100%; border:none; text-align: center;}
             .pw-left{
+                height: 410px;
                 .image-wrapper{
                     left: 0px; margin-left: calc(50% - 160px); margin-top: 50px;
 
+                }
+                .club-icon{
+                    margin-left: calc(50% - 160px); bottom:10px;
                 }
                 .tb-row{}
             }
             .pw-right-header{
                 h1{
-                    font-size: 40px; margin-top: 50px;
+                    font-size: 40px;
                 }
                 .social-networks{
                     h5{ font-size: 20px; }
@@ -426,6 +447,7 @@
                     }
                 }
             }
+
         }
         .preview-body-wrapper{
             .pw-left{
@@ -454,6 +476,21 @@
                 -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
                 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
                 padding-top:20px;
+
+                .pw-r-b-info{
+                   .statistics-wrapper{
+                       .sw-data{
+                           .sw-data-row{
+                               p{
+                                   font-size: 18px;
+                                   span{
+                                       font-size: 20px;
+                                   }
+                               }
+                           }
+                       }
+                   }
+                }
             }
 
             .pw-right-body {
@@ -461,6 +498,7 @@
                 .pw-r-b-info {
                     left: 0px; width: 100%;
                     .info-header {
+                        display: none;
                         flex-wrap: wrap; left: 0px; width: 100%; border-right: 0px; border-left: 0px;
                         .ih-element{width: 100%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1);}
                     }

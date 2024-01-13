@@ -13,7 +13,7 @@ class ClubDataController extends Controller{
     public function isOwner($clubDataID){
         try{
             $clubData = ClubData::where('id', $clubDataID)->first();
-            if($clubData->user_id == Auth::id()) return $clubData;
+            if($clubData->user_id == Auth::id() or Auth::user()->role == 0) return $clubData;
         }catch (\Exception $e){}
         return false;
     }

@@ -83,6 +83,9 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
             Route::post('/save',                             'UsersController@save')->name('system.users.save');
             Route::get ('/edit/{id}',                        'UsersController@edit')->name('system.users.edit');
             Route::put ('/update',                           'UsersController@update')->name('system.users.update');
+
+            /* Delete users */
+            Route::get ('/delete/{id}',                      'UsersController@delete')->name('system.users.delete');
         });
 
         /*

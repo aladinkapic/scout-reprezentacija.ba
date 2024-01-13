@@ -13,6 +13,13 @@
 
 @section('content')
     <div class="content-wrapper content-wrapper-bs">
+
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+
         @include('system.layout.snippets.filters.filter-header', ['var' => $users])
         <table class="table table-bordered" id="filtering">
             <thead>
@@ -36,7 +43,7 @@
                     <td> {{ $user->genderRel->value ?? ''}} </td>
 
                     <td class="text-center">
-                        <a href="{{route('system.users.edit', ['id' => $user->id] )}}" title="Pregled korisnika">
+                        <a href="{{route('system.users.preview', ['id' => $user->id] )}}" title="Pregled korisnika">
                             <button class="btn-dark btn-xs">Pregled</button>
                         </a>
                     </td>

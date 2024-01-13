@@ -14491,15 +14491,28 @@ header .menu-wrapper .mw-links .single-link a {
   top: 0px;
   width: 100%;
   height: 360px;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), #ffffff) !important;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), #ffffff) !important;
 }
 
-.pp-header .header-bcg {
+.pp-header .pp-h-img-wrapper {
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
+  background-repeat: repeat;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 21px;
+  overflow: hidden;
+}
+
+.pp-header .pp-h-img-wrapper .header-bcg {
+  position: relative;
+  height: 30px;
+  opacity: 0.2;
 }
 
 .public-container .preview-wrapper,
@@ -14676,6 +14689,11 @@ header .menu-wrapper .mw-links .single-link a {
   font-size: 24px;
 }
 
+.public-container .preview-wrapper .pw-right-header .social-networks .club-name-bcg,
+.public-container .preview-body-wrapper .pw-right-header .social-networks .club-name-bcg {
+  color: #173668;
+}
+
 .public-container .preview-wrapper .pw-right-header .bottom-white,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white {
   position: absolute;
@@ -14815,6 +14833,11 @@ header .menu-wrapper .mw-links .single-link a {
   margin-right: 5px;
   height: 15px;
   width: auto;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row .tb-row-col-flex .value-img span,
+.public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex .value-img span {
+  color: #333333;
 }
 
 .public-container .preview-wrapper .pw-left .tb-row h6,
@@ -15508,10 +15531,19 @@ header .menu-wrapper .mw-links .single-link a {
     text-align: center;
   }
 
+  .public-container .preview-wrapper .pw-left {
+    height: 410px;
+  }
+
   .public-container .preview-wrapper .pw-left .image-wrapper {
     left: 0px;
     margin-left: calc(50% - 160px);
     margin-top: 50px;
+  }
+
+  .public-container .preview-wrapper .pw-left .club-icon {
+    margin-left: calc(50% - 160px);
+    bottom: 10px;
   }
 
   .public-container .preview-wrapper .pw-right-header {
@@ -15520,7 +15552,6 @@ header .menu-wrapper .mw-links .single-link a {
 
   .public-container .preview-wrapper .pw-right-header h1 {
     font-size: 40px;
-    margin-top: 50px;
   }
 
   .public-container .preview-wrapper .pw-right-header .social-networks h5 {
@@ -15614,6 +15645,14 @@ header .menu-wrapper .mw-links .single-link a {
     padding-top: 20px;
   }
 
+  .public-container .preview-body-wrapper .pw-right .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p {
+    font-size: 18px;
+  }
+
+  .public-container .preview-body-wrapper .pw-right .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span {
+    font-size: 20px;
+  }
+
   .public-container .preview-body-wrapper .pw-right-body {
     padding: 0px;
   }
@@ -15624,6 +15663,7 @@ header .menu-wrapper .mw-links .single-link a {
   }
 
   .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .info-header {
+    display: none;
     flex-wrap: wrap;
     left: 0px;
     width: 100%;

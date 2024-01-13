@@ -13,7 +13,11 @@
 @endsection
 
 @section('ph-navigation')
-    / <a href="{{ route('system.users.profile') }}"> {{ __('Moj profil') }}</a>
+    @if($loggedUser->role == 0)
+        / <a href="{{ route('system.users.edit', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
+    @else
+        / <a href="{{ route('system.users.profile') }}"> {{ __('Moj profil') }}</a>
+    @endif
     @if(isset($create))
         / <a href="{{route('system.additional.club-data.create')}}"> {{ __('Statistika u klubu') }} </a>
     @else
@@ -38,13 +42,15 @@
                 @endif
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="club_id"> <b>{{ __('Naziv kluba') }}</b> </label>
                                 {!! Form::select('club_id', $clubs, $clubData->club_id ?? '', ['class' => 'form-control required s2-search-clubs', 'id' => 'club_id', 'aria-describedby' => 'club_idHelp']) !!}
                                 <small id="club_idHelp" class="form-text text-muted"> {{ __('Odaberite klub u kojem ste igrali') }} </small>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="season"> <b>{{ __('Sezona') }}</b> </label>
@@ -52,7 +58,15 @@
                                 <small id="seasonHelp" class="form-text text-muted"> {{ __('Npr. ') }} {{ date('Y') - 1 }} / {{ date('Y') }}</small>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="season_name"> <b>{{ __('Naziv takmičenja') }}</b> </label>
+                                {!! Form::text('season_name', $clubData->season_name ?? '', ['class' => 'form-control', 'id' => 'season_name', 'aria-describedby' => 'season_nameHelp', isset($preview) ? 'readonly' : '']) !!}
+                                <small id="season_nameHelp" class="form-text text-muted"> {{ __('Takmičenje u kojem se igrač takmiči') }} </small>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

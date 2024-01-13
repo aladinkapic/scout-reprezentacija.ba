@@ -13,7 +13,7 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            @foreach($loggedUser->clubDataRel as $clubData)
+                            @foreach($user->clubDataRel as $clubData)
                                 <a href="{{ route('system.additional.club-data.preview', ['id' => $clubData->id ?? '']) }}" title="{{ __('Uredite informacije za ') . ($clubData->clubRel->title ?? '') }}">
                                     <p class="m-0"> <small> {{ $clubData->season }} - <b> {{ $clubData->clubRel->title ?? '' }} </b> </small> </p>
                                 </a>
@@ -31,7 +31,7 @@
                             </a>
                         </div>
                         <div class="col-md-12">
-                            @foreach($loggedUser->natTeamDataRel as $natTeamData)
+                            @foreach($user->natTeamDataRel as $natTeamData)
                                 <a href="{{ route('system.additional.nat-team-data.preview', ['id' => $natTeamData->id ?? '']) }}" title="{{ __('Uredite informacije za ') . ($natTeamData->countryRel->title ?? '') }}">
                                     <p class="m-0"> <small> {{ $natTeamData->season }} - <b> {{ ucwords(strtolower($natTeamData->countryRel->name_ba)) ?? '' }} </b> </small> </p>
                                 </a>

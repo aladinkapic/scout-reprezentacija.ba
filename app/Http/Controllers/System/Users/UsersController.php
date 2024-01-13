@@ -85,7 +85,18 @@ class UsersController extends Controller{
 
     public function preview($id){ return $this->data('preview', $id); }
     public function edit($id){ return $this->data('edit', $id); }
+    public function delete($id){
+        try{
+            $user = User::where('id', $id)->first();
+            $name = $user->name;
 
+            $user->delete();
+            
+            return redirect()->route('system.users.index')->with('success', __('Uspješno obrisan korisnik ' . $name));
+        }catch (\Exception $e){
+            return redirect()->back()->with('error', __('Desila se greška prilikom brisanja, molimo pokušajte ponovo !'));
+        }
+    }
     public function update(Request $request){
 
         try {

@@ -9,6 +9,7 @@
 
     @if(isset($preview))
         | <a href="{{route('system.users.edit', ['id' => $user->id])}}"> {{ __('Uredite') }} </a>
+        | <a href="{{route('system.users.delete', ['id' => $user->id])}}"> {{ __('Obrišite') }} </a>
     @endif
 @endsection
 
@@ -43,7 +44,14 @@
                 @endif
 
                     <div class="row">
-                        <div class="@if(isset($profile)) col-md-9 @else col-md-12 @endif">
+                        <div class="@if(isset($profile) or (isset($preview) and $loggedUser->role == 0)) col-md-9 @else col-md-12 @endif">
+
+                            @if(session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
+
                             @if(isset($profile))
                                 {!! Form::open(array('route' => 'system.blog-posts.save', 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
                                     {!! Form::hidden('category', '0', ['class' => 'form-control']) !!}
@@ -299,7 +307,7 @@
                             @endif
                         </div>
 
-                        @if(isset($profile))
+                        @if(isset($profile) or (isset($preview) and $loggedUser->role == 0))
                             @include('system.app.users.right-menu')
                         @endif
                     </div>
