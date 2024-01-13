@@ -12,12 +12,18 @@ use PHPUnit\Framework\Constraint\Count;
 class FetchClubs extends Command{
     use FilesTrait, CoreTrait;
 
+    protected $_euro_countries = [
+        'Croatia',
+        'Austria'
+    ];
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'fetch:clubs {args*}';
+    // protected $signature = 'fetch:clubs {args*}';
+    protected $signature = 'fetch:clubs';
 
     /**
      * The console command description.
@@ -42,17 +48,17 @@ class FetchClubs extends Command{
      * @return int
      */
     public function handle(){
-        $what  = $this->argument()['args'][0];
-        $value = $this->argument()['args'][1];
+        // $what  = $this->argument()['args'][0];
+        // $value = $this->argument()['args'][1];
         $client = new \GuzzleHttp\Client(['base_uri' => $this->getBaseURI()]);
 
-        $totalInserted = 0;
+        $totalInserted = 0; $insertedByCountry = 0;
 
-        if($what == 'country'){
+        foreach ($this->_euro_countries as $country){
             $response = $client->request('GET', 'teams', [
                 'headers' => $this->getApiSportHeaders(),
                 'query' => [
-                    'country' => $value
+                    'country' => $country
                 ]
             ]);
 
@@ -89,16 +95,15 @@ class FetchClubs extends Command{
                             dump("Error while inserting club: " . $team->team->name, $e->getMessage());
                         }
 
-                        $totalInserted ++;
+                        $insertedByCountry ++;
                     }
                 }catch (\Exception $e){ dump("Error: " . $e->getMessage()); }
             }
 
-        }else if($what == 'league'){
+            dump("Total inserted for  " . $country . " " . $insertedByCountry);
 
+            $totalInserted += $insertedByCountry;
         }
-
-        dd("Total clubs inserted: " . $totalInserted);
 
         return "Total clubs inserted: " . $totalInserted;
     }

@@ -36077,20 +36077,20 @@ $(document).ready(function () {
   /*
   let result = window.location.href;
   let array_of_results = result.split('filter');
-   let searched_results = Array();
+    let searched_results = Array();
   let odd = null, even = null;
-   for(let i=1; i<array_of_results.length; i++){
+    for(let i=1; i<array_of_results.length; i++){
       var mySubString = array_of_results[i].substring(
           array_of_results[i].lastIndexOf("=") + 1,
           array_of_results[i].lastIndexOf("&")
       );
-       if(i === (array_of_results.length - 1)){
+        if(i === (array_of_results.length - 1)){
           var mySubString = array_of_results[i].substring(
               array_of_results[i].indexOf("=") + 1,
               array_of_results[i].indexOf("&")
           );
       }
-       if(i % 2 === 0) {
+        if(i % 2 === 0) {
           odd = mySubString.replace();
           odd = odd.split('%20').join(" ");
           odd = odd.split('%C5%A1').join("š");
@@ -36104,24 +36104,24 @@ $(document).ready(function () {
           odd = odd.split('%C4%8D').join("č");
           odd = odd.split('%C4%8C').join("Č");
           searched_results.push(new Array(even,  odd));
-           if(even === 'naziv'){
+            if(even === 'naziv'){
               // Pretraga po nazivu nekretnine
               $("#menu_name_of_estate").val(odd)
           }
       }
       else even = mySubString;
   }
-   $(".my-select-wrapper").each(function () {
+    $(".my-select-wrapper").each(function () {
       for(let j=0; j<searched_results.length; j++){
           if($(this).attr('id') === searched_results[j][0]){
               $(this).attr('value', searched_results[j][1]);
               //$("#"+searched_results[j][0]+'-paragraph').text(searched_results[j][1]);
               $(this).find("p").text(searched_results[j][1]);
-               console.log("Searched " + searched_results[j][0]);
+                console.log("Searched " + searched_results[j][0]);
           }
       }
   });
-   $(".check-wrapper").each(function () {
+    $(".check-wrapper").each(function () {
       for(let j=0; j<searched_results.length; j++){
           if($(this).attr('id') === searched_results[j][0]){
               $(this).find(".check-place").append('<i class="fas fa-check"></i>');
@@ -36251,7 +36251,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\webApps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! D:\Alkaris DOO\scout-reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })
