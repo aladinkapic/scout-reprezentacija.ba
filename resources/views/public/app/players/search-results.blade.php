@@ -39,7 +39,7 @@
 
         <div class="pages">
             @for($i=1; $i<=$noPages; $i++)
-                <div class="single-page " page="{{ $i }}">
+                <div class="single-page @if($i == $currentPage) focus @endif" page="{{ $i }}">
                     <p> {{$i}} </p>
                 </div>
             @endfor

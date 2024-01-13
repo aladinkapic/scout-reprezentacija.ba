@@ -91,7 +91,7 @@ class UsersController extends Controller{
             $name = $user->name;
 
             $user->delete();
-            
+
             return redirect()->route('system.users.index')->with('success', __('Uspješno obrisan korisnik ' . $name));
         }catch (\Exception $e){
             return redirect()->back()->with('error', __('Desila se greška prilikom brisanja, molimo pokušajte ponovo !'));

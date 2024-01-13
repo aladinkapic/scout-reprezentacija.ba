@@ -15,6 +15,8 @@ class Filters extends Controller{
 
     private static $limit = 12;
 
+    public static function getLimit(){ return self::$limit; }
+
     public static function filter($query, $frontRequest = NULL){
 
         $filters = request()->get('filter');

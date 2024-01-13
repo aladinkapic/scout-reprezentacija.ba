@@ -23,7 +23,9 @@ class PlayersController extends Controller{
         // $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
         $positions = null;
 
-        $noPages  = (($users->total() / 12) === (int)($users->total() / 12)) ? ($users->total() / 12) : ((int)($users->total() / 12) + 1);
+        $noPages  = (($users->total() / Filters::getLimit()) === (int)($users->total() / Filters::getLimit())) ? ($users->total() / Filters::getLimit()) : ((int)($users->total() / Filters::getLimit()) + 1);
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+
         $nextPage = isset($_GET['page']) ? ($_GET['page'] + 1) : 2;
         $nextPage = ($nextPage > $noPages) ? $nextPage = $noPages : $nextPage;
 
@@ -50,7 +52,8 @@ class PlayersController extends Controller{
             'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba'),
             'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', ''),
             'noPages' => $noPages,
-            'nextPage' => $nextPage
+            'nextPage' => $nextPage,
+            'currentPage' => $currentPage
         ]);
     }
     public function getData($username, $what){
