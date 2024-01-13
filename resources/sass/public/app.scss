@@ -18,6 +18,8 @@
 //}
 
 $bColor : #173668;
+$white : #fff;
+$dark : $bColor;
 
 @import "main.scss";
 
@@ -48,6 +50,7 @@ $bColor : #173668;
 // Footer
 
 @import "footer/footer.scss";
+@import "footer/footer-extended";
 
 @import "../style/layout/snippets/select-2";
 @import "players/preview";
