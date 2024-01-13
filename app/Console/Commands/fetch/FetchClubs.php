@@ -54,11 +54,11 @@ class FetchClubs extends Command{
 
         $totalInserted = 0; $insertedByCountry = 0;
 
-        foreach ($this->_euro_countries as $country){
+        foreach ($this->_euro_countries as $countryName){
             $response = $client->request('GET', 'teams', [
                 'headers' => $this->getApiSportHeaders(),
                 'query' => [
-                    'country' => $country
+                    'country' => $countryName
                 ]
             ]);
 
@@ -100,7 +100,7 @@ class FetchClubs extends Command{
                 }catch (\Exception $e){ dump("Error: " . $e->getMessage()); }
             }
 
-            dump("Total inserted for  " . $country . " " . $insertedByCountry);
+            dump("Total inserted for  " . $countryName . " " . $insertedByCountry);
 
             $totalInserted += $insertedByCountry;
         }
