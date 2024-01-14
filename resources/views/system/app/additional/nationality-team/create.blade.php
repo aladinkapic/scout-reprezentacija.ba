@@ -14,7 +14,7 @@
 
 @section('ph-navigation')
     @if($loggedUser->role == 0)
-        / <a href="{{ route('system.users.edit', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
+        / <a href="{{ route('system.users.preview', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
     @else
         / <a href="{{ route('system.users.profile') }}"> {{ __('Moj profil') }}</a>
     @endif

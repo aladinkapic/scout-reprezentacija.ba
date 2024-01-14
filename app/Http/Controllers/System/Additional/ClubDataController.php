@@ -25,7 +25,7 @@ class ClubDataController extends Controller{
     public function data($action = 'create', $id = null){
         return view($this->_path.'create', [
             $action => true,
-            'clubs' => Club::pluck('title', 'id'),
+            // 'clubs' => Club::pluck('title', 'id'),
             'seasons' => $this->getSeasons(),
             'clubData' => isset($id) ? ClubData::find($id) : null
         ]);

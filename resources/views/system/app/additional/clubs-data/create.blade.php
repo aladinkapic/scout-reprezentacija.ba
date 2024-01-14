@@ -14,7 +14,7 @@
 
 @section('ph-navigation')
     @if($loggedUser->role == 0)
-        / <a href="{{ route('system.users.edit', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
+        / <a href="{{ route('system.users.preview', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
     @else
         / <a href="{{ route('system.users.profile') }}"> {{ __('Moj profil') }}</a>
     @endif
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="club_id"> <b>{{ __('Naziv kluba') }}</b> </label>
-                                {!! Form::select('club_id', $clubs, $clubData->club_id ?? '', ['class' => 'form-control required s2-search-clubs', 'id' => 'club_id', 'aria-describedby' => 'club_idHelp']) !!}
+                                {!! Form::select('club_id', [($clubData->club_id ?? '') => $clubData->clubRel->title ?? ''], $clubData->club_id ?? '', ['class' => 'form-control required s2-search-clubs', 'id' => 'club_id', 'aria-describedby' => 'club_idHelp']) !!}
                                 <small id="club_idHelp" class="form-text text-muted"> {{ __('Odaberite klub u kojem ste igrali') }} </small>
                             </div>
                         </div>
