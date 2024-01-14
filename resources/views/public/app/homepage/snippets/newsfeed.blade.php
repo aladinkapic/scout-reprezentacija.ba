@@ -99,9 +99,9 @@
                 <div class="h-lnp-img-part">
                     <img src="{{ $apiData[$i]->image_url }}" alt="">
                     <div class="h-lnp-published t-3" title="Objavljeno 17. Marta 2021 godine">
-                        <span class="s-digit t-3"> 12 </span>
+                        <span class="s-digit t-3"> {{ NewsHelper::getDay($apiData[$i]->date) }} </span>
                         <div class="h-lnp-p-line t-3"></div>
-                        <span class="s-text t-3"> SEP </span>
+                        <span class="s-text t-3"> {{ NewsHelper::getMonth($apiData[$i]->date) }} </span>
                     </div>
                 </div>
                 <div class="h-lnp-rest">
@@ -109,7 +109,10 @@
                     <h3> {{ $apiData[$i]->title->rendered }} </h3>
                     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio iure, tempora officia architecto maiores assumenda labore expedita eveniet minus eum fugit accusamus rerum recusandae ex eligendi. Quaerat cum nam sapiente. </p>
                     <a href="{{ $apiData[$i]->link }}">
-                        <p>Više informacija</p>
+                        <p>
+                            {{ __('Više informacija') }}
+                            <i class="fas fa-chevron-right"></i>
+                        </p>
                     </a>
                 </div>
             </div>

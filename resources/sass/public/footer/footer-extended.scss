@@ -319,6 +319,10 @@
     .footer__con-bottom {
         flex-direction: column-reverse;
         align-items: flex-start;
+        margin-top: 0px;
+        .con__bottom-item{
+            width: 100%;
+        }
     }
 
     .con__bottom-list {
