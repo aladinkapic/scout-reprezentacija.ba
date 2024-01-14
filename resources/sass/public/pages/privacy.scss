@@ -1,0 +1,38 @@
+.privacy-wrapper{
+    position: relative; left: 0px; top: 0px; width: 100%;
+
+    .pw-header, .pw-body{
+        position: relative; left: calc(50% - 600px); width: 1200px; padding: 30px 0px;
+        border-bottom: 3px solid $bColor;
+        h1{
+            font-family: Nunito-Bold, sans-serif; color: $bColor; margin-top: 20px;
+        }
+        h4{
+            font-family: Nunito-Bold, sans-serif;
+        }
+        h5{
+            font-family: Nunito-Bold, sans-serif;
+        }
+        a{
+            font-weight: bold; color:$bColor;
+        }
+    }
+    .pw-body{border:none;}
+}
+
+
+@media only screen and (max-width: 1200px){
+    .privacy-wrapper{
+        .pw-header, .pw-body{
+            left: 50px; width: calc(100% - 100px);
+        }
+    }
+}
+@media only screen and (max-width: 800px){
+    .privacy-wrapper{
+        margin-top: 60px;
+        .pw-header, .pw-body{
+            left: 20px; width: calc(100% - 40px);
+        }
+    }
+}

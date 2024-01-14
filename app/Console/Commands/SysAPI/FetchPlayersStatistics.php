@@ -118,7 +118,7 @@ class FetchPlayersStatistics extends Command{
                                 }catch (\Exception $e){ dump($e->getMessage()); }
                             }
                         }else{
-                            $club   = Club::where('title', 'like', '%'. $statistics->team_name .'%' )->first();
+                            $club   = Club::where('title', $statistics->team_name)->first();
                             $apiStat = ClubData::where('user_id', $user->id)->where('season_name', $statistics->season_name)->first();
 
                             if(!$apiStat){

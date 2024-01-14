@@ -32,6 +32,12 @@ Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
         // Route::get ('/',                                 'PlayersController@search')->name('home.players');
         Route::get ('/preview/{id}',                     'ClubController@preview')->name('home.clubs.preview');
     });
+
+    Route::group(['namespace' => 'Pages', 'prefix' => '/pages'], function(){
+        Route::get ('/privacy-policy',                   'PagesController@privacy')->name('home.pages.privacy-policy');
+        Route::get ('/cookies',                          'PagesController@cookies')->name('home.pages.cookies');
+        Route::get ('/terms-and-conditions',             'PagesController@terms')->name('home.pages.terms-and-conditions');
+    });
 });
 
 

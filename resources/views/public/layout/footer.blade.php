@@ -97,13 +97,13 @@
                         <a class="footer__list1-link" href="https://reprezentacija.ba/o-nama"> {{ __('O nama') }} </a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="#">{{ __('Pravila privatnosti') }}</a>
+                        <a class="footer__list1-link" href="{{ route('home.pages.privacy-policy') }}">{{ __('Pravila privatnosti') }}</a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="#"> {{ __('Uslovi korištenja') }} </a>
+                        <a class="footer__list1-link" href="{{ route('home.pages.terms-and-conditions') }}"> {{ __('Uslovi korištenja') }} </a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="#"> {{ __('Korisnički kolačići') }} </a>
+                        <a class="footer__list1-link" href="{{ route('home.pages.cookies') }}"> {{ __('Korisnički kolačići') }} </a>
                     </li>
                 </ul>
                 <ul class="footer__list2">
@@ -126,13 +126,13 @@
             <p>© {{ date('Y') }} Crafted with <i class="fas fa-heart text-danger"></i> by <a href="https://alkaris.com" class="text-decoration-none"> <b>Alkaris d.o.o</b> </a> </p>
             <ul class="con__bottom-list">
                 <li class="con__bottom-item">
-                    <a href="#" class="con__bottom-link underlined"> {{ __('Pravila privatnosti') }} </a>
+                    <a href="{{ route('home.pages.privacy-policy') }}" class="con__bottom-link underlined"> {{ __('Pravila privatnosti') }} </a>
                 </li>
                 <li class="con__bottom-item">
-                    <a href="#" class="con__bottom-link underlined"> {{ __('Uslovi korištenja') }} </a>
+                    <a href="{{ route('home.pages.terms-and-conditions') }}" class="con__bottom-link underlined"> {{ __('Uslovi korištenja') }} </a>
                 </li>
                 <li class="con__bottom-item">
-                    <a href="#}" class="con__bottom-link underlined">{{ __('Korisnički kolačići') }}</a>
+                    <a href="{{ route('home.pages.cookies') }}" class="con__bottom-link underlined">{{ __('Korisnički kolačići') }}</a>
                 </li>
             </ul>
         </div>
