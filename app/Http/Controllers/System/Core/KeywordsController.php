@@ -20,6 +20,7 @@ class KeywordsController extends Controller{
         // 'active' => 'Status'
         'nat_team' => 'Tim reprezentacija',
         'phone_prefixes' => 'Pozivni brojevi telefona',
+        'seasons' => 'Sezone'
     ];
 
     public function index(){

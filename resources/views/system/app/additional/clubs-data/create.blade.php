@@ -14,14 +14,14 @@
 
 @section('ph-navigation')
     @if($loggedUser->role == 0)
-        / <a href="{{ route('system.users.preview', ['id' => $clubData->userRel->id] ) }}"> {{ $clubData->userRel->name ?? '' }}</a>
+        / <a href="{{ route('system.users.preview', ['id' => $user->id] ) }}"> {{ $user->name ?? '' }}</a>
     @else
         / <a href="{{ route('system.users.profile') }}"> {{ __('Moj profil') }}</a>
     @endif
     @if(isset($create))
         / <a href="{{route('system.additional.club-data.create')}}"> {{ __('Statistika u klubu') }} </a>
     @else
-        / <a href="{{route('system.additional.club-data.preview', ['id' => $clubData->id ?? '' ])}}"> {{ $clubData->season ?? '' }} </a>
+        / <a href="{{route('system.additional.club-data.preview', ['id' => $clubData->id ?? '' ])}}"> {{ $clubData->seasonRel->value ?? '' }} </a>
     @endif
 @endsection
 
@@ -39,6 +39,7 @@
                     {!! Form::hidden('id', $clubData->id ?? '', ['class' => 'form-control']) !!}
                 @else
                     {!! Form::open(array('route' => 'system.additional.club-data.save', 'id' => 'js-form', 'method' => 'POST')) !!}
+                    {!! Form::hidden('user_id', $user->id, ['class' => 'form-control']) !!}
                 @endif
 
                     <div class="row">

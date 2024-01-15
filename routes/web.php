@@ -141,6 +141,7 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::group(['prefix' => '/clubs-data'], function(){
             Route::get ('/',                                 'ClubDataController@index')->name('system.additional.club-data.index');
             Route::get ('/create',                           'ClubDataController@create')->name('system.additional.club-data.create');
+            Route::get ('/create-for/{id}',                  'ClubDataController@createFor')->name('system.additional.club-data.create-for');
             Route::post('/save',                             'ClubDataController@save')->name('system.additional.club-data.save');
             Route::get ('/preview/{id}',                     'ClubDataController@preview')->name('system.additional.club-data.preview');
             Route::get ('/edit/{id}',                        'ClubDataController@edit')->name('system.additional.club-data.edit');
@@ -153,6 +154,7 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::group(['prefix' => '/nationality-team-data'], function(){
             Route::get ('/',                                 'NatTeamDataController@index')->name('system.additional.nat-team-data.index');
             Route::get ('/create',                           'NatTeamDataController@create')->name('system.additional.nat-team-data.create');
+            Route::get ('/create-for/{id}',                  'NatTeamDataController@createFor')->name('system.additional.nat-team-data.create-for');
             Route::post('/save',                             'NatTeamDataController@save')->name('system.additional.nat-team-data.save');
             Route::get ('/preview/{id}',                     'NatTeamDataController@preview')->name('system.additional.nat-team-data.preview');
             Route::get ('/edit/{id}',                        'NatTeamDataController@edit')->name('system.additional.nat-team-data.edit');

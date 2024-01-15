@@ -7,6 +7,7 @@ use App\Models\Additional\Club;
 use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Core\Country;
+use App\Models\Core\Keywords\Keyword;
 use App\Traits\API\CoreTrait;
 use App\Traits\API\FilesTrait;
 use App\User;
@@ -97,6 +98,8 @@ class FetchPlayersStatistics extends Command{
                             }
                         }
 
+                        $season = Keyword::where('keyword', 'seasons')->where('value', $season)->first();
+
                         $country = Country::where('name', $statistics->team_name)->first();
                         if($country){
                             $apiNat = NatTeamData::where('user_id', $user->id)->where('season_name', $statistics->season_name)->first();
@@ -105,7 +108,7 @@ class FetchPlayersStatistics extends Command{
                                 try{
                                     NatTeamData::create([
                                         'user_id' => $user->id,
-                                        'season' => $season,
+                                        'season' => $season->id,
                                         'season_name' => $statistics->season_name,
                                         'country_id' => $country->id,
                                         'no_games' => $statistics->played,
@@ -125,7 +128,7 @@ class FetchPlayersStatistics extends Command{
                                 try{
                                     ClubData::create([
                                         'user_id' => $user->id,
-                                        'season' => $season,
+                                        'season' => $season->id,
                                         'season_name' => $statistics->season_name,
                                         'club_id' => $club->id ?? NULL,
                                         'no_games' => $statistics->played,

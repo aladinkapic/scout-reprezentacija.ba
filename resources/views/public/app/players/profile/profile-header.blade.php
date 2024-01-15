@@ -1,5 +1,4 @@
 <div class="pp-header">
-
     <div class="pp-h-img-wrapper">
         @for($i=0; $i<1000; $i++)
             @include('public.app.players.snippets.svg-image')
@@ -24,6 +23,7 @@
                 <div class="image-wrapper">
                     <img src="@if($player->image != '') {{ asset('images/profile-images/'.$player->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
+
 
                 @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
                     <div class="club-icon" title="{{ $player->lastClub->clubRel->title ?? '' }}">

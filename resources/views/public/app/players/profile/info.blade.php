@@ -122,7 +122,7 @@
                         @endif
                     </div>
                     <p>
-                        {{ $clubData->season ?? '' }}
+                        {{ $clubData->seasonRel->value ?? '' }}
                         <span>
                             <a href="{{ route('home.clubs.preview', ['id' => $clubData->clubRel->id ?? '']) }}" class="text-info text-decoration-none">
                                 {{ $clubData->clubRel->title ?? '' }}
@@ -212,7 +212,7 @@
                         <i class="fas fa-plus"></i>
                     @endif
                 </div>
-                <p> {{ $natTeamData->season ?? '' }}
+                <p> {{ $natTeamData->seasonRel->value ?? '' }}
                     <span class="text-info">
                         {{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}
                     </span>

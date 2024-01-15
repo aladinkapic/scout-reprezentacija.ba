@@ -27,7 +27,7 @@ class UsersController extends Controller{
     }
 
     public function index(){
-        $users = User::where('id', '>', 0);
+        $users = User::where('role', '!=', 0);
         $users = Filters::filter($users);
         $filters = [
             'name' => __('Ime i prezime'),
