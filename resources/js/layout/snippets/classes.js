@@ -35,7 +35,7 @@ $(document).ready(function () {
         }
         let baseUrl = "/images/club-images";
         return $(
-            '<span><img src="' + baseUrl + '/' + state.contryflage.toLowerCase() + '"  class="s2-img-flag" /> ' + state.text + '</span>'
+            '<span><img src="' + baseUrl + '/' + state.contryflage + '"  class="s2-img-flag" /> ' + state.text + '</span>'
         );
     }
 

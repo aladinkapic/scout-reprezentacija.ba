@@ -30981,7 +30981,7 @@ $(document).ready(function () {
     }
 
     var baseUrl = "/images/club-images";
-    return $('<span><img src="' + baseUrl + '/' + state.contryflage.toLowerCase() + '"  class="s2-img-flag" /> ' + state.text + '</span>');
+    return $('<span><img src="' + baseUrl + '/' + state.contryflage + '"  class="s2-img-flag" /> ' + state.text + '</span>');
   }
 
   $(function () {
