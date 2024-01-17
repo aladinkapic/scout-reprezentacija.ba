@@ -14764,6 +14764,7 @@ header .menu-wrapper .mw-links .single-link a {
   border-radius: 50%;
   bottom: 20px;
   border: 2px solid #ffffff;
+  overflow: hidden;
 }
 
 .public-container .preview-wrapper .pw-left .club-icon img,

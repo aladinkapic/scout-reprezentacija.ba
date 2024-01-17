@@ -104,10 +104,4 @@
             </p>
         </div>
     @endif
-
-
-    <!-- Novosti o igraču -->
-    <div class="latest-news">
-
-    </div>
 </div>

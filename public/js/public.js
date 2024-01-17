@@ -35948,6 +35948,7 @@ $(document).ready(function () {
 
       values[id] = $(this).attr("value");
       localStorage.setItem("checkbox-values", JSON.stringify(values));
+      console.log("Values", values);
     } else {
       var _values2 = JSON.parse(localStorage.getItem("checkbox-values"));
 
@@ -36002,13 +36003,13 @@ $(document).ready(function () {
           if (index++ === 0) url += '?';else url += '&';
           url += 'filter%5B%5D=' + $(this).attr('id') + '&filter_values%5B%5D=' + $(this).attr('value');
         }
-      }); // $(".check-wrapper").each(function () {
-      //     if($(this).attr('value') !== "0"){
-      //         if(index++ === 0) url += '?';
-      //         else url += '&';
-      //         url += 'filter%5B%5D='+main_filter+'&filter_values%5B%5D=' + $(this).attr('value');
-      //     }
-      // });
+      });
+      $(".check-wrapper").each(function () {
+        if ($(this).attr('value') !== "0") {
+          if (index++ === 0) url += '?';else url += '&';
+          url += 'filter%5B%5D=' + main_filter + '&filter_values%5B%5D=' + $(this).attr('value');
+        }
+      });
     } else {
       $(".product-main-category").each(function () {
         if ($(this).attr('value') !== "0") {
@@ -36054,6 +36055,7 @@ $(document).ready(function () {
 
     if (localStorage.getItem("checkbox-values") !== null) {
       var storedCheckboxes = JSON.parse(localStorage.getItem("checkbox-values"));
+      console.log("Stored", storedCheckboxes);
 
       for (var _property in storedCheckboxes) {
         var parent = $("#" + _property);

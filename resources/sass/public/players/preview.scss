@@ -33,6 +33,7 @@
 
             .club-icon{
                 position: absolute; width: 100px; height:100px; background: #ffffff; border-radius: 50%; bottom:20px; border: 2px solid #ffffff;
+                overflow: hidden;
                 img{
                     position: absolute; left:0px; top:0px; right: 0px; bottom: 0px; margin:auto; max-width: 80%; max-height: 80%;
                 }

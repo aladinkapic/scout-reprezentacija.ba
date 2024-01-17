@@ -165,8 +165,9 @@
                 </div>
 
                 <div class="check-boxed-body">
+                    @php $counter = 1 @endphp
                     @foreach($positions as $key => $val)
-                        <div class="check-wrapper" id="checkbox-{{ $key }}" value="0" custom_value="{{ $val }}">
+                        <div class="check-wrapper" id="checkbox-{{ $counter++ }}" value="0" custom_value="{{ $val }}">
                             <div class="check-place"></div>
                             <p>{{ $val }}</p>
                         </div>
