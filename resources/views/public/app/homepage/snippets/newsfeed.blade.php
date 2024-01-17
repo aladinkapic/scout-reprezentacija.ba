@@ -105,9 +105,9 @@
                     </div>
                 </div>
                 <div class="h-lnp-rest">
-                    <h5> {{ __('Novosti') }} </h5>
+                    <h5> <b>{{ __('Novosti') }}</b> </h5>
                     <h3> {{ $apiData[$i]->title->rendered }} </h3>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio iure, tempora officia architecto maiores assumenda labore expedita eveniet minus eum fugit accusamus rerum recusandae ex eligendi. Quaerat cum nam sapiente. </p>
+                    <p> {!! nl2br(NewsHelper::getFirstNLetters($apiData[$i]->content->rendered ?? '')) !!} ..</p>
                     <a href="{{ $apiData[$i]->link }}">
                         <p>
                             {{ __('Više informacija') }}

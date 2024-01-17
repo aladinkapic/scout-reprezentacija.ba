@@ -72,20 +72,15 @@
                 @endif
             </p>
         </div>
-
-        <div class="custom-buttons">
-{{--            <div class="button bg-danger">--}}
-{{--                <a >--}}
-{{--                    <small> {{ __('Prijavi netačne podatke') }} </small>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-            <div class="button">
-                <a href="{{ route('auth.create-profile') }}" title="{{ __('Kreirajte Vaš profil na scout.reprezentacija.ba!') }}">
-                    <small> {{ __('Kreirajte svoj profil') }} </small>
-                </a>
-            </div>
-        </div>
     @endif
+
+    <div class="custom-buttons">
+        <div class="button">
+            <a href="{{ route('auth.create-profile') }}" title="{{ __('Kreirajte Vaš profil na scout.reprezentacija.ba!') }}">
+                <small> {{ __('Kreirajte svoj profil') }} </small>
+            </a>
+        </div>
+    </div>
 
     @if($player->allow_rating == 1 and $what == 'info')
         <div class="tb-row pb-2 player-reviewed-wrapper" title="{{ __('Bazirano na ') }} {{ $player->rateRelCount() }} {{ __('ocjene/a!') }}">
@@ -109,4 +104,10 @@
             </p>
         </div>
     @endif
+
+
+    <!-- Novosti o igraču -->
+    <div class="latest-news">
+
+    </div>
 </div>

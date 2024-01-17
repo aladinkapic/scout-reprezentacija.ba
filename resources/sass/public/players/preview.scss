@@ -182,6 +182,11 @@
                     margin-left: 1px;
                 }
             }
+
+            /* Latest news */
+            .latest-news{
+                position: relative; left: 0px; top: 0px; width: 100%; min-height: 30px; background: red; margin-top: 20px;
+            }
         }
         .pw-left-body{height: auto; margin-bottom: 30px;}
         .pw-right-body{

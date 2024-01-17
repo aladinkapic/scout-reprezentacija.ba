@@ -13,4 +13,11 @@ class NewsHelper{
     public static function getMonth($date){
         return self::$_months[(int)(Carbon::parse($date)->format('m') - 1)];
     }
+    public static function getFirstNLetters($string, $letters = 200): string{
+        $string = str_replace("<br />", "", $string);
+        $string = str_replace("\n", "", $string);
+        $string = strip_tags($string);
+
+        return mb_substr($string, 0, $letters);
+    }
 }

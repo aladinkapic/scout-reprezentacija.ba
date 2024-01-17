@@ -13449,13 +13449,18 @@ header .menu-wrapper .mw-links .single-link a {
   left: 0px;
   top: 0px;
   width: 100%;
+  height: 250px;
+  overflow: hidden;
 }
 
 .h-latest-news .h-ln-preview .h-lnp-img-part img {
   position: relative;
   left: 0px;
   top: 0px;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  max-height: 150%;
+  max-width: 150%;
 }
 
 .h-latest-news .h-ln-preview .h-lnp-img-part .h-lnp-published {
@@ -14972,6 +14977,11 @@ header .menu-wrapper .mw-links .single-link a {
   background: #142D56;
 }
 
+.public-container .preview-wrapper .pw-left,
+.public-container .preview-body-wrapper .pw-left {
+  /* Latest news */
+}
+
 .public-container .preview-wrapper .pw-left .tb-row,
 .public-container .preview-body-wrapper .pw-left .tb-row {
   position: relative;
@@ -15162,6 +15172,17 @@ header .menu-wrapper .mw-links .single-link a {
 .public-container .preview-wrapper .pw-left .img-thumb-wrapper .img-thumb:nth-child(4n+4),
 .public-container .preview-body-wrapper .pw-left .img-thumb-wrapper .img-thumb:nth-child(4n+4) {
   margin-left: 1px;
+}
+
+.public-container .preview-wrapper .pw-left .latest-news,
+.public-container .preview-body-wrapper .pw-left .latest-news {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  min-height: 30px;
+  background: red;
+  margin-top: 20px;
 }
 
 .public-container .preview-wrapper .pw-left-body,

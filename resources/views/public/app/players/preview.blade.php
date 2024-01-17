@@ -26,4 +26,8 @@
             </div>
         </div>
     </div>
+
+    @if(($player->from_api == 1 and $player->player_id != null))
+        @include('public.app.players.snippets.news')
+    @endif
 @endsection

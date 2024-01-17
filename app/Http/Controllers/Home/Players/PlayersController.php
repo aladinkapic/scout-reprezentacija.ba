@@ -58,6 +58,8 @@ class PlayersController extends Controller{
     }
     public function getData($username, $what){
         $player = User::where('username', $username)->first();
+        /* Init empty api data var */
+        $apiData = []; $length = 3;
 
         /* Special players, do not allow timeline; Force redirect */
         if($what == 'timeline' and $player->from_api == 1) return redirect()->route('home.players.player-info', ['username' => $player->username] );
@@ -66,10 +68,21 @@ class PlayersController extends Controller{
             $mainReview = (int) ( (PlayerRate::where('user_id', $player->id)->sum('rate')) / PlayerRate::where('user_id', $player->id)->count() );
         }catch (\Exception $e){ $mainReview = 0;}
 
+        if($player->from_api == 1){
+            /* Check for news about player */
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/repka/v1/posts?tag_slug=' . $player->username);
+            $apiData  = json_decode($response->getBody()->getContents());
+        }
+
+//        dd(nl2br(\NewsHelper::getFirstNLetters($apiData[0]->content)));
+
         return view($this->_path.'preview', [
             'player' => $player,
             'what' => $what,
-            'mainReview' => $mainReview
+            'mainReview' => $mainReview,
+            'apiData' => $apiData,
+            'length' => (count($apiData) >= 6) ? 6 : 3
         ]);
     }
     public function preview($username){

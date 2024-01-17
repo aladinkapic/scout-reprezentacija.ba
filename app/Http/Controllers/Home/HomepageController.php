@@ -39,7 +39,6 @@ class HomepageController extends Controller {
             if($counter > 3) break;
         }
 
-//        dd($apiData);
 
         return view($this->_path.'home', [
             'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend('Odaberite državu', ''),
@@ -48,7 +47,6 @@ class HomepageController extends Controller {
             'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Sve pozicije', ''),
             'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend('Odaberite', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
-
             'partners' => Partner::get(),
             'range' => $this->getYearRange(),
             'quotes' => Quote::inRandomOrder()->get()->take(2),
@@ -57,7 +55,6 @@ class HomepageController extends Controller {
     }
 
     public function register(){
-
         $countries = Country::orderBy('name_ba')->pluck('name_ba', 'id');
 
         return view($this->_path.'register', [
