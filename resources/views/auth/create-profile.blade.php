@@ -100,7 +100,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="gender"><b>{{ __('Spol') }}</b></label>
-                                    {!! Form::select('gender', $gender, '', ['class' => 'form-control', 'id' => 'gender', 'aria-describedby' => 'genderHelp']) !!}
+                                    {!! Form::select('gender', $gender, '7', ['class' => 'form-control', 'id' => 'gender', 'aria-describedby' => 'genderHelp']) !!}
                                     <small id="genderHelp" class="form-text text-muted">{{ __('Odaberite Vaš spol') }}</small>
                                 </div>
                             </div>
@@ -149,13 +149,13 @@
                     <div class="rf-body-element rf-body-element-3 d-none">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="sport"><b>{{ __('Fudbal / Futsal?') }}</b></label>
+                            <label for="sport"><b>{{ __('Nogomet / Futsal?') }}</b></label>
                             {!! Form::select('sport', $sports, '', ['class' => 'form-control', 'id' => 'sport', 'aria-describedby' => 'sportHelp']) !!}
                             <small id="sportHelp" class="form-text text-muted">{{ __('Sport kojim se bavite') }}</small>
                         </div>
                         <div class="col-md-6">
                             <label for="club"><b>{{ __('Vaš klub') }}</b></label>
-                            {!! Form::text('club', '', ['class' => 'form-control', 'id' => 'club', 'aria-describedby' => 'clubHelp','maxlength' => '100']) !!}
+                            {!! Form::select('club', [], '', ['class' => 'form-control s2-search-clubs', 'id' => 'club', 'aria-describedby' => 'clubHelp','style' => 'width:100% !important;']) !!}
                             <small id="clubHelp" class="form-text text-muted">{{ __('Klub za koji trenutno igrate') }}</small>
                         </div>
                     </div>

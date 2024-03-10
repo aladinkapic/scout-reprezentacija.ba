@@ -104,6 +104,8 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::get ('/delete-post/{id}',                 'UsersController@deletePost')->name('system.users.delete-post');
 
         Route::get ('/edit-my-profile',                  'UsersController@editMyProfile')->name('system.users.edit-my-profile');
+        Route::get ('/edit-career',                      'UsersController@editCareer')->name('system.users.edit-career');
+        Route::get ('/edit-social-networks',             'UsersController@editSocialNetworks')->name('system.users.edit-social-networks');
         Route::put ('/update-profile',                   'UsersController@updateProfile')->name('system.users.update-profile');
         Route::post('/change-profile-image',             'UsersController@changeProfileImage')->name('system.users.change-profile-image');
 
@@ -194,8 +196,12 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::put ('/update',                           'KeywordsController@update')->name('system.settings.core.keywords.update');
         Route::delete('/delete',                         'KeywordsController@delete')->name('system.settings.core.keywords.delete');
     });
+});
 
-
+/**
+ *  Open system routes (without authentication)
+ */
+Route::group(['namespace' => 'System', 'prefix' => '/system'], function(){
     /**
      *  Search data
      */

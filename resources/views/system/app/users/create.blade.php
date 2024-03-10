@@ -242,15 +242,15 @@
                                 @if($loggedUser->role == 0 and !isset($profile))
                                     <hr>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="init_club"> <b>{{ __('Klub za koji igra') }}</b> </label>
-                                                {!! Form::text('init_club', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'readonly' : '']) !!}
-                                                <small id="init_clubHelp" class="form-text text-muted"> {{ __('Inicijalni klub za koji igrač igra') }} </small>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="init_club"> <b>{{ __('Klub za koji igra') }}</b> </label>--}}
+{{--                                                {!! Form::text('init_club', $user->init_club ?? '', ['class' => 'form-control', 'id' => 'init_club', 'aria-describedby' => 'init_clubHelp', isset($preview) ? 'readonly' : '']) !!}--}}
+{{--                                                <small id="init_clubHelp" class="form-text text-muted"> {{ __('Inicijalni klub za koji igrač igra') }} </small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">

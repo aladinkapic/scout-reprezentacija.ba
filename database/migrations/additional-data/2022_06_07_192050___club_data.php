@@ -28,6 +28,8 @@ class ClubData extends Migration
             $table->integer('yellow_cards')->default(0);
             $table->integer('without_goal')->nullable();
 
+            $table->integer('shirt_number')->default(0);
+
             $table->softDeletes();
             $table->timestamps();
         });

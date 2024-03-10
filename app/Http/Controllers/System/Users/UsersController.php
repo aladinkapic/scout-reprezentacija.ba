@@ -156,7 +156,26 @@ class UsersController extends Controller{
     /*
      *  Edit profile by user, not admin
      */
-    public function editMyProfile(){ return $this->data('editMyProfile', Auth::id()); }
+    public function editPlayerData($id, $action = 'edit', $view = 'basic_info'){
+        $user = User::find($id);
+        if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+        else if($user->sport == 4) $position = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
+        else $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
+
+        return view($this->_path . 'players.' . $view, [
+            $action => true,
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'sport' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'position' => $position->prepend('Odaberite poziciju', ''),
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'active' => Keyword::where('keyword', 'active')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'user' => isset($id) ? $user : null
+        ]);
+    }
+    public function editMyProfile(){ return $this->editPlayerData(Auth::id(), "edit", "basic_info"); }
+    public function editCareer (){ return $this->editPlayerData(Auth::id(), "edit", "career"); }
+    public function editSocialNetworks (){ return $this->editPlayerData(Auth::id(), "edit", "social_networks"); }
     public function updateProfile(Request $request){
         $request = $this::format($request);
         try {

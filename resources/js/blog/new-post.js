@@ -139,7 +139,7 @@ $(document).ready(function () {
         $("#post_id").val(id);
 
         $.ajax({
-            url: '/blog-posts/get-data',
+            url: '/system/blog-posts/get-data',
             method: 'POST',
             dataType: "json",
             data: {id : id},

@@ -1,5 +1,4 @@
 @component('mail::message')
-# Obavijest sa scout.reprezentacija.ba
 
 Poštovani,
 

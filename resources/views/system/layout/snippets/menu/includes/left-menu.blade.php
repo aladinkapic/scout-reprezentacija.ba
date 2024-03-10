@@ -158,22 +158,56 @@
             </a>
 
             <div class="subtitle">
-                <h4> {{__('Ostalo')}} </h4>
+                <h4> {{__('Postavke')}} </h4>
                 <div class="subtitle-icon">
                     <i class="fas fa-cogs"></i>
                 </div>
             </div>
 
-            <a href="{{ route('system.users.edit-my-profile') }}" class="menu-a-link">
+            <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">
                     <div class="s-lm-s-elements">
                         <div class="s-lms-e-img">
                             <i class="fas fa-edit"></i>
                         </div>
-                        <p>{{__('Uredite profil')}}</p>
+                        <p>{{__('Uredite informacije')}}</p>
+                        <div class="extra-elements">
+                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="inside-links active-links">
+                        <a href="{{ route('system.users.edit-my-profile') }}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Osnovne informacije')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('system.users.edit-career')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Karijera')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{route('system.users.edit-social-networks')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p> {{__('Društvene mreže')}} </p>
+                                <div class="additional-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </a>
+
+            <hr>
         @endif
 
         @if($loggedUser->role == 0)

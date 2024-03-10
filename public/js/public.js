@@ -36253,7 +36253,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\webApps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
+module.exports = __webpack_require__(/*! C:\Users\kaapi\Documents\webApps\scout.reprezentacija.ba\resources\js\public\app.js */"./resources/js/public/app.js");
 
 
 /***/ })
