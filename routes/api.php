@@ -57,6 +57,17 @@ Route::group(['namespace' => 'API'], function (){
         /*
          *  Get post image
          */
-        Route::post('/get-image',               'PlayersController@getImage')->name('api.players.players.get-image');
+        Route::post('/get-image',                'PlayersController@getImage')->name('api.players.players.get-image');
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+        /**
+         *  Fetch data from extern API Requests - Players
+         */
+        Route::post('/last-active-players',      'PlayersController@lastActivePlayers')->name('api.players.posts.last-active-players');
+
+        /**
+         *  Fetch data from extern API Requests - Posts
+         */
+        Route::post('/last-posts',               'PostsController@lastPosts')->name('api.players.posts.last-posts');
     });
 });

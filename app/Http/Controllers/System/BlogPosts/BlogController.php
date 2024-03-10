@@ -5,6 +5,8 @@ namespace App\Http\Controllers\System\BlogPosts;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\BlogPosts;
 use App\Models\Posts\Post;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +32,7 @@ class BlogController extends Controller{
             }
             $youtubeLink = (isset($name)) ? null : $request->youtubeLink;
 
+            /* ToDo - Add observer */
             BlogPosts::find($request->post_id)->update([
                 'post' => $request->post,
                 'youtube' => $youtubeLink,
@@ -63,6 +66,8 @@ class BlogController extends Controller{
                 'youtube' => $youtubeLink,
                 'image' => isset($name) ? $name : ''
             ]);
+
+            User::where('id', $request->owner)->update(['last_activity' => Carbon::now()]);
         }catch (\Exception $e){ dd($e); }
 
         return back();

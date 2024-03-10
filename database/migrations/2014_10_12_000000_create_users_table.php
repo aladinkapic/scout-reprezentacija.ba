@@ -56,6 +56,8 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('from_api')->default(false)->nullable();
             $table->integer('player_id')->nullable();
 
+            $table->dateTime('last_activity')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

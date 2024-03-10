@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Additional\Club;
 use App\Models\Blog\BlogPosts;
 use App\Models\Players\PlayerRate;
+use App\Models\Posts\Post;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -60,5 +61,29 @@ class PlayersController extends Controller{
                 'previous' => $previous->id ?? ''
             ]);
         }catch (\Exception $e){dd($e);}
+    }
+
+    /**
+     *  Get last active users from DB
+     */
+    public function lastActivePlayers(Request $request){
+        try{
+            $total = isset($request->total) ? $request->total : 5;
+
+            return response()->json([
+                'code' => '0000',
+                'data' => [
+                    'players' => User::with(
+                        'lastClub:user_id,season,season_name,club_id',
+                        'lastClub.clubRel:id,title,image,year,city,country',
+                        'lastClub.clubRel.countryRel:id,name,name_ba,flag'
+                    )->where('from_api', 0)->orderBy('last_activity', 'DESC')->take($total)->get(['id', 'name', 'username', 'image', 'birth_year', 'years_old']),
+                    'total' => $total,
+                    'message' => __('Success')
+                ]
+            ]);
+        }catch (\Exception $e){
+            return response()->json(['code' => '20000', 'message' => __('Desila se greška!')]);
+        }
     }
 }
