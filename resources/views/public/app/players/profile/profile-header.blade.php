@@ -35,7 +35,7 @@
                 <div class="social-networks">
                     @if($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null))
                         <h5 class="mt-2 club-name-bcg fw-bold">
-                            <a href="{{ PlayersHelper::searchUri('clubDataRel.clubRel.title', $player->lastClub->clubRel->title ?? '') }}">
+                            <a href="{{ PlayersHelper::searchUri('lastClub.clubRel.title', $player->lastClub->clubRel->title ?? '') }}">
                                 {{ $player->lastClub->clubRel->title ?? '' }}
                             </a>
                         </h5>
@@ -45,7 +45,7 @@
                             </p>
 
                             <div class="img-wrapper">
-                                <a href="#">
+                                <a href="{{ PlayersHelper::searchUri('lastClub.clubRel.countryRel.name_ba', $player->lastClub->clubRel->countryRel->name_ba ?? '') }}">
                                     <img src="{{ asset('images/country-flags/' . ($player->lastClub->clubRel->countryRel->flag ?? '')) }}" alt="">
                                 </a>
                             </div>

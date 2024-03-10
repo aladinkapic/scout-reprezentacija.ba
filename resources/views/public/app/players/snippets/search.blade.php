@@ -112,11 +112,12 @@
             </div>
         </div>
 
+
         <div class="search-row">
             <div class="other-first other-first-50">
-                <div class="my-select-wrapper" title="" id="lastClub.clubRel.countryRel.name_ba" custom-id="citizenshipRel" value="0">
+                <div class="my-select-wrapper" title="" id="lastClub.clubRel.countryRel.name_ba" custom-id="citizenshipRel" value="{{ PlayersHelper::searchData('lastClub.clubRel.countryRel.name_ba', "0") }}">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> {{ __('Država kluba') }} </p>
+                        <p id="svrha-paragraph"> {{ PlayersHelper::searchData('lastClub.clubRel.countryRel.name_ba', __('Država kluba')) }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>

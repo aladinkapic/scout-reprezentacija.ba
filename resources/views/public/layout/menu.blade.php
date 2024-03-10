@@ -2,7 +2,7 @@
     <div class="menu-wrapper">
         <div class="mw-logo">
             <a href="{{ route('homepage') }}">
-                <img src="{{ asset('images/logo.png') }}" />
+                <img src="{{ asset('images/logo_2.png') }}" />
             </a>
         </div>
 
