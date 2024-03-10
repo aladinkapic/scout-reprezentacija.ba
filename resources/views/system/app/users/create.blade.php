@@ -94,7 +94,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="position"> <b>{{ __('Pozicija') }}</b> </label>
-                                            {!! Form::select('position', $position, $user->position ?? '', ['class' => 'form-control required', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            {!! Form::select('position', $position, $user->position ?? '', ['class' => 'form-control', 'id' => 'position', 'aria-describedby' => 'positionHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                             <small id="positionHelp" class="form-text text-muted"> {{ __('Pozicija na kojoj igrač igra') }} </small>
                                         </div>
                                     </div>
@@ -110,7 +110,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="leg_arm"> <b>{{ __('Jača noga') }}</b> </label>
-                                            {!! Form::select('stronger_limb', $leg_arm, $user->stronger_limb ?? '', ['class' => 'form-control required', 'id' => 'stronger_limb', 'aria-describedby' => 'stronger_limbHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                            {!! Form::select('stronger_limb', $leg_arm, $user->stronger_limb ?? '', ['class' => 'form-control', 'id' => 'stronger_limb', 'aria-describedby' => 'stronger_limbHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                             <small id="stronger_limbHelp" class="form-text text-muted"> {{ __('Odaberite jaču nogu') }} </small>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="height"> <b>{{ __('Visina (cm)') }}</b> </label>
-                                            {!! Form::number('height', $user->height ?? '', ['class' => 'form-control required', 'id' => 'height', 'aria-describedby' => 'heightHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => 230]) !!}
+                                            {!! Form::number('height', $user->height ?? '0', ['class' => 'form-control', 'id' => 'height', 'aria-describedby' => 'heightHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => 230]) !!}
                                             <small id="heightHelp" class="form-text text-muted"> {{ __('Visina korisnika u cm') }} </small>
                                         </div>
                                     </div>
