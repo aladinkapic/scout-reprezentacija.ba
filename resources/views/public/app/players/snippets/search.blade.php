@@ -10,14 +10,14 @@
             <div class="other-first">
                 <div class="my-select-wrapper product-main-category" title="Odaberite kategoriju proizvoda" id="sportRel.value" custom-id="product_category" value="0">
                     <div class="my-select-value">
-                        <p id="gradRel.name.paragraph">Odaberite</p>
+                        <p id="gradRel.name.paragraph">{{ __('Odaberite') }}</p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option main-option" value="0"> Svi sportovi </div>
+                        <div class="my-option main-option" value="0"> {{ __('Svi sportovi') }} </div>
                         @foreach($sports as $key => $val)
                             <div class="my-option category-option" value="{{$val}}">{{$val}}</div>
                         @endforeach
@@ -26,7 +26,7 @@
             </div>
             <div class="other-first other-custon">
                 <div class="search-button" title="Pretražite">
-                    <p>PRETRAŽITE</p>
+                    <p>{{ __('PRETRAŽITE') }}</p>
                 </div>
                 <div class="other-searches-button">
                     <i class="fas fa-th-large"></i>
@@ -45,14 +45,14 @@
             <div class="other-first">
                 <div class="my-select-wrapper" title="" id="birth_year" custom-id="birth_year" value="0">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> Godište igrača </p>
+                        <p id="svrha-paragraph"> {{ __('Godište igrača') }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
+                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
 
                         @foreach($range as $r)
                             <div class="my-option second-option" value="{{ $r }}"> {{ $r }} </div>
@@ -63,14 +63,14 @@
             <div class="other-first">
                 <div class="my-select-wrapper" title="" id="strongerLimbRel.value" custom-id="strongerLimb" value="0">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> Snažnija noga </p>
+                        <p id="svrha-paragraph"> {{ __('Snažnija noga') }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
+                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
                         @foreach($strongerLimb as $limb)
                             <div class="my-option second-option" value="{{ $limb }}"> {{ $limb }} </div>
                         @endforeach
@@ -80,30 +80,30 @@
             <div class="other-first">
                 <div class="my-select-wrapper" title="" id="under_contract" custom-id="under_contract" value="0">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> Pod ugovorom </p>
+                        <p id="svrha-paragraph"> {{ __('Pod ugovorom') }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
-                        <div class="my-option second-option" value="Da"> Da </div>
-                        <div class="my-option second-option" value="Ne"> Ne </div>
+                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
+                        <div class="my-option second-option" value="Da"> {{ __('Da') }} </div>
+                        <div class="my-option second-option" value="Ne"> {{ __('Ne') }} </div>
                     </div>
                 </div>
             </div>
             <div class="other-first">
                 <div class="my-select-wrapper" title="" id="genderRel.value" custom-id="genderRel" value="0">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> Spol igrača </p>
+                        <p id="svrha-paragraph"> {{ __('Spol igrača') }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
+                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
                         @foreach($gender as $gen)
                             <div class="my-option second-option" value="{{ $gen }}"> {{ $gen }} </div>
                         @endforeach
@@ -114,16 +114,16 @@
 
         <div class="search-row">
             <div class="other-first other-first-50">
-                <div class="my-select-wrapper" title="" id="citizenshipRel.name_ba" custom-id="citizenshipRel" value="0">
+                <div class="my-select-wrapper" title="" id="lastClub.clubRel.countryRel.name_ba" custom-id="citizenshipRel" value="0">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> Država boravišta </p>
+                        <p id="svrha-paragraph"> {{ __('Država kluba') }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> Odaberite </div>
+                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
                         @foreach($countries as $val)
                             <div class="my-option second-option" value="{{ $val }}"> {{ $val }} </div>
                         @endforeach
@@ -161,7 +161,7 @@
         @if(isset($positions))
             <div class="check-boxes">
                 <div class="check-boxed-header">
-                    <h4>POZICIJA IGRAČA</h4>
+                    <h4>{{ __('POZICIJA IGRAČA') }}</h4>
                 </div>
 
                 <div class="check-boxed-body">

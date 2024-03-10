@@ -36,7 +36,9 @@ class UsersController extends Controller{
             'positionRel.value' => __('Pozicija'),
             'height' => __('Visina'),
             'strongerLimbRel.value' => __('Snažnija noga'),
-            'genderRel.value' => __('Spol')
+            'genderRel.value' => __('Spol'),
+            'clubDataRel.clubRel.title' => __('Klubovi'),
+            'clubDataRel.clubRel.countryRel.name_ba' => __('Država kluba')
         ];
 
         return view($this->_path . '.index', [
@@ -98,9 +100,17 @@ class UsersController extends Controller{
         }
     }
     public function update(Request $request){
-
         try {
+            $slug = (new UsersApiController)->constructSlug($request->name);
+            $totalUsers = User::where('username', $slug)->where('id', '!=', $request->id)->get();
+
+            if($totalUsers->count()){
+                $slug .= $totalUsers->count();
+            }
+
             $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
+            $request['username'] = $slug;
+
             if($request->active == 1){
                 $user = User::find($request->id);
                 if($user->active == 0){
@@ -179,6 +189,17 @@ class UsersController extends Controller{
     public function updateProfile(Request $request){
         $request = $this::format($request);
         try {
+            if(isset($request->name)){
+                $slug = (new UsersApiController)->constructSlug($request->name);
+                $totalUsers = User::where('username', $slug)->where('id', '!=', $request->id)->get();
+
+                if($totalUsers->count()){
+                    $slug .= $totalUsers->count();
+                }
+
+                $request['username'] = $slug;
+            }
+
             User::find($request->id)->update(
                 $request->except(['_token', '_method', 'id'])
             );

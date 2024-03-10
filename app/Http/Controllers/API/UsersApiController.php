@@ -21,7 +21,7 @@ class UsersApiController extends Controller{
             else return $total;
         }catch (\Exception $e){ return ''; }
     }
-    public function getSlug($slug){
+    public function constructSlug($slug): string{
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//IGNORE', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $slug);
@@ -32,8 +32,10 @@ class UsersApiController extends Controller{
         $string = htmlentities($string, ENT_COMPAT, 'utf-8');
         $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
         $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
-        $string = strtolower(trim($string, '-'));
-
+        return strtolower(trim($string, '-'));
+    }
+    public function getSlug($slug){
+        $string = $this->constructSlug($slug);
         return ($string . ($this->usersByUsername($string)));
     }
 

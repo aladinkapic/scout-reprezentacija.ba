@@ -15,7 +15,7 @@ class BlogPosts extends Model{
     protected static $_months = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];
     protected static $_days   = ['Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub', 'Ned'];
 
-    protected $table = 'blog_posts';
+    protected $table = 'posts';
     protected $guarded = ['id'];
 
     public function checkIfLiked(){

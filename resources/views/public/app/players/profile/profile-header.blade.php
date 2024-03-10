@@ -34,7 +34,11 @@
                 <h1> <b> {{ $player->name ?? '' }} </b> </h1>
                 <div class="social-networks">
                     @if($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null))
-                        <h5 class="mt-2 club-name-bcg fw-bold"> {{ $player->lastClub->clubRel->title ?? '' }} </h5>
+                        <h5 class="mt-2 club-name-bcg fw-bold">
+                            <a href="{{ PlayersHelper::searchUri('clubDataRel.clubRel.title', $player->lastClub->clubRel->title ?? '') }}">
+                                {{ $player->lastClub->clubRel->title ?? '' }}
+                            </a>
+                        </h5>
                         <div class="sn-club-data">
                             <p class="m-0 fw-bold">
                                 {{ $player->lastClub->clubRel->city ?? '' }}, {{ $player->lastClub->clubRel->countryRel->name_ba ?? '' }}

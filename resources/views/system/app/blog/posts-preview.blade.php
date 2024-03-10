@@ -18,7 +18,7 @@
                             <i class="fas fa-trash"></i>
                         </div>
                     </a>
-                    <div class="sp-i-wrapper love-it" title="{{ __('Ukupno ') . 15 . __(' sviđanja')}}">
+                    <div class="sp-i-wrapper love-it" title="{{ __('Ukupno ') . ( $post->likes ?? '0') . __(' sviđanja')}}">
                         <i class="fas fa-heart"></i>
                     </div>
                 </div>

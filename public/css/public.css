@@ -14939,6 +14939,11 @@ header .menu-wrapper .mw-links .single-link a {
   color: #173668;
 }
 
+.public-container .preview-wrapper .pw-right-header .social-networks .club-name-bcg a,
+.public-container .preview-body-wrapper .pw-right-header .social-networks .club-name-bcg a {
+  color: #173668;
+}
+
 .public-container .preview-wrapper .pw-right-header .bottom-white,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white {
   position: absolute;

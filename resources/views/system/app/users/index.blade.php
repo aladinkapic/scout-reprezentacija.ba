@@ -41,6 +41,20 @@
                     <td> {{ $user->height ?? ''}} </td>
                     <td> {{ $user->strongerLimbRel->value ?? ''}} </td>
                     <td> {{ $user->genderRel->value ?? ''}} </td>
+                    <td>
+                        <ul>
+                            @foreach($user->clubDataRel as $clubData)
+                                <li>{{ $clubData->clubRel->title ?? '' }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach($user->clubDataRel as $clubData)
+                                <li>{{ $clubData->clubRel->countryRel->name_ba ?? '' }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
 
                     <td class="text-center">
                         <a href="{{route('system.users.preview', ['id' => $user->id] )}}" title="Pregled korisnika">

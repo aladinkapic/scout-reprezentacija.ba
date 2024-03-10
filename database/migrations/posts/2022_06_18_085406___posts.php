@@ -16,10 +16,14 @@ class Posts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('what')->default(0);    // 0 => Player, 1 => Club
-            $table->integer('owner');
-            $table->longText('content');
-            $table->integer('likes')->default(0)->nullable();
+            $table->integer('category')->default(0)->nullable();
+            $table->integer('owner')->default(0)->nullable();
+
+            $table->text('post');
+            $table->string('image')->nullable();
+            $table->string('image_orientation')->default('v')->nullable();
+            $table->string('youtube')->nullable();
+            $table->integer('likes')->default(0);
 
             $table->softDeletes();
             $table->timestamps();
