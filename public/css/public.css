@@ -13432,6 +13432,7 @@ header .menu-wrapper .mw-links .single-link a {
   display: inline-flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .h-latest-news .h-ln-preview {
@@ -13442,6 +13443,7 @@ header .menu-wrapper .mw-links .single-link a {
   min-height: 400px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: 0.3s all;
+  margin-bottom: 30px;
 }
 
 .h-latest-news .h-ln-preview .h-lnp-img-part {
@@ -14691,7 +14693,7 @@ header .menu-wrapper .mw-links .single-link a {
   top: 0px;
   width: 100%;
   height: 360px;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), #ffffff) !important;
+  background: linear-gradient(45deg, #ffffff, rgba(0, 0, 0, 0.5)) !important;
 }
 
 .pp-header .pp-h-img-wrapper {
@@ -14715,6 +14717,10 @@ header .menu-wrapper .mw-links .single-link a {
   opacity: 0.2;
 }
 
+.public-container {
+  /* Shirt number */
+}
+
 .public-container .preview-wrapper,
 .public-container .preview-body-wrapper {
   position: relative;
@@ -14723,6 +14729,7 @@ header .menu-wrapper .mw-links .single-link a {
   justify-content: space-between;
   margin-bottom: 30px;
   min-height: 400px;
+  /* Shirt number */
 }
 
 .public-container .preview-wrapper .pw-left,
@@ -14847,6 +14854,25 @@ header .menu-wrapper .mw-links .single-link a {
   background: #fff;
 }
 
+.public-container .preview-wrapper .shirt-number,
+.public-container .preview-body-wrapper .shirt-number {
+  position: absolute;
+  right: 0px;
+  top: 70px;
+  width: 190px;
+  height: 190px;
+  text-align: right;
+}
+
+.public-container .preview-wrapper .shirt-number h1,
+.public-container .preview-body-wrapper .shirt-number h1 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 160px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
 .public-container .preview-wrapper .pw-right-header h1,
 .public-container .preview-body-wrapper .pw-right-header h1 {
   color: #333;
@@ -14888,6 +14914,24 @@ header .menu-wrapper .mw-links .single-link a {
 .public-container .preview-wrapper .pw-right-header .social-networks p,
 .public-container .preview-body-wrapper .pw-right-header .social-networks p {
   font-size: 24px;
+}
+
+.public-container .preview-wrapper .pw-right-header .social-networks .sn-club-data,
+.public-container .preview-body-wrapper .pw-right-header .social-networks .sn-club-data {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.public-container .preview-wrapper .pw-right-header .social-networks .sn-club-data .img-wrapper img,
+.public-container .preview-body-wrapper .pw-right-header .social-networks .sn-club-data .img-wrapper img {
+  height: 19px;
+  margin-left: 10px;
+  margin-top: 8px;
 }
 
 .public-container .preview-wrapper .pw-right-header .social-networks .club-name-bcg,
@@ -15044,6 +15088,12 @@ header .menu-wrapper .mw-links .single-link a {
 .public-container .preview-wrapper .pw-left .tb-row .tb-row-col-flex .value-img span,
 .public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex .value-img span {
   color: #333333;
+  margin-right: 5px;
+}
+
+.public-container .preview-wrapper .pw-left .tb-row .tb-row-col-flex-mobile-none,
+.public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex-mobile-none {
+  display: none;
 }
 
 .public-container .preview-wrapper .pw-left .tb-row h6,
@@ -15343,6 +15393,11 @@ header .menu-wrapper .mw-links .single-link a {
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span {
   font-weight: bold;
   color: #142D56;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row:hover,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row:hover {
+  cursor: pointer;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body,
@@ -15689,6 +15744,10 @@ header .menu-wrapper .mw-links .single-link a {
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     padding-top: 20px;
   }
+
+  .public-container .preview-body-wrapper .pw-left .tb-row .tb-row-col-flex-mobile-none {
+    display: inline-flex;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -15724,6 +15783,10 @@ header .menu-wrapper .mw-links .single-link a {
   .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .bw-b-button p {
     font-size: 14px;
     padding-top: 2px;
+  }
+
+  .public-container .preview-wrapper .shirt-number {
+    display: none;
   }
 }
 
@@ -15777,6 +15840,15 @@ header .menu-wrapper .mw-links .single-link a {
 
   .public-container .preview-wrapper .pw-right-header .social-networks p {
     font-size: 16px;
+  }
+
+  .public-container .preview-wrapper .pw-right-header .social-networks .sn-club-data {
+    justify-content: center;
+  }
+
+  .public-container .preview-wrapper .pw-right-header .social-networks .sn-club-data .img-wrapper img {
+    margin-top: 2px;
+    height: 16px;
   }
 
   .public-container .preview-wrapper .pw-right-header .bottom-white {

@@ -24,7 +24,6 @@
                     <img src="@if($player->image != '') {{ asset('images/profile-images/'.$player->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
 
-
                 @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
                     <div class="club-icon" title="{{ $player->lastClub->clubRel->title ?? '' }}">
                         <img src="{{ asset('images/club-images/' . ($player->lastClub->clubRel->image ?? '')) }}" alt="">
@@ -36,10 +35,20 @@
                 <div class="social-networks">
                     @if($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null))
                         <h5 class="mt-2 club-name-bcg fw-bold"> {{ $player->lastClub->clubRel->title ?? '' }} </h5>
+                        <div class="sn-club-data">
+                            <p class="m-0 fw-bold">
+                                {{ $player->lastClub->clubRel->city ?? '' }}, {{ $player->lastClub->clubRel->countryRel->name_ba ?? '' }}
+                            </p>
+
+                            <div class="img-wrapper">
+                                <a href="#">
+                                    <img src="{{ asset('images/country-flags/' . ($player->lastClub->clubRel->countryRel->flag ?? '')) }}" alt="">
+                                </a>
+                            </div>
+                        </div>
                     @else
                         <p class="mt-2 text-danger fw-bold"> {{ __('Igrač trenutno nije pod ugovorom') }} </p>
                     @endif
-                    <p class="m-0 fw-bold"> {{ $player->living_place ?? '' }}, {{ ucwords(strtolower($player->citizenshipRel->name_ba ?? '')) ?? '' }} </p>
                 </div>
                 <div class="bottom-white">
                     <div class="bw-title">
@@ -74,6 +83,13 @@
                     </a>
                 </div>
             </div>
+
+            @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
+                <div class="shirt-number" title="{{ __('Broj na dresu') }}">
+                    <h1>{{ $player->lastClub->shirt_number ?? '' }}</h1>
+                </div>
+            @endif
+
         </div>
     </div>
 </div>

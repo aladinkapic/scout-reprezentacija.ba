@@ -69,10 +69,14 @@ class PlayersController extends Controller{
         }catch (\Exception $e){ $mainReview = 0;}
 
         if($player->from_api == 1){
-            /* Check for news about player */
-            $client = new \GuzzleHttp\Client();
-            $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/repka/v1/posts?tag_slug=' . $player->username);
-            $apiData  = json_decode($response->getBody()->getContents());
+            try{
+                /* Check for news about player */
+                $client = new \GuzzleHttp\Client();
+                $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/repka/v1/posts?tag_slug=' . $player->username);
+                $apiData  = json_decode($response->getBody()->getContents());
+            }catch (\Exception $e){
+                $length = 0;
+            }
         }
 
 //        dd(nl2br(\NewsHelper::getFirstNLetters($apiData[0]->content)));
@@ -82,7 +86,7 @@ class PlayersController extends Controller{
             'what' => $what,
             'mainReview' => $mainReview,
             'apiData' => $apiData,
-            'length' => (count($apiData) >= 6) ? 6 : 3
+            'length' => (count($apiData) >= 6) ? 6 : $length
         ]);
     }
     public function preview($username){

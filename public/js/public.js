@@ -35711,12 +35711,43 @@ $(document).ready(function () {
     $(this).find('i').toggleClass('fa-chevron-up');
     $(this).parent().parent().toggleClass('col-active');
   });
-  $(".sw-data").click(function () {
-    $(this).parent().find(".sw-data").addClass('sw-data-hidden');
-    $(this).parent().find(".fas").removeClass('fa-minus').addClass('fa-plus');
-    $(this).removeClass('sw-data-hidden');
-    $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
-  });
+  $(".sw-data-club, .sw-data-nat-team").click(function () {
+    var currentId = $(this).attr('id');
+    var $this = $(this);
+
+    if ($this.hasClass('sw-data-club')) {
+      $(".sw-data-club").each(function () {
+        if ($(this).attr('id') !== currentId) {
+          console.log($(this).attr('id'));
+          $(this).addClass('sw-data-hidden');
+          $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+        }
+      });
+    } else {
+      $(".sw-data-nat-team").each(function () {
+        if ($(this).attr('id') !== currentId) {
+          console.log($(this).attr('id'));
+          $(this).addClass('sw-data-hidden');
+          $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+        }
+      });
+    }
+
+    if ($this.hasClass('sw-data-hidden')) {
+      $(this).removeClass('sw-data-hidden');
+      $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
+    } else {
+      $(this).addClass('sw-data-hidden');
+      $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+    }
+  }); // $(".sw-data").click(function () {
+  //     $(this).parent().find(".sw-data").addClass('sw-data-hidden');
+  //     $(this).parent().find(".fas").removeClass('fa-minus').addClass('fa-plus');
+  //
+  //     $(this).removeClass('sw-data-hidden');
+  //     $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
+  // });
+
   /* Preview post images */
 
   var uri = '/api/players/get-image';

@@ -1,6 +1,6 @@
 .pp-header{
     position: relative; left:0px; top:0px; width: 100%; height: 360px;
-    background: linear-gradient(45deg, rgba(0,0,0,0.5), #ffffff) !important;
+    background: linear-gradient(45deg, #ffffff, rgba(0,0,0,0.5)) !important;
     // background: rgba(0,0,0,0.1);F
     //background-repeat: repeat;
     //.header-bcg{
@@ -65,6 +65,14 @@
             .sos-wrapper:hover{cursor:pointer; background:#fff;}
         }
 
+        /* Shirt number */
+        .shirt-number{
+            position: absolute; right: 0px; top: 70px; width: 190px; height: 190px; text-align: right;
+            h1{
+                margin: 0px; padding: 0px; font-size: 160px; font-weight: bold; color:#ffffff;
+            }
+        }
+
         .pw-right-header{
             h1{color:#333; margin-left:0px; font-size: 80px; margin-top: 0px; font-weight: bold; margin-top: 20px;  font-family: 'Nunito-Bold', sans-serif;
                 letter-spacing: 0px;}
@@ -76,10 +84,13 @@
                 h5{
                     font-size: 30px;
                 }
-                p{
-                    font-size: 24px;
+                p{ font-size: 24px; }
+                .sn-club-data{
+                    position: relative; left: 0px; top: 0px; width: 100%; display: inline-flex; justify-content: flex-start; flex-wrap: wrap;
+                    .img-wrapper{
+                        img{ height: 19px; margin-left: 10px; margin-top: 8px; }
+                    }
                 }
-
                 .club-name-bcg{
                     color: $bColor;
                 }
@@ -134,10 +145,11 @@
                             margin-top: 3px; margin-right: 5px; height: 15px; width: auto;
                         }
                         span{
-                            color: #333333;
+                            color: #333333; margin-right: 5px;
                         }
                     }
                 }
+                .tb-row-col-flex-mobile-none{display: none;}
                 h6{
                     margin:10px; padding-top:10px;
                 }
@@ -241,6 +253,7 @@
                                 span{font-weight: bold; color:#142D56;}
                             }
                         }
+                        .sw-data-row:hover{cursor: pointer;}
                         .sw-data-body{
                             position: relative; left:0px; top:0px; width: 100%;
                             .sw-db-row{
@@ -358,6 +371,11 @@
             }
         }
     }
+
+    /* Shirt number */
+    //.shirt-number{
+    //    position: absolute; right: -350px; top:0px; width: 340px; height: 360px; background: grey;
+    //}
 }
 
 @media only screen and (max-width: 1200px){
@@ -370,6 +388,12 @@
                 -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
                 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
                 padding-top:20px;
+            }
+
+            .pw-left{
+                .tb-row{
+                    .tb-row-col-flex-mobile-none{display: inline-flex;}
+                }
             }
         }
     }
@@ -401,6 +425,8 @@
                     }
                 }
             }
+
+            .shirt-number{display: none;}
         }
     }
 }
@@ -430,6 +456,15 @@
                 .social-networks{
                     h5{ font-size: 20px; }
                     p{ font-size: 16px; }
+
+                    .sn-club-data{
+                        justify-content: center;
+                        .img-wrapper{
+                            img{
+                                margin-top: 2px; height: 16px;
+                            }
+                        }
+                    }
                 }
                 height: auto;
                 .bottom-white{

@@ -4,6 +4,16 @@
             <p class="key"><span>{{ __('Sport') }}</span></p>
             <p class="value"> {{ $player->sportRel->value ?? '' }} </p>
         </div>
+
+        @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
+
+            <div class="tb-row-col-flex tb-row-col-flex-mobile-none">
+                <p class="key"><span>{{ __('Broj dresa') }}</span></p>
+                <p class="value"> {{ $player->lastClub->shirt_number ?? '' }} </p>
+            </div>
+
+        @endif
+
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Jača noga') }}</span></p>
             <p class="value"> {{ $player->strongerLimbRel->value ?? '' }} </p>
@@ -21,16 +31,16 @@
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Državljanstvo') }}</span></p>
             <p class="value value-img">
-                <img src="{{ asset('images/country-flags/' . ($player->citizenshipRel->flag ?? '')) }}" alt="">
                 <span>{{ $player->citizenshipRel->short_ba ?? '' }}</span>
+                <img src="{{ asset('images/country-flags/' . ($player->citizenshipRel->flag ?? '')) }}" alt="">
             </p>
         </div>
         @if($player->citizenship_2)
             <div class="tb-row-col-flex">
                 <p class="key"><span>{{ __('Drugo državljanstvo') }}</span></p>
                 <p class="value value-img">
-                    <img src="{{ asset('images/country-flags/' . ($player->secondCitizenshipRel->flag ?? '')) }}" alt="">
                     <span>{{ $player->secondCitizenshipRel->short_ba ?? '' }}</span>
+                    <img src="{{ asset('images/country-flags/' . ($player->secondCitizenshipRel->flag ?? '')) }}" alt="">
                 </p>
             </div>
         @endif

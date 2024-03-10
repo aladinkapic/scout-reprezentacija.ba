@@ -23,7 +23,7 @@
     @foreach($player->clubDataRel as $clubData)
         @if($counter < 5)
             @if($clubData->club_id)
-                <div class="sw-data @if($counter != 0) sw-data-hidden @endif">
+                <div class="sw-data sw-data-club @if($counter != 0) sw-data-hidden @endif" id="sw-data-club-{{ $clubData->id }}">
                     <div class="line"></div>
                     <div class="sw-data-row" title="{{ $clubData->season_name ?? '' }}">
                         <div class="sw-dr-icon-wrapper">
@@ -118,7 +118,7 @@
     @php $counter = 0; @endphp
     @foreach($player->natTeamDataRel as $natTeamData)
         @if($counter < 5)
-            <div class="sw-data @if($counter != 0) sw-data-hidden @endif">
+            <div class="sw-data sw-data-nat-team @if($counter != 0) sw-data-hidden @endif" id="sw-data-club-{{ $natTeamData->id }}">
                 <div class="line"></div>
                 <div class="sw-data-row">
                     <div class="sw-dr-icon-wrapper">
