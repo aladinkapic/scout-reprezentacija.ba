@@ -15444,6 +15444,11 @@ header .menu-wrapper .mw-links .single-link a {
   margin: auto;
 }
 
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img-rotated,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row .sw-dbr-img-rotated {
+  rotate: -180deg;
+}
+
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row h5,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-body .sw-db-row h5 {
   width: calc(100% - 80px);

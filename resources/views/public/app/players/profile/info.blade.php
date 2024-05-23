@@ -50,6 +50,15 @@
 
                         <div class="sw-db-row">
                             <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/ball.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj utakmica') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $clubData->no_games ?? '' }} </p>
+                            </div>
+                        </div>
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
                                 <img src="{{asset('images/icons/goal.png')}}" alt="">
                             </div>
                             <h5> {{ __('Broj golova') }} </h5>
@@ -94,7 +103,7 @@
                             </div>
                         </div>
                         <div class="sw-db-row">
-                            <div class="sw-dbr-img">
+                            <div class="sw-dbr-img sw-dbr-img-rotated">
                                 <img src="{{asset('images/icons/goal.png')}}" alt="">
                             </div>
                             <h5> {{ __('Broj odbrana') }} </h5>
