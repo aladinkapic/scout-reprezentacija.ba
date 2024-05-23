@@ -184,8 +184,9 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
             Route::get ('/delete/{id}',                      'QuoteController@delete')->name('system.additional.quote.delete');
         });
     });
+
     /*
-     *  Those are core routes for keywords
+     *  Public notifications
      */
     Route::group(['namespace' => 'Core', 'prefix' => '/settings/core', 'middleware' => 'isRoot'], function(){
         Route::get ('/',                                 'KeywordsController@index')->name('system.settings.core.keywords.index');
@@ -195,6 +196,19 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::get ('/edit/{id}',                        'KeywordsController@edit')->name('system.settings.core.keywords.edit');
         Route::put ('/update',                           'KeywordsController@update')->name('system.settings.core.keywords.update');
         Route::delete('/delete',                         'KeywordsController@delete')->name('system.settings.core.keywords.delete');
+    });
+
+    /*
+     *  Those are core routes for keywords
+     */
+    Route::group(['namespace' => 'Other', 'prefix' => '/public-notifications/', 'middleware' => 'isRoot'], function(){
+        Route::get ('/',                                 'PublicNotificationsController@index')->name('system.other.public-notifications.index');
+        Route::get ('/create',                           'PublicNotificationsController@create')->name('system.other.public-notifications.create');
+        Route::post('/save',                             'PublicNotificationsController@save')->name('system.other.public-notifications.save');
+        Route::get ('/preview/{id}',                     'PublicNotificationsController@preview')->name('system.other.public-notifications.preview');
+        Route::get ('/edit/{id}',                        'PublicNotificationsController@edit')->name('system.other.public-notifications.edit');
+        Route::put ('/update',                           'PublicNotificationsController@update')->name('system.other.public-notifications.update');
+        Route::get ('/delete/{id}',                      'PublicNotificationsController@delete')->name('system.other.public-notifications.delete');
     });
 });
 

@@ -121,6 +121,15 @@ class FetchPlayersStatistics extends Command{
                                         'yellow_cards' => $yellowCards
                                     ]);
                                 }catch (\Exception $e){ dump($e->getMessage()); }
+                            }else{
+                                $apiNat->update([
+                                    'no_games' => $statistics->played,
+                                    'goals' => $statistics->Goals,
+                                    'assistance' => $statistics->Assist,
+                                    'minutes' => $statistics->career_minutes,
+                                    'red_cards' => $redCards,
+                                    'yellow_cards' => $yellowCards
+                                ]);
                             }
                         }else{
                             $club   = Club::where('title', $statistics->team_name)->first();
@@ -141,6 +150,15 @@ class FetchPlayersStatistics extends Command{
                                         'yellow_cards' => $yellowCards
                                     ]);
                                 }catch (\Exception $e){ dump($e->getMessage()); }
+                            }else{
+                                $apiStat->update([
+                                    'no_games' => $statistics->played,
+                                    'goals' => $statistics->Goals,
+                                    'assistance' => $statistics->Assist,
+                                    'minutes' => $statistics->career_minutes,
+                                    'red_cards' => $redCards,
+                                    'yellow_cards' => $yellowCards
+                                ]);
                             }
                         }
                     }catch (\Exception $e){ dump($e->getMessage()); }

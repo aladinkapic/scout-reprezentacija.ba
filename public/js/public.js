@@ -35574,6 +35574,37 @@ __webpack_require__(/*! ./players/post-like */ "./resources/js/public/players/po
 
 __webpack_require__(/*! ./players/player-rating */ "./resources/js/public/players/player-rating.js");
 
+__webpack_require__(/*! ./core/cookie */ "./resources/js/public/core/cookie.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/core/cookie.js":
+/*!********************************************!*\
+  !*** ./resources/js/public/core/cookie.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function setCookie(key, value, expiry) {
+  var expires = new Date();
+  expires.setTime(expires.getTime() + expiry * 24 * 60 * 60 * 1000);
+  document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+}
+
+function getCookie(key) {
+  var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+  return keyValue ? keyValue[2] : null;
+}
+
+function eraseCookie(key) {
+  var keyValue = getCookie(key);
+  setCookie(key, keyValue, '-1');
+}
+
+console.log(getCookie("notification"));
+setCookie("notification", "accepted", 1);
+console.log(getCookie("notification"));
+
 /***/ }),
 
 /***/ "./resources/js/public/homepage/slider.js":

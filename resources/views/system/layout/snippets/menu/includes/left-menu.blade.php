@@ -253,6 +253,17 @@
                 </div>
             </a>
 
+            <a href="{{ route('system.other.public-notifications.index') }}" class="menu-a-link">
+                <div class="s-lm-wrapper">
+                    <div class="s-lm-s-elements">
+                        <div class="s-lms-e-img">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <p>{{__('Obavijesti')}}</p>
+                    </div>
+                </div>
+            </a>
+
             <!-- Settings -->
             <div class="subtitle">
                 <h4> {{__('Admin panel')}} </h4>
