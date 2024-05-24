@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Home', 'prefix' => '/'], function(){
+Route::group(['namespace' => 'Home', 'prefix' => '/', 'middleware' => 'public'], function(){
     Route::get ('/',                                     'HomepageController@home')->name('homepage');
     // Route::get ('/registracija',                         'HomepageController@register')->name('register');
 

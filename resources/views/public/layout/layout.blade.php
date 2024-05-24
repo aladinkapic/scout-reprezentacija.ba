@@ -32,6 +32,8 @@
 </head>
 <body>
     @include('public.layout.menu')
+    @include('public.layout.public-notification')
+
     @yield('content')
     @include('public.layout.footer')
     <script src="{{ asset('js/public.js') }}"></script>

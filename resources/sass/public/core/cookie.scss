@@ -1,0 +1,20 @@
+.public__notifications{
+    position: fixed; right: 32px; bottom: 32px; width: 520px; padding: 32px; background: $primaryDark; border: 1px solid rgba(0,0,0,0.1); z-index: 100;
+    border-radius: 3px;
+
+    .pn__text{
+        width: 100%; color: #ffffff;
+    }
+    .pn__btns{
+        width: 100%; display: flex; gap: 32px; margin-top: 16px;
+        a{
+            color:$white; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 4px;
+            i{
+                font-size: 14px;
+            }
+        }
+        a:hover{
+            color: #ffffff; cursor: pointer;
+        }
+    }
+}

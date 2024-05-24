@@ -16780,3 +16780,45 @@ header .menu-wrapper .mw-links .single-link a {
   }
 }
 
+.public__notifications {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 520px;
+  padding: 32px;
+  background: #142D56;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 3px;
+}
+
+.public__notifications .pn__text {
+  width: 100%;
+  color: #ffffff;
+}
+
+.public__notifications .pn__btns {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.public__notifications .pn__btns a {
+  color: #eeeeee;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.public__notifications .pn__btns a i {
+  font-size: 14px;
+}
+
+.public__notifications .pn__btns a:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+

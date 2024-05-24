@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\isAuthenticated;
 use App\Http\Middleware\isRoot;
+use App\Http\Middleware\PublicMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
 
         'isAuthenticated' => isAuthenticated::class,
         'isRoot' => isRoot::class,
+        'public' => PublicMiddleware::class,
     ];
 }
