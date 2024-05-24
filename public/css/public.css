@@ -16792,6 +16792,15 @@ header .menu-wrapper .mw-links .single-link a {
   border-radius: 3px;
 }
 
+@media only screen and (max-width: 800px) {
+  .public__notifications {
+    right: 0px;
+    width: 100%;
+    bottom: 0px;
+    padding: 20px;
+  }
+}
+
 .public__notifications .pn__text {
   width: 100%;
   color: #ffffff;
@@ -16802,6 +16811,12 @@ header .menu-wrapper .mw-links .single-link a {
   display: flex;
   gap: 32px;
   margin-top: 16px;
+}
+
+@media only screen and (max-width: 800px) {
+  .public__notifications .pn__btns {
+    margin-top: 20px;
+  }
 }
 
 .public__notifications .pn__btns a {

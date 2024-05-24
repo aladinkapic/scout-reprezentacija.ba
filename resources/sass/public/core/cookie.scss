@@ -2,11 +2,19 @@
     position: fixed; right: 32px; bottom: 32px; width: 520px; padding: 32px; background: $primaryDark; border: 1px solid rgba(0,0,0,0.1); z-index: 100;
     border-radius: 3px;
 
+    @media only screen and (max-width: 800px){
+        right: 0px; width: 100%; bottom: 0px; padding: 20px;
+    }
+
     .pn__text{
         width: 100%; color: #ffffff;
     }
     .pn__btns{
         width: 100%; display: flex; gap: 32px; margin-top: 16px;
+
+        @media only screen and (max-width: 800px){
+            margin-top: 20px;
+        }
         a{
             color:$white; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 4px;
             i{
