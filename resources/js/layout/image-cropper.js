@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $("body").on("change", ".image", function(e){
         if($(this).hasClass('club_image')) {
-            cropperURI = '/additional/clubs/update-image';
+            cropperURI = '/system/additional/clubs/update-image';
             club = $("#club_image_id").val();
         }
 

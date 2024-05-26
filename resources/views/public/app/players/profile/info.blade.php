@@ -102,15 +102,17 @@
                                 <p> {{ $clubData->yellow_cards ?? '' }} </p>
                             </div>
                         </div>
-                        <div class="sw-db-row">
-                            <div class="sw-dbr-img sw-dbr-img-rotated">
-                                <img src="{{asset('images/icons/goal.png')}}" alt="">
+                        @if($player->from_api != 1)
+                            <div class="sw-db-row">
+                                <div class="sw-dbr-img sw-dbr-img-rotated">
+                                    <img src="{{asset('images/icons/goal.png')}}" alt="">
+                                </div>
+                                <h5> {{ __('Broj odbrana') }} </h5>
+                                <div class="sw-dbr-total">
+                                    <p> {{ $clubData->without_goal ?? '' }} </p>
+                                </div>
                             </div>
-                            <h5> {{ __('Broj odbrana') }} </h5>
-                            <div class="sw-dbr-total">
-                                <p> {{ $clubData->without_goal ?? '' }} </p>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             @endif
@@ -149,6 +151,15 @@
                         <p> {{ $natTeamData->season_name ?? '' }} </p>
                     </div>
 
+                    <div class="sw-db-row">
+                        <div class="sw-dbr-img">
+                            <img src="{{asset('images/icons/ball.png')}}" alt="">
+                        </div>
+                        <h5> {{ __('Broj utakmica') }} </h5>
+                        <div class="sw-dbr-total">
+                            <p> {{ $natTeamData->no_games ?? '' }} </p>
+                        </div>
+                    </div>
                     <div class="sw-db-row">
                         <div class="sw-dbr-img">
                             <img src="{{asset('images/icons/goal.png')}}" alt="">
@@ -194,15 +205,17 @@
                             <p> {{ $natTeamData->yellow_cards ?? '' }} </p>
                         </div>
                     </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/goal.png')}}" alt="">
+                    @if($player->from_api != 1)
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/goal.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj odbrana') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->without_goal ?? '' }} </p>
+                            </div>
                         </div>
-                        <h5> {{ __('Broj odbrana') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->without_goal ?? '' }} </p>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         @endif
