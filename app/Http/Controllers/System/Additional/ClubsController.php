@@ -76,7 +76,6 @@ class ClubsController extends Controller{
             $image = str_replace(' ', '+', $image);
             $imageName = md5(time() . (Auth::user()->name ?? 'JohnDoe') ).'.'.'png';
             $path = env('CLUB_IMG_LINK', public_path(). '/images/club-images/');
-            dd($path);
             File::put($path . $imageName, base64_decode($image));
 
             Club::where('id', $request->club)->update(['image' => $imageName]);
