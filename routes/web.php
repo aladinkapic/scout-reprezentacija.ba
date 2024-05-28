@@ -239,6 +239,9 @@ Route::group(['namespace' => 'API\\SysAPI', 'prefix' => '/system/sys-api', 'midd
     });
 });
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
+/** Extern api call */
+Route::group(['namespace' => 'API\\SysAPI', 'prefix' => '/extern-api-call/sys-api'], function(){
+    /* Fetch users statistics */
+    Route::get ('/fetch-statistics',                    'FetchStatisticsController@fetchStatistics')->name('extern-api-call.sys-api.fetch-statistics');
+});

@@ -12,4 +12,8 @@ class FetchStatisticsController extends Controller{
 
         return back()->with('message', 'Uspješno ažurirano!');
     }
+
+    public function fetchStatistics(): void{
+        Artisan::call('sys-api:fetch-players-statistics');
+    }
 }
