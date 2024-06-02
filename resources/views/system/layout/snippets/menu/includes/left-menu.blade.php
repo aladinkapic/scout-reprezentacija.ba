@@ -136,7 +136,7 @@
                         <div class="s-lms-e-img">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <p>{{__('Statistika')}}</p>
+                        <p>{{__('Uredi statistiku')}}</p>
                         <div class="extra-elements">
                             <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
                         </div>
@@ -151,6 +151,17 @@
                                 </div>
                             </div>
                         </a>
+                        @php $i = 0 @endphp
+                        @foreach($loggedUser->clubDataRel as $clubData)
+                            <a href="{{ route('system.additional.club-data.preview', ['id' => $clubData->id ?? '']) }}">
+                                <div class="inside-lm-link">
+                                    <div class="ilm-l"></div><div class="ilm-c"></div>
+                                    <p> <small> {{ $clubData->seasonRel->value ?? '' }} - <b> {{ $clubData->clubRel->title ?? '' }} </b> </small> </p>
+                                </div>
+                            </a>
+                            @php if($i++ > 5) break @endphp
+                        @endforeach
+
                         <a href="{{route('system.additional.nat-team-data.create')}}">
                             <div class="inside-lm-link">
                                 <div class="ilm-l"></div><div class="ilm-c"></div>
@@ -160,6 +171,15 @@
                                 </div>
                             </div>
                         </a>
+
+                        @foreach($loggedUser->natTeamDataRel as $natTeamData)
+                            <a href="{{ route('system.additional.nat-team-data.preview', ['id' => $natTeamData->id ?? '']) }}">
+                                <div class="inside-lm-link">
+                                    <div class="ilm-l"></div><div class="ilm-c"></div>
+                                    <p> <small> {{ $natTeamData->seasonRel->value ?? '' }} - <b> {{ ucwords(strtolower($natTeamData->countryRel->name_ba)) ?? '' }} </b> </small> </p>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </a>
@@ -186,7 +206,7 @@
                         <a href="{{ route('system.users.edit-my-profile') }}">
                             <div class="inside-lm-link">
                                 <div class="ilm-l"></div><div class="ilm-c"></div>
-                                <p> {{__('Osnovne informacije')}} </p>
+                                <p> {{__('Uredi lične podatke')}} </p>
                                 <div class="additional-icon">
                                     <i class="fas fa-plus"></i>
                                 </div>
@@ -195,7 +215,7 @@
                         <a href="{{route('system.users.edit-career')}}">
                             <div class="inside-lm-link">
                                 <div class="ilm-l"></div><div class="ilm-c"></div>
-                                <p> {{__('Karijera')}} </p>
+                                <p> {{__('Uredi poziciju / ugovor')}} </p>
                                 <div class="additional-icon">
                                     <i class="fas fa-plus"></i>
                                 </div>
@@ -204,7 +224,7 @@
                         <a href="{{route('system.users.edit-social-networks')}}">
                             <div class="inside-lm-link">
                                 <div class="ilm-l"></div><div class="ilm-c"></div>
-                                <p> {{__('Društvene mreže')}} </p>
+                                <p> {{__('Uredi social media')}} </p>
                                 <div class="additional-icon">
                                     <i class="fas fa-plus"></i>
                                 </div>
