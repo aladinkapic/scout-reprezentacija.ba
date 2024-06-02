@@ -17,7 +17,7 @@ class PlayersController extends Controller{
     protected $_path = 'public.app.players.';
 
     public function search(){
-        $users = User::where('role', 1);
+        $users = User::where('role', 1)->where('active', 1);
         $users = Filters::filter($users);
 
         // $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');
