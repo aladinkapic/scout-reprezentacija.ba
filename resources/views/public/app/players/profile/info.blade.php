@@ -122,107 +122,110 @@
     @endforeach
 </div>
 
-<hr>
+@if(count($player->natTeamDataRel))
+    <hr>
 
-<!-- National team -->
-<h4 class="mt-3"> {{ __('Nastupi za reprezentaciju') }} </h4>
+    <!-- National team -->
+    <h4 class="mt-3"> {{ __('Nastupi za reprezentaciju') }} </h4>
 
-<div class="statistics-wrapper">
-    @php $counter = 0; @endphp
-    @foreach($player->natTeamDataRel as $natTeamData)
-        @if($counter < 5)
-            <div class="sw-data sw-data-nat-team @if($counter != 0) sw-data-hidden @endif" id="sw-data-club-{{ $natTeamData->id }}">
-                <div class="line"></div>
-                <div class="sw-data-row">
-                    <div class="sw-dr-icon-wrapper">
-                        @if($counter ++ == 0)
-                            <i class="fas fa-minus"></i>
-                        @else
-                            <i class="fas fa-plus"></i>
-                        @endif
-                    </div>
-                    <p>
-                        {{ $natTeamData->season_name ?? '' }}
-                    </p>
-                </div>
-
-                <div class="sw-data-body">
-                    <div class="sw-db-row">
+    <div class="statistics-wrapper">
+        @php $counter = 0; @endphp
+        @foreach($player->natTeamDataRel as $natTeamData)
+            @if($counter < 5)
+                <div class="sw-data sw-data-nat-team @if($counter != 0) sw-data-hidden @endif" id="sw-data-club-{{ $natTeamData->id }}">
+                    <div class="line"></div>
+                    <div class="sw-data-row">
+                        <div class="sw-dr-icon-wrapper">
+                            @if($counter ++ == 0)
+                                <i class="fas fa-minus"></i>
+                            @else
+                                <i class="fas fa-plus"></i>
+                            @endif
+                        </div>
                         <p>
-                            {{ $natTeamData->seasonRel->value ?? '' }}
-                            <span class="text-info">
-                                <b>{{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}</b>
-                            </span>
+                            {{ $natTeamData->season_name ?? '' }}
                         </p>
                     </div>
 
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/ball.png')}}" alt="">
+                    <div class="sw-data-body">
+                        <div class="sw-db-row">
+                            <p>
+                                {{ $natTeamData->seasonRel->value ?? '' }}
+                                <span class="text-info">
+                                <b>{{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}</b>
+                            </span>
+                            </p>
                         </div>
-                        <h5> {{ __('Broj utakmica') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->no_games ?? '' }} </p>
+
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/ball.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj utakmica') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->no_games ?? '' }} </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/goal.png')}}" alt="">
-                        </div>
-                        <h5> {{ __('Broj golova') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->goals ?? '' }} </p>
-                        </div>
-                    </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/network.png')}}" alt="">
-                        </div>
-                        <h5> {{ __('Broj asistencija') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->assistance ?? '' }} </p>
-                        </div>
-                    </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/time-left.png')}}" alt="">
-                        </div>
-                        <h5> {{ __('Broj minuta') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->minutes ?? '' }} </p>
-                        </div>
-                    </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/yellow-card.png')}}" alt="">
-                        </div>
-                        <h5> {{ __('Broj crvenih kartona') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->red_cards ?? '' }} </p>
-                        </div>
-                    </div>
-                    <div class="sw-db-row">
-                        <div class="sw-dbr-img">
-                            <img src="{{asset('images/icons/yellow-card.png')}}" alt="">
-                        </div>
-                        <h5> {{ __('Broj žutih kartona') }} </h5>
-                        <div class="sw-dbr-total">
-                            <p> {{ $natTeamData->yellow_cards ?? '' }} </p>
-                        </div>
-                    </div>
-                    @if($player->from_api != 1)
                         <div class="sw-db-row">
                             <div class="sw-dbr-img">
                                 <img src="{{asset('images/icons/goal.png')}}" alt="">
                             </div>
-                            <h5> {{ __('Broj odbrana') }} </h5>
+                            <h5> {{ __('Broj golova') }} </h5>
                             <div class="sw-dbr-total">
-                                <p> {{ $natTeamData->without_goal ?? '' }} </p>
+                                <p> {{ $natTeamData->goals ?? '' }} </p>
                             </div>
                         </div>
-                    @endif
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/network.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj asistencija') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->assistance ?? '' }} </p>
+                            </div>
+                        </div>
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/time-left.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj minuta') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->minutes ?? '' }} </p>
+                            </div>
+                        </div>
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/yellow-card.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj crvenih kartona') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->red_cards ?? '' }} </p>
+                            </div>
+                        </div>
+                        <div class="sw-db-row">
+                            <div class="sw-dbr-img">
+                                <img src="{{asset('images/icons/yellow-card.png')}}" alt="">
+                            </div>
+                            <h5> {{ __('Broj žutih kartona') }} </h5>
+                            <div class="sw-dbr-total">
+                                <p> {{ $natTeamData->yellow_cards ?? '' }} </p>
+                            </div>
+                        </div>
+                        @if($player->from_api != 1)
+                            <div class="sw-db-row">
+                                <div class="sw-dbr-img">
+                                    <img src="{{asset('images/icons/goal.png')}}" alt="">
+                                </div>
+                                <h5> {{ __('Broj odbrana') }} </h5>
+                                <div class="sw-dbr-total">
+                                    <p> {{ $natTeamData->without_goal ?? '' }} </p>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
-            </div>
-        @endif
-    @endforeach
-</div>
+            @endif
+        @endforeach
+    </div>
+
+@endif
