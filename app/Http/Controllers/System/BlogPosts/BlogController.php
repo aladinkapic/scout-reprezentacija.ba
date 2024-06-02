@@ -27,7 +27,8 @@ class BlogController extends Controller{
                     $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
                     $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
-                    $file->move(public_path().'/images/blog', $name);
+                    $path = env('BLOG_IMG_LINK', public_path(). '/images/blog/');
+                    $file->move($path, $name);
                 }catch (\Exception $e){}
             }
             $youtubeLink = (isset($name)) ? null : $request->youtubeLink;
@@ -55,7 +56,9 @@ class BlogController extends Controller{
                     $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
                     $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
-                    $file->move(public_path().'/images/blog', $name);
+                    $path = env('BLOG_IMG_LINK', public_path(). '/images/blog/');
+
+                    $file->move($path, $name);
                 }catch (\Exception $e){}
             }
 
