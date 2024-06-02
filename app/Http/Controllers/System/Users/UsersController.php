@@ -215,7 +215,11 @@ class UsersController extends Controller{
             $image = str_replace('data:image/png;base64,', '', $image);
             $image = str_replace(' ', '+', $image);
             $imageName = md5(time() . (Auth::user()->name ?? 'JohnDoe') ).'.'.'png';
-            File::put(public_path(). '/images/profile-images/' . $imageName, base64_decode($image));
+
+            $path = env('USER_IMG_LINK', public_path(). '/images/profile-images/');
+            File::put($path . $imageName, base64_decode($image));
+
+            // File::put(public_path(). '/images/profile-images/' . $imageName, base64_decode($image));
 
             User::where('id', Auth::id())->update(['image' => $imageName]);
         }catch (\Exception $e){ return $this::error($e->getCode(), $e->getMessage()); }
