@@ -56,11 +56,12 @@ class FetchPlayersStatistics extends Command{
         $users = User::where('from_api', 1)->where('player_id', '!=', null)->get();
         // $users = User::where('id', 68)->where('player_id', '!=', null)->get();
 
-        $client = new \GuzzleHttp\Client(['base_uri' => $this->getPlayersBaseURI(2983)]);
+        $client = new \GuzzleHttp\Client(['base_uri' => $this->getPlayersBaseURI()]);
 
         $this->getSeasons();
 
         foreach ($users as $user){
+            echo $user->name . '  ';
             try{
                 $response = $client->request('GET', 'api/players', [
                     'headers' => $this->getHeaders(),
