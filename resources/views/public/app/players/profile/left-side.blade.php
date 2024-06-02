@@ -64,7 +64,9 @@
                 @endif
             @endforeach
         </div>
+    @endif
 
+    @if(($player->facebook ?? '') != '' or ($player->twitter ?? '') != '' or ($player->youtube ?? '') != '' or ($player->instagram ?? '') != '')
         <div class="tb-row">
             <h6><b>{{ __('Društvene mreže') }}</b></h6>
             <p>
