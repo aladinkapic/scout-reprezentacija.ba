@@ -211,7 +211,6 @@ class UsersController extends Controller{
 
     public function changeProfileImage (Request $request){
         try{
-            dd($request->all());
             $image = $request->image;  // your base64 encoded
             $image = str_replace('data:image/png;base64,', '', $image);
             $image = str_replace(' ', '+', $image);
