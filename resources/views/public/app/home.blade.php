@@ -3,24 +3,26 @@
 @section('content')
     @include('public.app.homepage.snippets.slider')
 
-    <div class="home-quotes">
-        <div class="hq-wrapper">
-            @foreach($quotes as $quote)
-                <div class="hq-quote">
-                    <div class="hq-q-img">
-                        <img src="{{ asset('images/quotes/' . ($quote->image ?? '' )) }}" alt="">
-                    </div>
-                    <div class="hq-q-text">
-                        <div class="hq-q-t-header">
-                            <p> {{ $quote->quote ?? '' }} </p>
+    @if(count($quotes))
+        <div class="home-quotes">
+            <div class="hq-wrapper">
+                @foreach($quotes as $quote)
+                    <div class="hq-quote">
+                        <div class="hq-q-img">
+                            <img src="{{ asset('images/quotes/' . ($quote->image ?? '' )) }}" alt="">
+                        </div>
+                        <div class="hq-q-text">
+                            <div class="hq-q-t-header">
+                                <p> {{ $quote->quote ?? '' }} </p>
 
-                            <footer class="blockquote-footer mt-3"> <b> {{ $quote->name ?? '' }} </b> <cite> {{ $quote->title ?? '' }} </cite></footer>
+                                <footer class="blockquote-footer mt-3"> <b> {{ $quote->name ?? '' }} </b> <cite> {{ $quote->title ?? '' }} </cite></footer>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
+    @endif
 
     @include('public.app.homepage.snippets.search')
     @include('public.app.homepage.snippets.newsfeed')
