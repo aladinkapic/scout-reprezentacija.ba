@@ -4,7 +4,7 @@
             <img src="@if($loggedUser->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
         </div>
         <div class="b-np-tf-text">
-            <p> {{ __('Šta Vam je na mislima?') }} </p>
+            <p> {{ __('Objavi status, fotografiju ili video link na svom zidu') }} </p>
         </div>
     </div>
     <div class="b-np-media">

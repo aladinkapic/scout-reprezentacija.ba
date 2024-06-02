@@ -21,15 +21,15 @@
     <!-- Menu subsection -->
     <div class="s-lm-subsection">
 
-        <div class="subtitle">
-            <h4> {{__('Osnovne funkcionalnosti')}} </h4>
-            <div class="subtitle-icon">
-                <i class="fas fa-home"></i>
-            </div>
-        </div>
-
         <!-- Users -->
         @if($loggedUser->role == 0)
+            <div class="subtitle">
+                <h4> {{__('Osnovne funkcionalnosti')}} </h4>
+                <div class="subtitle-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+            </div>
+
             <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">
                     <div class="s-lm-s-elements">
@@ -91,6 +91,13 @@
                 </div>
             </a>
         @else
+            <div class="subtitle">
+                <h4> {{__('Uredi svoj profil')}} </h4>
+                <div class="subtitle-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+            </div>
+
             <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">
                     <div class="s-lm-s-elements">

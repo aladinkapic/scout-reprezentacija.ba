@@ -34,18 +34,20 @@
                             @endif
                         </div>
                         <p>
-                            {{ $clubData->seasonRel->value ?? '' }}
-                            <span>
-                            <a href="{{ route('home.clubs.preview', ['id' => $clubData->clubRel->id ?? '']) }}" class="text-info text-decoration-none">
-                                {{ $clubData->clubRel->title ?? '' }}
-                            </a>
-                        </span>
+                            {{ $clubData->season_name ?? '' }}
                         </p>
                     </div>
 
                     <div class="sw-data-body">
                         <div class="sw-db-row">
-                            <p> {{ $clubData->season_name ?? '' }} </p>
+                            <p>
+                                {{ $clubData->seasonRel->value ?? '' }}
+                                <span>
+                                    <a href="{{ route('home.clubs.preview', ['id' => $clubData->clubRel->id ?? '']) }}" class="text-info text-decoration-none">
+                                        <b>{{ $clubData->clubRel->title ?? '' }}</b>
+                                    </a>
+                                </span>
+                            </p>
                         </div>
 
                         <div class="sw-db-row">
@@ -139,16 +141,19 @@
                             <i class="fas fa-plus"></i>
                         @endif
                     </div>
-                    <p> {{ $natTeamData->seasonRel->value ?? '' }}
-                        <span class="text-info">
-                        {{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}
-                    </span>
+                    <p>
+                        {{ $natTeamData->season_name ?? '' }}
                     </p>
                 </div>
 
                 <div class="sw-data-body">
                     <div class="sw-db-row">
-                        <p> {{ $natTeamData->season_name ?? '' }} </p>
+                        <p>
+                            {{ $natTeamData->seasonRel->value ?? '' }}
+                            <span class="text-info">
+                                <b>{{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}</b>
+                            </span>
+                        </p>
                     </div>
 
                     <div class="sw-db-row">

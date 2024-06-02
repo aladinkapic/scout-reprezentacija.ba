@@ -15365,7 +15365,7 @@ header .menu-wrapper .mw-links .single-link a {
   left: 0px;
   top: 0px;
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   display: inline-flex;
   justify-content: flex-start;
 }
@@ -15392,6 +15392,7 @@ header .menu-wrapper .mw-links .single-link a {
   margin-left: 20px;
   font-size: 20px;
   padding-top: 10px;
+  max-width: calc(100% - 50px);
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span,

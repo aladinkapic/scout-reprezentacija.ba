@@ -90,7 +90,7 @@ $(document).ready(function () {
             let length = (postText.val().length > 50) ? 50 : postText.val().length;
             for(let i=0; i<length; i++){ mainPost += postText.val()[i]; }
             if(length === 50) mainPost += ' ..';
-        }else mainPost = 'Šta Vam je na mislima?';
+        }else mainPost = 'Objavi status, fotografiju ili video link na svom zidu?';
 
         $(".b-np-tf-text").find("p").text(mainPost);
     });

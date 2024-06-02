@@ -30687,7 +30687,7 @@ $(document).ready(function () {
       }
 
       if (length === 50) mainPost += ' ..';
-    } else mainPost = 'Šta Vam je na mislima?';
+    } else mainPost = 'Objavi status, fotografiju ili video link na svom zidu?';
 
     $(".b-np-tf-text").find("p").text(mainPost);
   });

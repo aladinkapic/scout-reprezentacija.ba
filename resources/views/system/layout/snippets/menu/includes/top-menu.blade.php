@@ -20,17 +20,25 @@
 {{--                <div class="number-of"><p>3</p></div>--}}
 {{--            </div>--}}
 
-            <a href="{{ route('homepage') }}">
-                <div class="single-li">
-                    <p> {{__('Naslovna strana')}} </p>
-                </div>
-            </a>
+            @if($loggedUser->role == 0)
+                <a href="{{ route('homepage') }}">
+                    <div class="single-li">
+                        <p> {{__('Naslovna strana')}} </p>
+                    </div>
+                </a>
 
-            <a href="https://reprezentacija.ba" target="_blank">
-                <div class="single-li">
-                    <p> {{__('Reprezentacija.BA')}} </p>
-                </div>
-            </a>
+                <a href="https://reprezentacija.ba" target="_blank">
+                    <div class="single-li">
+                        <p> {{__('Reprezentacija.BA')}} </p>
+                    </div>
+                </a>
+            @else
+                <a href="{{route('home.players.player-timeline', ['username' => $loggedUser->username] )}}" title="{{ __('Prikaži svoj profil na www.scout.reprezentacija.ba') }}">
+                    <div class="single-li">
+                        <b><p> {{__('Prikaži svoj profil')}} </p></b>
+                    </div>
+                </a>
+            @endif
         </div>
 
         <!-- Right top icons -->

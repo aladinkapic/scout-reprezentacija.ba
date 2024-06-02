@@ -172,8 +172,8 @@
                 </div>
 
                     <div class="rf-body-element rf-body-element-4 d-none">
-                        <p>
-                            {{ __('Vaš zahtjev za kreiranje profila na Scout Reprezentacija.Ba je uspješno poslan. Skauti Reprezentacija.ba će provjeriti ove podatke, te će Vas, ukoliko ispunjavate naše kriterije, kontaktirati putem emaila i/ili telefona.') }}
+                        <p class="text-danger">
+                            <b>{{ __('Vaš zahtjev za kreiranje profila na Scout Reprezentacija.Ba je uspješno poslan. Skauti Reprezentacija.ba će provjeriti ove podatke, te će Vas, ukoliko ispunjavate naše kriterije, kontaktirati putem emaila i/ili telefona.') }}</b>
                         </p>
                     </div>
 

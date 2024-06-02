@@ -57,10 +57,10 @@
                     <img src="{{ asset('images/logo.png') }}" />
                 </a>
 
-                <div class="footer__address">
-                    <h5 class="heading-h5">BOSEL GROUP</h5>
-                    <a target="_blank" href="#">ul. La Benevolencija 12, 71000 Sarajevo.</a>
-                </div>
+{{--                <div class="footer__address">--}}
+{{--                    <h5 class="heading-h5">BOSEL GROUP</h5>--}}
+{{--                    <a target="_blank" href="#">ul. La Benevolencija 12, 71000 Sarajevo.</a>--}}
+{{--                </div>--}}
                 <div class="footer__contact">
                     <h5 class="heading-h5">Kontakt:</h5>
                     <a class="underlined" href="#">www.reprezentacija.ba</a>

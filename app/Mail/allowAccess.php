@@ -9,19 +9,21 @@ use Illuminate\Queue\SerializesModels;
 
 class allowAccess extends Mailable{
     use Queueable, SerializesModels;
-    public $_mail, $_name, $_password;
+    public $_mail, $_name, $_password, $_gender;
 
     /**
      * Create a new message instance.
      *
      * @param $mail
      * @param $name
-     * @param $_password
+     * @param $password
+     * @param $gender
      */
-    public function __construct($mail, $name, $_password){
+    public function __construct($mail, $name, $password, $gender){
         $this->_name = $name;
         $this->_mail = $mail;
-        $this->_password = $_password;
+        $this->_password = $password;
+        $this->_gender = $gender;
     }
 
     /**

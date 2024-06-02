@@ -246,13 +246,13 @@
                             position: absolute; left: 14px; width: 2px; height: 100%; background: grey;
                         }
                         .sw-data-row{
-                            position: relative; left:0px; top:0px; width: 100%; height: 50px; display: inline-flex; justify-content: flex-start;
+                            position: relative; left:0px; top:0px; width: 100%; min-height: 50px; display: inline-flex; justify-content: flex-start;
                             .sw-dr-icon-wrapper{
                                 position: relative; top:10px; width: 30px; height: 30px; background: #142D56; border-radius:50%; text-align:center;
                                 i{color:#fff; margin-top: 7px;}
                             }
                             p{
-                                margin-left: 20px; font-size: 20px; padding-top: 10px;
+                                margin-left: 20px; font-size: 20px; padding-top: 10px; max-width: calc(100% - 50px);
                                 span{font-weight: bold; color:#142D56;}
                             }
                         }

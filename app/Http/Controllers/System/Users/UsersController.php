@@ -117,7 +117,7 @@ class UsersController extends Controller{
                     $password = $this::quickRandom(10);
                     $request['password'] = Hash::make($password);
 
-                    Mail::to($request->email)->send(new allowAccess($user->email, $user->name, $password));
+                    Mail::to($request->email)->send(new allowAccess($user->email, $user->name, $password, $user->gender));
                 }
             }
             User::where('id', $request->id)->update($request->except('_method', '_token'));
