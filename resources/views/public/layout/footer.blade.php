@@ -123,7 +123,7 @@
             </div>
         </div>
         <div class="footer__con-bottom">
-            <p>© {{ date('Y') }} Crafted with <i class="fas fa-heart text-danger"></i> by <a href="https://alkaris.com" class="text-decoration-none"> <b>Alkaris d.o.o</b> </a> </p>
+            <p>© {{ date('Y') }} Crafted with <i class="fas fa-heart text-danger"></i> by <a href="https://cozyfirm.com" class="text-decoration-none"> <b>Cozy Firm d.o.o</b> </a> </p>
             <ul class="con__bottom-list">
                 <li class="con__bottom-item">
                     <a href="{{ route('home.pages.privacy-policy') }}" class="con__bottom-link underlined"> {{ __('Pravila privatnosti') }} </a>
