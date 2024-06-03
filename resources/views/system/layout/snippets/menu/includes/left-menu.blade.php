@@ -98,37 +98,47 @@
                 </div>
             </div>
 
-            <a href="#" class="menu-a-link">
+            <a href="{{route('system.users.profile')}}" class="menu-a-link">
                 <div class="s-lm-wrapper">
                     <div class="s-lm-s-elements">
                         <div class="s-lms-e-img">
                             <i class="far fa-user"></i>
                         </div>
-                        <p>{{__('Moje informacije')}}</p>
+                        <p>{{__('Uredi svoj profil')}}</p>
                         <div class="extra-elements">
-                            <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                            <div class="rotate-element"><i class="fas fa-edit"></i></div>
                         </div>
-                    </div>
-                    <div class="inside-links active-links">
-                        <a href="{{route('system.users.profile')}}">
-                            <div class="inside-lm-link">
-                                <div class="ilm-l"></div><div class="ilm-c"></div>
-                                <p>{{__('Moj profil')}}</p>
-                            </div>
-                        </a>
-                        @if($loggedUser->clubRel->count())
-                            @foreach($loggedUser->clubRel as $club)
-                                <a href="{{route('system.additional.clubs.timeline', ['id' => $club->id ])}}">
-                                    <div class="inside-lm-link">
-                                        <div class="ilm-l"></div><div class="ilm-c"></div>
-                                        <p> {{ $club->title ?? '' }} </p>
-                                    </div>
-                                </a>
-                            @endforeach
-                        @endif
                     </div>
                 </div>
             </a>
+
+            @if($loggedUser->clubRel->count())
+                <a href="#" class="menu-a-link">
+                    <div class="s-lm-wrapper">
+                        <div class="s-lm-s-elements">
+                            <div class="s-lms-e-img">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <p>{{__('Moji klubovi')}}</p>
+                            <div class="extra-elements">
+                                <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <div class="inside-links active-links">
+                            @if($loggedUser->clubRel->count())
+                                @foreach($loggedUser->clubRel as $club)
+                                    <a href="{{route('system.additional.clubs.timeline', ['id' => $club->id ])}}">
+                                        <div class="inside-lm-link">
+                                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                                            <p> {{ $club->title ?? '' }} </p>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </a>
+            @endif
 
             <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">
