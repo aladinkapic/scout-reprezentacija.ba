@@ -104,9 +104,9 @@
                         <div class="s-lms-e-img">
                             <i class="far fa-user"></i>
                         </div>
-                        <p>{{__('Uredi svoj profil')}}</p>
+                        <p>{{__('Uredi svoj zid')}}</p>
                         <div class="extra-elements">
-                            <div class="rotate-element"><i class="fas fa-edit"></i></div>
+                            <div class="rotate-element"><i class="fas fa-blog"></i></div>
                         </div>
                     </div>
                 </div>
@@ -194,12 +194,12 @@
                 </div>
             </a>
 
-            <div class="subtitle">
-                <h4> {{__('Postavke')}} </h4>
-                <div class="subtitle-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-            </div>
+{{--            <div class="subtitle">--}}
+{{--                <h4> {{__('Postavke')}} </h4>--}}
+{{--                <div class="subtitle-icon">--}}
+{{--                    <i class="fas fa-cogs"></i>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <a href="#" class="menu-a-link">
                 <div class="s-lm-wrapper">
@@ -207,7 +207,7 @@
                         <div class="s-lms-e-img">
                             <i class="fas fa-edit"></i>
                         </div>
-                        <p>{{__('Uredite informacije')}}</p>
+                        <p>{{__('Uredi informacije')}}</p>
                         <div class="extra-elements">
                             <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
                         </div>
@@ -245,6 +245,12 @@
             </a>
 
             <hr>
+
+            <a href="{{route('home.players.player-timeline', ['username' => $loggedUser->username] )}}" title="{{ __('Prikaži svoj profil na www.scout.reprezentacija.ba') }}">
+                <div class="left-menu-btn">
+                    {{ __('Pogledaj svoj javni profil') }}
+                </div>
+            </a>
         @endif
 
         @if($loggedUser->role == 0)

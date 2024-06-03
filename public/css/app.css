@@ -832,6 +832,16 @@ body {
   top: 4px;
 }
 
+.s-left-menu .s-lm-subsection .left-menu-btn {
+  width: 100%;
+  background: #142D56;
+  padding: 6px 0px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
 .s-left-menu .bottom-icons {
   position: absolute;
   bottom: 0px;
