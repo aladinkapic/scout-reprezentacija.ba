@@ -12405,14 +12405,46 @@ header .menu-wrapper .mw-links {
 header .menu-wrapper .mw-links .single-link {
   position: relative;
   height: 40px;
-  margin-left: 30px;
+  margin-left: 16px;
   display: inline-flex;
 }
 
 header .menu-wrapper .mw-links .single-link a {
   color: #fff;
   text-decoration: none;
-  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+header .menu-wrapper .mw-links .single-link a i {
+  font-size: 15px;
+}
+
+header .menu-wrapper .mw-links .single-link a img {
+  height: 6px !important;
+}
+
+header .menu-wrapper .mw-links .single-link a:hover {
+  cursor: pointer;
+}
+
+header .menu-wrapper .mw-links .single-link .link_submenu {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  background: #142D56;
+  border: 1px solid #ffffff;
+  z-index: 1000;
+  padding: 16px;
+}
+
+header .menu-wrapper .mw-links .single-link .link_submenu.d-none {
+  display: none;
+}
+
+header .menu-wrapper .mw-links .single-link .link_submenu a {
+  margin: 3px 0px;
 }
 
 .mobile-menu {
@@ -12453,6 +12485,7 @@ header .menu-wrapper .mw-links .single-link a {
 .mobile-menu .mm-header .mm-social-networks a {
   color: grey;
   text-decoration: none;
+  padding-top: 3px;
 }
 
 .mobile-menu .mm-header .mm-social-networks a svg {

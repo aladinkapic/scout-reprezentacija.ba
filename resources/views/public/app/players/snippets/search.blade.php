@@ -5,17 +5,16 @@
                 <div class="search-icon">
                     <i class="fas fa-search"></i>
                 </div>
-                <input type="text" name="name_of" id="title_of_product" placeholder="Pretraga po imenu .." autocomplete="off">
+                <input type="text" name="name_of" id="title_of_product" placeholder="{{ __('Pretraga po imenu') }} .." autocomplete="off">
             </div>
             <div class="other-first">
-                <div class="my-select-wrapper product-main-category" title="Odaberite kategoriju proizvoda" id="sportRel.value" custom-id="product_category" value="0">
+                <div class="my-select-wrapper product-main-category" id="sportRel.value" custom-id="product_category" value="0">
                     <div class="my-select-value">
                         <p id="gradRel.name.paragraph">{{ __('Odaberite') }}</p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
-
                     <div class="select-values">
                         <div class="my-option main-option" value="0"> {{ __('Svi sportovi') }} </div>
                         @foreach($sports as $key => $val)
@@ -25,7 +24,7 @@
                 </div>
             </div>
             <div class="other-first other-custon">
-                <div class="search-button" title="Pretražite">
+                <div class="search-button" title="{{ __('Pretražite igrače') }}">
                     <p>{{ __('PRETRAŽITE') }}</p>
                 </div>
                 <div class="other-searches-button">
@@ -37,7 +36,6 @@
 
     <div class="just-line"></div>
 </div>
-
 
 <div class="rest-of-search-options">
     <div class="search-wrapper">
@@ -112,7 +110,6 @@
             </div>
         </div>
 
-
         <div class="search-row">
             <div class="other-first other-first-50">
                 <div class="my-select-wrapper" title="" id="lastClub.clubRel.countryRel.name_ba" custom-id="citizenshipRel" value="{{ PlayersHelper::searchData('lastClub.clubRel.countryRel.name_ba', "0") }}">
@@ -136,25 +133,6 @@
                 <div class="select-input">
                     <input type="text" name="searchClubTitle" id="searchClubTitle" placeholder="{{ __('Naziv kluba') }}" autocomplete="off">
                 </div>
-
-
-{{--                <div class="my-select-wrapper" id="clubDataRel.clubRel.title" custom-id="clubDataRel" value="0">--}}
-{{--                    <div class="my-select-value">--}}
-{{--                        <p id="svrha-paragraph"> Klub </p>--}}
-{{--                        <div class="select-arrow">--}}
-{{--                            <i class="fas fa-chevron-down"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <input type="text" name="searchClubTitle" id=searchClubTitle" placeholder="{{ __('Trenutni klub') }}" autocomplete="off">--}}
-
-{{--                    <div class="select-values">--}}
-{{--                        <div class="my-option second-option" value="0"> Odaberite </div>--}}
-{{--                        @foreach($clubs as $val)--}}
-{{--                            <div class="my-option second-option" value="{{ $val }}"> {{ $val }} </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
 
@@ -170,12 +148,11 @@
                     @foreach($positions as $key => $val)
                         <div class="check-wrapper" id="checkbox-{{ $counter++ }}" value="0" custom_value="{{ $val }}">
                             <div class="check-place"></div>
-                            <p>{{ $val }}</p>
+                            <p>{{ __($val) }}</p>
                         </div>
                     @endforeach
                 </div>
             </div>
         @endif
-
     </div>
 </div>

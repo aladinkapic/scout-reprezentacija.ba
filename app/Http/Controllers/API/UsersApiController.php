@@ -22,6 +22,9 @@ class UsersApiController extends Controller{
         }catch (\Exception $e){ return ''; }
     }
     public function constructSlug($slug): string{
+        $slug = str_replace('Đ', 'D', $slug);
+        $slug = str_replace('đ', 'd', $slug);
+
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//IGNORE', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $slug);
@@ -32,6 +35,7 @@ class UsersApiController extends Controller{
         $string = htmlentities($string, ENT_COMPAT, 'utf-8');
         $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
         $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
+
         return strtolower(trim($string, '-'));
     }
     public function getSlug($slug){

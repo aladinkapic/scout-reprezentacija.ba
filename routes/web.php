@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Home', 'prefix' => '/', 'middleware' => 'public'], function(){
     Route::get ('/',                                     'HomepageController@home')->name('homepage');
+    Route::get ('/switch-language/{lan}',                'HomepageController@switchLanguage')->name('home.switch-language');
     // Route::get ('/registracija',                         'HomepageController@register')->name('register');
 
     Route::group(['namespace' => 'Players', 'prefix' => '/players/search'], function(){

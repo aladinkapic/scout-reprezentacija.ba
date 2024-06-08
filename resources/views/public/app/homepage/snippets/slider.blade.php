@@ -1,59 +1,25 @@
-{{--<div class="hero">--}}
-{{--  <div class="hero-overlay">--}}
-{{--    <div class="hero-content">--}}
-{{--      <div class="hero-header">Neka te svi vide na Reprezentacija.ba!</div>--}}
-{{--      <div class="hero-description">Napravi svoj profil - poveži se sa selektorima, klubovima, agentima, medijima...</div>--}}
-{{--      <div class="hero-buttons">--}}
-{{--          <button class="hero-btn">Napravi novi profil!</button>--}}
-{{--          <a href="{{ route('auth.login') }}" class="hero-btn">Prijava na postojeći profil!</a>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-{{--  </div>--}}
-{{--</div>--}}
-
-{{--<section class="hero container-fluid border-1">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row d-grid g-4 align-items-end">--}}
-{{--            <div class="col-sm-12 headline">--}}
-{{--                <p class="hero-headline">{{ __('Neka te svi vide !') }}</p>--}}
-{{--                <p class="hero-subtext"> {{ __('Poveži se sa') }} <span id='text' class="transition-text"></span></p>--}}
-{{--            </div>--}}
-{{--            <div class="d-flex gap-3 col-sm-12 slider-buttons">--}}
-{{--                <a href="{{ route('register') }}">--}}
-{{--                    <button class="btn btn-primary" type="button">{{ __('Napravi novi profil') }}</button>--}}
-{{--                </a>--}}
-{{--                <a href="{{ route('auth.login') }}">--}}
-{{--                    <button class="btn btn-outline-light" type="button">{{ __('Prijava na postojeći profil') }}</button>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-
-
-
 <div class="main-slider">
     <div class="main-slider-wrapper">
         <div class="main-text">
             <div class="center-div">
                 <div class="text-wrapper">
                     <div class="let-everybody">
-                        <h1>NEKA TE</h1>
-                        <h1>SVI VIDE</h1>
+                        <h1>{{ __('NEKA TE') }}</h1>
+                        <h1>{{ __('SVI VIDE') }}</h1>
                     </div>
                     <div class="connect-with">
                         <h2>
-                            <p>Poveži se sa</p>
-                            <span id="text"> selektorima, klubovima, agentima, medijima... </span>
+                            <p>{{ __('Poveži se sa') }}</p>
+                            <span id="text"> {{ __('selektorima, klubovima, agentima, medijima') }}... </span>
                         </h2>
                     </div>
                 </div>
                 <div class="buttons-wrapper">
                     <a href="{{ route('auth.login') }}">
-                        <button> PRIJAVITE SE </button>
+                        <button> {{ __('PRIJAVITE SE') }} </button>
                     </a>
                     <p>
-                        Niste registrovani? <a href="{{ route('auth.create-profile') }}">Kreirajte svoj profil!</a>
+                        {{ __('Niste registrovani?') }} <a href="{{ route('auth.create-profile') }}">{{ __('Kreirajte svoj profil!') }}</a>
                     </p>
 
                     <div class="arrow-down" id="arrow-down-trigger">

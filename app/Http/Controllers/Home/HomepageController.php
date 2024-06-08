@@ -9,10 +9,13 @@ use App\Models\Additional\Quote;
 use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Core\Affiliation;
 use App\Models\Additional\Club;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class HomepageController extends Controller {
     protected $_path = 'public.app.';
@@ -25,37 +28,44 @@ class HomepageController extends Controller {
     }
 
     public function home(){
-        try{
-            $client = new \GuzzleHttp\Client();
-            $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/wp/v2/posts');
-            $apiData  = json_decode($response->getBody()->getContents());
+        $apiData = [];
 
-            $counter = 0;
-            foreach ($apiData as $data){
-                $imageResponse = $client->request('GET', $apiData[$counter]->_links->{'wp:featuredmedia'}[0]->href);
-                $data->image_url = json_decode($imageResponse->getBody()->getContents())->source_url;
+        if(App::getLocale() == 'bs'){
+            try{
+                $client = new \GuzzleHttp\Client();
+                $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/wp/v2/posts');
+                $apiData  = json_decode($response->getBody()->getContents());
 
-                $counter ++;
+                $counter = 0;
+                foreach ($apiData as $data){
+                    $imageResponse = $client->request('GET', $apiData[$counter]->_links->{'wp:featuredmedia'}[0]->href);
+                    $data->image_url = json_decode($imageResponse->getBody()->getContents())->source_url;
 
-                if($counter > 3) break;
-            }
-        }catch (\Exception $e){
-            $apiData = [];
+                    $counter ++;
+
+                    if($counter > 3) break;
+                }
+            }catch (\Exception $e){ }
         }
 
-
         return view($this->_path.'home', [
-            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend('Odaberite državu', ''),
+            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend(__('Odaberite državu'), ''),
             // 'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend('Svi sportovi', ''),
-            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Sve pozicije', ''),
-            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend('Odaberite', ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend('Odaberite spol', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend(__('Svi sportovi'), ''),
+            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend(__('Sve pozicije'), ''),
+            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend(__('Odaberite'), ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend(__('Odaberite spol'), ''),
             'partners' => Partner::get(),
             'range' => $this->getYearRange(),
             'quotes' => Quote::inRandomOrder()->get()->take(2),
             'apiData' => $apiData
         ]);
+    }
+
+    public function switchLanguage ($lan): RedirectResponse{
+        Session::put('locale', $lan);
+
+        return redirect()->back();
     }
 
     public function register(){

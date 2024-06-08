@@ -35658,6 +35658,9 @@ $(document).ready(function () {
   $(".mm-header").click(function () {
     $(".mobile-menu").fadeOut();
   });
+  $(".switch-language").click(function () {
+    $(".choose-language").toggleClass('d-none');
+  });
 });
 
 /***/ }),

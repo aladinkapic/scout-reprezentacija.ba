@@ -17,7 +17,7 @@
         @endif
 
         <div class="tb-row-col-flex">
-            <p class="key"><span>{{ __('Jača noga') }}</span></p>
+            <p class="key"><span>{{ __('Snažnija noga') }}</span></p>
             <p class="value"> {{ $player->strongerLimbRel->value ?? '' }} </p>
         </div>
         <div class="tb-row-col-flex">

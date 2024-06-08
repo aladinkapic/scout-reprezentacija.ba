@@ -62,7 +62,7 @@
 {{--                    <a target="_blank" href="#">ul. La Benevolencija 12, 71000 Sarajevo.</a>--}}
 {{--                </div>--}}
                 <div class="footer__contact">
-                    <h5 class="heading-h5">Kontakt:</h5>
+                    <h5 class="heading-h5">{{ __('Kontakt') }}:</h5>
                     <a class="underlined" href="#">www.reprezentacija.ba</a>
                     <a class="underlined" href="mailto:press@reprezentacija.ba">press@reprezentacija.ba</a>
                 </div>
