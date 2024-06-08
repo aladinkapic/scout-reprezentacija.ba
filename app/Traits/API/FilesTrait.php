@@ -17,7 +17,11 @@ trait FilesTrait{
         try{
             $fileContent = file_get_contents($uri);
             file_put_contents($path . $name, $fileContent);
-        }catch (\Exception $e){ return false; }
+        }catch (\Exception $e){
+            dd($e);
+            return false;
+
+        }
 
         return true;
     }
