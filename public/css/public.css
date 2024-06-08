@@ -15158,6 +15158,21 @@ header .menu-wrapper .mw-links .single-link a {
   margin-right: 4px !important;
 }
 
+.public-container .preview-wrapper .pw-left .about-me,
+.public-container .preview-body-wrapper .pw-left .about-me {
+  padding: 8px;
+}
+
+.public-container .preview-wrapper .pw-left .about-me h5,
+.public-container .preview-body-wrapper .pw-left .about-me h5 {
+  font-weight: bold;
+}
+
+.public-container .preview-wrapper .pw-left .about-me h5 p,
+.public-container .preview-body-wrapper .pw-left .about-me h5 p {
+  font-size: 15px;
+}
+
 .public-container .preview-wrapper .pw-left .custom-buttons,
 .public-container .preview-body-wrapper .pw-left .custom-buttons {
   position: relative;

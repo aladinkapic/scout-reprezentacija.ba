@@ -32,9 +32,7 @@ trait FilesTrait{
 
             file_put_contents($path . $name, $fileContent);
         }catch (\Exception $e){
-            dd($e);
             return false;
-
         }
 
         return true;

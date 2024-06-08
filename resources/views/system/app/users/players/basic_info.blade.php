@@ -128,7 +128,18 @@
                             </div>
                         </div>
 
-                        @if(!isset($preview))
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for=note"> <b>{{ __('O meni') }}</b> </label>
+                                    {!! Form::textarea('note', $user->note ?? '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', isset($preview) ? 'readonly' : '', 'style' => 'height:120px !important;', 'maxlength' => '250']) !!}
+                                    <small id="noteHelp" class="form-text text-muted"> {{ __('Kratka biografija o meni') }} </small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    @if(!isset($preview))
                             <div class="row mt-3 mb-4">
                                 <div class="col-md-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-sm btn-secondary"> <b>{{__('Ažurirajte informacije')}}</b> </button>

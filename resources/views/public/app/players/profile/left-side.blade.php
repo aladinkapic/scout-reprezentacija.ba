@@ -1,9 +1,11 @@
 <div class="pw-left pw-left-body">
     <div class="tb-row">
-        <div class="tb-row-col-flex">
-            <p class="key"><span>{{ __('Sport') }}</span></p>
-            <p class="value"> {{ $player->sportRel->value ?? '' }} </p>
-        </div>
+        @if($player->sport != 3)
+            <div class="tb-row-col-flex">
+                <p class="key"><span>{{ __('Sport') }}</span></p>
+                <p class="value"> {{ $player->sportRel->value ?? '' }} </p>
+            </div>
+        @endif
 
         @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
 
@@ -114,6 +116,13 @@
 
                 <span class="fs-6 fw-normal">{{ $mainReview / 2 }} / 5</span>
             </p>
+        </div>
+    @endif
+
+    @if($player->note)
+        <div class="tb-row about-me" title="{{ __('Kratka biografija') }}">
+            <h5>{{ __('O meni') }}</h5>
+            {!! nl2br($player->note ?? '') !!}
         </div>
     @endif
 </div>

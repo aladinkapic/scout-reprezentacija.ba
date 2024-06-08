@@ -163,7 +163,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="note"> <b>{{ __('Ostale informacije') }}</b> </label>
+                                <label for="note"> <b>{{ __('O meni') }}</b> </label>
                                 {!! Form::textarea('note', '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', 'style' => 'height:120px !important;' ,'maxlength' => '1000']) !!}
                                 <small id="noteHelp" class="form-text text-muted"> {{ __('Ostale bitne informacije koje želite podijeliti sa nama') }} </small>
                             </div>
