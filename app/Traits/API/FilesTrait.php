@@ -24,7 +24,7 @@ trait FilesTrait{
         else return FALSE;
     }
 
-    protected function fetchAndSave($uri, $path, $name): void{
+    protected function fetchAndSave($uri, $path, $name): bool{
         try{
 
             // $fileContent = file_get_contents($uri);
