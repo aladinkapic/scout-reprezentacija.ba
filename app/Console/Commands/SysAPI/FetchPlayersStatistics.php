@@ -75,11 +75,13 @@ class FetchPlayersStatistics extends Command{
                 try{
                     /* Photo Update */
                     $imgExt = substr(strrchr(isset($player->player->photo) ? $player->player->photo : '', "."), 1);
-                    $imgName = $user->username . '.' . $imgExt;
+                    $imgName = md5($user->id) . '.' . $imgExt;
+
+                    // dd($imgName, $player->player->photo, $imgExt);
 
                     $this->fetchAndSave($player->player->photo, public_path('images/profile-images/'), $imgName);
 
-                    if($user->image = null) $user->update(['image' => $imgName]);
+                    $user->update(['image' => $imgName]);
                 }catch (\Exception $e){ dd($e); }
 
 //                dd($player->player->stat);

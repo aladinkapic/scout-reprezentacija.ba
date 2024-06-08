@@ -25,18 +25,22 @@ class HomepageController extends Controller {
     }
 
     public function home(){
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/wp/v2/posts');
-        $apiData  = json_decode($response->getBody()->getContents());
+        try{
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://reprezentacija.ba/wp-json/wp/v2/posts');
+            $apiData  = json_decode($response->getBody()->getContents());
 
-        $counter = 0;
-        foreach ($apiData as $data){
-            $imageResponse = $client->request('GET', $apiData[$counter]->_links->{'wp:featuredmedia'}[0]->href);
-            $data->image_url = json_decode($imageResponse->getBody()->getContents())->source_url;
+            $counter = 0;
+            foreach ($apiData as $data){
+                $imageResponse = $client->request('GET', $apiData[$counter]->_links->{'wp:featuredmedia'}[0]->href);
+                $data->image_url = json_decode($imageResponse->getBody()->getContents())->source_url;
 
-            $counter ++;
+                $counter ++;
 
-            if($counter > 3) break;
+                if($counter > 3) break;
+            }
+        }catch (\Exception $e){
+            $apiData = [];
         }
 
 

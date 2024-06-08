@@ -134,7 +134,7 @@ $( document ).ready(function() {
                     phone: $("#prefix").val() + $("#phone").val(),
                     birth_date: $("#birth_date").val(),
                     gender: $("#gender").val(),
-                    address: $("#address").val(),
+                    // address: $("#address").val(),
                     living_place: $("#living_place").val(),
                     country: $("#country").val(),
                     citizenship: $("#citizenship").val(),

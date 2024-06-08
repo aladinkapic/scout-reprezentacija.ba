@@ -107,21 +107,21 @@
                         </div>
                     </div>
                     <div class="rf-body-element rf-body-element-2 d-none">
+                        {{--<div class="row">--}}
+                        {{--    <div class="col-md-6">--}}
+                        {{--        <label for="address"><b>{{ __('Adresa stanovanja') }}</b></label>--}}
+                        {{--        {!! Form::text('address', '', ['class' => 'form-control', 'id' => 'address', 'aria-describedby' => 'addressHelp', 'maxlength' => '50']) !!}--}}
+                        {{--        <small id="addressHelp" class="form-text text-muted">{{ __('Vaša adresa stanovanja (Nije obavezno polje)') }}</small>--}}
+                        {{--    </div>--}}
+                        {{--</div>--}}
+
                         <div class="row">
-                            <div class="col-md-6">
-                                <label for="address"><b>{{ __('Adresa stanovanja') }}</b></label>
-                                {!! Form::text('address', '', ['class' => 'form-control', 'id' => 'address', 'aria-describedby' => 'addressHelp', 'maxlength' => '50']) !!}
-                                <small id="addressHelp" class="form-text text-muted">{{ __('Vaša adresa stanovanja (Nije obavezno polje)') }}</small>
-                            </div>
                             <div class="col-md-6">
                                 <label for="living_place"><b>{{ __('Grad') }}</b></label>
                                 {!! Form::text('living_place', '', ['class' => 'form-control', 'id' => 'living_place', 'aria-describedby' => 'living_placeHelp','maxlength' => '50']) !!}
                                 <small id="living_placeHelp" class="form-text text-muted">{{ __('Grad u kojem trenutno živite') }}</small>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="country"> <b>{{ __('Država') }}</b> </label>
                                     {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', 'style' => 'width:100%;']) !!}
