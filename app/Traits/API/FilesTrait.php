@@ -13,9 +13,23 @@ trait FilesTrait{
      *      - name of file
      */
 
-    protected function fetchAndSave($uri, $path, $name){
+    protected function curl_get_file_contents($URL){
+        $c = curl_init();
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_URL, $URL);
+        $contents = curl_exec($c);
+        curl_close($c);
+
+        if ($contents) return $contents;
+        else return FALSE;
+    }
+
+    protected function fetchAndSave($uri, $path, $name): void{
         try{
-            $fileContent = file_get_contents($uri);
+
+            // $fileContent = file_get_contents($uri);
+            $fileContent = $this->curl_get_file_contents($uri);
+
             file_put_contents($path . $name, $fileContent);
         }catch (\Exception $e){
             dd($e);
