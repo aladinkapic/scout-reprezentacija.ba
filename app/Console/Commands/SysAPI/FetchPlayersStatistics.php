@@ -79,7 +79,9 @@ class FetchPlayersStatistics extends Command{
 
                     // dd($imgName, $player->player->photo, $imgExt);
 
-                    $this->fetchAndSave($player->player->photo, public_path('images/profile-images/'), $imgName);
+                    $path = env('USER_IMG_LINK', public_path(). '/images/profile-images/');
+
+                    $this->fetchAndSave($player->player->photo, $path, $imgName);
 
                     $user->update(['image' => $imgName]);
                 }catch (\Exception $e){ dd($e); }
