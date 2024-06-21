@@ -36125,25 +36125,25 @@ $(document).ready(function () {
   if (window.location.search !== '') {
     // TODO - Remove cached items !
     //
-    if (localStorage.getItem("filter-values") !== null) {
-      var storedNames = JSON.parse(localStorage.getItem("filter-values"));
-
-      for (var property in storedNames) {
-        var wrapper = $('[custom-id=' + property + ']');
-        wrapper.find("p").text(storedNames[property]);
-        wrapper.attr('value', storedNames[property]); // console.log(`${property}: ${storedNames[property]}`);
-      }
-    }
-
+    // if (localStorage.getItem("filter-values") !== null) {
+    //     let storedNames = JSON.parse(localStorage.getItem("filter-values"));
+    //
+    //     for (const property in storedNames) {
+    //         let wrapper = $('[custom-id=' + property + ']');
+    //         wrapper.find("p").text(storedNames[property]);
+    //         wrapper.attr('value', storedNames[property]);
+    //         // console.log(`${property}: ${storedNames[property]}`);
+    //     }
+    // }
     if (localStorage.getItem("checkbox-values") !== null) {
       var storedCheckboxes = JSON.parse(localStorage.getItem("checkbox-values"));
       console.log("Stored", storedCheckboxes);
 
-      for (var _property in storedCheckboxes) {
-        var parent = $("#" + _property);
+      for (var property in storedCheckboxes) {
+        var parent = $("#" + property);
         parent.find(".check-place").append('<i class="fas fa-check"></i>');
         parent.find(".check-place").css("background", "#142D56");
-        parent.attr('value', storedCheckboxes[_property]); // console.log(`${property}: ${storedCheckboxes[property]}`);
+        parent.attr('value', storedCheckboxes[property]); // console.log(`${property}: ${storedCheckboxes[property]}`);
       }
     }
 

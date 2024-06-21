@@ -286,16 +286,16 @@ $(document).ready(function() {
     if(window.location.search !== ''){
         // TODO - Remove cached items !
         //
-        if (localStorage.getItem("filter-values") !== null) {
-            let storedNames = JSON.parse(localStorage.getItem("filter-values"));
-
-            for (const property in storedNames) {
-                let wrapper = $('[custom-id=' + property + ']');
-                wrapper.find("p").text(storedNames[property]);
-                wrapper.attr('value', storedNames[property]);
-                // console.log(`${property}: ${storedNames[property]}`);
-            }
-        }
+        // if (localStorage.getItem("filter-values") !== null) {
+        //     let storedNames = JSON.parse(localStorage.getItem("filter-values"));
+        //
+        //     for (const property in storedNames) {
+        //         let wrapper = $('[custom-id=' + property + ']');
+        //         wrapper.find("p").text(storedNames[property]);
+        //         wrapper.attr('value', storedNames[property]);
+        //         // console.log(`${property}: ${storedNames[property]}`);
+        //     }
+        // }
         if (localStorage.getItem("checkbox-values") !== null) {
             let storedCheckboxes = JSON.parse(localStorage.getItem("checkbox-values"));
 

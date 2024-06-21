@@ -93,4 +93,12 @@ class Controller extends BaseController{
 
         return json_encode(self::$_response);
     }
+
+    public function translateKeywords($keywords){
+        foreach ($keywords as $key => $val){
+            $keywords[$key] = __($val);
+        }
+
+        return $keywords;
+    }
 }

@@ -8,17 +8,17 @@
                 <input type="text" name="name_of" id="title_of_product" placeholder="{{ __('Pretraga po imenu') }} .." autocomplete="off">
             </div>
             <div class="other-first">
-                <div class="my-select-wrapper product-main-category" id="sportRel.value" custom-id="product_category" value="0">
+                <div class="my-select-wrapper product-main-category" id="sportRel.value" custom-id="product_category" value="{{ PlayersHelper::searchData('sportRel.value', 0) }}">
                     <div class="my-select-value">
-                        <p id="gradRel.name.paragraph">{{ __('Odaberite') }}</p>
+                        <p id="gradRel.name.paragraph">{{ PlayersHelper::searchData('sportRel.value', __('Odaberite'), true) }}</p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
                     <div class="select-values">
-                        <div class="my-option main-option" value="0"> {{ __('Svi sportovi') }} </div>
+{{--                        <div class="my-option main-option" value="0"> {{ __('Svi sportovi') }} </div>--}}
                         @foreach($sports as $key => $val)
-                            <div class="my-option category-option" value="{{$val}}">{{$val}}</div>
+                            <div class="my-option category-option" value="{{$key}}">{{$val}}</div>
                         @endforeach
                     </div>
                 </div>
@@ -41,16 +41,16 @@
     <div class="search-wrapper">
         <div class="search-row">
             <div class="other-first">
-                <div class="my-select-wrapper" title="" id="birth_year" custom-id="birth_year" value="0">
+                <div class="my-select-wrapper" title="" id="birth_year" custom-id="birth_year" value="{{ PlayersHelper::searchData('birth_year', 0) }}">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> {{ __('Godište igrača') }} </p>
+                        <p id="svrha-paragraph"> {{ PlayersHelper::searchData('birth_year', __('Godište igrača'), true) }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
+{{--                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>--}}
 
                         @foreach($range as $r)
                             <div class="my-option second-option" value="{{ $r }}"> {{ $r }} </div>
@@ -59,42 +59,42 @@
                 </div>
             </div>
             <div class="other-first">
-                <div class="my-select-wrapper" title="" id="strongerLimbRel.value" custom-id="strongerLimb" value="0">
+                <div class="my-select-wrapper" title="" id="strongerLimbRel.value" custom-id="strongerLimb" value="{{ PlayersHelper::searchData('strongerLimbRel.value', 0) }}">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> {{ __('Snažnija noga') }} </p>
+                        <p id="svrha-paragraph"> {{ PlayersHelper::searchData('strongerLimbRel.value', __('Snažnija noga'), true) }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
-                        @foreach($strongerLimb as $limb)
-                            <div class="my-option second-option" value="{{ $limb }}"> {{ $limb }} </div>
+{{--                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>--}}
+                        @foreach($strongerLimb as $key => $limb)
+                            <div class="my-option second-option" value="{{ $key }}"> {{ $limb }} </div>
                         @endforeach
                     </div>
                 </div>
             </div>
             <div class="other-first">
-                <div class="my-select-wrapper" title="" id="under_contract" custom-id="under_contract" value="0">
+                <div class="my-select-wrapper" title="" id="under_contract" custom-id="under_contract" value="{{ PlayersHelper::searchData('under_contract', 0) }}">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> {{ __('Pod ugovorom') }} </p>
+                        <p id="svrha-paragraph"> {{ PlayersHelper::searchData('under_contract', __('Pod ugovorom'), true) }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
+{{--                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>--}}
                         <div class="my-option second-option" value="Da"> {{ __('Da') }} </div>
                         <div class="my-option second-option" value="Ne"> {{ __('Ne') }} </div>
                     </div>
                 </div>
             </div>
             <div class="other-first">
-                <div class="my-select-wrapper" title="" id="genderRel.value" custom-id="genderRel" value="0">
+                <div class="my-select-wrapper" title="" id="genderRel.value" custom-id="genderRel" value="{{ PlayersHelper::searchData('genderRel.value', 0) }}">
                     <div class="my-select-value">
-                        <p id="svrha-paragraph"> {{ __('Spol igrača') }} </p>
+                        <p id="svrha-paragraph"> {{ PlayersHelper::searchData('genderRel.value', __('Spol igrača'), true) }} </p>
                         <div class="select-arrow">
                             <i class="fas fa-chevron-down"></i>
                         </div>
@@ -102,8 +102,8 @@
 
                     <div class="select-values">
                         <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
-                        @foreach($gender as $gen)
-                            <div class="my-option second-option" value="{{ $gen }}"> {{ $gen }} </div>
+                        @foreach($gender as $key => $gen)
+                            <div class="my-option second-option" value="{{ $key }}"> {{ $gen }} </div>
                         @endforeach
                     </div>
                 </div>
@@ -121,9 +121,9 @@
                     </div>
 
                     <div class="select-values">
-                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>
-                        @foreach($countries as $val)
-                            <div class="my-option second-option" value="{{ $val }}"> {{ $val }} </div>
+{{--                        <div class="my-option second-option" value="0"> {{ __('Odaberite') }} </div>--}}
+                        @foreach($countries as $key => $val)
+                            <div class="my-option second-option" value="{{ $key }}"> {{ $val }} </div>
                         @endforeach
                     </div>
                 </div>

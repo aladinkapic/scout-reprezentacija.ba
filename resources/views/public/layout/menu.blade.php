@@ -15,7 +15,7 @@
                 <a href="mailto:press@reprezentacija.ba"> <i class="fas fa-envelope"></i> </a>
             </div>
             <div class="single-link">
-                <a class="switch-language"> {{ __('BiH') }} </a>
+                <a class="switch-language"> {{ BaseHelper::getLocale() }} </a>
                 <div class="link_submenu choose-language d-none">
                     <a href="{{ route('home.switch-language', ['lan' => 'bs']) }}">{{ __('BiH') }}</a>
                     <a href="{{ route('home.switch-language', ['lan' => 'en']) }}">{{ __('ENG') }}</a>

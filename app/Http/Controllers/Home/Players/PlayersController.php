@@ -12,6 +12,7 @@ use App\Models\Core\Keywords\Keyword;
 use App\Models\Players\PlayerRate;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PlayersController extends Controller{
     protected $_path = 'public.app.players.';
@@ -41,15 +42,21 @@ class PlayersController extends Controller{
             }
         }
 
+        if(App::getLocale() == 'bs'){
+            $countries = Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend(__('Odaberite državu'), '');
+        }else{
+            $countries = Country::orderBy('name_ba')->pluck('name', 'name_ba')->prepend(__('Odaberite državu'), '');
+        }
+
         return view($this->_path . 'search-results', [
             'users' => $users,
 
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id'),
+            'sports' => $this->translateKeywords(Keyword::where('keyword', 'sport')->pluck('value', 'value')),
             'range' => (new HomepageController())->getYearRange(),
-            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value'),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value'),
+            'strongerLimb' =>  $this->translateKeywords(Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')),
+            'gender' => $this->translateKeywords(Keyword::where('keyword', 'gender')->pluck('value', 'value')),
             'positions' => $positions,
-            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba'),
+            'countries' => $countries,
             'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', ''),
             'noPages' => $noPages,
             'nextPage' => $nextPage,

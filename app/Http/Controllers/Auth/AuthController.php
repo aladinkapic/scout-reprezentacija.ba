@@ -110,9 +110,7 @@ class AuthController extends Controller{
                         'url' => route('system.users.profile')
                     ]);
                 }
-            }else{
-                dd("wee");
-            }
+            }else{}
         }catch (\Exception $e){}
     }
 }

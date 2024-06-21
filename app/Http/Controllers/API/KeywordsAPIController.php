@@ -37,10 +37,10 @@ class KeywordsAPIController extends Controller{
     }
     public function getPositions(Request $request){
         try{
-            if($request->value == 3) $data = Keyword::where('keyword', 'position_football')->pluck('value', 'id');
-            else if($request->value == 4) $data = Keyword::where('keyword', 'position_futsal')->pluck('value', 'id');
-            else if($request->value == 'Nogomet') $data = Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend('Odaberite poziciju', '');
-            else if($request->value == 'Futsal') $data = Keyword::where('keyword', 'position_futsal')->pluck('value', 'value')->prepend('Odaberite poziciju', '');
+            if($request->value == 3) $data = $this->translateKeywords(Keyword::where('keyword', 'position_football')->pluck('value', 'id'));
+            else if($request->value == 4) $data = $this->translateKeywords(Keyword::where('keyword', 'position_futsal')->pluck('value', 'id'));
+            else if($request->value == 'Nogomet') $data = $this->translateKeywords(Keyword::where('keyword', 'position_football')->pluck('value', 'value'))->prepend(__('Sve pozicije'), '');
+            else if($request->value == 'Futsal') $data = $this->translateKeywords(Keyword::where('keyword', 'position_futsal')->pluck('value', 'value'))->prepend(__('Sve pozicije'), '');
 
             return $this::apiSuccess(__(''), '', $data);
         }catch (\Exception $e){ return $this::apiSuccess('5000', __('Desila se greška, molimo kontaktirajte administratore!'), '');}

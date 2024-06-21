@@ -76,7 +76,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                {!! Form::select('birth_year', $range, '', ['class' => 'form-control select-2', 'id' => 'birth_year', 'placeholder' => 'Godište igrača', 'filter' => 'birth_year']) !!}
+                {!! Form::select('birth_year', $range, '', ['class' => 'form-control select-2', 'id' => 'birth_year', 'placeholder' => __('Godište igrača'), 'filter' => 'birth_year']) !!}
                 <label for="strongerLimb">{{ __('Godište igrača') }}</label>
             </div>
 
@@ -86,7 +86,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                {!! Form::select('under_contract', ['' => 'Odaberite', 'Ne' => 'Ne', 'Da' => 'Da'], '', ['class' => 'form-control', 'id' => 'under_contract', 'filter' => 'under_contract']) !!}
+                {!! Form::select('under_contract', ['' => __('Odaberite'), 'Ne' => __('Ne'), 'Da' => __('Da')], '', ['class' => 'form-control', 'id' => 'under_contract', 'filter' => 'under_contract']) !!}
                 <label for="floatingSelect">{{ __('Da li je igrač pod ugovorom?') }}</label>
             </div>
 

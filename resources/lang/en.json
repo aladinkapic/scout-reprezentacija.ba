@@ -102,6 +102,13 @@
     "Zatvorite": "Close",
     "godina": "year",
     "ocjene/a!": "ratings!",
-    "selektorima, klubovima, agentima, medijima": " to headcoaches, clubs, agents, media"
+    "selektorima, klubovima, agentima, medijima": " to headcoaches, clubs, agents, media",
+    "Futsal" : "Futsal",
+    "Muško" : "Male",
+    "Žensko": "Female",
+    "Lijeva" : "Left",
+    "Desna" : "Right",
+    "Obje" : "Both",
+    "Ocijenite igrača" : "Rate player"
 }
 

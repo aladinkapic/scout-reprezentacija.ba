@@ -45,7 +45,8 @@
         ],
         "files": [
             "app/Http/Helpers/PlayersHelper.php",
-            "app/Http/Helpers/NewsHelper.php"
+            "app/Http/Helpers/NewsHelper.php",
+            "app/Http/Helpers/BaseHelper.php"
         ]
     },
     "autoload-dev": {

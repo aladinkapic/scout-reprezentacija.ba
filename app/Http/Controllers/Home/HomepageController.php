@@ -46,15 +46,20 @@ class HomepageController extends Controller {
                     if($counter > 3) break;
                 }
             }catch (\Exception $e){ }
+
+            $countries = Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend(__('Odaberite državu'), '');
+        }else{
+            $countries = Country::orderBy('name_ba')->pluck('name', 'name_ba')->prepend(__('Odaberite državu'), '');
         }
 
+
         return view($this->_path.'home', [
-            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'name_ba')->prepend(__('Odaberite državu'), ''),
+            'countries' => $countries,
             // 'clubs' => Club::pluck('title', 'title')->prepend('Odaberite klub', '')->prepend('Odaberite klub', ''),
-            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'value')->prepend(__('Svi sportovi'), ''),
-            'positions' => Keyword::where('keyword', 'position_football')->pluck('value', 'value')->prepend(__('Sve pozicije'), ''),
-            'strongerLimb' =>  Keyword::where('keyword', 'arm_leg')->pluck('value', 'value')->prepend(__('Odaberite'), ''),
-            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'value')->prepend(__('Odaberite spol'), ''),
+            'sports' => $this->translateKeywords(Keyword::where('keyword', 'sport')->pluck('value', 'value'))->prepend(__('Svi sportovi'), ''),
+            'positions' => $this->translateKeywords(Keyword::where('keyword', 'position_football')->pluck('value', 'value'))->prepend(__('Sve pozicije'), ''),
+            'strongerLimb' => $this->translateKeywords(Keyword::where('keyword', 'arm_leg')->pluck('value', 'value'))->prepend(__('Odaberite'), ''),
+            'gender' => $this->translateKeywords(Keyword::where('keyword', 'gender')->pluck('value', 'value'))->prepend(__('Odaberite spol'), ''),
             'partners' => Partner::get(),
             'range' => $this->getYearRange(),
             'quotes' => Quote::inRandomOrder()->get()->take(2),
