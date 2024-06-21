@@ -10,8 +10,8 @@
             @for($i=0; $i<3; $i++)
                 <div class="h-ln-preview t-3">
                     <div class="h-lnp-img-part">
-                        <img src="{{ $apiData[$i]->image_url }}" alt="">
-                        <div class="h-lnp-published t-3" title="Objavljeno 17. Marta 2021 godine">
+                        <img src="{{ $apiData[$i]->image_url ?? '' }}" alt="">
+                        <div class="h-lnp-published t-3" title="">
                             <span class="s-digit t-3"> {{ NewsHelper::getDay($apiData[$i]->date) }} </span>
                             <div class="h-lnp-p-line t-3"></div>
                             <span class="s-text t-3"> {{ NewsHelper::getMonth($apiData[$i]->date) }} </span>
