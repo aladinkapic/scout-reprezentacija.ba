@@ -24,6 +24,12 @@ class UsersApiController extends Controller{
     public function constructSlug($slug): string{
         $slug = str_replace('Đ', 'D', $slug);
         $slug = str_replace('đ', 'd', $slug);
+        $slug = str_replace('ć', 'c', $slug);
+        $slug = str_replace('Ć', 'C', $slug);
+        $slug = str_replace('č', 'c', $slug);
+        $slug = str_replace('Č', 'c', $slug);
+        $slug = str_replace('š', 's', $slug);
+        $slug = str_replace('Š', 'S', $slug);
 
         $slug = iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $slug);
         $slug = iconv('UTF-8', 'ISO-8859-1//IGNORE', $slug);
