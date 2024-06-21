@@ -47,7 +47,7 @@ class UsersController extends Controller{
         ]);
     }
 
-    public function data($action = 'create', $id = null){
+    public function data($action = 'create', $id = null, $root = null){
         if(isset($id)){
             $user = User::find($id);
             if($user->sport == 3) $position = Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite', '');
@@ -63,7 +63,8 @@ class UsersController extends Controller{
             'position' => $position,
             'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
             'active' => Keyword::where('keyword', 'active')->pluck('value', 'id')->prepend('Odaberite', ''),
-            'user' => isset($id) ? $user : null
+            'user' => isset($id) ? $user : null,
+            'root' => $root
         ]);
     }
     public function create(){ return $this->data(); }
@@ -86,6 +87,7 @@ class UsersController extends Controller{
     }
 
     public function preview($id){ return $this->data('preview', $id); }
+    public function previewWall($id){ return $this->data('profile', $id, true); }
     public function edit($id){ return $this->data('edit', $id); }
     public function delete($id){
         try{

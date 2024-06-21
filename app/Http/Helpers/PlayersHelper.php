@@ -17,5 +17,6 @@ class PlayersHelper{
                 }
             }
         }catch (\Exception $e){ return $default; }
+        return $default;
     }
 }

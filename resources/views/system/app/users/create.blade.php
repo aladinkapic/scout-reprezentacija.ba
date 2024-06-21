@@ -10,6 +10,8 @@
     @if(isset($preview))
         | <a href="{{route('system.users.edit', ['id' => $user->id])}}"> {{ __('Uredite') }} </a>
         | <a href="{{route('system.users.delete', ['id' => $user->id])}}"> {{ __('Obrišite') }} </a>
+
+        | <a href="{{route('system.users.preview-wall', ['id' => $user->id])}}"> {{ __('Uredite zid') }} </a>
     @endif
 @endsection
 
@@ -60,10 +62,13 @@
                                     {!! Form::hidden('edit_post_image', '', ['class' => 'form-control', 'id' => 'edit_post_image']) !!}
                                     {!! Form::hidden('post_id', '', ['class' => 'form-control', 'id' => 'post_id']) !!}
 
-                                    @include('system.app.blog.new-post')
+                                    @if(!$root)
+                                        @include('system.app.blog.new-post')
+                                    @endif
                                 {!! Form::close(); !!}
+
                                 <!-- Preview all created posts -->
-                                @include('system.app.blog.posts-preview', ['data' => $user->blogPosts])
+                                @include('system.app.blog.posts-preview', ['data' => $user->blogPosts, 'user' => $user, 'root' => $root])
                             @else
                                 <div class="row">
                                     <div class="col-md-6">

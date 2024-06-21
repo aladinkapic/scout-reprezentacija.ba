@@ -41,11 +41,18 @@
                 @endif
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="country_id"> <b>{{ __('Reprezentacija') }}</b> </label>
                                 {!! Form::select('country_id', $countries, $clubData->country_id ?? '', ['class' => 'form-control required select-2', 'id' => 'club_id', 'aria-describedby' => 'country_idHelp', isset($preview) ? 'disabled => true' : '']) !!}
                                 <small id="country_idHelp" class="form-text text-muted"> {{ __('Odaberite reprezentaciju u kojoj ste igrali') }} </small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="category"> <b>{{ __('Tim') }}</b> </label>
+                                {!! Form::select('category', $team,  $clubData->category ?? '', ['class' => 'form-control required', 'id' => 'category', 'aria-describedby' => 'categoryHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                                <small id="categoryHelp" class="form-text text-muted"> {{ __('Odaberite tim u kojem ste igrali') }} </small>
                             </div>
                         </div>
                     </div>
@@ -114,15 +121,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="@if($loggedUser->position == 11 or  $loggedUser->position == 14) col-md-6 @else col-md-12 @endif">
-                            <div class="form-group">
-                                <label for="category"> <b>{{ __('Tim') }}</b> </label>
-                                {!! Form::select('category', $team,  $clubData->category ?? '', ['class' => 'form-control required', 'id' => 'category', 'aria-describedby' => 'categoryHelp', isset($preview) ? 'disabled => true' : '']) !!}
-                                <small id="categoryHelp" class="form-text text-muted"> {{ __('Odaberite tim u kojem ste igrali') }} </small>
-                            </div>
-                        </div>
                         @if($loggedUser->position == 11 or  $loggedUser->position == 14)
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="without_goal"> <b>{{ __('Broj utakmica bez primljenog gola') }}</b> </label>
                                     {!! Form::number('without_goal', $clubData->without_goal ?? '', ['class' => 'form-control number required', 'id' => 'without_goal', 'aria-describedby' => 'without_goalHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'step' => 1]) !!}

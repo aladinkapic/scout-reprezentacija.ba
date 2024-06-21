@@ -3,16 +3,18 @@
         <div class="single-post">
             <div class="sp-header">
                 <div class="sp-h-img-wrapper">
-                    <img src="@if($loggedUser->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
+                    <img src="@if($user->image != '') {{ asset('images/profile-images/'.$user->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
                 <div class="sp-h-name-field">
-                    <p> {{ $loggedUser->name ?? '' }} </p>
+                    <p> {{ $user->name ?? '' }} </p>
                     <span> {{ __('Objavljeno') }} {{ $post->createdAt() }} </span>
                 </div>
                 <div class="sp-icons">
-                    <div class="sp-i-wrapper edit-blog-post" title="{{ __('Uredite post') }}" post-id="{{ $post->id }}">
-                        <i class="fas fa-edit"></i>
-                    </div>
+                    @if(!$root)
+                        <div class="sp-i-wrapper edit-blog-post" title="{{ __('Uredite post') }}" post-id="{{ $post->id }}">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                    @endif
                     <a href="{{ route('system.blog-posts.delete', ['id' => $post->id]) }}">
                         <div class="sp-i-wrapper" title="{{ __('Obrišite post') }}">
                             <i class="fas fa-trash"></i>

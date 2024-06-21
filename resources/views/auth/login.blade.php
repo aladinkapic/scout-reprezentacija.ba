@@ -51,8 +51,8 @@
 
                     <div class="row aff-links">
                         <div class="col-md-6 mt-3">
-{{--                            <a href="" class="tb-color mr-2"> {{ __('Zaboravili ste šifru?') }} </a>--}}
-{{--                            <span>|</span>--}}
+                            <a href="{{ route('auth.forgot-password') }}" class="tb-color mr-2"> {{ __('Zaboravili ste šifru?') }} </a>
+                            <span>|</span>
                             <a href="{{ route('auth.create-profile') }}"> {{ __('Kreirajte korisnički nalog') }} </a>
                         </div>
                         <div class="col-md-6 mt-3 d-flex justify-content-end">

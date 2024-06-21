@@ -30406,6 +30406,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   var loginUrl = '/auth/log-me-in';
   var mainUrl = '/users/my-profile';
+  var newPswEmailUrl = '/auth/send-email-for-password';
+  var setNewPswUrl = '/auth/set-new-password';
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -30573,6 +30575,64 @@ $(document).ready(function () {
   $(".create-profile-back-btn").click(function () {
     if (step > 1) step--;
     progressElements();
+  });
+  $(".reset-password").click(function () {
+    var email = $("#email").val();
+
+    if (!validator.email(email)) {
+      notify.Me(["Uneseni email nije validan!", "warn"]);
+      return;
+    }
+
+    $.ajax({
+      url: newPswEmailUrl,
+      method: 'POST',
+      dataType: "json",
+      data: {
+        email: email
+      },
+      success: function success(response) {
+        var code = response['code'];
+
+        if (code === '0000') {
+          notify.Me([response['message'], "success"]);
+          $("#email").val("");
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+      }
+    });
+  });
+  $(".restart-psw-btn").click(function () {
+    var password = $("#password").val();
+    var passwordAgain = $("#pswAgain").val();
+
+    if (password !== passwordAgain) {
+      notify.Me(["Lozinke se ne podudaraju!", "warn"]);
+      return;
+    }
+
+    $.ajax({
+      url: setNewPswUrl,
+      method: 'POST',
+      dataType: "json",
+      data: {
+        password: password,
+        api_token: $("#api_token").val()
+      },
+      success: function success(response) {
+        var code = response['code'];
+
+        if (code === '0000') {
+          notify.Me([response['message'], "success"]);
+          window.location = response['url'];
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+
+        console.log(response);
+      }
+    });
   });
 });
 

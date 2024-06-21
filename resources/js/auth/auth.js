@@ -1,6 +1,8 @@
 $( document ).ready(function() {
     let loginUrl = '/auth/log-me-in';
     let mainUrl  = '/users/my-profile';
+    let newPswEmailUrl = '/auth/send-email-for-password';
+    let setNewPswUrl  = '/auth/set-new-password';
 
     $.ajaxSetup({
         headers: {
@@ -169,4 +171,63 @@ $( document ).ready(function() {
     });
 
 
+    $(".reset-password").click(function (){
+        let email    = $("#email").val();
+
+        if(!validator.email(email)){
+            notify.Me(["Uneseni email nije validan!", "warn"]);
+            return;
+        }
+
+        $.ajax({
+            url: newPswEmailUrl,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                email: email
+            },
+            success: function success(response) {
+                let code = response['code'];
+
+                if(code === '0000'){
+                    notify.Me([response['message'], "success"]);
+
+                    $("#email").val("")
+                }else{
+                    notify.Me([response['message'], "warn"]);
+                }
+            }
+        });
+    });
+    $(".restart-psw-btn").click(function (){
+        let password = $("#password").val();
+        let passwordAgain = $("#pswAgain").val();
+
+        if(password !== passwordAgain){
+            notify.Me(["Lozinke se ne podudaraju!", "warn"]);
+            return;
+        }
+
+        $.ajax({
+            url: setNewPswUrl,
+            method: 'POST',
+            dataType: "json",
+            data: {
+                password: password,
+                api_token: $("#api_token").val()
+            },
+            success: function success(response) {
+                let code = response['code'];
+
+                if(code === '0000'){
+                    notify.Me([response['message'], "success"]);
+
+                    window.location = response['url'];
+                }else{
+                    notify.Me([response['message'], "warn"]);
+                }
+                console.log(response);
+            }
+        });
+    });
 });

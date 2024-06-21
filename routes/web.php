@@ -45,6 +45,11 @@ Route::group(['namespace' => 'Home', 'prefix' => '/', 'middleware' => 'public'],
 Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
     Route::get ('/login-page',                           'AuthController@login')->name('auth.login');
     Route::post('/log-me-in',                            'AuthController@logMeIn')->name('auth.logMeIn');
+
+    Route::get ('/forgot-password',                             'AuthController@forgotPassword')->name('auth.forgot-password');
+    Route::post('/send-email-for-password',                     'AuthController@sendEmailForNewPsw')->name('auth.send-email-for-password');
+    Route::get ('/restart-password/{username}/{token}',         'AuthController@restartPassword')->name('auth.restart-password');
+    Route::post('/set-new-password',                            'AuthController@setNewPassword')->name('auth.set-new-password');
     /*
      *  Register new user
      */
@@ -87,6 +92,8 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
             Route::get ('/',                                 'UsersController@index')->name('system.users.index');
             Route::get ('/create',                           'UsersController@create')->name('system.users.create');
             Route::get ('/preview/{id}',                     'UsersController@preview')->name('system.users.preview');
+            Route::get ('/preview-wall/{id}',                'UsersController@previewWall')->name('system.users.preview-wall');
+
             Route::post('/save',                             'UsersController@save')->name('system.users.save');
             Route::get ('/edit/{id}',                        'UsersController@edit')->name('system.users.edit');
             Route::put ('/update',                           'UsersController@update')->name('system.users.update');
