@@ -30,7 +30,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'username', 'email', 'password', 'email_verified_at', 'api_token', 'active', 'role', 'image', 'category', 'sport', 'init_club',
         'position', 'position_2', 'stronger_limb', 'birth_date', 'years_old', 'birth_place', 'address', 'living_place', 'citizenship', 'citizenship_2',
-        'country', 'phone', 'gender', 'height', 'remember_token', 'note', 'facebook', 'twitter', 'instagram',
+        'country', 'phone', 'gender', 'height', 'remember_token', 'note', 'short_bio', 'facebook', 'twitter', 'instagram',
         'under_contract', 'youtube', 'allow_rating', 'from_api', 'player_id'
     ];
 
@@ -108,6 +108,9 @@ class User extends Authenticatable
 
     public function blogPosts(){
         return $this->hasMany(BlogPosts::class, 'owner', 'id')->where('category', 0)->orderBy('id', 'DESC');
+    }
+    public function totalImages(){
+        return BlogPosts::where('owner', $this->id)->where('category', 0)->whereNotNull('image')->where('image', '!=', "")->count();
     }
 
     /* Special players */

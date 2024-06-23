@@ -12,6 +12,7 @@
         | <a href="{{route('system.users.delete', ['id' => $user->id])}}"> {{ __('Obrišite') }} </a>
 
         | <a href="{{route('system.users.preview-wall', ['id' => $user->id])}}"> {{ __('Uredite zid') }} </a>
+        | <a href="{{ route('system.users.switch-to-user', ['id' => $user->id ]) }}">{{ __('Prebaci se na korisnika') }}</a>
     @endif
 @endsection
 
@@ -31,6 +32,13 @@
 
 @section('content')
     <div class="content-wrapper @if(isset($profile)) p-0 border-none @else p-3 @endif">
+
+        @if(session()->has("success"))
+            <div class="alert alert-success">
+                {{ session()->get("success") }} asdsadas
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-md-12">
                 @if(isset($edit))

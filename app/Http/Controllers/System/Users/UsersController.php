@@ -101,6 +101,17 @@ class UsersController extends Controller{
             return redirect()->back()->with('error', __('Desila se greška prilikom brisanja, molimo pokušajte ponovo !'));
         }
     }
+    public function switchToUser($id){
+        try{
+            $user = User::where('id', $id)->first();
+            Auth::logout();
+            Auth::loginUsingId($id);
+
+            return redirect()->route('system.users.profile')->with('success', __('Sada impersonirate korisnika/cu ' . $user->name ));
+        }catch (\Exception $e){
+            return redirect()->back()->with('error', __('Desila se greška prilikom brisanja, molimo pokušajte ponovo !'));
+        }
+    }
     public function update(Request $request){
         try {
             $slug = (new UsersApiController)->constructSlug($request->name);

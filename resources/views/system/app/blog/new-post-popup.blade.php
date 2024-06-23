@@ -26,7 +26,7 @@
                             <i class="fas fa-camera-retro" title="{{ __('Nova fotografija') }}"></i>
                         </div>
                         <p>Nova fotografija</p>
-                        <span>Odaberite ovdje ..</span>
+                        <span id="choose-here">Odaberite ovdje ..</span>
                     </label>
                     <img src="#" alt="" class="post-image-preview d-none">
                     {!! Form::file('image', ['class' => 'post-image', 'id' => 'post-image']) !!}

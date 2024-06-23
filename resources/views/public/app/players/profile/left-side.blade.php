@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    @if($what == 'timeline')
+    @if($what == 'timeline' and $player->totalImages())
         <div class="tb-row img-thumb-wrapper">
             @foreach($player->blogPosts as $post)
                 @if(isset($post->image) and $post->image != '')
@@ -119,10 +119,10 @@
         </div>
     @endif
 
-    @if($player->note)
+    @if($player->short_bio)
         <div class="tb-row about-me" title="{{ __('Kratka biografija') }}">
             <h5>{{ __('O meni') }}</h5>
-            {!! nl2br($player->note ?? '') !!}
+            {!! nl2br($player->short_bio ?? '') !!}
         </div>
     @endif
 </div>

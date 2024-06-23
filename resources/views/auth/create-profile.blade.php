@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="name"><b>{{ __('Ime i prezime') }}</b></label>
                                     {!! Form::text('name', '', ['class' => 'form-control', 'id' => 'name', 'aria-describedby' => 'nameHelp', 'maxlength' => '50']) !!}
-                                    <small id="nameHelp" class="form-text text-muted">{{ __('Unesite Vaše ime prezime') }}</small>
+                                    <small id="nameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše ime prezime') }}</b></small>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                 <div class="form-group">
                                     <label for="email"><b>{{ __('Email adresa') }}</b></label>
                                     {!! Form::text('email', '', ['class' => 'form-control', 'id' => 'email', 'aria-describedby' => 'emailHelp', 'maxlength' => '50']) !!}
-                                    <small id="emailHelp" class="form-text text-muted">{{ __('Unesite Vašu email adresu') }}</small>
+                                    <small id="emailHelp" class="form-text text-muted"><b>{{ __('Unesite Vašu email adresu') }}</b></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -84,7 +84,7 @@
 
                                         {!! Form::number('phone', '', ['class' => 'form-control', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '13']) !!}
                                     </div>
-                                    <small id="prefixHelp" class="form-text text-muted"> {{ __('Unesite Vaš broj telefona') }} </small>
+                                    <small id="prefixHelp" class="form-text text-muted"> <b>{{ __('Unesite Vaš broj telefona') }}</b> </small>
                                 </div>
                             </div>
                         </div>
@@ -94,14 +94,14 @@
                                 <div class="form-group">
                                     <label for="birth_date"><b>{{ __('Datum rođenja') }}</b></label>
                                     {!! Form::text('birth_date', '', ['class' => 'form-control datepicker', 'id' => 'birth_date', 'aria-describedby' => 'birth_dateHelp', 'maxlength' => '10']) !!}
-                                    <small id="birth_dateHelp" class="form-text text-muted">{{ __('Unesite Vaš datum rođenja') }}</small>
+                                    <small id="birth_dateHelp" class="form-text text-muted"><b>{{ __('Unesite Vaš datum rođenja') }}</b></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="gender"><b>{{ __('Spol') }}</b></label>
                                     {!! Form::select('gender', $gender, '7', ['class' => 'form-control', 'id' => 'gender', 'aria-describedby' => 'genderHelp']) !!}
-                                    <small id="genderHelp" class="form-text text-muted">{{ __('Odaberite Vaš spol') }}</small>
+                                    <small id="genderHelp" class="form-text text-muted"><b>{{ __('Odaberite Vaš spol') }}</b></small>
                                 </div>
                             </div>
                         </div>
@@ -119,13 +119,13 @@
                             <div class="col-md-6">
                                 <label for="living_place"><b>{{ __('Grad') }}</b></label>
                                 {!! Form::text('living_place', '', ['class' => 'form-control', 'id' => 'living_place', 'aria-describedby' => 'living_placeHelp','maxlength' => '50']) !!}
-                                <small id="living_placeHelp" class="form-text text-muted">{{ __('Grad u kojem trenutno živite') }}</small>
+                                <small id="living_placeHelp" class="form-text text-muted"><b>{{ __('Grad u kojem trenutno živite') }}</b></small>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="country"> <b>{{ __('Država') }}</b> </label>
                                     {!! Form::select('country', $countries, '', ['class' => 'form-control select-2', 'id' => 'country', 'aria-describedby' => 'countryHelp', 'style' => 'width:100%;']) !!}
-                                    <small id="countryHelp" class="form-text text-muted"> {{ __('Odaberite državu u kojoj trenutno živite') }} </small>
+                                    <small id="countryHelp" class="form-text text-muted"> <b>{{ __('Odaberite državu u kojoj trenutno živite') }}</b> </small>
                                 </div>
                             </div>
                         </div>
@@ -134,14 +134,14 @@
                                 <div class="form-group">
                                     <label for="citizenship"> <b>{{ __('Državljanstvo') }}</b> </label>
                                     {!! Form::select('citizenship', $countries, '', ['class' => 'form-control select-2', 'id' => 'citizenship', 'aria-describedby' => 'citizenshipHelp', 'style' => 'width:100%;']) !!}
-                                    <small id="citizenshipHelp" class="form-text text-muted"> {{ __('Odaberite državu čiji ste državljanin') }} </small>
+                                    <small id="citizenshipHelp" class="form-text text-muted"> <b>{{ __('Odaberite državu čiji ste državljanin') }}</b> </small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="citizenship_2"> <b>{{ __('Drugo državljanstvo') }}</b> </label>
                                     {!! Form::select('citizenship_2', $countries, '', ['class' => 'form-control select-2', 'id' => 'citizenship_2', 'aria-describedby' => 'citizenship_2Help', 'style' => 'width:100%;']) !!}
-                                    <small id="citizenship_2Help" class="form-text text-muted"> {{ __('Odaberite drugu državu čiji ste državljanin (ukoliko imate)') }} </small>
+                                    <small id="citizenship_2Help" class="form-text text-muted"> <b>{{ __('Odaberite drugu državu čiji ste državljanin (ukoliko imate)') }}</b> </small>
                                 </div>
                             </div>
                         </div>
@@ -151,12 +151,12 @@
                         <div class="col-md-6">
                             <label for="sport"><b>{{ __('Nogomet / Futsal?') }}</b></label>
                             {!! Form::select('sport', $sports, '', ['class' => 'form-control', 'id' => 'sport', 'aria-describedby' => 'sportHelp']) !!}
-                            <small id="sportHelp" class="form-text text-muted">{{ __('Sport kojim se bavite') }}</small>
+                            <small id="sportHelp" class="form-text text-muted"><b>{{ __('Sport kojim se bavite') }}</b></small>
                         </div>
                         <div class="col-md-6">
                             <label for="club"><b>{{ __('Vaš klub') }}</b></label>
                             {!! Form::select('club', [], '', ['class' => 'form-control s2-search-clubs', 'id' => 'club', 'aria-describedby' => 'clubHelp','style' => 'width:100% !important;']) !!}
-                            <small id="clubHelp" class="form-text text-muted">{{ __('Klub za koji trenutno igrate') }}</small>
+                            <small id="clubHelp" class="form-text text-danger"><b>{{ __('Klub za koji trenutno igrate (ako nije na listi, obavezno ga napišite u napomeni)') }}</b></small>
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@
                             <div class="form-group">
                                 <label for="note"> <b>{{ __('O meni') }}</b> </label>
                                 {!! Form::textarea('note', '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', 'style' => 'height:120px !important;' ,'maxlength' => '1000']) !!}
-                                <small id="noteHelp" class="form-text text-muted"> {{ __('Ostale bitne informacije koje želite podijeliti sa nama') }} </small>
+                                <small id="noteHelp" class="form-text text-danger"> <b>{{ __('Napišite nam gdje igrate i dvije rečenice o sebi. Registracije bez kluba i opisa neće biti uzete u obzir.') }}</b> </small>
                             </div>
                         </div>
                     </div>

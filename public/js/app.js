@@ -30761,6 +30761,9 @@ $(document).ready(function () {
 
     $(".youtube-preview").addClass('d-none');
     setText(14);
+    /* Set text to default */
+
+    $("#choose-here").removeClass('red').text("Odaberite ovdje ..");
   });
   $(".close-image").click(function () {
     var postText = $(".post-text");
@@ -30774,6 +30777,13 @@ $(document).ready(function () {
   /* On change, preview image */
 
   $(".post-image").change(function (e) {
+    if (!e.target.files[0].name.includes(".jpeg") && !e.target.files[0].name.includes(".jpg") && !e.target.files[0].name.includes(".png")) {
+      $("#choose-here").addClass('red').text("Format nije podržan");
+      return;
+    } else {
+      $("#choose-here").removeClass('red').text("Odaberite ovdje ..");
+    }
+
     $(".post-image-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
     $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
   });

@@ -100,6 +100,9 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
 
             /* Delete users */
             Route::get ('/delete/{id}',                      'UsersController@delete')->name('system.users.delete');
+
+            /* Switch to user */
+            Route::get ('/switch-to-user/{id}',              'UsersController@switchToUser')->name('system.users.switch-to-user');
         });
 
         /*

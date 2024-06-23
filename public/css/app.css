@@ -2634,6 +2634,10 @@ select::-ms-expand {
   margin: 0px;
 }
 
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview .ip-add-image .red {
+  color: red;
+}
+
 .b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview .ip-add-image:hover {
   cursor: pointer;
 }
