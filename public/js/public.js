@@ -35964,34 +35964,56 @@ $(document).ready(function () {
    *          4. height = auto
    ******************************************************************************************************************/
 
+  var openSearchMenu = function openSearchMenu() {
+    $("#search-console").css("border-bottom", "0px");
+    $(".rest-of-search-options").css("border-bottom", "1px solid #d5d9dd");
+    $(".rest-of-search-options").css("padding-bottom", "14px");
+    var height = 0;
+    $(".rest-of-search-options").find(".search-row").each(function () {
+      height += $(this).height();
+    });
+
+    if ($('.check-boxes').length) {
+      height += $(".check-boxes").height() + 52;
+    } else height += 20;
+
+    $(".rest-of-search-options").css("height", height + "px"); // $("#search-console").find(".search-wrapper").css("border-bottom", "1px solid #d5d9dd");
+
+    $("#search-console").find(".just-line").css("display", "block");
+  };
+
+  var closeSearchMenu = function closeSearchMenu() {
+    $("#search-console").css("border-bottom", "1px solid #d5d9dd");
+    $(".rest-of-search-options").css("border-bottom", "0px");
+    $(".rest-of-search-options").css("padding-bottom", "0px");
+    $(".rest-of-search-options").css("height", "0px"); // $("#search-console").find(".search-wrapper").css("border-bottom", "0px");
+
+    $("#search-console").find(".just-line").css("display", "none");
+  };
+
   $(".other-searches-button").click(function () {
     if (rest_menu_open === 0) {
       rest_menu_open = 1;
-      $("#search-console").css("border-bottom", "0px");
-      $(".rest-of-search-options").css("border-bottom", "1px solid #d5d9dd");
-      $(".rest-of-search-options").css("padding-bottom", "14px");
-      var height = 0;
-      $(".rest-of-search-options").find(".search-row").each(function () {
-        height += $(this).height();
-      });
-
-      if ($('.check-boxes').length) {
-        height += $(".check-boxes").height() + 52;
-      } else height += 20;
-
-      $(".rest-of-search-options").css("height", height + "px"); // $("#search-console").find(".search-wrapper").css("border-bottom", "1px solid #d5d9dd");
-
-      $("#search-console").find(".just-line").css("display", "block");
+      openSearchMenu();
     } else {
       rest_menu_open = 0;
-      $("#search-console").css("border-bottom", "1px solid #d5d9dd");
-      $(".rest-of-search-options").css("border-bottom", "0px");
-      $(".rest-of-search-options").css("padding-bottom", "0px");
-      $(".rest-of-search-options").css("height", "0px"); // $("#search-console").find(".search-wrapper").css("border-bottom", "0px");
-
-      $("#search-console").find(".just-line").css("display", "none");
+      closeSearchMenu();
     }
   });
+  /* Init search bar for mobile version */
+
+  var initSearchBar = function initSearchBar() {
+    if ($(".rest-of-search-options").length) {
+      if (window.innerWidth < 800) {
+        if (rest_menu_open === 0) {
+          rest_menu_open = 1;
+          openSearchMenu();
+        }
+      }
+    }
+  };
+
+  initSearchBar();
   /*******************************************************************************************************************
    *
    *      Checkbox action ::

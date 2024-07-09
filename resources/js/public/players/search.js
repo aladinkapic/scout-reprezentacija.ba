@@ -109,38 +109,59 @@ $(document).ready(function() {
      *          4. height = auto
      ******************************************************************************************************************/
 
+    let openSearchMenu = function (){
+        $("#search-console").css("border-bottom", "0px");
+        $(".rest-of-search-options").css("border-bottom", "1px solid #d5d9dd");
+        $(".rest-of-search-options").css("padding-bottom", "14px");
+
+        let height = 0;
+        $(".rest-of-search-options").find(".search-row").each(function () {
+            height += $(this).height();
+        });
+        if($('.check-boxes').length){
+            height += $(".check-boxes").height() + 52;
+        }else height += 20;
+
+        $(".rest-of-search-options").css("height", height + "px");
+
+        // $("#search-console").find(".search-wrapper").css("border-bottom", "1px solid #d5d9dd");
+        $("#search-console").find(".just-line").css("display", "block");
+    };
+    let closeSearchMenu = function (){
+        $("#search-console").css("border-bottom", "1px solid #d5d9dd");
+        $(".rest-of-search-options").css("border-bottom", "0px");
+        $(".rest-of-search-options").css("padding-bottom", "0px");
+        $(".rest-of-search-options").css("height", "0px");
+
+        // $("#search-console").find(".search-wrapper").css("border-bottom", "0px");
+        $("#search-console").find(".just-line").css("display", "none");
+    };
     $(".other-searches-button").click(function () {
         if(rest_menu_open === 0){
             rest_menu_open = 1;
 
-            $("#search-console").css("border-bottom", "0px");
-            $(".rest-of-search-options").css("border-bottom", "1px solid #d5d9dd");
-            $(".rest-of-search-options").css("padding-bottom", "14px");
-
-            let height = 0;
-            $(".rest-of-search-options").find(".search-row").each(function () {
-                height += $(this).height();
-            });
-            if($('.check-boxes').length){
-                height += $(".check-boxes").height() + 52;
-            }else height += 20;
-
-            $(".rest-of-search-options").css("height", height + "px");
-
-            // $("#search-console").find(".search-wrapper").css("border-bottom", "1px solid #d5d9dd");
-            $("#search-console").find(".just-line").css("display", "block");
-
+            openSearchMenu();
         }else{
             rest_menu_open = 0;
-            $("#search-console").css("border-bottom", "1px solid #d5d9dd");
-            $(".rest-of-search-options").css("border-bottom", "0px");
-            $(".rest-of-search-options").css("padding-bottom", "0px");
-            $(".rest-of-search-options").css("height", "0px");
 
-            // $("#search-console").find(".search-wrapper").css("border-bottom", "0px");
-            $("#search-console").find(".just-line").css("display", "none");
+            closeSearchMenu();
         }
     });
+
+    /* Init search bar for mobile version */
+    let initSearchBar = function (){
+        if($(".rest-of-search-options").length){
+            if(window.innerWidth < 800) {
+                if (rest_menu_open === 0) {
+                    rest_menu_open = 1;
+
+                    openSearchMenu();
+                }
+            }
+        }
+    };
+
+    initSearchBar();
 
     /*******************************************************************************************************************
      *
@@ -268,7 +289,6 @@ $(document).ready(function() {
         searchIt();
     });
 
-
     /*******************************************************************************************************************
      *
      *      Set default values !!
@@ -280,7 +300,7 @@ $(document).ready(function() {
     // localStorage.removeItem("filter-values");
     // localStorage.removeItem("checkbox-values");
 
-    var params = new window.URLSearchParams(window.location.search);
+    let params = new window.URLSearchParams(window.location.search);
     console.log(params.get('filter_values'));
 
     if(window.location.search !== ''){
@@ -385,10 +405,6 @@ $(document).ready(function() {
             }
         }
     }); */
-
-
-
-
 
 
     /********************************************** OPEN CLOSE MENU ***************************************************/

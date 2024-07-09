@@ -15,18 +15,23 @@
                 <a href="mailto:press@reprezentacija.ba"> <i class="fas fa-envelope"></i> </a>
             </div>
             <div class="single-link">
-                <a class="switch-language"> {{ BaseHelper::getLocale() }} </a>
+{{--                {{ BaseHelper::getLocale() }}--}}
+                <a class="switch-language" title="{{ __('Odaberite jezik') }}">
+                    <div class="choosen__lang_img_w">
+                        <img src="{{ asset('images/languages/'.(BaseHelper::getLocaleImg()).'.jpg') }}" alt="">
+                    </div>
+                </a>
                 <div class="link_submenu choose-language d-none">
-                    <a href="{{ route('home.switch-language', ['lan' => 'bs']) }}">{{ __('BiH') }}</a>
-                    <a href="{{ route('home.switch-language', ['lan' => 'en']) }}">{{ __('ENG') }}</a>
-                    <a href="{{ route('home.switch-language', ['lan' => 'it']) }}">{{ __('ITA') }}</a>
-                    <a href="{{ route('home.switch-language', ['lan' => 'de']) }}">{{ __('GER') }}</a>
+                    <a href="{{ route('home.switch-language', ['lan' => 'bs']) }}"> <img src="{{ asset('images/languages/bosnia.jpg') }}" alt=""> </a>
+                    <a href="{{ route('home.switch-language', ['lan' => 'en']) }}"> <img src="{{ asset('images/languages/uk.jpg') }}" alt=""> </a>
+                    <a href="{{ route('home.switch-language', ['lan' => 'it']) }}"> <img src="{{ asset('images/languages/italy.jpg') }}" alt=""> </a>
+                    <a href="{{ route('home.switch-language', ['lan' => 'de']) }}"> <img src="{{ asset('images/languages/germany.jpg') }}" alt=""> </a>
                 </div>
             </div>
             <div class="single-link">
                 <a href="{{ route('home.players') }}"> {{ __('Igrači') }} </a>
             </div>
-            <div class="single-link">
+            <div class="single-link sign-in">
                 @if(auth()->user())
                     <a href="{{ route('system.users.profile') }}"> {{ auth()->user()->name ?? '' }} </a>
                 @else
@@ -59,13 +64,13 @@
             {{--<a href="https://www.tiktok.com/@reprezentacijaba" target="_blank">--}}
             {{--    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.24,6V8.82a6.79,6.79,0,0,1-4-1.28v5.81A5.26,5.26,0,1,1,8,8.1a4.36,4.36,0,0,1,.72.05v2.9A2.57,2.57,0,0,0,7.64,11a2.4,2.4,0,1,0,2.77,2.38V2h2.86a4,4,0,0,0,1.84,3.38A4,4,0,0,0,17.24,6Z"></path></svg>--}}
             {{--</a>--}}
-            <a href="#######"> {{ __('BiH') }} </a>
+            <a href="{{ route('home.switch-language', ['lan' => 'bs']) }}" class="@if(BaseHelper::getLocale() == 'BiH') active @endif"> {{ __('BiH') }} </a>
             <div class="vertical-line"></div>
-            <a href="#######"> {{ __('ENG') }} </a>
+            <a href="{{ route('home.switch-language', ['lan' => 'en']) }}" class="@if(BaseHelper::getLocale() == 'ENG') active @endif"> {{ __('ENG') }} </a>
             <div class="vertical-line"></div>
-            <a href="#######"> {{ __('ITA') }} </a>
+            <a href="{{ route('home.switch-language', ['lan' => 'it']) }}" class="@if(BaseHelper::getLocale() == 'ITA') active @endif"> {{ __('ITA') }} </a>
             <div class="vertical-line"></div>
-            <a href="#######"> {{ __('GER') }} </a>
+            <a href="{{ route('home.switch-language', ['lan' => 'de']) }}" class="@if(BaseHelper::getLocale() == 'GER') active @endif"> {{ __('GER') }} </a>
         </div>
     </div>
 
@@ -100,7 +105,7 @@
                     <p>{{ __('Pravila privatnosti') }}</p>
                 </div>
             </a>
-            <a href="#">
+            <a href="{{ route('home.pages.terms-and-conditions') }}">
                 <div class="rol-link">
                     <div class="rol-l-line">
                         <div class="rol-l-l-circle"></div>
@@ -108,24 +113,39 @@
                     <p>{{ __('Uslovi korištenja') }}</p>
                 </div>
             </a>
-            <a href="https://reprezentacija.ba">
+            <a href="{{ route('home.pages.cookies') }}">
                 <div class="rol-link">
                     <div class="rol-l-line">
                         <div class="rol-l-l-circle"></div>
                     </div>
-                    <p>{{ __('Reprezentacija.BA') }}</p>
+                    <p>{{ __('Korisnički kolačići') }}</p>
                 </div>
             </a>
         </div>
 
-        <div class="single-link">
-            <a href="{{ route('auth.login') }}">
-                <p>{{ __('Moj profil') }}</p>
+        <div class="single-link ">
+            <a href="https://reprezentacija.ba">
+                <p>{{ __('Reprezentacija.ba') }}</p>
             </a>
         </div>
     </div>
 
     <div class="mm-footer">
-        <p>© Copyright, Reprezentacija.BA Group</p>
+        @if(auth()->user())
+            <a href="{{ route('system.users.profile') }}">
+                <div class="mm-lgn-btn">
+                    {{ auth()->user()->name ?? '' }}
+                </div>
+            </a>
+        @else
+            <a href="{{ route('auth.login') }}">
+                <div class="mm-lgn-btn">
+                    <p>{{ __('Prijavite se') }}</p>
+                </div>
+            </a>
+        @endif
+
+
+{{--        <p>© Copyright, Reprezentacija.BA Group</p>--}}
     </div>
 </div>

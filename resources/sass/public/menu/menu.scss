@@ -43,6 +43,12 @@ header {
                     img{
                         height: 6px !important;
                     }
+                    .choosen__lang_img_w{
+                        position: relative; height: 12px; min-width: 10px; display: flex; align-items: center; // border: 1px solid #ffffff; border-radius: 3px; overflow: hidden;
+                        img{
+                            height: 100% !important; margin: 0px; padding: 0px;
+                        }
+                    }
                 }
                 a:hover{cursor:pointer;}
                 .link_submenu{
@@ -51,16 +57,23 @@ header {
                         display: none;
                     }
                     a{
-                        margin: 3px 0px;
+                        margin: 12px 0px;
+
+                        img{
+                            height: 14px !important;
+                        }
                     }
                 }
+            }
+            .sign-in{
+                border: 1px solid #ffffff; border-radius: 4px; height: 32px; margin-top: 4px; padding: 0px 16px;
             }
         }
     }
 }
 
 .mobile-menu{
-    position: fixed; right: 0px; top: 0px; width: calc(100% - 40px); height: calc(100% - 0px); background: #fff; z-index: 10000; display: none;
+    position: fixed; right: 0px; top: 0px; width: calc(100% - 0px); height: calc(100% - 0px); background: #fff; z-index: 10000; display: none;
     box-shadow: -8px 0px 20px 0px rgb(0 0 0 / 75%);
     .mm-header{
         position: relative; left: 35px; top: 0px; width: calc(100% - 70px); height: 100px; text-align: right;
@@ -76,6 +89,12 @@ header {
                 svg{
                     margin-top: 4px;
                 }
+                img{
+                    height: 16px;
+                }
+            }
+            .active{
+                font-weight: bold; color: #333333;
             }
 
             .vertical-line{position: relative; width: 1px; height: 100%; background: grey; margin: 0px 10px; }
@@ -98,6 +117,16 @@ header {
             a{
                 text-decoration: none;
                 p{font-size:35px; color:grey; font-weight: bold; }
+            }
+        }
+        .auth-link{
+            background: $primaryDark; text-align: center; height: 50px; border-radius: 3px;
+
+            a{
+                display: flex; width: 100%; height: 100%; justify-content: center; align-items: center;
+                p{
+                    color: #ffffff; margin: 0px;
+                }
             }
         }
 
@@ -136,9 +165,19 @@ header {
         }
     }
     .mm-footer{
-        position: absolute; left: 35px; bottom: 0px; width: calc(100% - 70px); height: 60px;
+        position: absolute; left: 35px; bottom: 0px; width: calc(100% - 70px); height: 110px; display: flex; align-items: center;
+        a{
+            display: flex; width: 100%; height: 100%; align-items: center; text-decoration: none;
+            .mm-lgn-btn{
+                position: relative; width: 100%; height: 52px; background: $primaryDark; display: flex; align-items: center; justify-content: center;
+                border-radius: 4px;
+                p{
+                    color: #ffffff; margin: 0px; font-weight: bold; font-size: 20px;
+                }
+            }
+        }
         p{
-            color: #000000; font-weight: bold;
+            color: #000000; font-weight: bold; margin: 0px;
         }
     }
 }
