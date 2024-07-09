@@ -18,16 +18,16 @@
 
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Snažnija noga') }}</span></p>
-            <p class="value"> {{ $player->strongerLimbRel->value ?? '' }} </p>
+            <p class="value"> {{ __($player->strongerLimbRel->value ?? '') }} </p>
         </div>
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Pozicija') }}</span></p>
-            <p class="value"> {{ $player->positionRel->value ?? '' }} </p>
+            <p class="value"> {{ __($player->positionRel->value ?? '') }} </p>
         </div>
         @if($player->position_2)
             <div class="tb-row-col-flex">
                 <p class="key"><span>{{ __('Druga pozicija') }}</span></p>
-                <p class="value"> {{ $player->secondPositionRel->value ?? '' }} </p>
+                <p class="value"> {{ __($player->secondPositionRel->value ?? '') }} </p>
             </div>
         @endif
         <div class="tb-row-col-flex">
