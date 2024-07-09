@@ -30,6 +30,8 @@ class HomepageController extends Controller {
     public function home(){
         $apiData = [];
 
+//        dd(Session::get('locale'));
+
         if(App::getLocale() == 'bs'){
             try{
                 $client = new \GuzzleHttp\Client();
