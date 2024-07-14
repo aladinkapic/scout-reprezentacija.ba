@@ -30361,6 +30361,81 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/layout/snippets/classes.js":
+/*!*************************************************!*\
+  !*** ./resources/js/layout/snippets/classes.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  /*
+   *  Datepicker function -- just add class name as .datepicker
+   */
+  $(function () {
+    $(".datepicker").datepicker({
+      dateFormat: 'dd.mm.yy',
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:+00"
+    });
+  });
+  /*
+   * Select - 2 search dropdown
+   */
+
+  $('.select-2').select2();
+  /**
+   *
+   * @param state
+   * @returns {*|jQuery|HTMLElement}
+   *
+   * Search clubs by name
+   */
+
+  var searchClubsURI = '/system/search/clubs/by-name';
+
+  function formatState(state) {
+    if (!state.id) {
+      return state.text;
+    }
+
+    var baseUrl = "/images/club-images";
+    return $('<span><img src="' + baseUrl + '/' + state.contryflage + '"  class="s2-img-flag" /> ' + state.text + '</span>');
+  }
+
+  $(function () {
+    $(".s2-search-clubs").select2({
+      minimumInputLength: 2,
+      templateResult: formatState,
+      //this is for append country flag.
+      ajax: {
+        url: searchClubsURI,
+        dataType: 'json',
+        type: "POST",
+        data: function data(term) {
+          return {
+            term: term
+          };
+        },
+        processResults: function processResults(data) {
+          return {
+            results: $.map(data, function (item) {
+              return {
+                text: item.title + ', ' + item.city + " " + item.country_rel.name_ba,
+                id: item.id,
+                contryflage: item.image
+              };
+            })
+          };
+        }
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/layout/snippets/jquery-ui.js":
 /*!***************************************************!*\
   !*** ./resources/js/layout/snippets/jquery-ui.js ***!
@@ -35401,6 +35476,7 @@ $(document).ready(function () {
             if (typeof response['message'] !== 'undefined') notify.Me([response['message'], "success"]);
             setTimeout(function () {
               if (typeof response['url'] !== 'undefined') window.location = response['url'];
+              if (typeof response['uri'] !== 'undefined') window.location = response['uri'];
             }, 2000);
           } else {
             notify.Me([response['message'], "warn"]);
@@ -35548,9 +35624,13 @@ __webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/s
 window.validator = __webpack_require__(/*! ../layout/snippets/validation */ "./resources/js/layout/snippets/validation.js");
 window.notify = __webpack_require__(/*! ../layout/snippets/notify */ "./resources/js/layout/snippets/notify.js"); // Select 2
 
+__webpack_require__(/*! ../layout/snippets/jquery-ui */ "./resources/js/layout/snippets/jquery-ui.js");
+
 __webpack_require__(/*! ../layout/snippets/select-2 */ "./resources/js/layout/snippets/select-2.js");
 
-__webpack_require__(/*! ./snippets/classes */ "./resources/js/public/snippets/classes.js"); // Homepage
+__webpack_require__(/*! ./snippets/classes */ "./resources/js/public/snippets/classes.js");
+
+__webpack_require__(/*! ../layout/snippets/classes */ "./resources/js/layout/snippets/classes.js"); // Homepage
 
 
 __webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/partners.js"); // JS Form submit

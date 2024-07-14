@@ -16970,3 +16970,227 @@ header .menu-wrapper .mw-links .sign-in {
   cursor: pointer;
 }
 
+/* create profile */
+
+.create__new_profile__w {
+  position: relative;
+  width: 1200px;
+  min-height: 120px;
+  left: calc(50% - 600px);
+  margin-top: 32px;
+}
+
+.create__new_profile__w .profile__wrapper {
+  position: relative;
+  left: 0px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left {
+  position: relative;
+  width: 300px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 300px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form {
+  margin: 0px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form img {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form .edit-your-photo {
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  margin-top: 20px;
+  display: inline-flex;
+  padding: 6px 20px;
+  background: #173668;
+  gap: 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.2s all;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form .edit-your-photo i {
+  font-size: 14px;
+  margin-top: 2px;
+  color: #FFFFFF;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form .edit-your-photo p {
+  margin: 0px;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w:hover form .edit-your-photo {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w {
+  position: relative;
+  left: 0px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+  padding: 16px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper {
+  position: relative;
+  width: 100%;
+  padding: 6px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper p {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .share-your-links {
+  margin: 0px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right {
+  position: relative;
+  width: calc(100% - 332px);
+  /* Sessions header */
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .form-control {
+  background: #FFFFFF;
+  border-radius: 4px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right textarea {
+  min-height: 120px !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .btn {
+  background: #173668;
+  color: #FFFFFF;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .select2-selection {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .select2-selection__rendered {
+  height: 30px !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .select2-container .select2-selection--single {
+  height: 32px !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: normal !important;
+  padding-top: 6px !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .select2-container .select2-selection--single .select2-selection__rendered {
+  white-space: normal !important;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .c-bootstrap-field {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .c-bootstrap-field .input-elements {
+  margin-top: 4px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  gap: 16px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a {
+  width: calc(25% - 12px);
+  position: relative;
+  display: flex;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  display: flex;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element i,
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element p {
+  margin: 0px;
+  color: #333333;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element i {
+  font-size: 14px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element p {
+  font-weight: bold;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active {
+  background: #173668;
+  border: 1px solid #173668;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active i,
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active p {
+  color: #FFFFFF;
+}
+

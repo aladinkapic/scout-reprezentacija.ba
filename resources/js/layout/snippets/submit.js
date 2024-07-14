@@ -153,6 +153,7 @@ $(document).ready(function (){
 
                         setTimeout(function (){
                             if(typeof response['url'] !== 'undefined') window.location = response['url'];
+                            if(typeof response['uri'] !== 'undefined') window.location = response['uri'];
                         }, 2000);
                     }else{
                         notify.Me([response['message'], "warn"]);

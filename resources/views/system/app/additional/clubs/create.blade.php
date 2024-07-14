@@ -8,6 +8,7 @@
     {{__('Pregledajte detaljne informacije o klubu')}}
     @if(isset($preview))
         | <a href="{{route('system.additional.clubs.edit', ['id' => $club->id ?? ''])}}"> {{ __('Uredite') }} </a>
+        | <a href="{{route('system.additional.clubs.timeline', ['id' => $club->id ?? ''])}}"> {{ __('Timeline') }} </a>
     @endif
 @endsection
 

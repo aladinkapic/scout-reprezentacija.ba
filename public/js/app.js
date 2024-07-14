@@ -30634,6 +30634,37 @@ $(document).ready(function () {
       }
     });
   });
+  var positionsUri = '/api/keywords/get-positions';
+  $(".new-profile-sport").change(function () {
+    var value = $(this).val();
+    $.ajax({
+      url: positionsUri,
+      method: "post",
+      dataType: "json",
+      data: {
+        value: value
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          $(".new-profile-position").empty();
+          $('.new-profile-position').append($('<option>', {
+            value: '',
+            text: 'Odaberite poziciju'
+          }));
+          $.each(response['data'], function (i, item) {
+            $('.new-profile-position').append($('<option>', {
+              value: i,
+              text: item
+            }));
+          });
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+
+        console.log(response);
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -40385,6 +40416,7 @@ $(document).ready(function () {
             if (typeof response['message'] !== 'undefined') notify.Me([response['message'], "success"]);
             setTimeout(function () {
               if (typeof response['url'] !== 'undefined') window.location = response['url'];
+              if (typeof response['uri'] !== 'undefined') window.location = response['uri'];
             }, 2000);
           } else {
             notify.Me([response['message'], "warn"]);

@@ -8,13 +8,16 @@ use App\Mail\RestartPassword;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
+use App\Traits\Common\CommonTrait;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller{
+    use CommonTrait;
     protected $_path = 'auth.';
 
     public function login(){
@@ -58,7 +61,60 @@ class AuthController extends Controller{
             'phone_prefixes' => Keyword::where('keyword', 'phone_prefixes')->orderBy('value')->get()->pluck('value', 'value'),
         ]);
     }
+    public function createNewProfile(){
+        return view($this->_path.'create-new-profile', [
+            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite spol', ''),
+            'phone_prefixes' => Keyword::where('keyword', 'phone_prefixes')->orderBy('value')->get()->pluck('value', 'value'),
+        ]);
+    }
+    public function updateBasicInfo (Request $request){
+        try{
+            $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
+            $request['password'] = Hash::make($request->password);
+            $request['api_token'] = hash('sha256', $request->email. '+'. time());
+            $request['active'] = 0; // User is not active yet
+            $request['role'] = 1;   // User
+            $request['sport'] = 3;  // Default soccer
+            $request['username'] = $this->getSlug($request->name);
 
+            $user = User::where('email', $request->email)->first();
+            if($user){
+                return $this->apiError('10001', __('Već postoji korisnik sa unesenim email-om. '));
+            }
+
+            $user = User::create($request->all());
+
+            Auth::loginUsingId($user->id);
+
+            return $this::apiSuccess('Uspješno spašeno!', route('auth.create-new-profile.career'));
+        }catch (\Exception $e){
+            return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
+        }
+    }
+    public function createNewProfileAddress (){
+        return view($this->_path.'create-new-profile-career', [
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'position' => Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite poziciju', ''),
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'user' => Auth::user()
+        ]);
+    }
+    public function updateCareer (Request $request){
+        try{
+            User::where('id', Auth::user()->id)->update($request->except(['_token']));
+
+            return $this::apiSuccess('Uspješno spašeno!', route('auth.create-new-profile.club-data'));
+        }catch (\Exception $e){
+            return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
+        }
+    }
+    public function createNewProfileClubData  (){
+        return view($this->_path.'create-new-profile-club-data', [
+            'user' => Auth::user()
+        ]);
+    }
     /**
      *  Forgot password logic
      */

@@ -69,3 +69,6 @@ $dark : $bColor;
 @import "search-results/search";
 @import "pages/privacy";
 @import "core/cookie";
+
+/* create profile */
+@import "auth/create-new-profile";

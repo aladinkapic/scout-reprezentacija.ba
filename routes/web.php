@@ -55,6 +55,16 @@ Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
      */
     Route::get ('/create-profile',                       'AuthController@createProfile')->name('auth.create-profile');
 
+    Route::group(['prefix' => '/create-new-profile'], function(){
+        Route::get ('/',                                     'AuthController@createNewProfile')->name('auth.create-new-profile');
+        Route::post('/update-basic-info',                    'AuthController@updateBasicInfo')->name('auth.create-new-profile.update-basic-info');
+
+        Route::get ('/career',                               'AuthController@createNewProfileAddress')->name('auth.create-new-profile.career');
+        Route::post('/update-career',                        'AuthController@updateCareer')->name('auth.create-new-profile.update-career');
+
+        Route::get ('/club-data',                            'AuthController@createNewProfileClubData')->name('auth.create-new-profile.club-data');
+        Route::post('/update-club-data',                     'AuthController@updateClubData')->name('auth.create-new-profile.update-club-data');
+    });
     /*
      *  Logout
      */

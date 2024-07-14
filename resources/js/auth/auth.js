@@ -230,4 +230,37 @@ $( document ).ready(function() {
             }
         });
     });
+
+
+    let positionsUri = '/api/keywords/get-positions';
+
+    $(".new-profile-sport").change(function () {
+        let value = $(this).val();
+
+        $.ajax({
+            url: positionsUri,
+            method: "post",
+            dataType: "json",
+            data: {value : value},
+            success: function success(response) {
+                if(response['code'] === '0000'){
+                    $(".new-profile-position").empty();
+                    $('.new-profile-position').append($('<option>', {
+                        value: '',
+                        text : 'Odaberite poziciju'
+                    }));
+
+                    $.each(response['data'], function (i, item) {
+                        $('.new-profile-position').append($('<option>', {
+                            value: i,
+                            text : item
+                        }));
+                    });
+                }else{
+                    notify.Me([response['message'], "warn"]);
+                }
+                console.log(response);
+            }
+        });
+    });
 });

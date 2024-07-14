@@ -15,9 +15,10 @@ window.notify = require('../layout/snippets/notify');
 
 // Select 2
 
+require('../layout/snippets/jquery-ui');
 require('../layout/snippets/select-2');
 require('./snippets/classes');
-
+require('../layout/snippets/classes');
 // Homepage
 
 require('./snippets/partners');

@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @method static create(array $all)
+ * @method static where(string $string, mixed $email)
+ */
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;

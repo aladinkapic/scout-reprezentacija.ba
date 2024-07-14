@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>@yield('title', __('Scout.Reprezentacija.BA'))</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/public.css') . '?random=' . date ("F-d-Y-H-i-s", filemtime('js/public.js')) }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>
