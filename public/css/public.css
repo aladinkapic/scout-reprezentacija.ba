@@ -17068,11 +17068,27 @@ header .menu-wrapper .mw-links .sign-in {
 .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a {
   color: #333333;
   text-decoration: none;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
-.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper p {
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a p {
   margin: 0px;
   font-weight: bold;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a .fa-check {
+  color: #00EBC1;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a .fa-ban {
+  color: #6a1a21;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper .center {
+  justify-content: center;
 }
 
 .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .share-your-links {

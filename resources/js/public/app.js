@@ -19,6 +19,9 @@ require('../layout/snippets/jquery-ui');
 require('../layout/snippets/select-2');
 require('./snippets/classes');
 require('../layout/snippets/classes');
+
+require('../layout/image-cropper');
+
 // Homepage
 
 require('./snippets/partners');

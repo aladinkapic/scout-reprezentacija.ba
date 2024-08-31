@@ -64,6 +64,11 @@ Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
 
         Route::get ('/club-data',                            'AuthController@createNewProfileClubData')->name('auth.create-new-profile.club-data');
         Route::post('/update-club-data',                     'AuthController@updateClubData')->name('auth.create-new-profile.update-club-data');
+
+        Route::get ('/national-team-data',                   'AuthController@createNewProfileNTData')->name('auth.create-new-profile.national-team-data');
+        Route::post('/update-national-team-data',            'AuthController@updateNTData')->name('auth.create-new-profile.update-national-team-data');
+
+        Route::get ('/request-status',                       'AuthController@requestStatus')->name('auth.create-new-profile.request-status');
     });
     /*
      *  Logout

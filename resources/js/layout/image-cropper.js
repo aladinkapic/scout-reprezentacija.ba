@@ -13,7 +13,10 @@ $(document).ready(function () {
         }
 
         var files = e.target.files;
+
+        console.log(files);
         var done = function (url) {
+            console.log(url);
             image.src = url;
             $modal.modal('show');
         };

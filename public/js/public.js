@@ -30361,6 +30361,96 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/layout/image-cropper.js":
+/*!**********************************************!*\
+  !*** ./resources/js/layout/image-cropper.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var cropperURI = '/system/users/change-profile-image';
+  var club = false;
+  var $modal = $('#modal');
+  var image = document.getElementById('image');
+  var cropper;
+  $("body").on("change", ".image", function (e) {
+    if ($(this).hasClass('club_image')) {
+      cropperURI = '/system/additional/clubs/update-image';
+      club = $("#club_image_id").val();
+    }
+
+    var files = e.target.files;
+    console.log(files);
+
+    var done = function done(url) {
+      console.log(url);
+      image.src = url;
+      $modal.modal('show');
+    };
+
+    var reader;
+    var file;
+    var url;
+
+    if (files && files.length > 0) {
+      file = files[0];
+
+      if (URL) {
+        done(URL.createObjectURL(file));
+      } else if (FileReader) {
+        reader = new FileReader();
+
+        reader.onload = function (e) {
+          done(reader.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+  });
+  $modal.on('shown.bs.modal', function () {
+    cropper = new Cropper(image, {
+      aspectRatio: 1,
+      viewMode: 3,
+      preview: '.preview'
+    });
+  }).on('hidden.bs.modal', function () {
+    cropper.destroy();
+    cropper = null;
+  });
+  $("#crop").click(function () {
+    canvas = cropper.getCroppedCanvas({
+      width: 320,
+      height: 320
+    });
+    canvas.toBlob(function (blob) {
+      url = URL.createObjectURL(blob);
+      var reader = new FileReader();
+      reader.readAsDataURL(blob);
+
+      reader.onloadend = function () {
+        var base64data = reader.result;
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          url: cropperURI,
+          data: {
+            '_token': $('meta[name="_token"]').attr('content'),
+            'image': base64data,
+            'club': club
+          },
+          success: function success(data) {
+            if (data['code'] === '0000') location.reload();else alert("Desila se greška, pokušajte ponovo!");
+          }
+        });
+      };
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/layout/snippets/classes.js":
 /*!*************************************************!*\
   !*** ./resources/js/layout/snippets/classes.js ***!
@@ -35630,7 +35720,9 @@ __webpack_require__(/*! ../layout/snippets/select-2 */ "./resources/js/layout/sn
 
 __webpack_require__(/*! ./snippets/classes */ "./resources/js/public/snippets/classes.js");
 
-__webpack_require__(/*! ../layout/snippets/classes */ "./resources/js/layout/snippets/classes.js"); // Homepage
+__webpack_require__(/*! ../layout/snippets/classes */ "./resources/js/layout/snippets/classes.js");
+
+__webpack_require__(/*! ../layout/image-cropper */ "./resources/js/layout/image-cropper.js"); // Homepage
 
 
 __webpack_require__(/*! ./snippets/partners */ "./resources/js/public/snippets/partners.js"); // JS Form submit

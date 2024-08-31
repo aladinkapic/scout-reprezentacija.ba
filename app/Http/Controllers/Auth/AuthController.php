@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\allowAccess;
 use App\Mail\RestartPassword;
+use App\Models\Additional\ClubData;
+use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
@@ -62,11 +64,16 @@ class AuthController extends Controller{
         ]);
     }
     public function createNewProfile(){
+        if(Auth::check()){
+            $user = Auth::user();
+            if($user->active == 1) return redirect()->route('system.users.profile');
+        }
         return view($this->_path.'create-new-profile', [
             'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
             'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
             'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite spol', ''),
             'phone_prefixes' => Keyword::where('keyword', 'phone_prefixes')->orderBy('value')->get()->pluck('value', 'value'),
+            'user' => $user ?? null
         ]);
     }
     public function updateBasicInfo (Request $request){
@@ -79,14 +86,18 @@ class AuthController extends Controller{
             $request['sport'] = 3;  // Default soccer
             $request['username'] = $this->getSlug($request->name);
 
-            $user = User::where('email', $request->email)->first();
-            if($user){
-                return $this->apiError('10001', __('Već postoji korisnik sa unesenim email-om. '));
+            if(Auth::check()){
+                Auth::user()->update($request->all());
+            }else{
+                $user = User::where('email', $request->email)->first();
+                if($user){
+                    return $this->apiError('10001', __('Već postoji korisnik sa unesenim email-om. '));
+                }
+
+                $user = User::create($request->all());
+
+                Auth::loginUsingId($user->id);
             }
-
-            $user = User::create($request->all());
-
-            Auth::loginUsingId($user->id);
 
             return $this::apiSuccess('Uspješno spašeno!', route('auth.create-new-profile.career'));
         }catch (\Exception $e){
@@ -110,11 +121,106 @@ class AuthController extends Controller{
             return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
         }
     }
+
+    /**
+     * Info about club data
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function createNewProfileClubData  (){
+        $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
+
+        /* Check for end of season ? */
+        if(((int)date('m')) < 6){
+            $current = (date('Y') - 1) . ' / ' . date('Y');
+        }else{
+            $current = date('Y') . ' / ' . (date('Y') + 1);
+        }
+        foreach ($seasons as $key => $val){ if($val == $current) $currentSeason = $key; }
+
+        $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+
         return view($this->_path.'create-new-profile-club-data', [
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'seasons' => $seasons,
+            'currentSeason' => $currentSeason ?? '',
+            'clubData' => $clubData
         ]);
     }
+    public function updateClubData(Request $request){
+        if(!Auth::check()) $this::apiSuccess('Error', route('auth.create-new-profile'));
+
+        try{
+            if(!isset($request->club)){
+                Auth::user()->update(['note' => $request->note]);
+                if(!isset($request->note)){
+                    return $this->apiError('10201', __('Za unos informacija o klupskoj karijeri, odaberite Vaš klub!'));
+                }else return $this->apiError('10202', __('Vaša napomena je spremljena. Za unos informacija o klupskoj karijeri, odaberite Vaš klub!'));
+            }
+            if(!isset($request->season_name) or !isset($request->no_games) or !isset($request->goals) or !isset($request->assistance) or !isset($request->minutes) or !isset($request->red_cards) or !isset($request->yellow_cards)){
+                return $this->apiError('10202', __('Molimo popunite sva polja!'));
+            }
+
+            $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+            $request['user_id'] = Auth::user()->id;
+            $request['club_id'] = $request->club;
+
+            if(!$clubData){
+                $clubData = ClubData::create($request->except(['_token', 'club']));
+            }else{
+                $clubData->update($request->except(['_token', 'club', 'club_id']));
+            }
+
+            return $this::apiSuccess('Uspješno ažurirano', route('auth.create-new-profile.national-team-data'));
+        }catch (\Exception $e){
+            return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
+        }
+    }
+
+    /**
+     *  Info about national team data
+     */
+    public function createNewProfileNTData (){
+        $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
+
+        /* Check for end of season ? */
+        if(((int)date('m')) < 6){
+            $current = (date('Y') - 1) . ' / ' . date('Y');
+        }else{
+            $current = date('Y') . ' / ' . (date('Y') + 1);
+        }
+        foreach ($seasons as $key => $val){ if($val == $current) $currentSeason = $key; }
+
+        $clubData = NatTeamData::where('user_id', Auth::user()->id)->first();
+
+        return view($this->_path.'create-new-profile-nt', [
+            'user' => Auth::user(),
+            'seasons' => $seasons,
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'team' => Keyword::where('keyword', 'nat_team')->pluck('value', 'id'),
+            'currentSeason' => $currentSeason ?? '',
+            'clubData' => $clubData
+        ]);
+    }
+    public function updateNTData(Request $request){
+        if(!Auth::check()) $this::apiSuccess('Error', route('auth.create-new-profile'));
+
+        try{
+
+            $clubData = NatTeamData::where('user_id', Auth::user()->id)->first();
+            $request['user_id'] = Auth::user()->id;
+
+            if(!$clubData){
+                $clubData = NatTeamData::create($request->except(['_token']));
+            }else{
+                $clubData->update($request->except(['_token']));
+            }
+
+            return $this::apiSuccess('Uspješno ažurirano', route('auth.create-new-profile'));
+        }catch (\Exception $e){
+            return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
+        }
+    }
+
     /**
      *  Forgot password logic
      */

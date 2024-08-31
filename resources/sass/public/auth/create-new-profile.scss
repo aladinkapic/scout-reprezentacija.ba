@@ -37,11 +37,21 @@
                 .social_network_wrapper{
                     position: relative; width: 100%; padding: 6px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; margin-bottom: 8px;
                     a{
-                        color: #333333; text-decoration: none;
+                        color: #333333; text-decoration: none; display: inline-flex; justify-content: space-between; width: 100%; align-items: center;
+
+                        p{
+                            margin: 0px; font-weight: bold;
+                        }
+
+                        .fa-check{
+                            color: #00EBC1;
+                        }
+                        .fa-ban{
+                            color: #6a1a21;
+                        }
                     }
-                    p{
-                        margin: 0px; font-weight: bold;
-                    }
+
+                    .center{ justify-content: center; }
                 }
 
                 .share-your-links{
