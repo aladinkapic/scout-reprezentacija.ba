@@ -57,13 +57,14 @@ $dark : $bColor;
 @import "players/image-preview";
 
 .select2-selection__rendered {
-    line-height: 60px !important; background: none;
+    line-height: 80px !important; background: none;
+    padding-left: 12px !important;
 }
 .select2-container .select2-selection--single {
     height: 60px !important; background: none !important;
 }
 .select2-selection__arrow {
-    height: 34px !important;
+    //height: 34px !important;
 }
 
 @import "search-results/search";

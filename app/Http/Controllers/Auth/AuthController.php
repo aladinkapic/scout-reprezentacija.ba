@@ -31,6 +31,16 @@ class AuthController extends Controller{
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $user = Auth::user();
 
+            return json_encode([
+                'code' => '0000',
+                'message' => __('Uspješno ste se prijavili!'),
+                'url' => route('system.users.profile')
+            ]);
+
+            /**
+             *  Users without permission can access and update data
+             */
+            /*
             if(!($user->active ?? '')){
                 return json_encode(array('code' => '0001', 'message' => __('Pristup za korisnika '. ($user->name ?? '') .' nije dozvoljen!')));
             }else{
@@ -39,7 +49,7 @@ class AuthController extends Controller{
                     'message' => __('Uspješno ste se prijavili!'),
                     'url' => route('system.users.profile')
                 ]);
-            }
+            } */
         }else {
             return json_encode([
                 'code' => '4001',
