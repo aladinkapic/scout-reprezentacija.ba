@@ -18,7 +18,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">{{ __('Zatvorite') }}</button>
-                <button type="button" class="btn btn-sm btn-primary" id="crop">{{ __('Spremite') }}</button>
+                <button type="button" class="btn btn-sm btn-dark" id="crop">{{ __('Ažurirajte') }}</button>
             </div>
         </div>
     </div>

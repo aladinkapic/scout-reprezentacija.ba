@@ -3,7 +3,7 @@
 <div class="profile__wrapper_left @if(isset($myProfile)) my_profile @endif">
     <div class="p__w_l_img_w">
         <form action="#" method="POST" id="update-profile-image" enctype="multipart/form-data">
-            <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="@if(Auth()->check() and Auth()->user()->image != '') {{ asset('images/profile-images/'.$loggedUser->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
+            <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="@if(Auth()->check() and Auth()->user()->image != '') {{ asset('images/profile-images/'. Auth()->user()->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
 
             <label for="profile-image" class="edit-your-photo">
                 <i class="fas fa-edit"></i>

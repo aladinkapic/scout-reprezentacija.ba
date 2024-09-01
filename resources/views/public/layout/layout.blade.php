@@ -38,5 +38,6 @@
     @include('public.layout.footer')
     <script src="{{ asset('js/public.js') . '?random=' . date ("F-d-Y-H-i-s", filemtime('js/public.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    @yield('additional-scripts')
 </body>
 </html>
