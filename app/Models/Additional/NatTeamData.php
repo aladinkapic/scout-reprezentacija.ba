@@ -23,4 +23,7 @@ class NatTeamData extends Model{
     public function seasonRel(){
         return $this->hasOne(Keyword::class, 'id', 'season');
     }
+    public function categoryRel(){
+        return $this->hasOne(Keyword::class, 'id', 'category');
+    }
 }

@@ -66,7 +66,9 @@ header {
                 }
             }
             .sign-in{
-                border: 1px solid #ffffff; border-radius: 4px; height: 32px; margin-top: 4px; padding: 0px 16px;
+                border: 1px solid #FFFFFF; border-radius: 4px; height: 32px; margin-top: 4px; padding: 0px 16px;
+                // a{color:$yellow;}
+                //  a{color: $primaryDark; font-weight: bold;}
             }
         }
     }
@@ -170,7 +172,7 @@ header {
             display: flex; width: 100%; height: 100%; align-items: center; text-decoration: none;
             .mm-lgn-btn{
                 position: relative; width: 100%; height: 52px; background: $primaryDark; display: flex; align-items: center; justify-content: center;
-                border-radius: 4px;
+                border-radius: 4px; color: #FFFFFF;
                 p{
                     color: #ffffff; margin: 0px; font-weight: bold; font-size: 20px;
                 }

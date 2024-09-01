@@ -1,6 +1,6 @@
 .pp-header{
     position: relative; left:0px; top:0px; width: 100%; height: 360px;
-    background: linear-gradient(45deg, #ffffff, rgba(0,0,0,0.5)) !important;
+    background: linear-gradient(45deg, #ffffff, rgba(0,0,0,0.4)) !important;
     // background: rgba(0,0,0,0.1);F
     //background-repeat: repeat;
     //.header-bcg{
@@ -104,7 +104,7 @@
                 .bw-title{
                     position: relative; left:0px; top:0px; width: calc(100% - 300px); height: 80px; display: inline-flex; justify-content: flex-start;
                     .icon-wrapper{
-                        position: relative; margin-left:20px; top:20px; width: 40px; height: 40px; border-radius: 50%; background: $primaryDark; text-align: center;
+                        position: relative; margin-left:20px; top:20px; width: 40px; height: 40px; border-radius: 50%; background: $secondary; text-align: center;
                         i{color:#fff; padding-top: 11px;}
                     }
                     h2{
@@ -114,12 +114,12 @@
                 .bw-buttons{
                     position: relative; width: 260px; height: 40px; top: 20px; display: inline-flex; justify-content: flex-end;
                     .bw-b-button{
-                        background: grey; padding:3px 15px; height: 30px; margin-top:5px; margin-right:20px; border-radius:3px;
+                        background: $grey; padding:3px 15px; height: 30px; margin-top:5px; margin-right:20px; border-radius:3px;
                         p{
                             color:#fff; text-decoration: none; margin-top:0px; padding-top:1px; font-size: 15px;
                         }
                     }
-                    .active{background: $primaryDark;}
+                    .active{background: $secondary; }
                 }
             }
         }
@@ -188,7 +188,8 @@
                 position: relative; left:0px; top:0px; width: 100%; height: 36px; margin-top:20px; display: inline-flex; justify-content: space-between;
                 .button{
                     /* width: calc(50% - 5px);¸*/ width: 100%; text-align: center; color:#fff; padding-top:4px; font-weight: bolder; border-radius:3px;
-                    background: #142D56;
+                    // background: #142D56;
+                    background: $secondary;
                     a{color:#fff; font-size: 18px;}
                 }
             }
@@ -257,12 +258,16 @@
                         .sw-data-row{
                             position: relative; left:0px; top:0px; width: 100%; min-height: 50px; display: inline-flex; justify-content: flex-start;
                             .sw-dr-icon-wrapper{
-                                position: relative; top:10px; width: 30px; height: 30px; background: #142D56; border-radius:50%; text-align:center;
+                                position: relative; top:10px; width: 30px; height: 30px; /* background: #142D56; */ background: $secondary; border-radius:50%; text-align:center;
                                 i{color:#fff; margin-top: 7px;}
                             }
                             p{
                                 margin-left: 20px; font-size: 20px; padding-top: 10px; max-width: calc(100% - 50px);
-                                span{font-weight: bold; color:#142D56;}
+                                span{font-weight: bold; /* color:#142D56; */ color: $secondary; }
+
+                                .selection-type{
+
+                                }
                             }
                         }
                         .sw-data-row:hover{cursor: pointer;}

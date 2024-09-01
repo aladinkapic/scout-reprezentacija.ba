@@ -107,7 +107,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="search-players"> {{ __('PRETRAŽITE') }} </button>
+                    <button type="button" class="search-players yellow-btn"> {{ __('PRETRAŽITE') }} </button>
                 </div>
             </div>
         </form>

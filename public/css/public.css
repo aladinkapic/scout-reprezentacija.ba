@@ -12466,7 +12466,7 @@ header .menu-wrapper .mw-links .single-link .link_submenu a img {
 }
 
 header .menu-wrapper .mw-links .sign-in {
-  border: 1px solid #ffffff;
+  border: 1px solid #FFFFFF;
   border-radius: 4px;
   height: 32px;
   margin-top: 4px;
@@ -12654,6 +12654,7 @@ header .menu-wrapper .mw-links .sign-in {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  color: #FFFFFF;
 }
 
 .mobile-menu .mm-footer a .mm-lgn-btn p {
@@ -13301,6 +13302,12 @@ header .menu-wrapper .mw-links .sign-in {
   border-radius: 4px;
 }
 
+.search-players-main-wrapper .form-part .yellow-btn {
+  background: #ffc107;
+  color: #646369;
+  font-weight: bolder;
+}
+
 @media screen and (max-width: 1200px) {
   .search-players-main-wrapper {
     left: 50px;
@@ -13847,6 +13854,22 @@ header .menu-wrapper .mw-links .sign-in {
   top: -200px;
   bottom: -200px;
   margin: auto;
+}
+
+.players-list .player-card .pc-data .yellow-btn {
+  background: #ffc107;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 4px;
+  color: #646369;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .players-list .player-card .pc-data .yellow-btn {
+    width: 60%;
+  }
 }
 
 .players-list .player-card:nth-child(4n+4) {
@@ -14810,7 +14833,7 @@ header .menu-wrapper .mw-links .sign-in {
   top: 0px;
   width: 100%;
   height: 360px;
-  background: linear-gradient(45deg, #ffffff, rgba(0, 0, 0, 0.5)) !important;
+  background: linear-gradient(45deg, #ffffff, rgba(0, 0, 0, 0.4)) !important;
 }
 
 .pp-header .pp-h-img-wrapper {
@@ -15094,7 +15117,7 @@ header .menu-wrapper .mw-links .sign-in {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #142D56;
+  background: #75A5B3;
   text-align: center;
 }
 
@@ -15122,7 +15145,7 @@ header .menu-wrapper .mw-links .sign-in {
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .bw-b-button,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-buttons .bw-b-button {
-  background: grey;
+  background: #646369;
   padding: 3px 15px;
   height: 30px;
   margin-top: 5px;
@@ -15141,7 +15164,7 @@ header .menu-wrapper .mw-links .sign-in {
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .active,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-buttons .active {
-  background: #142D56;
+  background: #75A5B3;
 }
 
 .public-container .preview-wrapper .pw-left,
@@ -15311,7 +15334,7 @@ header .menu-wrapper .mw-links .sign-in {
   padding-top: 4px;
   font-weight: bolder;
   border-radius: 3px;
-  background: #142D56;
+  background: #75A5B3;
 }
 
 .public-container .preview-wrapper .pw-left .custom-buttons .button a,
@@ -15508,7 +15531,8 @@ header .menu-wrapper .mw-links .sign-in {
   top: 10px;
   width: 30px;
   height: 30px;
-  background: #142D56;
+  /* background: #142D56; */
+  background: #75A5B3;
   border-radius: 50%;
   text-align: center;
 }
@@ -15530,7 +15554,8 @@ header .menu-wrapper .mw-links .sign-in {
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span {
   font-weight: bold;
-  color: #142D56;
+  /* color:#142D56; */
+  color: #75A5B3;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row:hover,

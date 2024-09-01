@@ -143,19 +143,32 @@
                             @endif
                         </div>
                         <p>
-                            {{ $natTeamData->season_name ?? '' }}
+                            @if($player->from_api == 1)
+                                {{ $natTeamData->season_name ?? '' }}
+                            @else
+                                <span class="selection-type">{{ $natTeamData->categoryRel->value ?? '' }}</span>
+                                {{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}
+                            @endif
                         </p>
                     </div>
 
                     <div class="sw-data-body">
-                        <div class="sw-db-row">
-                            <p>
-                                {{ $natTeamData->seasonRel->value ?? '' }}
-                                <span class="text-info">
-                                <b>{{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}</b>
-                            </span>
-                            </p>
-                        </div>
+                        @if($player->from_api == 1)
+                            <div class="sw-db-row">
+                                <p>
+                                    {{ $natTeamData->seasonRel->value ?? '' }}
+                                    <span class="text-info">
+                                        <b>{{ ucwords(strtolower($natTeamData->countryRel->name_ba ?? '')) ?? '' }}</b>
+                                    </span>
+                                </p>
+                            </div>
+                        @else
+                            <div class="sw-db-row">
+                                <p>
+                                    {{ $natTeamData->seasonRel->value ?? '' }}
+                                </p>
+                            </div>
+                        @endif
 
                         <div class="sw-db-row">
                             <div class="sw-dbr-img">
