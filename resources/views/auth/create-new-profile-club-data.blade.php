@@ -10,6 +10,7 @@
                 @include('auth.includes.inner-menu')
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-club-data', 'method' => 'post', 'id' => 'js-form')) !!}
+                @include('auth.includes.alert-message')
 
                 @if(isset($clubData))
                     <div class="row">
@@ -112,14 +113,14 @@
                         <div class="form-group">
                             <label for="note"> <b>{{ __('Napomena') }}</b> </label>
                             {!! Form::textarea('note', Auth()->user()->note ?? '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', 'style' => 'height:80px !important;' ,'maxlength' => '1000']) !!}
-                            <small id="noteHelp" class="form-text text-danger"> <b>{{ __('Ukoliko ne možete pronaći klub, molimo da nam u napomeni napišete naziv vašeg kluba. ') }}</b> </small>
+                            <small id="noteHelp" class="form-text text-danger"> <b>{{ __('Ukoliko ne možete pronaći klub, molimo da nam u napomeni napišete naziv vašeg kluba. Nakon provjere, mi ćemo isti unijeti i javiti Vam se. ') }}</b> </small>
                         </div>
                     </div>
                 </div>
 
                 <div class="row mt-4">
                     <div class="col-md-12 d-flex justify-content-end">
-                        <button class="btn">{{ __('Sljedeće korak') }}</button>
+                        <button class="btn">{{ __('Sljedeći korak') }}</button>
                     </div>
                 </div>
                 {!! Form::close(); !!}

@@ -10,6 +10,7 @@
                 @include('auth.includes.inner-menu')
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-national-team-data', 'method' => 'post', 'id' => 'js-form')) !!}
+{{--                @include('auth.includes.alert-message')--}}
 
                 <div class="row">
                     <div class="col-md-12">
@@ -31,7 +32,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="season"> <b>{{ __('Sezona debija za reprezentaciju') }}</b> </label>
+                            <label for="season"> <b>{{ __('Godina debija za reprezentaciju') }}</b> </label>
                             {!! Form::select('season', $seasons, $clubData->season ?? $currentSeason, ['class' => 'form-control required', 'id' => 'season', 'aria-describedby' => 'seasonHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="seasonHelp" class="form-text text-muted"> {{ __('Npr. ') }} {{ date('Y') - 1 }} / {{ date('Y') }}</small>
                         </div>
@@ -100,7 +101,7 @@
 
                 <div class="row mt-4">
                     <div class="col-md-12 d-flex justify-content-end">
-                        <button class="btn">{{ __('Pošalji zahtjev') }}</button>
+                        <button class="btn">{{ __('Ažurirajte') }}</button>
                     </div>
                 </div>
                 {!! Form::close(); !!}

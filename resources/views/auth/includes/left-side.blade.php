@@ -9,7 +9,7 @@
                 <i class="fas fa-edit"></i>
                 <p>{{ __('Uredite') }}</p>
             </label>
-            <input name="name" class="d-none image" id="profile-image" type="file">
+            <input name="profile-image" class="d-none image" id="profile-image" type="file">
         </form>
     </div>
 
@@ -47,7 +47,7 @@
             </a>
         </div>
 
-        <p class="share-your-links">{{ __('Status Vaše prijave na www.scout.reprezentacija.ba!') }}</p>
+{{--        <p class="share-your-links">{{ __('Status Vaše prijave na www.scout.reprezentacija.ba!') }}</p>--}}
 
         <hr>
 

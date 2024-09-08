@@ -10,6 +10,8 @@
                 @include('auth.includes.inner-menu')
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-basic-info', 'method' => 'post', 'id' => 'js-form')) !!}
+                @include('auth.includes.alert-message')
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

@@ -11,6 +11,8 @@
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-career', 'method' => 'post', 'id' => 'js-form')) !!}
 
+                @include('auth.includes.alert-message')
+
                 <div class="row">
                     <div class="col-md-12">
                         <label for="sport"><b>{{ __('Nogomet / Futsal?') }}</b></label>
