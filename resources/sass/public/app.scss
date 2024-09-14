@@ -75,8 +75,12 @@ $yellow: #ffc107;
 .select2-container .select2-selection--single {
     height: 60px !important; background: none !important;
 }
-.select2-selection__arrow {
-    //height: 34px !important;
+.modal-footer{
+    background: #FFFFFF;
+}
+
+.img-container{
+    overflow: hidden;
 }
 
 @import "search-results/search";

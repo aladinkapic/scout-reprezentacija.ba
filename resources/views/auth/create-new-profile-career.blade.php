@@ -11,7 +11,9 @@
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-career', 'method' => 'post', 'id' => 'js-form')) !!}
 
-                @include('auth.includes.alert-message')
+                @if(!Auth()->user()->submitted)
+                    @include('auth.includes.alert-message')
+                @endif
 
                 <div class="row">
                     <div class="col-md-12">
@@ -73,11 +75,13 @@
 {{--                </div>--}}
 
 
-                <div class="row mt-4">
-                    <div class="col-md-12 d-flex justify-content-end">
-                        <button class="btn">{{ __('Sljedeće korak') }}</button>
+                @if(!Auth()->user()->submitted)
+                    <div class="row mt-4">
+                        <div class="col-md-12 d-flex justify-content-end">
+                            <button class="btn">{{ __('Sljedeće korak') }}</button>
+                        </div>
                     </div>
-                </div>
+                @endif
                 {!! Form::close(); !!}
             </div>
         </div>

@@ -35,7 +35,7 @@ class User extends Authenticatable
         'name', 'username', 'email', 'password', 'email_verified_at', 'api_token', 'active', 'role', 'image', 'category', 'sport', 'init_club',
         'position', 'position_2', 'stronger_limb', 'birth_date', 'years_old', 'birth_place', 'address', 'living_place', 'citizenship', 'citizenship_2',
         'country', 'phone', 'gender', 'height', 'remember_token', 'note', 'short_bio', 'facebook', 'twitter', 'instagram',
-        'under_contract', 'youtube', 'allow_rating', 'from_api', 'player_id'
+        'under_contract', 'youtube', 'allow_rating', 'from_api', 'player_id', 'submitted', 'last_activity'
     ];
 
     /**

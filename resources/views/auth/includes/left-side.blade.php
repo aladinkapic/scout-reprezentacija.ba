@@ -1,15 +1,17 @@
 @include('system.app.users.snippets.crop-image')
 
-<div class="profile__wrapper_left @if(isset($myProfile)) my_profile @endif">
+<div class="profile__wrapper_left @if(isset($myProfile)) my_profile @endif @if(Route::is('auth.create-new-profile.career') or Route::is('auth.create-new-profile.club-data') or Route::is('auth.create-new-profile.national-team-data')) m-off @endif">
     <div class="p__w_l_img_w">
         <form action="#" method="POST" id="update-profile-image" enctype="multipart/form-data">
             <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="@if(Auth()->check() and Auth()->user()->image != '') {{ asset('images/profile-images/'. Auth()->user()->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
 
-            <label for="profile-image" class="edit-your-photo">
-                <i class="fas fa-edit"></i>
-                <p>{{ __('Uredite') }}</p>
-            </label>
-            <input name="profile-image" class="d-none image" id="profile-image" type="file">
+            @if(Auth()->check())
+                <label for="profile-image" class="edit-your-photo">
+                    <i class="fas fa-edit"></i>
+                    <p>{{ __('Uredite') }}</p>
+                </label>
+                <input name="profile-image" class="d-none image" id="profile-image" type="file">
+            @endif
         </form>
     </div>
 

@@ -105,11 +105,18 @@ $(document).ready(function (){
 
                     data[name] = newData;
                 }else {
-                    data[$(this).attr('name')] = $(this).val();
-                    /*
-                     *  Check if data is valid
-                     */
-                    status.push(checkData($(this)));
+                    let checkBox = ($(this).attr('type') === 'checkbox');
+
+                    if(checkBox){
+                        if(element.is(":checked")) data[$(this).attr('name')] = $(this).val();
+                    }else{
+                        data[$(this).attr('name')] = $(this).val();
+
+                        /*
+                         *  Check if data is valid
+                         */
+                        status.push(checkData($(this)));
+                    }
                 }
             }
 

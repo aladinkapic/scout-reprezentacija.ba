@@ -231,9 +231,6 @@ class UsersController extends Controller{
 
             $path = env('USER_IMG_LINK', public_path(). '/images/profile-images/');
             File::put($path . $imageName, base64_decode($image));
-
-            // File::put(public_path(). '/images/profile-images/' . $imageName, base64_decode($image));
-
             User::where('id', Auth::id())->update(['image' => $imageName]);
         }catch (\Exception $e){ return $this::error($e->getCode(), $e->getMessage()); }
         return $this::success('');

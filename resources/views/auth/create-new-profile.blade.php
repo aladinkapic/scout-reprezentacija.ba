@@ -111,11 +111,14 @@
                         </div>
                     </div>
 
+                    @if(!isset($user) or (isset($user) and $user->submitted == 0))
                     <div class="row mt-4">
                         <div class="col-md-12 d-flex justify-content-end">
                             <button class="btn">@if(Auth()->check()) {{ __('Ažurirajte') }} @else {{ __('Sljedeće korak') }} @endif</button>
                         </div>
                     </div>
+                    @endif
+
                 {!! Form::close(); !!}
             </div>
         </div>

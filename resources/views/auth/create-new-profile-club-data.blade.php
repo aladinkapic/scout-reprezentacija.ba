@@ -133,11 +133,13 @@
                 {{--    </div>--}}
                 {{--</div>--}}
 
-                <div class="row mt-4">
-                    <div class="col-md-12 d-flex justify-content-end">
-                        <button class="btn">{{ __('Sljedeći korak') }}</button>
+                @if(!Auth()->user()->submitted)
+                    <div class="row mt-4">
+                        <div class="col-md-12 d-flex justify-content-end">
+                            <button class="btn">{{ __('Sljedeći korak') }}</button>
+                        </div>
                     </div>
-                </div>
+                @endif
                 {!! Form::close(); !!}
             </div>
         </div>

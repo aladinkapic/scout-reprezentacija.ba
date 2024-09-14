@@ -17,7 +17,7 @@ class isAuthenticated
      */
     public function handle($request, Closure $next){
         if(Auth::check()){
-            if(Auth::user()->active){
+            if(Auth::user()->active or ($request->route()->getName() == 'system.users.change-profile-image')){
                 \View::share([
                     'loggedUser' => User::find(Auth::id())
                 ]);

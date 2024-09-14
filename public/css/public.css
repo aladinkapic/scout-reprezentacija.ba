@@ -16332,6 +16332,14 @@ header .menu-wrapper .mw-links .sign-in {
   background: none !important;
 }
 
+.modal-footer {
+  background: #FFFFFF;
+}
+
+.img-container {
+  overflow: hidden;
+}
+
 #search-console {
   position: relative;
   border-bottom: 1px solid #d5d9dd;
@@ -17348,6 +17356,22 @@ header .menu-wrapper .mw-links .sign-in {
   min-height: 120px;
   left: calc(50% - 600px);
   margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .create__new_profile__w {
+    left: 30px;
+    width: calc(100% - 60px);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .create__new_profile__w {
+    margin-top: 82px;
+    left: 20px;
+    width: calc(100% - 40px);
+  }
 }
 
 .create__new_profile__w .profile__wrapper {
@@ -17358,9 +17382,26 @@ header .menu-wrapper .mw-links .sign-in {
   justify-content: space-between;
 }
 
+@media only screen and (max-width: 800px) {
+  .create__new_profile__w .profile__wrapper {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .create__new_profile__w .profile__wrapper .m-off {
+    /* display: none; */
+  }
+}
+
 .create__new_profile__w .profile__wrapper .profile__wrapper_left {
   position: relative;
   width: 300px;
+}
+
+@media only screen and (max-width: 800px) {
+  .create__new_profile__w .profile__wrapper .profile__wrapper_left {
+    width: 100%;
+  }
 }
 
 .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w {
@@ -17371,6 +17412,12 @@ header .menu-wrapper .mw-links .sign-in {
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 800px) {
+  .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w {
+    width: 100%;
+  }
 }
 
 .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_img_w form {
@@ -17395,7 +17442,7 @@ header .menu-wrapper .mw-links .sign-in {
   background: #173668;
   gap: 8px;
   border-radius: 4px;
-  opacity: 0;
+  opacity: 1;
   transition: 0.2s all;
 }
 
@@ -17469,6 +17516,12 @@ header .menu-wrapper .mw-links .sign-in {
   position: relative;
   width: calc(100% - 332px);
   /* Sessions header */
+}
+
+@media only screen and (max-width: 800px) {
+  .create__new_profile__w .profile__wrapper .profile__wrapper_right {
+    width: 100%;
+  }
 }
 
 .create__new_profile__w .profile__wrapper .profile__wrapper_right .form-control {
@@ -17554,6 +17607,12 @@ header .menu-wrapper .mw-links .sign-in {
   gap: 8px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 800px) {
+  .create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element p {
+    display: none;
+  }
 }
 
 .create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element i,

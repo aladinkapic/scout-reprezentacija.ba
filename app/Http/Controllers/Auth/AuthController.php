@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\allowAccess;
 use App\Mail\RestartPassword;
+use App\Mail\sendEmail;
 use App\Models\Additional\ClubData;
 use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
@@ -137,6 +138,8 @@ class AuthController extends Controller{
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function createNewProfileClubData  (){
+        if((Auth()->user()->position == '')) return redirect()->route('auth.create-new-profile.career');
+
         $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
 
         /* Check for end of season ? */
@@ -191,6 +194,9 @@ class AuthController extends Controller{
      *  Info about national team data
      */
     public function createNewProfileNTData (){
+        $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+        if(!isset($clubData)) return redirect()->route('auth.create-new-profile.club-data');
+
         $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
 
         /* Check for end of season ? */
@@ -212,21 +218,50 @@ class AuthController extends Controller{
             'clubData' => $clubData
         ]);
     }
+    public function sendEmail(){
+        try{
+            $adminMsg = 'obaviještavamo Vas da je ' . Auth()->user()->name . ' (' . Auth()->user()->email . ') poslao/la zahtjev za kreiranje profila na platformi www.scout.reprezentacija.ba. Molimo revidrajte prijavu!';
+            Mail::to(env('EMAIL'))->send(new sendEmail($adminMsg,  'Scout.Reprezentacija.BA' ));
+
+            Mail::to(Auth()->user()->email)->send(new sendEmail(
+                'obavještavamo Vas da je Vaš zahtjev za kreiranje profila na portalu scout.reprezentacija.ba uspješno kreiran. Skauti Reprezentacija.ba će provjeriti ove podatke, te će Vas kontaktirati ukoliko ispunjavate naše kriterije.',
+                'Scout.Reprezentacija.BA'
+            ));
+        }catch (\Exception $e){}
+    }
     public function updateNTData(Request $request){
         if(!Auth::check()) $this::apiSuccess('Error', route('auth.create-new-profile'));
 
+        if(!isset(Auth::user()->image)) return $this->apiError('10221', __('Molimo da unesete Vašu sliku profila'));
+
+        $this->sendEmail();
+
         try{
-
-            $clubData = NatTeamData::where('user_id', Auth::user()->id)->first();
-            $request['user_id'] = Auth::user()->id;
-
-            if(!$clubData){
-                $clubData = NatTeamData::create($request->except(['_token']));
+            if(isset($request->skip)){
+                Auth::user()->update(['submitted' => 1]);
+                return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
             }else{
-                $clubData->update($request->except(['_token']));
+                if(!isset($request->country_id)) return $this->apiError('10222', __('Molimo da odaberete državu'));
+                if(!isset($request->no_games)) return $this->apiError('10223', __('Molimo da unesete broj utakmica'));
+                if(!isset($request->goals)) return $this->apiError('10224', __('Molimo da unesete broj golova'));
+                if(!isset($request->assistance)) return $this->apiError('10225', __('Molimo da unesete broj asistencija'));
+                if(!isset($request->minutes)) return $this->apiError('10226', __('Molimo da unesete broj odigranih minuta'));
+                if(!isset($request->red_cards)) return $this->apiError('10227', __('Molimo da unesete broj crvenih kartona'));
+                if(!isset($request->yellow_cards)) return $this->apiError('10228', __('Molimo da unesete broj žutih kartona'));
+
+                $clubData = NatTeamData::where('user_id', Auth::user()->id)->first();
+                $request['user_id'] = Auth::user()->id;
+
+                if(!$clubData){
+                    $clubData = NatTeamData::create($request->except(['_token']));
+                }else{
+                    $clubData->update($request->except(['_token']));
+                }
             }
 
-            return $this::apiSuccess('Uspješno ažurirano', route('auth.create-new-profile'));
+            Auth::user()->update(['submitted' => 1]);
+
+            return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
         }catch (\Exception $e){
             return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
         }

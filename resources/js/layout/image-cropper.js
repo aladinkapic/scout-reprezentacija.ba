@@ -37,10 +37,19 @@ $(document).ready(function () {
         }
     });
     $modal.on('shown.bs.modal', function () {
+        $('.modal-content').css('max-height',$( window ).height()*0.8);
+        $('.modal-content img').css('max-height',(($( window ).height()*0.8)-86));
+
+
         cropper = new Cropper(image, {
-            aspectRatio: 1,
-            viewMode: 3,
-            preview: '.preview'
+            // aspectRatio: 1,
+            // viewMode: 5,
+            preview: '.preview',
+
+            // aspectRatio: 16 / 9,
+            dragMode: 'move',
+            viewMode: 1,
+            aspectRatio: 1
         });
     }).on('hidden.bs.modal', function () {
         cropper.destroy();
