@@ -34,7 +34,7 @@ class AuthController extends Controller{
             return json_encode([
                 'code' => '0000',
                 'message' => __('Uspješno ste se prijavili!'),
-                'url' => route('system.users.profile')
+                'url' => ($user->active) ? route('system.users.profile') : route('auth.create-new-profile')
             ]);
 
             /**
@@ -161,10 +161,11 @@ class AuthController extends Controller{
 
         try{
             if(!isset($request->club)){
-                Auth::user()->update(['note' => $request->note]);
-                if(!isset($request->note)){
-                    return $this->apiError('10201', __('Za unos informacija o klupskoj karijeri, odaberite Vaš klub!'));
-                }else return $this->apiError('10202', __('Vaša napomena je spremljena. Kontaktirati ćemo Vas nakon što unesemo Vaš klub!'));
+                return $this->apiError('10201', __('Za unos informacija o klupskoj karijeri, odaberite Vaš klub!'));
+                //Auth::user()->update(['note' => $request->note]);
+                //if(!isset($request->note)){
+                //    return $this->apiError('10201', __('Za unos informacija o klupskoj karijeri, odaberite Vaš klub!'));
+                //}else return $this->apiError('10202', __('Vaša napomena je spremljena. Kontaktirati ćemo Vas nakon što unesemo Vaš klub!'));
             }
             if(!isset($request->season_name) or !isset($request->no_games) or !isset($request->goals) or !isset($request->assistance) or !isset($request->minutes) or !isset($request->red_cards) or !isset($request->yellow_cards)){
                 return $this->apiError('10202', __('Molimo popunite sva polja!'));

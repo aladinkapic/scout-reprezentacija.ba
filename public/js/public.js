@@ -35748,6 +35748,8 @@ __webpack_require__(/*! ./players/player-rating */ "./resources/js/public/player
 
 __webpack_require__(/*! ./core/cookie */ "./resources/js/public/core/cookie.js");
 
+__webpack_require__(/*! ./pages/contact-us */ "./resources/js/public/pages/contact-us.js");
+
 /***/ }),
 
 /***/ "./resources/js/public/core/cookie.js":
@@ -35832,6 +35834,104 @@ $(document).ready(function () {
   });
   $(".switch-language").click(function () {
     $(".choose-language").toggleClass('d-none');
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/public/pages/contact-us.js":
+/*!*************************************************!*\
+  !*** ./resources/js/public/pages/contact-us.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  var sendAnEmail = function sendAnEmail(name, phone, email, message, checkbox) {
+    var reason = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+
+    if (name.val() === '') {
+      notify.Me(["Molimo da unesete Vaše ime", "warn"]);
+      return;
+    }
+
+    if (phone.val() === '') {
+      notify.Me(["Molimo da unesete Vaše broj telefona", "warn"]);
+      return;
+    }
+
+    if (email.val() === '') {
+      notify.Me(["Molimo da unesete Vašu email adresu", "warn"]);
+      return;
+    }
+
+    if (message.val() === '') {
+      notify.Me(["Molimo da unesete željenu poruku", "warn"]);
+      return;
+    }
+
+    if (!checkbox.is(":checked")) {
+      notify.Me(["Molimo da se složite sa uslovima korištenja", "warn"]);
+      return;
+    }
+
+    $(".loading").removeClass('d-none');
+    $.ajax({
+      url: '/pages/contact-us/send-a-message',
+      method: 'POST',
+      dataType: "json",
+      data: {
+        name: name.val(),
+        phone: phone.val(),
+        email: email.val(),
+        message: message.val(),
+        reason: reason ? reason.val() : null
+      },
+      success: function success(response) {
+        var code = response['code'];
+        $(".loading").addClass('d-none');
+
+        if (code === '0000') {
+          notify.Me([response['message'], "success"]); // name.val("");
+          // phone.val("+387 ");
+          // email.val("");
+
+          message.val("");
+        } else {
+          notify.Me([response['message'], "warn"]);
+        }
+      }
+    });
+  };
+  /* Contact US form */
+
+
+  $(".send_us_message").click(function () {
+    var name = $("#cf_name");
+    var phone = $("#cf_phone");
+    var email = $("#cf_email");
+    var message = $("#cf_message");
+    var checkbox = $("#cf_agree");
+    /* Send an email */
+
+    sendAnEmail(name, phone, email, message, checkbox);
+  });
+  /* Contact form from Estate preview */
+
+  $(".estate-contact-us-btn").click(function () {
+    var name = $("#cf_name");
+    var phone = $("#cf_phone");
+    var email = $("#cf_email");
+    var message = $("#cf_message");
+    var reason = $("#cf_what");
+    var checkbox = $("#cf_agree");
+    sendAnEmail(name, phone, email, message, checkbox, reason);
   });
 });
 

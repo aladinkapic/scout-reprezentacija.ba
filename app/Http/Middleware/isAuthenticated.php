@@ -17,12 +17,18 @@ class isAuthenticated
      */
     public function handle($request, Closure $next){
         if(Auth::check()){
+            if(Auth::user()->active){
+                \View::share([
+                    'loggedUser' => User::find(Auth::id())
+                ]);
 
-            \View::share([
-                'loggedUser' => User::find(Auth::id())
-            ]);
-
-            return $next($request);
+                return $next($request);
+            }else{
+                /*
+                 *  For users that have incoplete profile
+                 */
+                return redirect()->route('auth.create-new-profile');
+            }
         }
         else return redirect()->route('auth.login');
     }

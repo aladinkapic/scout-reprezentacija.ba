@@ -42,3 +42,4 @@ require('./players/post-like');
 require('./players/player-rating');
 
 require('./core/cookie');
+require('./pages/contact-us');

@@ -12,7 +12,7 @@
 
         <div class="mw-links">
             <div class="single-link">
-                <a href="mailto:press@reprezentacija.ba"> <i class="fas fa-envelope"></i> </a>
+                <a href="{{ route('home.contact-us') }}" title="{{ __('Kontaktirajte nas') }}"> <i class="fas fa-envelope"></i> </a>
             </div>
             <div class="single-link">
 {{--                {{ BaseHelper::getLocale() }}--}}

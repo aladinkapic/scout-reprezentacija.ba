@@ -10,7 +10,22 @@
                 @include('auth.includes.inner-menu')
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-club-data', 'method' => 'post', 'id' => 'js-form')) !!}
-                @include('auth.includes.alert-message')
+
+                @if(!isset($clubData))
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger" role="alert">
+                                <b>{{ __('Napomena') }}</b>: {{ __('Ukoliko se Vaš klub ne nalazi na listi klubova, molimo da nas kontaktirate putem emaila-a') }}
+
+                                <a href="mailto:press@reprezentacija.ba"> <b>press@reprezentacija.ba</b> </a>
+
+                                {{ __('ili putem') }}
+
+                                <a href="{{ route('home.contact-us') }}"><b>{{ __('ovog linka') }}</b></a>.
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
                 @if(isset($clubData))
                     <div class="row">
@@ -106,17 +121,17 @@
                     </div>
                 @endif
 
-                <hr>
+                {{--<hr>--}}
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="note"> <b>{{ __('Napomena') }}</b> </label>
-                            {!! Form::textarea('note', Auth()->user()->note ?? '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', 'style' => 'height:80px !important;' ,'maxlength' => '1000']) !!}
-                            <small id="noteHelp" class="form-text text-danger"> <b>{{ __('Ukoliko ne možete pronaći klub, molimo da nam u napomeni napišete naziv vašeg kluba. Nakon provjere, mi ćemo isti unijeti i javiti Vam se. ') }}</b> </small>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="row">--}}
+                {{--    <div class="col-md-12">--}}
+                {{--        <div class="form-group">--}}
+                {{--            <label for="note"> <b>{{ __('Napomena') }}</b> </label>--}}
+                {{--            {!! Form::textarea('note', Auth()->user()->note ?? '', ['class' => 'form-control', 'id' => 'note', 'aria-describedby' => 'noteHelp', 'style' => 'height:80px !important;' ,'maxlength' => '1000']) !!}--}}
+                {{--            <small id="noteHelp" class="form-text text-danger"> <b>{{ __('Ukoliko ne možete pronaći klub, molimo da nam u napomeni napišete naziv vašeg kluba. Nakon provjere, mi ćemo isti unijeti i javiti Vam se. ') }}</b> </small>--}}
+                {{--        </div>--}}
+                {{--    </div>--}}
+                {{--</div>--}}
 
                 <div class="row mt-4">
                     <div class="col-md-12 d-flex justify-content-end">

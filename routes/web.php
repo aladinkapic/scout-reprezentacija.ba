@@ -38,6 +38,15 @@ Route::group(['namespace' => 'Home', 'prefix' => '/', 'middleware' => 'public'],
         Route::get ('/privacy-policy',                   'PagesController@privacy')->name('home.pages.privacy-policy');
         Route::get ('/cookies',                          'PagesController@cookies')->name('home.pages.cookies');
         Route::get ('/terms-and-conditions',             'PagesController@terms')->name('home.pages.terms-and-conditions');
+
+
+        /*
+         *  Contact us
+         */
+        Route::group(['prefix' => '/contact-us'], function(){
+            Route::get ('/',                             'ContactUsController@contactUs')->name('home.contact-us');
+            Route::post('/send-a-message',               'ContactUsController@sendAMessage')->name('home.contact-us.send-a-message');
+        });
     });
 });
 
