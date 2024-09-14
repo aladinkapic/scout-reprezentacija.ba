@@ -141,7 +141,7 @@ $(document).ready(function (){
             /*
              * Trigger loading cover
              */
-            $(".loading").fadeIn();
+            $(".loading").removeClass('d-none');
 
             function beforeSubmit() { jQuery('.summernoteDesc').text(jQuery('.summernoteDesc').code()); }
 
@@ -151,7 +151,7 @@ $(document).ready(function (){
                 dataType: "json",
                 data: data,
                 success: function success(response) {
-                    $(".loading").fadeOut();
+                    $(".loading").addClass('d-none');
 
                     let code = response['code'];
 

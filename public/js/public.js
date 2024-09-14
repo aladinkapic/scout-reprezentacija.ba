@@ -35564,14 +35564,14 @@ $(document).ready(function () {
        * Trigger loading cover
        */
 
-      $(".loading").fadeIn();
+      $(".loading").removeClass('d-none');
       $.ajax({
         url: action,
         method: method,
         dataType: "json",
         data: data,
         success: function success(response) {
-          $(".loading").fadeOut();
+          $(".loading").addClass('d-none');
           var code = response['code'];
 
           if (code === '0000') {
