@@ -31,6 +31,10 @@
     <meta name="twitter:image" content="@yield('seo_image', asset('images/hero/hero-wallpaper.jpg'))">
 </head>
 <body>
+    <div class="loading d-none">
+        <img src="{{ asset('images/loading.gif') }}" alt="">
+    </div>
+
     @include('public.layout.menu')
     @include('public.layout.public-notification')
 
