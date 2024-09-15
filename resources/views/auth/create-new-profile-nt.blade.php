@@ -16,7 +16,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="country_id"> <b>{{ __('Reprezentacija') }}</b> </label>
-                            {!! Form::select('country_id', $countries, $clubData->country_id ?? '', ['class' => 'form-control select-2', 'id' => 'club_id', 'aria-describedby' => 'country_idHelp', isset($preview) ? 'disabled => true' : '']) !!}
+                            {!! Form::select('country_id', $countries, $clubData->country_id ?? '', ['class' => 'form-control', 'id' => 'club_id', 'aria-describedby' => 'country_idHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="country_idHelp" class="form-text text-muted"> {{ __('Odaberite reprezentaciju u kojoj ste igrali') }} </small>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="season"> <b>{{ __('Godina debija za reprezentaciju') }}</b> </label>
+                            <label for="season"> <b>{{ __('Sezona debija za reprezentaciju') }}</b> </label>
                             {!! Form::select('season', $seasons, $clubData->season ?? $currentSeason, ['class' => 'form-control', 'id' => 'season', 'aria-describedby' => 'seasonHelp', isset($preview) ? 'disabled => true' : '']) !!}
                             <small id="seasonHelp" class="form-text text-muted"> {{ __('Npr. ') }} {{ date('Y') - 1 }} / {{ date('Y') }}</small>
                         </div>

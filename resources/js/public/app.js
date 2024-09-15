@@ -43,3 +43,4 @@ require('./players/player-rating');
 
 require('./core/cookie');
 require('./pages/contact-us');
+require('./core/c-select-2');

@@ -181,7 +181,7 @@ class AuthController extends Controller{
             if(!$clubData){
                 $clubData = ClubData::create($request->except(['_token', 'club']));
             }else{
-                $clubData->update($request->except(['_token', 'club', 'club_id']));
+                $clubData->update($request->except(['_token', 'club']));
             }
 
             return $this::apiSuccess('Uspješno ažurirano', route('auth.create-new-profile.national-team-data'));

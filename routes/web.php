@@ -258,6 +258,7 @@ Route::group(['namespace' => 'System', 'prefix' => '/system'], function(){
         /* Search clubs */
         Route::group(['prefix' => '/clubs'], function(){
             Route::post('/by-name',                    'SearchClubsController@byName')->name('system.search.clubs.by-name');
+            Route::post('/by-name-v2',                 'SearchClubsController@byNameV2')->name('system.search.clubs.by-name-v2');
         });
     });
 });

@@ -35762,6 +35762,135 @@ __webpack_require__(/*! ./core/cookie */ "./resources/js/public/core/cookie.js")
 
 __webpack_require__(/*! ./pages/contact-us */ "./resources/js/public/pages/contact-us.js");
 
+__webpack_require__(/*! ./core/c-select-2 */ "./resources/js/public/core/c-select-2.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/core/c-select-2.js":
+/*!************************************************!*\
+  !*** ./resources/js/public/core/c-select-2.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var cSelect2 = $(".c-select-2");
+  var cSmall, sInput;
+  var searchedVal = '';
+  var searching = 0;
+  var uri = '/system/search/clubs/by-name-v2';
+  var imgUri = "/images/club-images/";
+
+  if (cSelect2.length) {
+    /**
+     *  First, create new input label for real data information
+     */
+    $(".cs2-out").append(function () {
+      return $("<input>").attr('type', 'hidden').attr('id', cSelect2.attr('s-input')).attr('name', cSelect2.attr('s-input')).attr('value', cSelect2.attr('s-val'));
+    });
+    /**
+     *  Setup the info bar
+     */
+
+    cSmall = $("#" + cSelect2.attr("aria-describedby"));
+  }
+
+  var searchIt = function searchIt(value) {
+    $.ajax({
+      url: uri,
+      method: 'POST',
+      dataType: "json",
+      data: {
+        term: value
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          (function () {
+            var data = response['data']['data'];
+            /* First, remove all other */
+
+            $(".cs2-out").find(".c-select-2-wrapper").remove();
+
+            if (data.length) {
+              var wrapper = $("<div>").attr('class', 'c-select-2-wrapper');
+
+              var _loop = function _loop(i) {
+                wrapper.append(function () {
+                  return $("<div>").attr('class', 'cs2-row').attr('value', data[i]['id']).attr('text', data[i]['title']).append(function () {
+                    return $("<div>").attr('class', 'cs2-img-w').append(function () {
+                      return $("<img>").attr('src', imgUri + data[i]['image']);
+                    });
+                  }).append(function () {
+                    return $("<span>").text(data[i]['title'] + ', ' + data[i]['city'] + ', ' + data[i]['country_rel']['name_ba']);
+                  });
+                });
+              };
+
+              for (var i = 0; i < data.length; i++) {
+                _loop(i);
+              }
+
+              $(".cs2-out").append(function () {
+                return wrapper;
+              });
+            }
+          })();
+        }
+      }
+    });
+  };
+  /**
+   *  On keyup on main input field
+   */
+
+
+  $("body").on('keyup', '.c-select-2', function (e) {
+    searchedVal = $(this).val();
+
+    if (searchedVal.length >= 2) {
+      cSmall.text("Pretraživanje ..");
+      /* Rise flag for searching */
+
+      searching = true;
+      searchIt(searchedVal);
+    } else {
+      cSmall.text("Molimo da unesete " + (2 - searchedVal.length) + " ili više karaktera .. ");
+      /* Remove searched elements */
+
+      $(".cs2-out").find(".c-select-2-wrapper").remove();
+    }
+  }).on('focus', '.c-select-2', function (e) {
+    if ($(this).val().length > 2) {
+      cSmall.text("Pretražite ..");
+      console.log($(this).val());
+      searchIt($(this).val());
+    } else {
+      $("#" + cSelect2.attr("aria-describedby")).text("Molimo da unesete 2 ili više karaktera .. ");
+    }
+  }).on('focusout', '.c-select-2', function (e) {
+    cSmall.text(cSmall.attr('default'));
+  }).on('click', '.cs2-row', function (e) {
+    $("#" + cSelect2.attr('s-input')).val($(this).attr('value'));
+    cSelect2.val($(this).attr("text"));
+    /* Remove searched elements */
+
+    $(".cs2-out").find(".c-select-2-wrapper").remove();
+  }).on('click', 'body', function (e) {
+    if (!$(e.target).hasClass('c-select-2-wrapper')) {
+      $(".cs2-out").find(".c-select-2-wrapper").remove();
+    } else {
+      console.log("anywhere ..");
+    }
+  });
+  $('html').click(function (e) {
+    console.log("Clicked ..");
+
+    if (!$(e.target).hasClass('c-select-2-wrapper') && !$(e.target).hasClass('c-select-2')) {
+      $(".cs2-out").find(".c-select-2-wrapper").remove();
+    }
+  }); //
+});
+
 /***/ }),
 
 /***/ "./resources/js/public/core/cookie.js":
@@ -35805,8 +35934,7 @@ $(document).ready(function () {
     });
   }
 }); // setCookie("notification", "accepted", 1);
-
-console.log(getCookie("notification"));
+// console.log(getCookie("notification"));
 
 /***/ }),
 
@@ -36425,8 +36553,7 @@ $(document).ready(function () {
   // localStorage.removeItem("filter-values");
   // localStorage.removeItem("checkbox-values");
 
-  var params = new window.URLSearchParams(window.location.search);
-  console.log(params.get('filter_values'));
+  var params = new window.URLSearchParams(window.location.search); // console.log(params.get('filter_values'));
 
   if (window.location.search !== '') {
     // TODO - Remove cached items !
@@ -36588,7 +36715,10 @@ $(document).ready(function () {
    */
   $(function () {
     $(".datepicker").datepicker({
-      dateFormat: 'dd.mm.yy'
+      dateFormat: 'dd.mm.yy',
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:+00"
     });
   });
   /*

@@ -38,4 +38,4 @@ $(document).ready(function (){
 // setCookie("notification", "accepted", 1);
 
 
-console.log(getCookie("notification"));
+// console.log(getCookie("notification"));

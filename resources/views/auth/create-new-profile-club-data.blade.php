@@ -27,22 +27,46 @@
                     </div>
                 @endif
 
-                @if(isset($clubData))
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="club"><b>{{ __('Vaš klub') }}</b></label>
-                            {!! Form::text('club', $clubData->clubRel->title ?? '', ['class' => 'form-control', 'id' => 'club', 'aria-describedby' => 'clubHelp', 'readonly' => 'true']) !!}
+{{--                @if(isset($clubData))--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label for="club"><b>{{ __('Vaš klub') }}</b></label>--}}
+{{--                            {!! Form::text('club', $clubData->clubRel->title ?? '', ['class' => 'form-control', 'id' => 'club', 'aria-describedby' => 'clubHelp', 'readonly' => 'true']) !!}--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @else--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label for="club"><b>{{ __('Vaš klub') }}</b></label>--}}
+{{--                            {!! Form::select('club', [], '', ['class' => 'form-control s2-search-clubs', 'id' => 'club', 'aria-describedby' => 'clubHelp','style' => 'width:100% !important;']) !!}--}}
+{{--                            <small id="clubHelp" class="form-text text-danger"><b>{{ __('Klub za koji trenutno igrate (ako nije na listi, obavezno ga napišite u napomeni)') }}</b></small>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group cs2-out">
+                            <label for="club_name"> <b>{{ __('Vaš klub') }}</b> </label>
+                            {!! Form::text('club_name', $clubData->clubRel->title ?? '', ['s-input' => 'club', 's-val' => $clubData->club_id ?? '', 'class' => 'form-control c-select-2', 'id' => 'club_name',  'aria-describedby' => 'club_nameHelp', isset($preview) ? 'readonly' : '']) !!}
+{{--                            <div class="c-select-2" value="" contenteditable="true"></div>--}}
+
+                            <small id="club_nameHelp" class="form-text text-muted" default="{{ __('Klub za koji trenutno igrate') }}"> {{ __('Klub za koji trenutno igrate') }} </small>
+
+{{--                            <div class="c-select-2-wrapper">--}}
+{{--                                @for($i=0; $i<10; $i++)--}}
+{{--                                    <div class="cs2-row" value="{{ $i }}">--}}
+{{--                                        <div class="cs2-img-w">--}}
+{{--                                            <img src="/images/club-images/ZEL.png" alt="">--}}
+{{--                                        </div>--}}
+{{--                                        <span>FK Željezničar {{ $i }}</span>--}}
+{{--                                    </div>--}}
+
+{{--                                @endfor--}}
+{{--                            </div>--}}
                         </div>
                     </div>
-                @else
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="club"><b>{{ __('Vaš klub') }}</b></label>
-                            {!! Form::select('club', [], '', ['class' => 'form-control s2-search-clubs', 'id' => 'club', 'aria-describedby' => 'clubHelp','style' => 'width:100% !important;']) !!}
-                            <small id="clubHelp" class="form-text text-danger"><b>{{ __('Klub za koji trenutno igrate (ako nije na listi, obavezno ga napišite u napomeni)') }}</b></small>
-                        </div>
-                    </div>
-                @endif
+                </div>
 
                 <div class="row">
                     <div class="col-md-6">

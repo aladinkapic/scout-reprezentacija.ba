@@ -301,7 +301,7 @@ $(document).ready(function() {
     // localStorage.removeItem("checkbox-values");
 
     let params = new window.URLSearchParams(window.location.search);
-    console.log(params.get('filter_values'));
+    // console.log(params.get('filter_values'));
 
     if(window.location.search !== ''){
         // TODO - Remove cached items !

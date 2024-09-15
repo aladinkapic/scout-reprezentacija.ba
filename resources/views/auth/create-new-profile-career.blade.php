@@ -58,9 +58,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="shirt_number"> <b>{{ __('Broj dresa') }}</b> </label>
+                            <label for="shirt_number"> <b>{{ __('Broj na dresu') }}</b> </label>
                             {!! Form::number('shirt_number', $user->shirt_number ?? '', ['class' => 'form-control required', 'id' => 'shirt_number', 'aria-describedby' => 'shirt_numberHelp', isset($preview) ? 'disabled => true' : '', 'min' => '0', 'max' => '99', 'step' => '1']) !!}
-                            <small id="shirt_numberHelp" class="form-text text-muted"> {{ __('Unesite Vaš trenutni broj dresa') }} </small>
+                            <small id="shirt_numberHelp" class="form-text text-muted"> {{ __('Unesite Vaš trenutni broj na dresu') }} </small>
                         </div>
                     </div>
                 </div>
