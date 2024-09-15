@@ -31,7 +31,7 @@
                         <div class="left_input__btn_w">
                             <p>
                                 <input type="checkbox" id="cf_agree" name="cf_agree">
-                                <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="{{ route('home.pages.terms-and-conditions') }}" target="_blank">{{ __('uslovima korištenja.') }}</a></label>
+                                <label for="cf_agree">{{ __('Slažem se sa') }} <a href="{{ route('home.pages.terms-and-conditions') }}" target="_blank">{{ __('uslovima korištenja') }}.</a></label>
                             </p>
                             <button class="send_us_message" attr="contact-form">{{ __('Pošaljte nam poruku') }}</button>
                         </div>
@@ -40,7 +40,7 @@
                 <div class="cu_i_w_right">
                     <div class="cu_i_w_right_one">
                         <div class="cu_i_w_right_one_1">
-                            <h6>{{ __('Za upite kontaktirajte: ') }}</h6>
+                            <h6>{{ __('Za upite kontaktirajte') }}:</h6>
                         </div>
                         <div class="cu_i_w_right_one_2">
                             <div class="cu_i_w_right_one_2_1">
