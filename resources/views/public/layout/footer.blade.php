@@ -103,7 +103,7 @@
                         <a class="footer__list1-link" href="{{ route('home.pages.terms-and-conditions') }}"> {{ __('Uslovi korištenja') }} </a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="{{ route('home.pages.cookies') }}"> {{ __('Korisnički kolačići') }} </a>
+                        <a class="footer__list1-link" href="{{ route('home.contact-us') }}"> {{ __('Kontaktirajte nas') }} </a>
                     </li>
                 </ul>
                 <ul class="footer__list2">
@@ -111,7 +111,7 @@
                         <a class="footer__list2-link" href="{{ route('auth.login') }}">{{ __('Prijavite se') }}</a>
                     </li>
                     <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="{{ route('auth.create-profile') }}"> {{ __('Kreirajte profil') }} </a>
+                        <a class="footer__list2-link" href="{{ route('auth.create-new-profile') }}"> {{ __('Kreirajte profil') }} </a>
                     </li>
                     <li class="footer__list2-item">
                         <a class="footer__list2-link" href="{{ route('home.players') }}">{{ __('Igrači') }}</a>

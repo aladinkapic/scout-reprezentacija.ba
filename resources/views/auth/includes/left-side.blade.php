@@ -53,10 +53,18 @@
 
         <hr>
 
-        <div class="social_network_wrapper bg-dark text-center" title="{{ __('Pošaljite zahtjev za kreiranje profila') }}">
-            <a href="mailto:press@reprezentacija.ba" class="center">
-                <p class="text-white">{{ __('press@reprezentacija.ba') }}</p>
-            </a>
-        </div>
+        @if(Auth()->check())
+            <div class="social_network_wrapper bg-dark text-center" title="{{ __('Pošaljite zahtjev za kreiranje profila') }}">
+                <a href="{{ route('auth.logout') }}" class="center">
+                    <p class="text-white">{{ __('Odjavite se') }}</p>
+                </a>
+            </div>
+        @else
+            <div class="social_network_wrapper bg-dark text-center" title="{{ __('Pošaljite zahtjev za kreiranje profila') }}">
+                <a href="mailto:press@reprezentacija.ba" class="center">
+                    <p class="text-white">{{ __('press@reprezentacija.ba') }}</p>
+                </a>
+            </div>
+        @endif
     </div>
 </div>

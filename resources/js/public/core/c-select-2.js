@@ -54,7 +54,7 @@ $(document).ready(function (){
                                             });
                                     })
                                     .append(function (){
-                                        return $("<span>").text(data[i]['title'] + ', ' + data[i]['city'] + ', ' + data[i]['country_rel']['name_ba']);
+                                        return $("<span>").text(data[i]['title'] + ', ' + data[i]['city'] /* + ', ' + data[i]['country_rel']['name_ba'] */);
                                     });
                             });
                         }

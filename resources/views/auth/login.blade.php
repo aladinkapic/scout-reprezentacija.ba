@@ -53,7 +53,7 @@
                         <div class="col-md-6 mt-3">
                             <a href="{{ route('auth.forgot-password') }}" class="tb-color mr-2"> {{ __('Zaboravili ste šifru?') }} </a>
                             <span>|</span>
-                            <a href="{{ route('auth.create-profile') }}"> {{ __('Kreirajte korisnički nalog') }} </a>
+                            <a href="{{ route('auth.create-new-profile') }}"> {{ __('Kreirajte korisnički nalog') }} </a>
                         </div>
                         <div class="col-md-6 mt-3 d-flex justify-content-end">
                             <button type="submit" class="btn auth-btn"> {{ __('PRIJAVITE SE') }} </button>

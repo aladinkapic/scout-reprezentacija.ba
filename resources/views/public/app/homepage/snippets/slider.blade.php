@@ -19,7 +19,7 @@
                         <button> {{ __('PRIJAVITE SE') }} </button>
                     </a>
                     <p>
-                        {{ __('Niste registrovani?') }} <a href="{{ route('auth.create-profile') }}">{{ __('Kreirajte svoj profil!') }}</a>
+                        {{ __('Niste registrovani?') }} <a href="{{ route('auth.create-new-profile') }}">{{ __('Kreirajte svoj profil!') }}</a>
                     </p>
 
                     <div class="arrow-down" id="arrow-down-trigger">

@@ -86,6 +86,11 @@
             </a>
         </div>
         <div class="single-link">
+            <a href="{{ route('auth.create-new-profile') }}">
+                <p>{{ __('Kreirajte profil') }}</p>
+            </a>
+        </div>
+        <div class="single-link">
             <a href="https://reprezentacija.ba/o-nama">
                 <p>{{ __('O nama') }}</p>
             </a>
@@ -113,12 +118,12 @@
                     <p>{{ __('Uslovi korištenja') }}</p>
                 </div>
             </a>
-            <a href="{{ route('home.pages.cookies') }}">
+            <a href="{{ route('home.contact-us') }}">
                 <div class="rol-link">
                     <div class="rol-l-line">
                         <div class="rol-l-l-circle"></div>
                     </div>
-                    <p>{{ __('Korisnički kolačići') }}</p>
+                    <p>{{ __('Kontaktirajte nas') }}</p>
                 </div>
             </a>
         </div>
