@@ -1,4 +1,4 @@
-<div class="pp-header">
+<div class="pp-header @if(!Auth()->check()) mt-60 @endif">
     <div class="pp-h-img-wrapper">
         @for($i=0; $i<1000; $i++)
             @include('public.app.players.snippets.svg-image')

@@ -115,11 +115,13 @@ $(document).ready(function (){
     });
 
     $('html').click(function(e) {
-        console.log("Clicked ..");
-        if(!$(e.target).hasClass('c-select-2-wrapper') && !$(e.target).hasClass('c-select-2'))
-        {
-
+        // console.log("Clicked ..");
+        if(!$(e.target).hasClass('c-select-2-wrapper') && !$(e.target).hasClass('c-select-2')) {
             $(".cs2-out").find(".c-select-2-wrapper").remove();
+        }
+
+        if(!$(e.target).hasClass('mac_w_clk')) {
+            $(".more__actions_w").addClass('d-none');
         }
     });
     //

@@ -32,6 +32,61 @@
                 .loved-it{
                     .fa-heart{color:#bb2d3b;}
                 }
+
+                .dots__w{
+                    width: 30px; height: 30px; display: flex; align-items: flex-end; flex-direction: column;
+                    svg{
+                        width: 20px; height: auto;
+                    }
+                }
+
+                /* Dots for submenu action */
+                .more-actions-t:hover{
+                    cursor: pointer;
+                }
+
+                .more__actions_w{
+                    position: absolute; right: 6px; top: 32px; width: 240px; background: #fff;
+                    filter: drop-shadow(3px 3px 4px rgb(0 0 0 / 0.2)); z-index: 10000; border-radius: 6px;
+                    border-top-right-radius: 0px; display: flex; gap: 4px; flex-wrap: wrap; padding: 4px 0px;
+
+                    svg{
+                        position: absolute; right: 0px; top: -12px; filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+                    }
+                    .top__right__line{
+                        position: absolute; right: 0px; top: 0px; width: 21px; height: 2px; background: #FFFFFF;
+                    }
+
+                    /**
+                     *  ROW
+                     */
+                    .ma__row{
+                        position: relative; width: 100%; padding: 0px 4px;
+                        a{
+                            position: relative; width: 100%; height: auto; display: inline-flex;
+                            align-content: center; align-items: center; gap: 10px; padding: 4px 12px;
+                            transition: 0.2s all; text-decoration: none; border-radius: 4px;
+
+                            color: #000000;
+
+                            i{
+                                font-size: 12px; color: #000000;
+                            }
+                        }
+                    }
+                    .ma__row:hover{
+                        cursor: pointer;
+                        a{
+                            background: rgba(0,0,0,0.1);
+                        }
+                    }
+
+                    .line{
+                        position: relative; width: 100%; height: 1px; background: rgba(0,0,0,0.1);
+                    }
+                    //.ma__row:first-child{margin-top: 4px;}
+                    //.ma__row:last-child{margin-bottom: 4px;}
+                }
             }
         }
         .sp-post{
@@ -62,7 +117,10 @@
     .posts-wrapper{
         .single-post{
             .image-wrapper{
-                height: auto; overflow: hidden; background: none;
+                height: auto; background: none; overflow: initial;
+                img{
+                    width: 100%;
+                }
             }
         }
     }

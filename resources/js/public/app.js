@@ -44,3 +44,11 @@ require('./players/player-rating');
 require('./core/cookie');
 require('./pages/contact-us');
 require('./core/c-select-2');
+
+/**
+ *  Posts
+ */
+require('../blog/get-data');
+require('../blog/new-post');
+
+require('./users/posts');

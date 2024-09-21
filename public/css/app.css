@@ -2896,6 +2896,7 @@ select::-ms-expand {
   height: 20px;
   display: inline-flex;
   justify-content: flex-end;
+  /* Dots for submenu action */
 }
 
 .posts-wrapper .single-post .sp-header .sp-icons .sp-i-wrapper {
@@ -2915,6 +2916,99 @@ select::-ms-expand {
 
 .posts-wrapper .single-post .sp-header .sp-icons .loved-it .fa-heart {
   color: #bb2d3b;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .dots__w {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .dots__w svg {
+  width: 20px;
+  height: auto;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more-actions-t:hover {
+  cursor: pointer;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w {
+  position: absolute;
+  right: 6px;
+  top: 32px;
+  width: 240px;
+  background: #fff;
+  filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.2));
+  z-index: 10000;
+  border-radius: 6px;
+  border-top-right-radius: 0px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 4px 0px;
+  /**
+   *  ROW
+   */
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w svg {
+  position: absolute;
+  right: 0px;
+  top: -12px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .top__right__line {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 21px;
+  height: 2px;
+  background: #FFFFFF;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .ma__row {
+  position: relative;
+  width: 100%;
+  padding: 0px 4px;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .ma__row a {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  transition: 0.2s all;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #000000;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .ma__row a i {
+  font-size: 12px;
+  color: #000000;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .ma__row:hover {
+  cursor: pointer;
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .ma__row:hover a {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.posts-wrapper .single-post .sp-header .sp-icons .more__actions_w .line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .posts-wrapper .single-post .sp-post {
@@ -2972,8 +3066,12 @@ select::-ms-expand {
 @media only screen and (max-width: 800px) {
   .posts-wrapper .single-post .image-wrapper {
     height: auto;
-    overflow: hidden;
     background: none;
+    overflow: initial;
+  }
+
+  .posts-wrapper .single-post .image-wrapper img {
+    width: 100%;
   }
 }
 

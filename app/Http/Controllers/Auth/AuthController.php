@@ -35,7 +35,7 @@ class AuthController extends Controller{
             return json_encode([
                 'code' => '0000',
                 'message' => __('Uspješno ste se prijavili!'),
-                'url' => ($user->active) ? route('system.users.profile') : route('auth.create-new-profile')
+                'url' => ($user->active) ? route('profile.posts') : route('auth.create-new-profile')
             ]);
 
             /**

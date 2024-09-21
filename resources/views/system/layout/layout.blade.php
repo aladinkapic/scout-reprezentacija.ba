@@ -8,7 +8,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icons/LogoMali.png') }}"/>
 
         <!-- CSS files + fonts -->
-        <script src="https://kit.fontawesome.com/cdf2a0a58b.js"></script>
+        <script src="https://kit.fontawesome.com/bccf934f7c.js"></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- JavaScript files -->

@@ -38,6 +38,11 @@
     @include('public.layout.menu')
     @include('public.layout.public-notification')
 
+    <!-- Inner menu for logged users -->
+    @if(Auth()->check())
+        @include('public.layout.inner-menu')
+    @endif
+
     @yield('content')
     @include('public.layout.footer')
     <script src="{{ asset('js/public.js') . '?random=' . date ("F-d-Y-H-i-s", filemtime('js/public.js')) }}"></script>

@@ -85,6 +85,50 @@ Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
     Route::get ('/logout',                               'AuthController@logout')->name('auth.logout');
 });
 
+Route::group(['namespace' => 'Users', 'prefix' => '/my-profile', 'middleware' => 'isAuthenticated'], function(){
+    Route::group(['prefix' => '/user-info'], function(){
+        Route::get ('/info',                         'ProfileController@info')->name('profile.info');
+        Route::post('/update-info',                  'ProfileController@updateInfo')->name('profile.info.update');
+
+        Route::get ('/career',                       'ProfileController@career')->name('profile.info.career');
+        Route::post('/update-career',                'ProfileController@updateCareer')->name('profile.info.career.update');
+
+        Route::get ('/change-password',              'ProfileController@changePassword')->name('profile.change-password');
+        Route::post('/update-password',              'ProfileController@updatePassword')->name('profile.update-password');
+    });
+
+    /**
+     *  Posts controller
+     */
+    Route::group(['prefix' => '/posts'], function(){
+        Route::get ('/',                             'PostsController@posts')->name('profile.posts');
+        Route::post('/send-a-message',               'ContactUsController@sendAMessage')->name('home.contact-us.send-a-message');
+    });
+
+    Route::group(['prefix' => '/career-data'], function(){
+        Route::get ('/clubs',                        'CareerController@clubs')->name('profile.career-data.clubs');
+
+        /* Add new club */
+        Route::get ('/new-club',                     'CareerController@newClub')->name('profile.career-data.clubs.new-club');
+        Route::post('/save-new-club',                'CareerController@saveNewClub')->name('profile.career-data.clubs.save-new-club');
+
+        Route::get ('/edit-club-data/{id}',          'CareerController@editClubData')->name('profile.career-data.clubs.edit-club-data');
+        Route::post('/update-club-data',             'CareerController@updateClubData')->name('profile.career-data.clubs.update-club-data');
+
+        /**
+         *  National teams
+         */
+        Route::get ('/national-teams',                      'CareerController@nationalTeams')->name('profile.career-data.national-teams');
+
+        /* Add new club */
+        Route::get ('/new-national-teams',                  'CareerController@newNationalTeam')->name('profile.career-data.national-teams.new-national-team');
+        Route::post('/save-new-national-teams',             'CareerController@saveNewNationalTeam')->name('profile.career-data.national-teams.save-new-national-team');
+
+        Route::get ('/edit-national-teams-data/{id}',       'CareerController@editNationalTeam')->name('profile.career-data.national-teams.edit-national-team-data');
+        Route::post('/update-national-teams-data',          'CareerController@updateNationalTeam')->name('profile.career-data.national-teams.update-national-team-data');
+    });
+});
+
 Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'isAuthenticated'], function(){
 
     /*

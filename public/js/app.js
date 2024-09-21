@@ -30829,6 +30829,7 @@ $(document).ready(function () {
     $("#edit_post_image").val(''); // Reset edit post image
 
     $("#post_id").val(id);
+    $(".more__actions_w").addClass('d-none');
     $.ajax({
       url: '/system/blog-posts/get-data',
       method: 'POST',

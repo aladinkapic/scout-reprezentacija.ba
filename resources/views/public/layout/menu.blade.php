@@ -38,6 +38,12 @@
                     <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
                 @endif
             </div>
+
+            @if(auth()->user())
+                <div class="single-link sign-out">
+                    <a href="{{ route('auth.logout') }}"> {{ __('Odjavite se') }} </a>
+                </div>
+            @endif
         </div>
     </div>
 </header>

@@ -30329,6 +30329,208 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/blog/get-data.js":
+/*!***************************************!*\
+  !*** ./resources/js/blog/get-data.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {});
+
+/***/ }),
+
+/***/ "./resources/js/blog/new-post.js":
+/*!***************************************!*\
+  !*** ./resources/js/blog/new-post.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  /*
+   *  New photo; Trigger different actions
+   */
+  var setPopupPosition = function setPopupPosition() {
+    var popupWrapper = $(".b-np-popup");
+    popupWrapper.css('top', parseInt(window.innerHeight / 2) - parseInt(popupWrapper.height() / 2) + 'px');
+  };
+  /*
+   *  Textarea (main input form) properties
+   */
+
+
+  var setText = function setText() {
+    var font = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 14;
+    var popUp = $(".b-np-pb-text");
+    if (window.innerWidth >= 800) popUp.css('height', font === 14 ? '280px' : '140px');
+    $(".post-text").css('font-size', font + 'px');
+    setPopupPosition();
+  };
+  /*
+   *  Video properties:
+   *      - set iframe if youtube link is detected
+   *      - show iframe
+   *      - if image selected, do not show iframe
+   *
+   *  Remove youtube video from input
+   */
+
+
+  var youtubeVideo = function youtubeVideo(ID) {
+    var ytWrapper = $(".youtube-preview"),
+        ytVideo = $("#youtube-link-preview");
+
+    if ($(".b-np-bp-image-preview").hasClass('d-none')) {
+      var newLink = 'https://www.youtube.com/embed/' + ID;
+
+      if (newLink !== ytVideo.attr('src')) {
+        ytVideo.attr('src', newLink);
+        $("#youtubeLink").val(newLink);
+      }
+
+      ytWrapper.removeClass('d-none');
+      setText(14);
+    } else {
+      ytWrapper.addClass('d-none');
+    }
+  };
+
+  $(".close-iframe").click(function () {
+    $(".youtube-preview").addClass('d-none');
+    $("#youtubeLink").val('');
+    $("#youtube-link-preview").attr('src', '');
+    setText(20);
+  });
+  /* Auto resize textarea depending on input */
+
+  $(document).on('input', '.post-text', function () {
+    $(this).outerHeight(60).outerHeight(this.scrollHeight);
+    var postBtn = $(".b-np-pb-post");
+    if ($(this).val() !== '') postBtn.removeClass('b-np-pb-post-greyed');else postBtn.addClass('b-np-pb-post-greyed');
+    var target = jQuery(this).val();
+    var regExp = /(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})(?:\?t=|)(\d+|)([\S\s]*)/i;
+    var match = target.match(regExp);
+    console.log(match);
+
+    if (typeof match !== 'undefined' && match !== null) {
+      youtubeVideo(match[6]);
+    } // console.log("Video ID:"); console.log(match[6]);
+    // console.log("Video start time:"); console.log(match[7]);
+    // console.log("After:"); console.log(match[8]);
+
+  });
+  /*
+   *  Close popup and set text from textarea into the main wrapper .. Only first 50 letters
+   */
+
+  $(".b-np-ph-exit").click(function () {
+    $(".b-new-post-popup-wrapper").fadeOut(); // I'm thinking about you, my soul mate ..
+
+    var postText = $(".post-text"),
+        mainPost = '';
+
+    if (postText.val() !== '') {
+      var length = postText.val().length > 50 ? 50 : postText.val().length;
+
+      for (var i = 0; i < length; i++) {
+        mainPost += postText.val()[i];
+      }
+
+      if (length === 50) mainPost += ' ..';
+    } else mainPost = 'Objavi status, fotografiju ili video link na svom zidu?';
+
+    $(".b-np-tf-text").find("p").text(mainPost);
+  });
+  $(".b-np-tf-text").click(function () {
+    $(".b-new-post-popup-wrapper").fadeIn();
+  });
+  $(".new-photo-trigger").click(function () {
+    /* Show image wrapper and preview options */
+    $(".b-np-bp-image-preview").removeClass('d-none');
+    /* Hide iframe */
+
+    $(".youtube-preview").addClass('d-none');
+    setText(14);
+    /* Set text to default */
+
+    $("#choose-here").removeClass('red').text("Odaberite ovdje ..");
+  });
+  $(".close-image").click(function () {
+    var postText = $(".post-text");
+    $(".b-np-bp-image-preview").addClass('d-none');
+    $(".post-image-preview").addClass('d-none').attr('src', '');
+    $(".post-image").prop("value", "");
+    if (postText.val() === '') $(".b-np-pb-post").addClass('b-np-pb-post-greyed');
+    setText(20);
+    $("#edit_post_image").val('');
+  });
+  /* On change, preview image */
+
+  $(".post-image").change(function (e) {
+    if (!e.target.files[0].name.includes(".jpeg") && !e.target.files[0].name.includes(".jpg") && !e.target.files[0].name.includes(".png")) {
+      $("#choose-here").addClass('red').text("Format nije podržan");
+      return;
+    } else {
+      $("#choose-here").removeClass('red').text("Odaberite ovdje ..");
+    }
+
+    $(".post-image-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
+    $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
+  });
+  /* -------------------------------------------------------------------------------------------------------------- */
+
+  /*
+   *  Edit posts; Create new HTTP to fetch data from post
+   */
+
+  $(".edit-blog-post").click(function () {
+    var id = $(this).attr('post-id');
+    $("#edit_post_image").val(''); // Reset edit post image
+
+    $("#post_id").val(id);
+    $(".more__actions_w").addClass('d-none');
+    $.ajax({
+      url: '/system/blog-posts/get-data',
+      method: 'POST',
+      dataType: "json",
+      data: {
+        id: id
+      },
+      success: function success(response) {
+        if (response['code'] === '0000') {
+          /*
+           *  In form, set hidden input to true; Edit post
+           */
+          $("#edit_post").val(1);
+          $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
+          var data = response['data'];
+          var popUpWrapper = $(".b-new-post-popup-wrapper");
+          popUpWrapper.fadeIn();
+          $(".post-text").val(data['post']);
+
+          if (data['image'] !== '' && data['image'] !== null) {
+            $(".b-np-bp-image-preview").removeClass('d-none');
+            $(".post-image-preview").removeClass('d-none').attr('src', '/images/blog/' + data['image']);
+            $("#edit_post_image").val(data['image']);
+            setText(14);
+          } else if (data['youtube'] !== '' && data['youtube'] !== null) {
+            $(".youtube-preview").removeClass('d-none');
+            $("#youtube-link-preview").attr('src', data['youtube']);
+            $("#youtubeLink").val(data['youtube']);
+            setText(14);
+          }
+        }
+
+        console.log(response['data']);
+      }
+    });
+    console.log(id);
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -35763,6 +35965,16 @@ __webpack_require__(/*! ./core/cookie */ "./resources/js/public/core/cookie.js")
 __webpack_require__(/*! ./pages/contact-us */ "./resources/js/public/pages/contact-us.js");
 
 __webpack_require__(/*! ./core/c-select-2 */ "./resources/js/public/core/c-select-2.js");
+/**
+ *  Posts
+ */
+
+
+__webpack_require__(/*! ../blog/get-data */ "./resources/js/blog/get-data.js");
+
+__webpack_require__(/*! ../blog/new-post */ "./resources/js/blog/new-post.js");
+
+__webpack_require__(/*! ./users/posts */ "./resources/js/public/users/posts.js");
 
 /***/ }),
 
@@ -35885,10 +36097,13 @@ $(document).ready(function () {
     }
   });
   $('html').click(function (e) {
-    console.log("Clicked ..");
-
+    // console.log("Clicked ..");
     if (!$(e.target).hasClass('c-select-2-wrapper') && !$(e.target).hasClass('c-select-2')) {
       $(".cs2-out").find(".c-select-2-wrapper").remove();
+    }
+
+    if (!$(e.target).hasClass('mac_w_clk')) {
+      $(".more__actions_w").addClass('d-none');
     }
   }); //
 });
@@ -36761,6 +36976,56 @@ $(document).ready(function () {
         slidesToShow: 2
       }
     }]
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/public/users/posts.js":
+/*!********************************************!*\
+  !*** ./resources/js/public/users/posts.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  /**
+   *  Show post edit and delete buttons
+   */
+  $(".more-actions-t").click(function () {
+    console.log("xD ??");
+    $(".more__actions_w").addClass('d-none');
+    $(this).parent().find('.more__actions_w').removeClass('d-none');
+  });
+  $(document).not('.single-post').on('click', function (e) {
+    // Handle event gracefully
+    e.preventDefault();
+    alert('Hello');
+  });
+  /**
+   *  User profile
+   */
+
+  /* -------------------------------------------------------------------------------------------------------------- */
+
+  /*
+   * Profile submenu
+   */
+
+  var innerMenuOpen = false;
+
+  if (window.innerWidth <= 1200) {
+    $(".profile__submenu").addClass('active'); // $(".profile__inner_menu").toggleClass('d-none');
+  }
+
+  $(".profile__submenu").click(function () {
+    if (!innerMenuOpen) {
+      innerMenuOpen = true;
+      $(".profile__inner_menu").css('display', 'inline-flex');
+    } else {
+      innerMenuOpen = false;
+      $(".profile__inner_menu").css('display', 'none');
+    }
   });
 });
 

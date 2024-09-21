@@ -23,12 +23,17 @@ header {
     .menu-wrapper{
         position: relative; left:calc(50% - 600px); width: $maxWidth; height: 60px; display: inline-flex; justify-content: space-between;
         .mw-logo{
-            img{ margin-top:16px; height: 28px;}
+            img{
+                @media only screen and (max-width: 1000px){
+                    height: 24px; margin-top: 18px;
+                }
+                margin-top:16px; height: 28px;
+            }
         }
         .mobile-burger{
-            position: absolute; right: 0px; top:10px; width: 40px; height: 40px; text-align: right; display: none;
+            position: absolute; right: 0px; top:13px; width: 40px; height: 40px; text-align: right; display: none;
             .fa-bars{
-                color:#fff !important; font-size: 30px; margin-top: 6px;
+                color:#fff !important; font-size: 24px; margin-top: 6px;
             }
         }
         .mw-links{
@@ -67,6 +72,15 @@ header {
             }
             .sign-in{
                 border: 1px solid #FFFFFF; border-radius: 4px; height: 32px; margin-top: 4px; padding: 0px 16px;
+                // a{color:$yellow;}
+                //  a{color: $primaryDark; font-weight: bold;}
+            }
+
+            .sign-out{
+                border: 1px solid #FFFFFF; border-radius: 4px; background: #FFFFFF; height: 32px; margin-top: 4px; padding: 0px 16px;
+                a{
+                    color: $primaryDark;
+                }
                 // a{color:$yellow;}
                 //  a{color: $primaryDark; font-weight: bold;}
             }
@@ -204,6 +218,11 @@ header {
         position: fixed; z-index: 1000;
         .menu-wrapper{
             left: 20px; width: calc(100% - 40px);
+
+            /* Only for visitors */
+            &.mb-60{
+                margin-bottom: 60px;
+            }
             .mobile-burger{display: block;}
             .mw-links{
                 display: none;

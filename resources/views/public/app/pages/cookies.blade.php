@@ -1,7 +1,7 @@
 @extends('public.layout.layout')
 
 @section('content')
-    <div class="privacy-wrapper">
+    <div class="privacy-wrapper @if(!Auth()->check()) mt-60 @endif">
         <div class="pw-header">
             <h5>{{ __('Pažljivo pročitati') }}</h5>
             <h1> {{ __('Pravila o postupanju s kolačićima') }} </h1>

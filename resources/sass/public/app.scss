@@ -42,6 +42,7 @@ $yellow: #ffc107;
 // Menu
 
 @import "menu/menu.scss";
+@import "menu/inner_menu.scss";
 
 // Homepage
 
@@ -92,3 +93,10 @@ $yellow: #ffc107;
 /* create profile */
 @import "auth/create-new-profile";
 @import "core/c-select-2";
+
+
+/**
+ *  My profile
+ */
+
+@import "users/my_profile";

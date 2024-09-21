@@ -421,7 +421,7 @@
 
 @media only screen and (max-width: 1000px){
     .pp-header{
-        margin-top: 60px;
+        //margin-top: 60px;
     }
     .public-container{
         .preview-wrapper{
@@ -454,7 +454,7 @@
 @media only screen and (max-width: 800px){
     .pp-header{height: auto; text-align: center;}
     .public-container {
-        margin-top: 60px;
+        //margin-top: 60px;
         .preview-wrapper {
             flex-wrap: wrap;
             .pw-left, .pw-right{width: 100%; border:none; text-align: center;}

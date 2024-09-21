@@ -1,4 +1,4 @@
-<div class="main-slider">
+<div class="main-slider @if(!Auth()->check()) mt-60 @endif">
     <div class="main-slider-wrapper">
         <div class="main-text">
             <div class="center-div">

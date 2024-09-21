@@ -1,7 +1,7 @@
 @extends('public.layout.layout')
 
 @section('content')
-    <div class="contact_us_wrapper">
+    <div class="contact_us_wrapper @if(!Auth()->check()) mt-60 @endif">
         <div class="contact_us_inner_wrapper">
             <div class="cu_i_w_form">
                 <div class="cu_i_w_left">

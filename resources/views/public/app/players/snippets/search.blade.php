@@ -1,4 +1,4 @@
-<div id="search-console">
+<div id="search-console" class="@if(!Auth()->check()) mt-60 @endif">
     <div class="search-wrapper">
         <div class="search-row">
             <div class="top-first">
