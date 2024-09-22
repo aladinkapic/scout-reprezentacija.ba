@@ -32,11 +32,18 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="height"> <b>{{ __('Pod ugovorom') }}</b> </label>
                         {!! Form::select('under_contract', ['Ne' => 'Ne', 'Da' => 'Da'], Auth()->user()->under_contract ?? '', ['class' => 'form-control required', 'id' => 'under_contract', 'aria-describedby' => 'under_contractHelp', isset($preview) ? 'disabled => true' : '']) !!}
                         <small id="under_contractHelp" class="form-text text-muted"> {{ __('Da li ste trenutno pod ugovorom?') }} </small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="height"> <b>{{ __('Visina (cm)') }}</b> </label>
+                        {!! Form::number('height', Auth()->user()->height ?? '0', ['class' => 'form-control', 'id' => 'height', 'aria-describedby' => 'heightHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => 230]) !!}
+                        <small id="heightHelp" class="form-text text-muted"> {{ __('Visina korisnika u cm') }} </small>
                     </div>
                 </div>
             </div>
