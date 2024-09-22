@@ -24,7 +24,7 @@ class AuthController extends Controller{
     protected $_path = 'auth.';
 
     public function login(){
-        if(Auth::check()) return redirect()->route('system.users.profile');
+        if(Auth::check()) return redirect()->route('profile.posts');
         return view($this->_path.'login');
     }
     public function logMeIn(Request $request){
@@ -77,7 +77,7 @@ class AuthController extends Controller{
     public function createNewProfile(){
         if(Auth::check()){
             $user = Auth::user();
-            if($user->active == 1) return redirect()->route('system.users.profile');
+            if($user->active == 1) return redirect()->route('profile.posts');
         }
         return view($this->_path.'create-new-profile', [
             'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
@@ -318,7 +318,7 @@ class AuthController extends Controller{
                     return json_encode([
                         'code' => '0000',
                         'message' => __('Uspješno ste izmijenili Vašu šifru!'),
-                        'url' => route('system.users.profile')
+                        'url' => route('profile.posts')
                     ]);
                 }
             }else{}
