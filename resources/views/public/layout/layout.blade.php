@@ -39,7 +39,7 @@
     @include('public.layout.public-notification')
 
     <!-- Inner menu for logged users -->
-    @if(Auth()->check())
+    @if(Auth()->check() and Auth()->user()->active == 1)
         @include('public.layout.inner-menu')
     @endif
 
