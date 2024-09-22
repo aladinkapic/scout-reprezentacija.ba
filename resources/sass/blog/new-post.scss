@@ -19,8 +19,13 @@
         .b-np-tf-text{
             position: relative; left:0px; top: 0px; width: calc(100% - 60px); height: 40px; margin-top:14px; background: #F5F5F5;
             text-align: left; border-radius: 4px;
+
             p{
                 margin-left: 15px; padding-top:8px;
+
+                white-space: nowrap; /* Prevent text from wrapping */
+                overflow: hidden; /* Hide the overflowed content */
+                text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
             }
         }
     }

@@ -33,7 +33,7 @@
             </div>
             <div class="single-link sign-in">
                 @if(auth()->user())
-                    <a href="{{ route('system.users.profile') }}"> {{ auth()->user()->name ?? '' }} </a>
+                    <a href="{{ route('profile.posts') }}"> {{ auth()->user()->name ?? '' }} </a>
                 @else
                     <a href="{{ route('auth.login') }}"> {{ __('Prijavite se') }} </a>
                 @endif
@@ -143,7 +143,7 @@
 
     <div class="mm-footer">
         @if(auth()->user())
-            <a href="{{ route('system.users.profile') }}">
+            <a href="{{ route('profile.posts') }}">
                 <div class="mm-lgn-btn">
                     {{ auth()->user()->name ?? '' }}
                 </div>

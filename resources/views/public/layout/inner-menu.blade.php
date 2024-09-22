@@ -1,8 +1,8 @@
 <div class="inner__menu_w">
 
     <div class="mobile_small_menu">
-        <a href="#}">
-            <div class="single_elem @if(Route::is('dashboard.my-notes')) active @endif">
+        <a href="{{ route('profile.posts') }}">
+            <div class="single_elem @if(Route::is('profile.posts')) active @endif">
                 <i class="fas fa-users"></i>
                 <div class="total_no"><p><b>{{ Auth()->user()->blogPosts->count() }}</b></p></div>
             </div>
@@ -10,19 +10,19 @@
         <a href="#}">
             <div class="single_elem @if(Route::is('dashboard.inbox')) active @endif">
                 <i class="fas fa-heart"></i>
-                <div class="total_no"><p><b>16</b></p></div>
+                <div class="total_no"><p><b>{{ Auth()->user()->totalLikes() }}</b></p></div>
             </div>
         </a>
 
-        <a href="#">
-            <div class="single_elem @if(Route::is('dashboard.my-schedule')) active @endif">
+        <a href="{{ route('profile.career-data.clubs') }}">
+            <div class="single_elem @if(Route::is('profile.career-data.clubs') or Route::is('profile.career-data.clubs.new-club') or Route::is('profile.career-data.clubs.edit-club-data')) active @endif">
                 <i class="fas fa-futbol"></i>
                 <div class="total_no" id="number-of-unread-messages-m"><p><b>{{ Auth()->user()->clubDataRel->count() }}</b></p></div>
             </div>
         </a>
 
-        <a href="#">
-            <div class="single_elem @if(Route::is('dashboard.chat')) active @endif">
+        <a href="{{ route('profile.career-data.national-teams') }}">
+            <div class="single_elem @if(Route::is('profile.career-data.national-teams') or Route::is('profile.career-data.national-teams.new-national-team') or Route::is('profile.career-data.national-teams.edit-national-team-data')) active @endif">
                 <i class="fas fa-flag"></i>
                 <div class="total_no" id="number-of-unread-messages-m"><p><b>{{ Auth()->user()->natTeamDataRel->count() }}</b></p></div>
             </div>
@@ -80,6 +80,12 @@
                     <div class="number" id="number-of-minutes-for-nt-w">
                         <p id="number-of-minutes-for-nt"> {{ Auth()->user()->natTeamDataRel->count() }} </p>
                     </div>
+                </div>
+            </a>
+            <a href="{{ route('home.players.player-timeline', ['username' => Auth()->user()->username ]) }}">
+                <div class="inner__menu_links_link">
+                    <i class="fas fa-bullhorn"></i>
+                    <p>{{ __('Moj javni profil') }}</p>
                 </div>
             </a>
         </div>

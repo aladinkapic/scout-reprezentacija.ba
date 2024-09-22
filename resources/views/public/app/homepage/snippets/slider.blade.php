@@ -9,8 +9,8 @@
                     </div>
                     <div class="connect-with">
                         <h2>
-                            <p>{{ __('Poveži se sa') }}</p>
-                            <span id="text"> {{ __('selektorima, klubovima, agentima, medijima') }}... </span>
+                            <p>{{ __('Napravi svoj profil na platformi') }} <br> {{ __('Scout Reprezentacija.ba!') }}</p>
+                            <span id="text"> {{ __('Poveži se sa selektorima, klubovima, agentima, medijima') }}... </span>
                         </h2>
                     </div>
                 </div>

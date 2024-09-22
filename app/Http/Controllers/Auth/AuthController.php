@@ -116,6 +116,7 @@ class AuthController extends Controller{
         }
     }
     public function createNewProfileAddress (){
+        if(!Auth::check()) return redirect()->route('auth.create-new-profile');
         return view($this->_path.'create-new-profile-career', [
             'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
             'position' => Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite poziciju', ''),
@@ -138,6 +139,7 @@ class AuthController extends Controller{
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function createNewProfileClubData  (){
+        if(!Auth::check()) return redirect()->route('auth.create-new-profile');
         if((Auth()->user()->position == '')) return redirect()->route('auth.create-new-profile.career');
 
         $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
@@ -194,6 +196,7 @@ class AuthController extends Controller{
      *  Info about national team data
      */
     public function createNewProfileNTData (){
+        if(!Auth::check()) return redirect()->route('auth.create-new-profile');
         $clubData = ClubData::where('user_id', Auth::user()->id)->first();
         if(!isset($clubData)) return redirect()->route('auth.create-new-profile.club-data');
 

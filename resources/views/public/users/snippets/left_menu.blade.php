@@ -1,6 +1,6 @@
 @include('system.app.users.snippets.crop-image')
 
-<div class="left__menu @if(isset($myProfile)) my_profile @endif @if(Route::is('auth.create-new-profile.career') or Route::is('auth.create-new-profile.club-data') or Route::is('auth.create-new-profile.national-team-data')) m-off @endif">
+<div class="left__menu @if(Route::is('profile.posts') or Route::is('profile.career-data.clubs') or Route::is('profile.career-data.clubs.new-club') or Route::is('profile.career-data.clubs.edit-club-data') or Route::is('profile.career-data.national-teams') or Route::is('profile.career-data.national-teams.new-national-team') or Route::is('profile.career-data.national-teams.edit-national-team-data') or Route::is('profile.posts') or Route::is('profile.change-password') ) m-off @endif">
     <div class="p__w_l_img_w">
         <form action="#" method="POST" id="update-profile-image" enctype="multipart/form-data">
             <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="@if(Auth()->check() and Auth()->user()->image != '') {{ asset('images/profile-images/'. Auth()->user()->image) }} @else {{ asset('images/user.png') }} @endif " alt="">

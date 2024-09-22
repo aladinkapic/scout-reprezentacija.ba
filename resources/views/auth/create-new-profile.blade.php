@@ -55,7 +55,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="phone"><b>{{ __('Broj telefona') }}</b></label>
-                                {!! Form::text('phone', isset($user) ? $user->phone : '', ['class' => 'form-control required', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '20']) !!}
+                                {!! Form::text('phone', isset($user) ? $user->phone : '+387 ', ['class' => 'form-control required', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '20']) !!}
                                 <small id="phoneHelp" class="form-text text-muted"><b>{{ __('Unesite Vaš broj telefona') }}</b></small>
                             </div>
                         </div>

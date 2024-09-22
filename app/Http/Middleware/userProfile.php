@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use App\User;
+use Closure;
+use Illuminate\Support\Facades\Auth;
+
+class userProfile
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next){
+        if(Auth::check()){
+            if(Auth::user()->role == 0){
+                return redirect()->route('system.users.index');
+            }else{
+                if(Auth::user()->active or ($request->route()->getName() == 'system.users.change-profile-image')){
+                    \View::share([
+                        'loggedUser' => User::find(Auth::id())
+                    ]);
+
+                    return $next($request);
+                }else{
+                    /*
+                     *  For users that have incoplete profile
+                     */
+                    return redirect()->route('auth.create-new-profile');
+                }
+            }
+        }
+        else return redirect()->route('auth.login');
+    }
+}

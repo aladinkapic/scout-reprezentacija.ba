@@ -2370,6 +2370,12 @@ select::-ms-expand {
 .b-new-post .b-np-text-field .b-np-tf-text p {
   margin-left: 15px;
   padding-top: 8px;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  overflow: hidden;
+  /* Hide the overflowed content */
+  text-overflow: ellipsis;
+  /* Display ellipsis (...) for overflowed text */
 }
 
 .b-new-post .b-np-text-field:hover {

@@ -67,8 +67,17 @@
                     //    fill: $primaryDark !important;
                     //}
                 }
+                i{
+                    // color: $primaryDark;
+                    animation: heartBeat infinite; /* referring directly to the animation's @keyframe declaration */
+                    animation-duration: 2s; /* don't forget to set a duration! */
+                }
                 .total_no{
-                    p{color:$primaryDark;}
+                    p{
+                        //color:$primaryDark;
+                        animation: heartBeat infinite; /* referring directly to the animation's @keyframe declaration */
+                        animation-duration: 2s; /* don't forget to set a duration! */
+                    }
                 }
             }
         }

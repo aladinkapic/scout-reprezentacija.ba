@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>@yield('title', __('Scout.Reprezentacija.BA'))</title>
+    <title>@yield('title', __('Platforma za igrače - scout.reprezentacija.ba'))</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/public.css') . '?random=' . date ("F-d-Y-H-i-s", filemtime('js/public.js')) }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
@@ -18,15 +18,15 @@
 
     <meta property="fb:app_id" content="1747958558874326"/>
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta property="og:site_name" content="@yield('seo_title', 'Platforma za igrače - scout.reprezentacija.ba')">
     <meta property="og:url" content="@yield('seo_uri', 'https://scout.reprezentacija.ba/')">
-    <meta property="og:title" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta property="og:title" content="@yield('seo_title', 'Platforma za igrače - scout.reprezentacija.ba')">
     <meta property="og:description" content="@yield('seo_description', 'Scout.Reprezentacija.BA Vam predstavlja igrače iz Bosne i Hercegovine i ...')">
     <meta property="og:image" content="@yield('seo_image', asset('images/hero/hero-wallpaper.jpg'))">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@scout-reprezentacija-ba">
-    <meta name="twitter:title" content="@yield('seo_title', 'Scout Reprezentacija.BA')">
+    <meta name="twitter:title" content="@yield('seo_title', 'Platforma za igrače - scout.reprezentacija.ba')">
     <meta name="twitter:description" content="@yield('seo_description', 'Scout.Reprezentacija.BA Vam predstavlja igrače iz Bosne i Hercegovine i ...')">
     <meta name="twitter:image" content="@yield('seo_image', asset('images/hero/hero-wallpaper.jpg'))">
 </head>

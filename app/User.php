@@ -12,6 +12,7 @@ use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
 use App\Models\Players\PlayerRate;
 use App\Models\Posts\Post;
+use App\Models\Posts\PostLike;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -112,6 +113,13 @@ class User extends Authenticatable
 
     public function blogPosts(){
         return $this->hasMany(BlogPosts::class, 'owner', 'id')->where('category', 0)->orderBy('id', 'DESC');
+    }
+    public function totalLikes(){
+        try{
+            return PostLike::whereHas('postRel', function($q){
+                $q->where('owner', $this->id);
+            })->count();
+        }catch (\Exception $e) { return 0; }
     }
     public function totalImages(){
         return BlogPosts::where('owner', $this->id)->where('category', 0)->whereNotNull('image')->where('image', '!=', "")->count();

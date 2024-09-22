@@ -85,7 +85,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => '/auth'], function(){
     Route::get ('/logout',                               'AuthController@logout')->name('auth.logout');
 });
 
-Route::group(['namespace' => 'Users', 'prefix' => '/my-profile', 'middleware' => 'isAuthenticated'], function(){
+Route::group(['namespace' => 'Users', 'prefix' => '/my-profile', 'middleware' => 'userProfile'], function(){
     Route::group(['prefix' => '/user-info'], function(){
         Route::get ('/info',                         'ProfileController@info')->name('profile.info');
         Route::post('/update-info',                  'ProfileController@updateInfo')->name('profile.info.update');
