@@ -243,11 +243,18 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for=allow_rating"> <b>{{ __('Ocjenjivanje') }}</b> </label>
                                             {!! Form::select('allow_rating', ['0' => 'Ne', '1' => 'Da'], $user->allow_rating ?? '', ['class' => 'form-control', 'id' => 'allow_rating', 'aria-describedby' => 'allow_ratingHelp', isset($preview) ? 'readonly' : '']) !!}
                                             <small id="allow_ratingHelp" class="form-text text-muted"> {{ __('Odaberite da li želite opciju da Vas korisnici ocjenjivaju ili ne') }} </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for=shirt_number"> <b>{{ __('Broj na dresu') }}</b> </label>
+                                            {!! Form::text('shirt_number', $user->shirt_number ?? '', ['class' => 'form-control', 'id' => 'shirt_number', 'aria-describedby' => 'shirt_numberHelp', isset($preview) ? 'readonly' : '']) !!}
+                                            <small id="shirt_numberHelp" class="form-text text-muted"> {{ __('Broj na dresu korisnika') }} </small>
                                         </div>
                                     </div>
                                 </div>

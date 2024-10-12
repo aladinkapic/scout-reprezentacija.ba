@@ -88,12 +88,9 @@
                 </div>
             </div>
 
-            @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
-                <div class="shirt-number" title="{{ __('Broj na dresu') }}">
-                    <h1>{{ $player->lastClub->shirt_number ?? '' }}</h1>
-                </div>
-            @endif
-
+            <div class="shirt-number" title="{{ __('Broj na dresu') }}">
+                <h1>{{ $player->shirt_number ?? '' }}</h1>
+            </div>
         </div>
     </div>
 </div>
