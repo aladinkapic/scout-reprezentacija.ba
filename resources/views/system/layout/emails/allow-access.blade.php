@@ -1,15 +1,15 @@
 @component('mail::message')
-# Obavijest sa scout.reprezentacija.ba
 
-@if($_gender == 7) Poštovani, @else Poštovana, @endif {!! $_name ?? '' !!}, Vaš profil je je odobren i javan!
+@if($_gender == 7) Poštovani, @else Poštovana, @endif {!! $_name ?? '' !!},
 
-Imate 48 sati da unesete fotografiju, podatke i statistiku. Na svoj zid možete dodavati fotografije i video snimke.
+Odabrani ste kao igrač koji ima pravo biti dio scout.reprezentacija.ba.
 
-Vaši pristupni podaci su dati kao:
+Ujedno vam je odobren gratis profil za prvu godinu u iznosu cijene 100.00 EUR = mjesečno, a vaša obaveza je da link profila istaknete na vašim društvenim mrežama u opisu profila.
 
-Email: {!! $_mail ?? '' !!}
-Šifra: {!! $_password ?? '' !!}
+Vaš profil je javan na linku <a href="{{ route('home.players.player-timeline', ['username' => $_username]) }}">{!! $_name !!}</a>
 
-{{ __('Ugodan ostatak dana') }},<br>
+Na istom linku možete objaviti vaše fotografije, video snimke i statistiku
+
+{{ __('Tu smo za sva pitanja') }},<br>
 <a href="{{ env('APP_DOMAIN') }}"> {{ config('app.name') }} </a>
 @endcomponent

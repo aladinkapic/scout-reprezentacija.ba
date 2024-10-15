@@ -237,11 +237,11 @@ class AuthController extends Controller{
 
         if(!isset(Auth::user()->image)) return $this->apiError('10221', __('Molimo da unesete Vašu sliku profila'));
 
-        $this->sendEmail();
-
         try{
             if(isset($request->skip)){
                 Auth::user()->update(['submitted' => 1]);
+                $this->sendEmail();
+
                 return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
             }else{
                 if(!isset($request->country_id)) return $this->apiError('10222', __('Molimo da odaberete državu'));
@@ -263,6 +263,7 @@ class AuthController extends Controller{
             }
 
             Auth::user()->update(['submitted' => 1]);
+            $this->sendEmail();
 
             return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
         }catch (\Exception $e){
