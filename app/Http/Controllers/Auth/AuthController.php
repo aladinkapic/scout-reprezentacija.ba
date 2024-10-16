@@ -235,7 +235,7 @@ class AuthController extends Controller{
     public function updateNTData(Request $request){
         if(!Auth::check()) $this::apiSuccess('Error', route('auth.create-new-profile'));
 
-        // if(!isset(Auth::user()->image)) return $this->apiError('10221', __('Molimo da unesete Vašu sliku profila'));
+        if(!isset(Auth::user()->image)) return $this->apiError('10221', __('Molimo da unesete Vašu sliku profila'));
 
         try{
             if($request->skip == 0){
