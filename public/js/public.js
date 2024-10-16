@@ -35976,6 +35976,28 @@ __webpack_require__(/*! ../blog/new-post */ "./resources/js/blog/new-post.js");
 
 __webpack_require__(/*! ./users/posts */ "./resources/js/public/users/posts.js");
 
+__webpack_require__(/*! ./auth/auth */ "./resources/js/public/auth/auth.js");
+
+/***/ }),
+
+/***/ "./resources/js/public/auth/auth.js":
+/*!******************************************!*\
+  !*** ./resources/js/public/auth/auth.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".skip-nt-data").change(function () {
+    var val = parseInt($(this).val());
+    console.log(val);
+
+    if (val === 1) {
+      $(".nt-data-wrapper").removeClass('d-none');
+    } else $(".nt-data-wrapper").addClass('d-none');
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/public/core/c-select-2.js":

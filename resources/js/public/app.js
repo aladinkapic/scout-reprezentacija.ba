@@ -52,3 +52,4 @@ require('../blog/get-data');
 require('../blog/new-post');
 
 require('./users/posts');
+require('./auth/auth');
