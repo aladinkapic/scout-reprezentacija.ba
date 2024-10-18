@@ -13,8 +13,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="skip"> <b>{{ __('Da li ste igrali za reprezentaciju?') }}</b> </label>
-                            {!! Form::select('skip', ['0' => 'Nemam nastupa za reprezentaciju', '1' => 'Jedan ili više nastupa za reprezentaciju'], '1', ['class' => 'form-control skip-nt-data', 'id' => 'skip', 'aria-describedby' => 'skipHelp']) !!}
+                            <label for="skip"> <b>{{ __('Jeste li igrati za reprezentaciju neke države?') }}</b> </label>
+                            {!! Form::select('skip', ['0' => 'Ne, nemam nastupa za reprezentaciju', '1' => 'Da, imam jedan ili više nastupa za reprezentaciju'], '1', ['class' => 'form-control skip-nt-data', 'id' => 'skip', 'aria-describedby' => 'skipHelp']) !!}
                             <small id="skipHelp" class="form-text text-muted"> {{ __('Ukoliko nemate nastupa za reprezentaciju, odaberite "Nemam nastupa za reprezentaciju"') }} </small>
                         </div>
                     </div>
