@@ -7,7 +7,7 @@
             </div>
         @endif
 
-        @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
+        @if(isset($player->lastClub->clubRel)  or ($player->from_api == 1 and $player->player_id != null))
 
             <div class="tb-row-col-flex tb-row-col-flex-mobile-none">
                 <p class="key"><span>{{ __('Broj dresa') }}</span></p>

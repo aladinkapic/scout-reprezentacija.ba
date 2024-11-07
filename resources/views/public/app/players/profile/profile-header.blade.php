@@ -24,7 +24,7 @@
                     <img src="@if($player->image != '') {{ asset('images/profile-images/'.$player->image) }} @else {{ asset('images/user.png') }} @endif " alt="">
                 </div>
 
-                @if(isset($player->lastClub->clubRel) and ($player->under_contract == 'Da' or ($player->from_api == 1 and $player->player_id != null)))
+                @if(isset($player->lastClub->clubRel) or ($player->from_api == 1 and $player->player_id != null))
                     <div class="club-icon" title="{{ $player->lastClub->clubRel->title ?? '' }}">
                         <img src="{{ asset('images/club-images/' . ($player->lastClub->clubRel->image ?? '')) }}" alt="">
                     </div>
