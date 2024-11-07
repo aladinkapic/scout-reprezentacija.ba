@@ -6,11 +6,25 @@
             @include('auth.includes.left-side')
 
             <div class="profile__wrapper_right">
-
                 @include('auth.includes.inner-menu')
 
                 {!! Form::open(array('route' => 'auth.create-new-profile.update-basic-info', 'method' => 'post', 'id' => 'js-form')) !!}
-                @include('auth.includes.alert-message')
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger" role="alert">
+                                @if(!isset($user))
+                                    {{ __('U narednim koracima ispuni svoj profil na platformi za bh. igrače. Skauti i analitičari Reprezentacija.ba će provjeriti podatke, a onda te kontaktirati ako zadovoljavaš kriterije. Prijave bez fotografije i svih podataka se automatski odbijaju.') }}
+                                @else
+                                    @if(isset($user) and $user->submitted == 0)
+                                        {{ __('Dodaj fotografiju i sve podatke i pošalji nam. Skauti i analitičari Reprezentacija.ba će provjeriti podatke, a onda te kontaktirati ako zadovoljavaš kriterije. Prijave bez fotografije i svih podataka se automatski odbijaju.') }}
+                                    @else
+                                        {{ __('Hvala na registraciji. Skauti i analitičari Reprezentacija.ba će provjeriti podatke, a onda te kontaktirati ako zadovoljavaš kriterije.') }}
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -25,7 +39,7 @@
                         <div class="@if(isset($user)) col-md-12 @else col-md-6 @endif mt-1">
                             <div class="form-group">
                                 <label for="email"><b>{{ __('Email adresa') }}</b></label>
-                                {!! Form::text('email', $user->email ?? '', ['class' => 'form-control email required', 'id' => 'email', 'aria-describedby' => 'emailHelp', 'maxlength' => '50']) !!}
+                                {!! Form::email('email', $user->email ?? '', ['class' => 'form-control email required', 'id' => 'email', 'aria-describedby' => 'emailHelp', 'maxlength' => '50']) !!}
                                 <small id="emailHelp" class="form-text text-muted"><b>{{ __('Unesite Vašu email adresu') }}</b></small>
                             </div>
                         </div>
@@ -114,7 +128,7 @@
                     @if(!isset($user) or (isset($user) and $user->submitted == 0))
                     <div class="row mt-4">
                         <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn">@if(Auth()->check()) {{ __('Ažurirajte') }} @else {{ __('Sljedeće korak') }} @endif</button>
+                            <button class="btn">@if(Auth()->check()) {{ __('Ažurirajte') }} @else {{ __('Započni registraciju') }} @endif</button>
                         </div>
                     </div>
                     @endif

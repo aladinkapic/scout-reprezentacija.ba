@@ -7,4 +7,8 @@ $(document).ready(function (){
             $(".nt-data-wrapper").removeClass('d-none');
         }else $(".nt-data-wrapper").addClass('d-none');
     })
+
+    $(".close-sb-w").click(function (){
+        window.location = '/auth/create-new-profile';
+    });
 });

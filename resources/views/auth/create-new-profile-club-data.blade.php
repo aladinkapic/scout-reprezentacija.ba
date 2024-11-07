@@ -15,6 +15,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="alert alert-danger" role="alert">
+                                <p class="mb-3 mt-0">{{ __('Dodaj fotografiju i sve podatke i pošalji nam. Skauti i analitičari Reprezentacija.ba će provjeriti podatke, a onda te kontaktirati ako zadovoljavaš kriterije. Prijave bez fotografije i svih podataka se automatski odbijaju.') }}</p>
+
                                 <b>{{ __('Napomena') }}</b>: {{ __('Ukoliko se Vaš klub ne nalazi na listi klubova, molimo da nas kontaktirate putem emaila-a') }}
 
                                 <a href="mailto:press@reprezentacija.ba"> <b>press@reprezentacija.ba</b> </a>

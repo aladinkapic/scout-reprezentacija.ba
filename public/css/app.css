@@ -532,6 +532,115 @@ body {
   }
 }
 
+.success__submit__wrapper {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.success__submit__wrapper.d-flex {
+  display: flex;
+}
+
+.success__submit__wrapper .sb__wrapper {
+  position: relative;
+  width: 620px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .success__submit__wrapper .sb__wrapper {
+    left: 0px;
+    width: calc(100% - 40px);
+  }
+}
+
+.success__submit__wrapper .sb__wrapper .sb__header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.success__submit__wrapper .sb__wrapper .sb__header:hover {
+  cursor: pointer;
+}
+
+.success__submit__wrapper .sb__wrapper .sb__header img {
+  height: 24px;
+}
+
+.success__submit__wrapper .sb__wrapper .sb__heading {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.success__submit__wrapper .sb__wrapper .sb__heading h2 {
+  font-size: 32px;
+  color: #000000;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success__submit__wrapper .sb__wrapper .sb__heading p {
+  margin: 0px;
+  padding: 0px;
+  color: #000000;
+  text-align: center;
+  font-size: 18px;
+}
+
+.success__submit__wrapper .sb__wrapper .text__form {
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+  display: flex;
+}
+
+.success__submit__wrapper .sb__wrapper .text__form.d-flex {
+  display: flex;
+}
+
+.success__submit__wrapper .sb__wrapper .text__form textarea {
+  height: 120px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  outline: none;
+  resize: none;
+}
+
+.success__submit__wrapper .sb__wrapper .text__form button {
+  padding: 6px 32px;
+  border: none;
+  font-size: 14px;
+  background: #173668;
+  color: #FFF;
+  border-radius: 4px;
+}
+
 /*
  *  System layout
  */

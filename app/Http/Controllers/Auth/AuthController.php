@@ -223,7 +223,7 @@ class AuthController extends Controller{
     }
     public function sendEmail(){
         try{
-            $adminMsg = 'obaviještavamo Vas da je ' . Auth()->user()->name . ' (' . Auth()->user()->email . ') poslao/la zahtjev za kreiranje profila na platformi www.scout.reprezentacija.ba. Molimo revidrajte prijavu!';
+            $adminMsg = 'obaviještavamo Vas da je ' . Auth()->user()->name . ' (' . Auth()->user()->email . ') poslao/la zahtjev za kreiranje profila na platformi www.scout.reprezentacija.ba. Molimo revidirajte prijavu!';
             Mail::to(env('EMAIL'))->send(new sendEmail($adminMsg,  'Scout.Reprezentacija.BA' ));
 
             Mail::to(Auth()->user()->email)->send(new sendEmail(
@@ -242,7 +242,7 @@ class AuthController extends Controller{
                 Auth::user()->update(['submitted' => 1]);
                 $this->sendEmail();
 
-                return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
+                return $this::apiError('10230', 'Prijava uspješno završena!');
             }else{
                 if(!isset($request->country_id)) return $this->apiError('10222', __('Molimo da odaberete državu'));
                 if(!isset($request->no_games)) return $this->apiError('10223', __('Molimo da unesete broj utakmica'));
@@ -265,7 +265,7 @@ class AuthController extends Controller{
             Auth::user()->update(['submitted' => 1]);
             $this->sendEmail();
 
-            return $this::apiSuccess('Prijava uspješno završena!', route('auth.create-new-profile'));
+            return $this::apiError('10230', 'Prijava uspješno završena!');
         }catch (\Exception $e){
             return $this->apiError('10001', __('Desila se greška! Molimo da kontaktirate administratora!'));
         }

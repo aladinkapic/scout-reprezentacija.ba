@@ -35783,7 +35783,10 @@ $(document).ready(function () {
               if (typeof response['uri'] !== 'undefined') window.location = response['uri'];
             }, 2000);
           } else {
-            notify.Me([response['message'], "warn"]);
+            if (code === '10230') {
+              /* After submit request for profile create */
+              $(".success__submit__wrapper").addClass('d-flex');
+            } else notify.Me([response['message'], "warn"]);
           }
 
           console.log(response, _typeof(response['link']));
@@ -35995,6 +35998,9 @@ $(document).ready(function () {
     if (val === 1) {
       $(".nt-data-wrapper").removeClass('d-none');
     } else $(".nt-data-wrapper").addClass('d-none');
+  });
+  $(".close-sb-w").click(function () {
+    window.location = '/auth/create-new-profile';
   });
 });
 

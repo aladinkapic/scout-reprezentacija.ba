@@ -64,7 +64,7 @@ class UsersApiController extends Controller{
             $request['username'] = $this->getSlug($request->name);
 
             $adminEmail = 'bojanseleskovic@gmail.com';
-            $adminMsg = 'obaviještavamo Vas da je ' . $request->name . ' (' . $request->email . ') poslao/la zahtjev za kreiranje profila na platformi www.scout.reprezentacija.ba. Molimo revidrajte prijavu!';
+            $adminMsg = 'obaviještavamo Vas da je ' . $request->name . ' (' . $request->email . ') poslao/la zahtjev za kreiranje profila na platformi www.scout.reprezentacija.ba. Molimo revidirajte prijavu!';
 
             $user = User::where('email', $request->email)->first();
             if($user){

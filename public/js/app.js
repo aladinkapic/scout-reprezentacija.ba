@@ -40434,7 +40434,10 @@ $(document).ready(function () {
               if (typeof response['uri'] !== 'undefined') window.location = response['uri'];
             }, 2000);
           } else {
-            notify.Me([response['message'], "warn"]);
+            if (code === '10230') {
+              /* After submit request for profile create */
+              $(".success__submit__wrapper").addClass('d-flex');
+            } else notify.Me([response['message'], "warn"]);
           }
 
           console.log(response, _typeof(response['link']));

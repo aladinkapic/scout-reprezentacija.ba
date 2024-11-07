@@ -1,6 +1,25 @@
 @extends('public.layout.layout')
 
 @section('content')
+    <div class="success__submit__wrapper">
+        <div class="sb__wrapper">
+            <div class="sb__header">
+                <img class="close-sb-w" src="{{ asset('images/icons/cross-small.svg') }}" alt="">
+            </div>
+            <div class="sb__heading">
+                <h2>{{ __('Prijava završena') }}</h2>
+                <p> {{ __('Hvala na registraciji. Skauti i analitičari Reprezentacija.ba će provjeriti podatke, a onda te kontaktirati ako zadovoljavaš kriterije') }} </p>
+            </div>
+
+            <div class="text__form">
+                <button class="close-sb-w">
+                    {{ __('Razumijem') }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
     <div class="create__new_profile__w">
         <div class="profile__wrapper">
             @include('auth.includes.left-side')
