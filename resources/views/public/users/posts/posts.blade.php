@@ -9,7 +9,7 @@
             {!! Form::hidden('category', '0', ['class' => 'form-control']) !!}
             {!! Form::hidden('owner', Auth()->user()->id ?? '', ['class' => 'form-control', 'id' => 'owner']) !!}
             {!! Form::hidden('edit_post', '', ['class' => 'form-control', 'id' => 'edit_post']) !!}
-            {!! Form::hidden('edit_post_image', '', ['class' => 'form-control', 'id' => 'edit_post_image']) !!}
+            {!! Form::hidden('edit_post_file', '', ['class' => 'form-control', 'id' => 'edit_post_file']) !!}
             {!! Form::hidden('post_id', '', ['class' => 'form-control', 'id' => 'post_id']) !!}
 
             @include('public.users.posts.blog.new-post')

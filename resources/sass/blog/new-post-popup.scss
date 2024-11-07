@@ -60,11 +60,11 @@
                         }
                     }
                     .ip-add-image:hover{cursor: pointer;}
-                    img{
+                    img, video{
                         position: relative; left:0px; top:0px; width: 100%; height: auto;
                     }
                     iframe{width: 510px; height:340px; z-index: 60;}
-                    .post-image{display: none;}
+                    .post-file{display: none;}
                 }
                 .b-np-bp-image-preview:hover{background: rgba(0,0,0,0.1);}
 

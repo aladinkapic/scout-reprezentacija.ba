@@ -116,22 +116,29 @@ $(document).ready(function () {
         $(".b-np-bp-image-preview").addClass('d-none');
 
         $(".post-image-preview").addClass('d-none').attr('src', '');
-        $(".post-image").prop("value", "");
+        $(".post-video-preview").addClass('d-none').attr('src', '');
+        $(".post-file").prop("value", "");
         if(postText.val() === '') $(".b-np-pb-post").addClass('b-np-pb-post-greyed');
 
         setText(20);
 
-        $("#edit_post_image").val('');
+        $("#edit_post_file").val('');
     });
     /* On change, preview image */
-    $(".post-image").change(function (e) {
-        if(!e.target.files[0].name.includes(".jpeg") && !e.target.files[0].name.includes(".jpg") && !e.target.files[0].name.includes(".png")){
+    $(".post-file").change(function (e) {
+        if(!e.target.files[0].name.includes(".jpeg") && !e.target.files[0].name.includes(".jpg") && !e.target.files[0].name.includes(".png") && !e.target.files[0].name.includes(".mov") && !e.target.files[0].name.includes(".mp4")){
             $("#choose-here").addClass('red').text("Format nije podržan");
             return;
         }else{
             $("#choose-here").removeClass('red').text("Odaberite ovdje ..");
         }
-        $(".post-image-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
+        if(e.target.files[0].name.includes(".mov") || e.target.files[0].name.includes(".mp4")){
+            $(".post-image-preview").addClass('d-none');
+            $(".post-video-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
+        }else{
+            $(".post-video-preview").addClass('d-none');
+            $(".post-image-preview").removeClass('d-none').attr('src', URL.createObjectURL(e.target.files[0]));
+        }
 
         $(".b-np-pb-post").removeClass('b-np-pb-post-greyed');
     });
@@ -144,7 +151,7 @@ $(document).ready(function () {
     $(".edit-blog-post").click(function () {
         let id = $(this).attr('post-id');
 
-        $("#edit_post_image").val(''); // Reset edit post image
+        $("#edit_post_file").val(''); // Reset edit post image
         $("#post_id").val(id);
 
         $(".more__actions_w").addClass('d-none');
@@ -165,13 +172,19 @@ $(document).ready(function () {
                     let data = response['data'];
                     let popUpWrapper = $(".b-new-post-popup-wrapper");
 
+                    console.log(data);
+
                     popUpWrapper.fadeIn();
                     $(".post-text").val(data['post']);
 
-                    if(data['image'] !== '' && data['image'] !== null){
+                    if(data['file'] !== '' && data['file'] !== null){
+                        if(data['ext'] === 'mov' || data['ext'] === 'mp4'){
+                            $(".post-video-preview").removeClass('d-none').attr('src', '/images/blog/' + data['file']);
+                        }else{
+                            $(".post-image-preview").removeClass('d-none').attr('src', '/images/blog/' + data['file']);
+                        }
                         $(".b-np-bp-image-preview").removeClass('d-none');
-                        $(".post-image-preview").removeClass('d-none').attr('src', '/images/blog/' + data['image']);
-                        $("#edit_post_image").val( data['image']);
+                        $("#edit_post_file").val( data['file']);
 
                         setText(14);
                     }else if(data['youtube'] !== '' && data['youtube'] !== null){

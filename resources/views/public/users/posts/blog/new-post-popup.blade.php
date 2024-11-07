@@ -21,7 +21,7 @@
                 <!-- Image preview -->
                 <div class="b-np-bp-image-preview t-3 d-none">
                     <div class="close-image"> <i class="fas fa-times"></i> </div>
-                    <label class="ip-add-image" for="post-image">
+                    <label class="ip-add-image" for="post-file">
                         <div class="ip-ai-img-icon">
                             <i class="fas fa-camera-retro" title="{{ __('Nova fotografija') }}"></i>
                         </div>
@@ -29,7 +29,8 @@
                         <span id="choose-here">Odaberite ovdje ..</span>
                     </label>
                     <img src="#" alt="" class="post-image-preview d-none">
-                    {!! Form::file('image', ['class' => 'post-image', 'id' => 'post-image']) !!}
+                    <video src="#" class="post-video-preview d-none"></video>
+                    {!! Form::file('file', ['class' => 'post-file', 'id' => 'post-file']) !!}
                 </div>
                 <div class="youtube-preview d-none">
                     <iframe src="" id="youtube-link-preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>

@@ -106,8 +106,11 @@
         .image-wrapper{
             position: relative; left: -13px; top:0px; width: calc(100% + 32px); height: 360px; background: rgba(0,0,0,0.2); text-align: center;
             border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; overflow: hidden;
-            img{
+            img, video{
                 position: relative; left:0px; top:0px; width: auto; height: auto; max-height: 100%; margin:auto;
+            }
+            video{
+                width: 100%;
             }
         }
     }

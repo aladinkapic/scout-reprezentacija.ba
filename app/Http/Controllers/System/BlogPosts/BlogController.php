@@ -21,15 +21,15 @@ class BlogController extends Controller{
         try{
             $name = $request->edit_post_image;
 
-            if($request->has('image')){
+            if($request->has('file')){
                 try{
-                    $file = $request->file('image');
+                    $file = $request->file('file');
                     $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
                     $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
                     $path = env('BLOG_IMG_LINK', public_path(). '/images/blog/');
                     $file->move($path, $name);
-                }catch (\Exception $e){}
+                }catch (\Exception $e){ dd($e); }
             }
             $youtubeLink = (isset($name)) ? null : $request->youtubeLink;
 
@@ -37,22 +37,24 @@ class BlogController extends Controller{
             BlogPosts::find($request->post_id)->update([
                 'post' => $request->post,
                 'youtube' => $youtubeLink,
-                'image' => $name
+                'file' => $name,
+                'ext' => isset($ext) ? $ext : ''
             ]);
-        }catch (\Exception $e){}
+        }catch (\Exception $e){ }
     }
 
     public function save(Request $request){
         try{
+
             if(isset($request->edit_post)){
                 $this->update($request);
                 return back();
             }
             $youtubeLink = (isset($request->image)) ? null : $request->youtubeLink;
 
-            if($request->has('image')){
+            if($request->has('file')){
                 try{
-                    $file = $request->file('image');
+                    $file = $request->file('file');
                     $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
                     $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
@@ -67,7 +69,8 @@ class BlogController extends Controller{
                 'owner' => $request->owner,
                 'post' => $request->post,
                 'youtube' => $youtubeLink,
-                'image' => isset($name) ? $name : ''
+                'file' => isset($name) ? $name : '',
+                'ext' => isset($ext) ? $ext : ''
             ]);
 
             User::where('id', $request->owner)->update(['last_activity' => Carbon::now()]);

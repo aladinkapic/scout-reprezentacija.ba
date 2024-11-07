@@ -21630,7 +21630,8 @@ header .menu-wrapper .mw-links .sign-out a {
   cursor: pointer;
 }
 
-.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview img {
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview img,
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview video {
   position: relative;
   left: 0px;
   top: 0px;
@@ -21644,7 +21645,7 @@ header .menu-wrapper .mw-links .sign-out a {
   z-index: 60;
 }
 
-.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview .post-image {
+.b-new-post-popup-wrapper .b-np-popup .b-np-p-body .b-np-pb-text .b-np-bp-image-preview .post-file {
   display: none;
 }
 
@@ -22041,7 +22042,8 @@ header .menu-wrapper .mw-links .sign-out a {
   overflow: hidden;
 }
 
-.posts-wrapper .single-post .image-wrapper img {
+.posts-wrapper .single-post .image-wrapper img,
+.posts-wrapper .single-post .image-wrapper video {
   position: relative;
   left: 0px;
   top: 0px;
@@ -22049,6 +22051,10 @@ header .menu-wrapper .mw-links .sign-out a {
   height: auto;
   max-height: 100%;
   margin: auto;
+}
+
+.posts-wrapper .single-post .image-wrapper video {
+  width: 100%;
 }
 
 @media only screen and (max-width: 800px) {

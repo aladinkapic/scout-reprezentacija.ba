@@ -20,8 +20,9 @@ class Posts extends Migration
             $table->integer('owner')->default(0)->nullable();
 
             $table->text('post');
-            $table->string('image')->nullable();
-            $table->string('image_orientation')->default('v')->nullable();
+            $table->string('file')->nullable();
+            $table->string('file_orientation')->default('v')->nullable();
+            $table->string('ext')->nullable();
             $table->string('youtube')->nullable();
             $table->integer('likes')->default(0);
 
