@@ -56,15 +56,17 @@
         </div>
     </div>
 
-    @if($what == 'timeline' and $player->totalImages())
+    @if($what == 'timeline' and $player->totalFiles())
         <div class="tb-row img-thumb-wrapper">
             @php $i = 0; @endphp
             @foreach($player->blogPosts as $post)
-                @if(isset($post->image) and $post->image != '')
-                    @php if($i++ == 7) break; @endphp
-                    <div class="img-thumb" post-id="{{ $post->id }}">
-                        <img src="{{ asset('images/blog/' . $post->image ?? '') }}" alt="">
-                    </div>
+                @if(isset($post->file) and $post->file != '')
+                    @if($post->ext != 'mov' and $post->ext != 'mp4')
+                        @php if($i++ == 7) break; @endphp
+                        <div class="img-thumb" post-id="{{ $post->id }}">
+                            <img src="{{ asset('images/blog/' . $post->file ?? '') }}" alt="">
+                        </div>
+                    @endif
                 @endif
             @endforeach
         </div>

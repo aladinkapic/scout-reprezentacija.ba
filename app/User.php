@@ -121,8 +121,8 @@ class User extends Authenticatable
             })->count();
         }catch (\Exception $e) { return 0; }
     }
-    public function totalImages(){
-        return BlogPosts::where('owner', $this->id)->where('category', 0)->whereNotNull('image')->where('image', '!=', "")->count();
+    public function totalFiles(){
+        return BlogPosts::where('owner', $this->id)->where('category', 0)->whereNotNull('file')->where('file', '!=', "")->count();
     }
 
     /* Special players */

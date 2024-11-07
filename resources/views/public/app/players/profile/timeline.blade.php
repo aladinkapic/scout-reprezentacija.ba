@@ -26,10 +26,17 @@
                 </div>
             @endif
 
-        <!-- Image -->
-            @if(isset($post->image) and $post->image != '')
+            <!-- Images and videos -->
+            @if(isset($post->file) and $post->file != '')
                 <div class="image-wrapper">
-                    <img src="{{ asset('images/blog/' . $post->image ?? '') }}" alt="">
+                    @if($post->ext == 'mov' or $post->ext == 'mp4')
+                        <video controls>
+                            <source src="{{ asset('images/blog/' . $post->file ?? '') }}">
+                            Your browser does not support the video tag.
+                        </video>
+                    @else
+                        <img src="{{ asset('images/blog/' . $post->file ?? '') }}" alt="">
+                    @endif
                 </div>
             @endif
         </div>
