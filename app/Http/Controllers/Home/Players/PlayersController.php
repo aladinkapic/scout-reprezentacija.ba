@@ -17,8 +17,20 @@ use Illuminate\Support\Facades\App;
 class PlayersController extends Controller{
     protected $_path = 'public.app.players.';
 
+    protected function checkForFilter($filterKey): bool{
+        if(isset(\request()->filter)){
+            foreach (\request()->filter as $key => $val){
+                if($key == $filterKey) return true;
+            }
+        }
+        return false;
+    }
     public function search(){
-        $users = User::where('role', 1)->where('active', 1)->orderBy('name');
+        if($this->checkForFilter('name')){
+            $users = User::where('role', 1)->where('active', 1)->orderBy('name');
+        }else{
+            $users = User::where('role', 1)->where('active', 1)->inRandomOrder();
+        }
         $users = Filters::filter($users);
 
         // $positions = Keyword::where('keyword', 'position_football')->pluck('value', 'value');

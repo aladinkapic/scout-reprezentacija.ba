@@ -26,8 +26,7 @@ class UsersController extends Controller{
         return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
     }
 
-    public function index(){
-        $users = User::where('role', '!=', 0);
+    public function getUsers($users){
         $users = Filters::filter($users);
         $filters = [
             'name' => __('Ime i prezime'),
@@ -38,13 +37,23 @@ class UsersController extends Controller{
             'strongerLimbRel.value' => __('Snažnija noga'),
             'genderRel.value' => __('Spol'),
             'clubDataRel.clubRel.title' => __('Klubovi'),
-            'clubDataRel.clubRel.countryRel.name_ba' => __('Država kluba')
+            'clubDataRel.clubRel.countryRel.name_ba' => __('Država kluba'),
+            'statusRel.value' => __('Status igrača'),
+            'submittedRel.value' => __('Status prijave'),
         ];
 
         return view($this->_path . '.index', [
             'filters' => $filters,
             'users' => $users
         ]);
+    }
+    public function index(){
+        $users = User::where('role', '!=', 0)->where('from_api', '=', 0);
+        return $this->getUsers($users);
+    }
+    public function indexAPI (){
+        $users = User::where('role', '!=', 0)->where('from_api', '=', 1);
+        return $this->getUsers($users);
     }
 
     public function data($action = 'create', $id = null, $root = null){

@@ -38,7 +38,7 @@
                     {!! Form::open(array('route' => 'system.additional.clubs.save', 'id' => 'js-form', 'method' => 'POST')) !!}
                 @endif
                     <div class="row">
-                        <div class="@if(isset($timeline)) col-md-9 @else col-md-12 @endif">
+                        <div class="@if(isset($timeline) or isset($preview)) col-md-9 @else col-md-12 @endif">
                             @if(isset($timeline))
                                 {!! Form::open(array('route' => 'system.blog-posts.save', 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
                                 {!! Form::hidden('category', '1', ['class' => 'form-control']) !!}
@@ -112,7 +112,7 @@
                                 @endif
                             @endif
                         </div>
-                        @if(isset($timeline))
+                        @if(isset($timeline) or isset($preview))
                             @include('system.app.additional.clubs.snippets.right-menu')
                         @endif
                     </div>

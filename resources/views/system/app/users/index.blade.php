@@ -55,6 +55,8 @@
                             @endforeach
                         </ul>
                     </td>
+                    <td> {{ $user->statusRel->value ?? ''}} </td>
+                    <td> @if($user->from_api == 0) {{ $user->submittedRel->value ?? ''}} @endif </td>
 
                     <td class="text-center">
                         <a href="{{route('system.users.preview', ['id' => $user->id] )}}" title="Pregled korisnika">

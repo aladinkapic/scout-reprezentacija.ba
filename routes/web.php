@@ -158,6 +158,7 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
          */
         Route::group(['prefix' => '/', 'middleware' => 'isRoot'], function(){
             Route::get ('/',                                 'UsersController@index')->name('system.users.index');
+            Route::get ('/api-users',                        'UsersController@indexAPI')->name('system.users.index-api');
             Route::get ('/create',                           'UsersController@create')->name('system.users.create');
             Route::get ('/preview/{id}',                     'UsersController@preview')->name('system.users.preview');
             Route::get ('/preview-wall/{id}',                'UsersController@previewWall')->name('system.users.preview-wall');

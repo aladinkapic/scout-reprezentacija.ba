@@ -45,7 +45,13 @@
                         <a href="{{route('system.users.index')}}">
                             <div class="inside-lm-link">
                                 <div class="ilm-l"></div><div class="ilm-c"></div>
-                                <p>{{__('Pregled svih korisnika')}}</p>
+                                <p>{{__('Pregled korisnika')}}</p>
+                            </div>
+                        </a>
+                        <a href="{{route('system.users.index-api')}}">
+                            <div class="inside-lm-link">
+                                <div class="ilm-l"></div><div class="ilm-c"></div>
+                                <p>{{__('Pregled API korisnika')}}</p>
                             </div>
                         </a>
                         <a href="{{route('system.users.create')}}">

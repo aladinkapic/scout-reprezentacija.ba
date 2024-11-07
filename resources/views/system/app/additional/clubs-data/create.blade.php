@@ -128,15 +128,15 @@
                         </div>
                     @endif
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="shirt_number"> <b>{{ __('Broj na dresu') }}</b> </label>
-                                {!! Form::number('shirt_number', $clubData->shirt_number ?? '', ['class' => 'form-control number required', 'id' => 'shirt_number', 'aria-describedby' => 'shirt_numberHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => '100', 'step' => 1]) !!}
-                                <small id="shirt_numberHelp" class="form-text text-muted"> {{ __('Unesite Vaš broj na dresu u odabranoj sezoni') }} </small>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="shirt_number"> <b>{{ __('Broj na dresu') }}</b> </label>--}}
+{{--                                {!! Form::number('shirt_number', $clubData->shirt_number ?? '', ['class' => 'form-control number required', 'id' => 'shirt_number', 'aria-describedby' => 'shirt_numberHelp', isset($preview) ? 'readonly' : '', 'min' => 0, 'max' => '100', 'step' => 1]) !!}--}}
+{{--                                <small id="shirt_numberHelp" class="form-text text-muted"> {{ __('Unesite Vaš broj na dresu u odabranoj sezoni') }} </small>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     @if(!isset($preview))
                         <div class="row mt-3">

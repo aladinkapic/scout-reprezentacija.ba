@@ -133,4 +133,15 @@ class User extends Authenticatable
     public function lastClubRel(){
         return $this->hasOne(ApiStatistics::class, 'user_id', 'id')->orderBy('id', 'ASC');
     }
+
+    /**
+     * Status of user active | not active
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function statusRel(){
+        return $this->hasOne(Keyword::class, 'special_value', 'active')->where('keyword', '=', 'active');
+    }
+    public function submittedRel(){
+        return $this->hasOne(Keyword::class, 'special_value', 'submitted')->where('keyword', '=', 'submitted');
+    }
 }
