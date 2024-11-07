@@ -45,7 +45,6 @@ class BlogController extends Controller{
 
     public function save(Request $request){
         try{
-
             if(isset($request->edit_post)){
                 $this->update($request);
                 return back();
@@ -56,11 +55,14 @@ class BlogController extends Controller{
                 try{
                     $file = $request->file('file');
                     $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
-                    $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
-                    $path = env('BLOG_IMG_LINK', public_path(). '/images/blog/');
-
-                    $file->move($path, $name);
+                    if($ext == 'jpeg' or $ext == 'jpg' or $ext == 'png' or $ext == 'mov' or $ext == 'mp4'){
+                        $name = md5($file->getClientOriginalName().time()).'.'.$ext;
+                        $path = env('BLOG_IMG_LINK', public_path(). '/images/blog/');
+                        $file->move($path, $name);
+                    }else{
+                        $ext = '';
+                    }
                 }catch (\Exception $e){}
             }
 
