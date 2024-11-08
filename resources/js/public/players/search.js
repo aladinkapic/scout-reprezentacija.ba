@@ -289,6 +289,12 @@ $(document).ready(function() {
         searchIt();
     });
 
+    $(document).on('keypress',function(e) {
+        if(e.which === 13) {
+            if($(".search-button").length) searchIt();
+        }
+    });
+
     /*******************************************************************************************************************
      *
      *      Set default values !!
