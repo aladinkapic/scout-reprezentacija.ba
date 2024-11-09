@@ -261,7 +261,7 @@ $(document).ready(function(){
             success: function(httpResponse){
                 let response = JSON.parse(httpResponse);
 
-                window.location.href = response.value;
+                window.location.href = '/system/settings/core/export/download/' + response.value;
             }
         });
     };

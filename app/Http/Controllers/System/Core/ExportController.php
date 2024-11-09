@@ -38,7 +38,7 @@ class ExportController extends Controller{
             $ext = ".pdf";
         }
 
-        return json_encode(array('type' => $what, 'value' => '/' . $this->_path . $name.$ext));
+        return json_encode(array('type' => $what, 'value' => $name.$ext));
     }
 
     protected function getNameFromNumber($num) {
@@ -226,7 +226,7 @@ class ExportController extends Controller{
             $this->excelFile->getActiveSheet()->getDefaultColumnDimension()->setWidth(25);
             $this->excelFile->getActiveSheet()->getDefaultRowDimension()->setRowHeight(25);
 
-            $this->excelFileWriter->save($this->_path . $fileName . '.xlsx');
+            $this->excelFileWriter->save(storage_path($this->_path . $fileName . '.xlsx'));
             return $this->saveToTable($fileName, 'excel');
         }catch (\Exception $e){ dd($e); }
     }
@@ -244,5 +244,9 @@ class ExportController extends Controller{
         $this->excelFileDrawing->setWidth($width);
         $this->excelFileDrawing->setHeight($height);
         $this->excelFileDrawing->setWorksheet($this->excelFile->getActiveSheet());
+    }
+
+    public function download($filename){
+        return response()->download(storage_path($this->_path . $filename));
     }
 }

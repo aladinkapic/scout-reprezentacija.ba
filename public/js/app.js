@@ -35441,7 +35441,7 @@ $(document).ready(function () {
       },
       success: function success(httpResponse) {
         var response = JSON.parse(httpResponse);
-        window.location.href = response.value;
+        window.location.href = '/system/settings/core/export/download/' + response.value;
       }
     });
   };

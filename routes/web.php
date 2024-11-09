@@ -279,6 +279,8 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
 
         Route::group(['prefix' => '/export', 'middleware' => 'isRoot'], function(){
             Route::post('/excel',                        'ExportController@excel')->name('system.settings.core.export.excel');
+
+            Route::get ('/download/{filename}',          'ExportController@download')->name('system.settings.core.export.download');
         });
     });
 
