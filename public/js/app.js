@@ -35207,21 +35207,21 @@ $(document).ready(function () {
     return C.$ === k && (C.$ = Jt), e && C.jQuery === k && (C.jQuery = Qt), k;
   }, e || (C.jQuery = C.$ = k), k;
 });
-/*
-    Filters JS
+/**
+ * Filters JS
  */
 
 $(document).ready(function () {
-  /*
-      New filter
+  /**
+   * New filter
    */
   $(".new-filter").click(function (e) {
     $(".append-filters").append($(".filter-row").first().clone());
     $(".filter-row input").last().val('');
     $(".filter-row select").last().val('');
   });
-  /*
-      Remove filter
+  /**
+   * Remove filter
    */
 
   $(document).on('click', '.remove-filter', function () {
@@ -35250,8 +35250,9 @@ $(document).ready(function () {
   };
 
   hiddeThem();
-  /*
-      Fill checkable column names
+  /**
+   * Fill checkable column names
+   * @type {*[]}
    */
 
   var initialValues = [],
@@ -35319,28 +35320,26 @@ $(document).ready(function () {
         $("#filtering tbody tr").each(function () {
           $("td", this).each(function () {
             if ($(this).index() == head_index) {
-              // $(this).css('display', 'block');
-              $(this).show(); // console.log($(this).text());
+              $(this).show();
             } else {// console.log("Ne treba : " + $(this).text());
             }
           });
         });
-        head_element.show(); // head_element.css('display', 'block');
+        head_element.show();
       };
 
       for (var i = 0; i < jsonValues.length; i++) {
         _loop();
       }
-    } // console.log(localStorage.getItem(currentUrl));
-
+    }
   };
 
   setCheckPoints();
   $(".return-none").click(function (e) {
     e.stopPropagation();
   });
-  /*
-      Return none at field, check column name
+  /**
+   * Return none at field, check column name
    */
 
   $(".return-none a, .return-none label").click(function (e) {
@@ -35372,11 +35371,8 @@ $(document).ready(function () {
     }
 
     if (foundInChecking >= 0) initialValues.splice(foundInChecking, 1);else initialValues.push($(this).attr('id')); // Postavi unutar toga
-    // console.log("Found : " + foundInChecking);
-    // console.log("After click : " + initialValues);
 
-    localStorage.setItem(currentUrl, JSON.stringify(initialValues)); // console.log(initialValues);
-
+    localStorage.setItem(currentUrl, JSON.stringify(initialValues));
     $("#filtering tbody tr").each(function () {
       $("td", this).each(function () {
         if ($(this).index() == head_index) {
@@ -35394,6 +35390,61 @@ $(document).ready(function () {
   $("#filtering").click(function () {
     $(".fill-column-names").fadeOut();
   });
+  /**
+   * Export data to excel
+   * @param what
+   */
+
+  window.getVisibleColumns = function (what) {
+    // let data = tf.getFilteredValues();
+    var link = '/system/settings/core/export/';
+
+    if (what === 'excel') {
+      link += 'excel';
+    }
+
+    var globalData = [];
+    var header = [];
+    $("#filtering thead th:not(.fltrow)").each(function () {
+      if ($(this).css("display") !== 'none' && this.className !== 'akcije') {
+        header.push($(this).text());
+      }
+    });
+    $("#filtering tbody tr:not(.fltrow)").each(function () {
+      var roww = [];
+
+      if ($(this).css("display") !== 'none') {
+        $("td", this).each(function () {
+          if ($(this).css("display") !== 'none' && this.className !== 'akcije') {
+            roww.push($(this).text());
+          }
+        });
+        globalData.push(roww);
+      }
+    });
+    var successOptions = {
+      autoHideDelay: 2000,
+      showAnimation: "fadeIn",
+      hideAnimation: "fadeOut",
+      hideDuration: 700,
+      arrowShow: false,
+      className: "success"
+    };
+    $("#loading-bar").fadeIn();
+    $.ajax({
+      url: link,
+      method: 'POST',
+      data: {
+        data: globalData,
+        header: header,
+        result: 1
+      },
+      success: function success(httpResponse) {
+        var response = JSON.parse(httpResponse);
+        window.location.href = response.value;
+      }
+    });
+  };
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 

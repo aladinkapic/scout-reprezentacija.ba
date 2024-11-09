@@ -276,6 +276,10 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
         Route::get ('/edit/{id}',                        'KeywordsController@edit')->name('system.settings.core.keywords.edit');
         Route::put ('/update',                           'KeywordsController@update')->name('system.settings.core.keywords.update');
         Route::delete('/delete',                         'KeywordsController@delete')->name('system.settings.core.keywords.delete');
+
+        Route::group(['prefix' => '/export', 'middleware' => 'isRoot'], function(){
+            Route::post('/excel',                        'ExportController@excel')->name('system.settings.core.export.excel');
+        });
     });
 
     /*
