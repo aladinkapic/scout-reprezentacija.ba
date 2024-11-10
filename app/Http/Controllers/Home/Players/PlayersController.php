@@ -20,13 +20,14 @@ class PlayersController extends Controller{
     protected function checkForFilter($filterKey): bool{
         if(isset(\request()->filter)){
             foreach (\request()->filter as $key => $val){
+                if($filterKey == 'any') return true;
                 if($key == $filterKey) return true;
             }
         }
         return false;
     }
     public function search(){
-        if($this->checkForFilter('name')){
+        if($this->checkForFilter('any')){
             $users = User::where('role', 1)->where('active', 1)->orderBy('name');
         }else{
             $users = User::where('role', 1)->where('active', 1)->inRandomOrder();
