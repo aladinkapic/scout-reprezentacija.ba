@@ -9,9 +9,12 @@ use App\Models\Players\PlayerRate;
 use App\Models\Posts\Post;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class PlayersController extends Controller{
+    protected $_total_players = 5;
+
     /*
      *  Rate player; Allowed every 7 days !
      */
@@ -50,8 +53,8 @@ class PlayersController extends Controller{
 
             $owner = ($post->category == 0) ? User::find($post->owner)->name : Club::find($post->owner)->title;
 
-            $next = BlogPosts::where('id', '<', $post->id)->where('image', '!=', '')->where('owner', $post->owner)->orderBy('id', 'DESC')->first();
-            $previous = BlogPosts::where('id', '>', $post->id)->where('image', '!=', '')->where('owner', $post->owner)->orderBy('id', 'ASC')->first();
+            $next = BlogPosts::where('id', '<', $post->id)->where('file', '!=', '')->where('owner', $post->owner)->orderBy('id', 'DESC')->first();
+            $previous = BlogPosts::where('id', '>', $post->id)->where('file', '!=', '')->where('owner', $post->owner)->orderBy('id', 'ASC')->first();
 
             return $this::success("", [
                 'post' => $post,
@@ -81,6 +84,41 @@ class PlayersController extends Controller{
                     'total' => $total,
                     'message' => __('Success')
                 ]
+            ]);
+        }catch (\Exception $e){
+            return response()->json(['code' => '20000', 'message' => __('Desila se greška!')]);
+        }
+    }
+
+    public function fetchRandomPlayers(Request $request): JsonResponse{
+        try{
+            if(isset($request->total_players)){
+                if($request->total_players < 20) $this->_total_players = $request->total_players;
+                else $this->_total_players = 20;
+            }
+
+            $players = User::where('active', "=", 1)->where('role', '=', 1)->has('lastClub.clubRel');
+            if(isset($request->from_api)) $players = $players->where('from_api', '=', $request->from_api);
+
+            $players = $players->inRandomOrder()->take($this->_total_players)->with('positionRel:id,value', 'genderRel:id,value', 'citizenshipRel:id,name_ba,short_ba,flag',  'lastClub:id,club_id,user_id', 'lastClub.clubRel:id,title,image,city')->get(['id', 'name', 'username', 'image', 'position', 'gender', 'citizenship']);
+            foreach ($players as $player){
+                /* Append path to image */
+                if(isset($player->image)) $player->image = '/images/profile-images/' . $player->image;
+
+                /* Append path to country flag */
+                if(isset($player->citizenshipRel)){
+                    $player->citizenshipRel->flag = '/images/country-flags/' . $player->citizenshipRel->flag;
+                }
+
+                /* Append path to club flag */
+                if(isset($player->lastClub->clubRel->image)){
+                    $player->lastClub->clubRel->image = '/images/club-images/' . $player->lastClub->clubRel->image;
+                }
+            }
+
+            return response()->json([
+                'code' => '0000',
+                'players' => $players->toArray()
             ]);
         }catch (\Exception $e){
             return response()->json(['code' => '20000', 'message' => __('Desila se greška!')]);

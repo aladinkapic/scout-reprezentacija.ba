@@ -43,7 +43,7 @@
     @endforeach
 </div>
 
-<div class="image-preview d-none">
+<div class="image-preview user-image-preview d-none">
     <div class="ip-post-preview">
         <div class="upper-icons">
             <div class="ui-icon-wrapper">

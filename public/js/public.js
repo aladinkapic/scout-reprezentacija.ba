@@ -36486,7 +36486,7 @@ $(document).ready(function () {
         if (response['code'] === '0000') {
           var data = response['message'];
           $(".image-preview").removeClass('d-none');
-          $(".post-image-src").attr('src', '/images/blog/' + data['post']['image']);
+          $(".post-image-src").attr('src', '/images/blog/' + data['post']['file']);
           $(".post-title").text(data['owner']);
           $(".post-date").text(data['date']);
           $(".post-description").text(data['post']['post']);
@@ -36515,6 +36515,11 @@ $(document).ready(function () {
   });
   $(".ui-icon-wrapper").click(function () {
     $(".image-preview").addClass('d-none');
+  });
+  $(".user-image-preview").click(function (event) {
+    if ($(event.target).hasClass('user-image-preview')) {
+      $(".user-image-preview").addClass('d-none');
+    }
   });
 });
 

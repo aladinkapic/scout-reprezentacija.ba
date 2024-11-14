@@ -64,6 +64,10 @@ Route::group(['namespace' => 'API'], function (){
          *  Fetch data from extern API Requests - Players
          */
         Route::post('/last-active-players',      'PlayersController@lastActivePlayers')->name('api.players.posts.last-active-players');
+        /**
+         *  Fetch random players (used for www.reprezentacija.ba)
+         */
+        Route::post('/fetch-random-players',     'PlayersController@fetchRandomPlayers')->name('api.players.posts.fetch-random-players');
 
         /**
          *  Fetch data from extern API Requests - Posts
