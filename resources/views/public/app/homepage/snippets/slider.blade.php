@@ -24,7 +24,7 @@
 
                     <div class="arrow-down" id="arrow-down-trigger">
                         <a href="#arrow-down-trigger">
-                            <i class="fas fa-arrow-down"></i>
+                            <img src="{{ asset('images/icons/arrow-down-solid.svg') }}" alt="">
                         </a>
                     </div>
                 </div>
