@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/public.css') . '?random=' . date ("F-d-Y-H-i-s", filemtime('js/public.js')) }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>
+{{--    <script src="https://kit.fontawesome.com/bccf934f7c.js" crossorigin="anonymous"></script>--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icons/LogoMali.png') }}"/>
 

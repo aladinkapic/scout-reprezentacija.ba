@@ -15566,17 +15566,21 @@ header .menu-wrapper .mw-logo img {
 header .menu-wrapper .mobile-burger {
   position: absolute;
   right: 0px;
-  top: 13px;
   width: 40px;
-  height: 40px;
-  text-align: right;
+  height: 60px;
   display: none;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 header .menu-wrapper .mobile-burger .fa-bars {
   color: #fff !important;
   font-size: 24px;
   margin-top: 6px;
+}
+
+header .menu-wrapper .mobile-burger img {
+  height: 24px;
 }
 
 header .menu-wrapper .mw-links {
@@ -15610,6 +15614,10 @@ header .menu-wrapper .mw-links .single-link a i {
 
 header .menu-wrapper .mw-links .single-link a img {
   height: 6px !important;
+}
+
+header .menu-wrapper .mw-links .single-link a .contact-img {
+  height: 15px !important;
 }
 
 header .menu-wrapper .mw-links .single-link a .choosen__lang_img_w {
@@ -15901,7 +15909,7 @@ header .menu-wrapper .mw-links .sign-out a {
   }
 
   header .menu-wrapper .mobile-burger {
-    display: block;
+    display: flex;
   }
 
   header .menu-wrapper .mw-links {
@@ -17448,6 +17456,10 @@ header .menu-wrapper .mw-links .sign-out a {
   font-weight: bold;
 }
 
+.players-list .player-card .pc-data .pin-img {
+  height: 16px;
+}
+
 @media screen and (max-width: 800px) {
   .players-list .player-card .pc-data .yellow-btn {
     width: 60%;
@@ -18699,13 +18711,20 @@ header .menu-wrapper .mw-links .sign-out a {
   height: 40px;
   border-radius: 50%;
   background: #75A5B3;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-title .icon-wrapper i,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-title .icon-wrapper i {
   color: #fff;
   padding-top: 11px;
+}
+
+.public-container .preview-wrapper .pw-right-header .bottom-white .bw-title .icon-wrapper img,
+.public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-title .icon-wrapper img {
+  height: 16px;
 }
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-title h2,
@@ -19115,13 +19134,20 @@ header .menu-wrapper .mw-links .sign-out a {
   /* background: #142D56; */
   background: #75A5B3;
   border-radius: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper i,
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper i {
   color: #fff;
   margin-top: 7px;
+}
+
+.public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper img,
+.public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row .sw-dr-icon-wrapper img {
+  height: 16px;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p,
@@ -20194,6 +20220,12 @@ header .menu-wrapper .mw-links .sign-out a {
 .rest-of-search-options .search-wrapper .search-row .other-custon .other-searches-button i {
   margin-top: 12px;
   color: #fff;
+}
+
+#search-console .search-wrapper .search-row .other-custon .other-searches-button img,
+.rest-of-search-options .search-wrapper .search-row .other-custon .other-searches-button img {
+  height: 16px;
+  margin-top: 12px;
 }
 
 #search-console .search-wrapper .search-row .other-custon .search-button:hover,

@@ -7,12 +7,14 @@
         </div>
 
         <div class="mobile-burger">
-            <div class="fas fa-bars"></div>
+            <img class="pin-img" src="{{ asset('images/icons/bars-solid.svg') }}" alt="">
         </div>
 
         <div class="mw-links">
             <div class="single-link">
-                <a href="{{ route('home.contact-us') }}" title="{{ __('Kontaktirajte nas') }}"> <i class="fas fa-envelope"></i> </a>
+                <a href="{{ route('home.contact-us') }}" title="{{ __('Kontaktirajte nas') }}">
+                    <img class="contact-img" src="{{ asset('images/icons/envelope-solid.svg') }}" alt="">
+                </a>
             </div>
             <div class="single-link">
 {{--                {{ BaseHelper::getLocale() }}--}}

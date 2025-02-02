@@ -57,7 +57,7 @@
                 <div class="bottom-white">
                     <div class="bw-title">
                         <div class="icon-wrapper">
-                            <i class="fa fa-info"></i>
+                            <img class="pin-img" src="{{ asset('images/icons/info-solid.svg') }}" alt="">
                         </div>
                         <h2> {{ __('Detaljne informacije') }} </h2>
                     </div>

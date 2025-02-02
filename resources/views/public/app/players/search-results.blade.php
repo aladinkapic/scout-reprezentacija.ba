@@ -19,7 +19,11 @@
                     <b> <h3 class="text-center mt-3"> {{ $user->name ?? '' }} </h3> </b>
                     <p class="text-center m-0"> {{ __($user->positionRel->value ?? '') }} </p>
                     <p class="text-center mt-2 mb-0"> <b> {{ $user->lastClub->clubRel->title ?? '' }} </b> </p>
-                    <p class="text-center mt-0"> <i class="fas fa-map-pin"></i> {{ ucwords(strtolower( $user->citizenshipRel->title ?? '')) ?? '' }}  </p>
+                    <p class="text-center mt-0">
+                        <img class="pin-img" src="{{ asset('images/icons/map-pin-solid.svg') }}" alt="">
+
+                        {{ ucwords(strtolower( $user->citizenshipRel->title ?? '')) ?? '' }}
+                    </p>
 
                     @if($user->from_api == 1 and $user->player_id != null)
                         <a href="{{route('home.players.player-info', ['username' => $user->username] )}}" class="text-center d-block mb-4">

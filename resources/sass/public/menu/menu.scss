@@ -31,9 +31,13 @@ header {
             }
         }
         .mobile-burger{
-            position: absolute; right: 0px; top:13px; width: 40px; height: 40px; text-align: right; display: none;
+            position: absolute; right: 0px; width: 40px; height: 60px; display: none;
+            justify-content: flex-end; align-items: center;
             .fa-bars{
                 color:#fff !important; font-size: 24px; margin-top: 6px;
+            }
+            img{
+                height: 24px;
             }
         }
         .mw-links{
@@ -47,6 +51,9 @@ header {
                     }
                     img{
                         height: 6px !important;
+                    }
+                    .contact-img{
+                        height: 15px !important;
                     }
                     .choosen__lang_img_w{
                         position: relative; height: 12px; min-width: 10px; display: flex; align-items: center; // border: 1px solid #ffffff; border-radius: 3px; overflow: hidden;
@@ -223,7 +230,7 @@ header {
             &.mb-60{
                 margin-bottom: 60px;
             }
-            .mobile-burger{display: block;}
+            .mobile-burger{display: flex;}
             .mw-links{
                 display: none;
                 //position: absolute; right: -20px; top: 60px; margin:0px; width: calc(100% + 40px); height: 120px; background: #fff;

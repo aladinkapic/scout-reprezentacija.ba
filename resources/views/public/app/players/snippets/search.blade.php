@@ -28,7 +28,7 @@
                     <p>{{ __('PRETRAŽITE') }}</p>
                 </div>
                 <div class="other-searches-button">
-                    <i class="fas fa-th-large"></i>
+                    <img src="{{ asset('images/icons/cubes.png') }}" alt="">
                 </div>
             </div>
         </div>

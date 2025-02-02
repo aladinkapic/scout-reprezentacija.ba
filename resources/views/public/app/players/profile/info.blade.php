@@ -28,9 +28,9 @@
                     <div class="sw-data-row" title="{{ $clubData->season_name ?? '' }}">
                         <div class="sw-dr-icon-wrapper">
                             @if($counter ++ == 0)
-                                <i class="fas fa-minus"></i>
+                                <img class="plus-minus-img" src="{{ asset('images/icons/minus-solid.svg') }}" alt="">
                             @else
-                                <i class="fas fa-plus"></i>
+                                <img class="plus-minus-img" src="{{ asset('images/icons/plus-solid.svg') }}" alt="">
                             @endif
                         </div>
                         <p>
@@ -137,9 +137,9 @@
                     <div class="sw-data-row">
                         <div class="sw-dr-icon-wrapper">
                             @if($counter ++ == 0)
-                                <i class="fas fa-minus"></i>
+                                <img class="plus-minus-img" src="{{ asset('images/icons/minus-solid.svg') }}" alt="">
                             @else
-                                <i class="fas fa-plus"></i>
+                                <img class="plus-minus-img" src="{{ asset('images/icons/plus-solid.svg') }}" alt="">
                             @endif
                         </div>
                         <p>

@@ -36440,27 +36440,25 @@ $(document).ready(function () {
     if ($this.hasClass('sw-data-club')) {
       $(".sw-data-club").each(function () {
         if ($(this).attr('id') !== currentId) {
-          console.log($(this).attr('id'));
           $(this).addClass('sw-data-hidden');
-          $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+          $(this).find(".plus-minus-img").attr('src', '/images/icons/plus-solid.svg'); // $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
         }
       });
     } else {
       $(".sw-data-nat-team").each(function () {
         if ($(this).attr('id') !== currentId) {
-          console.log($(this).attr('id'));
           $(this).addClass('sw-data-hidden');
-          $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+          $(this).find(".plus-minus-img").attr('src', '/images/icons/minus-solid.svg'); // $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
         }
       });
     }
 
     if ($this.hasClass('sw-data-hidden')) {
       $(this).removeClass('sw-data-hidden');
-      $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
+      $(this).find(".plus-minus-img").attr('src', '/images/icons/minus-solid.svg'); // $(this).find(".fas").removeClass('fa-plus').addClass('fa-minus');
     } else {
       $(this).addClass('sw-data-hidden');
-      $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
+      $(this).find(".plus-minus-img").attr('src', '/images/icons/plus-solid.svg'); // $(this).find(".fas").removeClass('fa-minus').addClass('fa-plus');
     }
   }); // $(".sw-data").click(function () {
   //     $(this).parent().find(".sw-data").addClass('sw-data-hidden');
@@ -36502,8 +36500,6 @@ $(document).ready(function () {
           } else {
             $(".left-arrow-icon-wrapper").addClass('d-none');
           }
-
-          console.log(data['next']);
         }
       }
     });
