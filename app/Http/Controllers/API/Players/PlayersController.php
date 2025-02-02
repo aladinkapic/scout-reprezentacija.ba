@@ -100,14 +100,14 @@ class PlayersController extends Controller{
             $players = User::where('active', "=", 1)->where('role', '=', 1)->has('lastClub.clubRel');
             if(isset($request->from_api)) $players = $players->where('from_api', '=', $request->from_api);
 
-            $players = $players->inRandomOrder()->take($this->_total_players)->with('positionRel:id,value', 'genderRel:id,value', 'citizenshipRel:id,name_ba,short_ba,flag',  'lastClub:id,club_id,user_id', 'lastClub.clubRel:id,title,image,city')->get(['id', 'name', 'username', 'image', 'position', 'gender', 'citizenship']);
-            foreach ($players as $player){
+            $players = $players->inRandomOrder()->take($this->_total_players)->with('positionRel:id,value', 'genderRel:id,value', 'citizenshipRel:id,name_ba,short_ba,flag,code,fifa_code',  'lastClub:id,club_id,user_id', 'lastClub.clubRel:id,title,image,city')->get(['id', 'name', 'username', 'image', 'position', 'gender', 'citizenship']);
+            foreach ($players as &$player){
                 /* Append path to image */
                 if(isset($player->image)) $player->image = '/images/profile-images/' . $player->image;
 
                 /* Append path to country flag */
                 if(isset($player->citizenshipRel)){
-                    $player->citizenshipRel->flag = '/images/country-flags/' . $player->citizenshipRel->flag;
+                    $player->citizenshipRel->flag_path = '/images/country-flags/';
                 }
 
                 /* Append path to club flag */
