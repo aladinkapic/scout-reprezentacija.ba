@@ -172,6 +172,14 @@ Route::group(['namespace' => 'System', 'prefix' => '/system', 'middleware' => 'i
 
             /* Switch to user */
             Route::get ('/switch-to-user/{id}',              'UsersController@switchToUser')->name('system.users.switch-to-user');
+
+            /**
+             *  Preview user info
+             */
+            Route::get ('/preview-as-user/{id}',                   'UsersController@previewAsUser')->name('system.users.preview-as-user');
+            Route::get ('/preview-as-user-career/{id}',            'UsersController@previewAsUserCareer')->name('system.users.preview-as-user.career');
+            Route::get ('/preview-as-user-club/{id}',              'UsersController@previewAsUserClub')->name('system.users.preview-as-user.club');
+            Route::get ('/preview-as-user-nat-team/{id}',          'UsersController@previewAsUserNatTeam')->name('system.users.preview-as-user.nat-team');
         });
 
         /*

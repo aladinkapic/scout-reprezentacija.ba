@@ -13,6 +13,7 @@
 
         | <a href="{{route('system.users.preview-wall', ['id' => $user->id])}}"> {{ __('Uredite zid') }} </a>
         | <a href="{{ route('system.users.switch-to-user', ['id' => $user->id ]) }}">{{ __('Prebaci se na korisnika') }}</a>
+        | <a href="{{ route('system.users.preview-as-user', ['id' => $user->id]) }}" target="_blank">{{ __('Profil') }}</a>
     @endif
 @endsection
 

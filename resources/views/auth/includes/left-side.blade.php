@@ -21,31 +21,31 @@
         <div class="social_network_wrapper instagram mt-3">
             <a href="#">
                 <p>{{ __('Lični podaci') }}</p>
-                @if(Auth()->check()) <i class="fas fa-check"></i> @else <i class="fas fa-ban"></i> @endif
+                @if(Auth()->check()) <img class="fa-check" src="{{ asset('images/icons/check-solid.svg') }}" alt="Fa check"> @else <img class="fa-ban" src="{{ asset('images/icons/ban-solid.svg') }}" alt="Fa check"> @endif
             </a>
         </div>
         <div class="social_network_wrapper facebook">
             <a href="#">
                 <p>{{ __('Proflna slika') }}</p>
-                @if(Auth()->check() and Auth()->user()->image) <i class="fas fa-check"></i> @else <i class="fas fa-ban"></i> @endif
+                @if(Auth()->check() and Auth()->user()->image) <img class="fa-check" src="{{ asset('images/icons/check-solid.svg') }}" alt="Fa check"> @else <img class="fa-ban" src="{{ asset('images/icons/ban-solid.svg') }}" alt="Fa check"> @endif
             </a>
         </div>
         <div class="social_network_wrapper twitter">
             <a href="#">
                 <p>{{ __('Karijera') }}</p>
-                @if(Auth()->check() and Auth()->user()->stronger_limb) <i class="fas fa-check"></i> @else <i class="fas fa-ban"></i> @endif
+                @if(Auth()->check() and Auth()->user()->stronger_limb) <img class="fa-check" src="{{ asset('images/icons/check-solid.svg') }}" alt="Fa check"> @else <img class="fa-ban" src="{{ asset('images/icons/ban-solid.svg') }}" alt="Fa check"> @endif
             </a>
         </div>
         <div class="social_network_wrapper linkedin">
             <a href="#">
                 <p>{{ __('Klub') }}</p>
-                @if(Auth()->check() and Auth()->user()->clubDataRel->count()) <i class="fas fa-check"></i> @else <i class="fas fa-ban"></i> @endif
+                @if(Auth()->check() and Auth()->user()->clubDataRel->count()) <img class="fa-check" src="{{ asset('images/icons/check-solid.svg') }}" alt="Fa check"> @else <img class="fa-ban" src="{{ asset('images/icons/ban-solid.svg') }}" alt="Fa check"> @endif
             </a>
         </div>
         <div class="social_network_wrapper linkedin">
             <a href="#">
                 <p>{{ __('Reprezentacija') }}</p>
-                @if(Auth()->check() and Auth()->user()->natTeamDataRel->count()) <i class="fas fa-check"></i> @else <i class="fas fa-ban"></i> @endif
+                @if(Auth()->check() and Auth()->user()->natTeamDataRel->count()) <img class="fa-check" src="{{ asset('images/icons/check-solid.svg') }}" alt="Fa check"> @else <img class="fa-ban" src="{{ asset('images/icons/ban-solid.svg') }}" alt="Fa check"> @endif
             </a>
         </div>
 

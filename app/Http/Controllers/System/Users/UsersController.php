@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\System\Core\Filters;
 use App\Mail\allowAccess;
 use App\Mail\sendEmail;
+use App\Models\Additional\ClubData;
+use App\Models\Additional\NatTeamData;
 use App\Models\Core\Affiliation;
 use App\Models\Core\Country;
 use App\Models\Core\Keywords\Keyword;
@@ -246,5 +248,70 @@ class UsersController extends Controller{
     }
     public function imageCrop(){
         return view($this->_path.'snippets.image-crop');
+    }
+
+    /**
+     *  Root routes; Preview as user
+     */
+    public function previewAsUser ($id){
+        return view($this->_path . 'new-profile.personal-data', [
+            'countries' => Country::orderBy('name_ba')->pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'gender' => Keyword::where('keyword', 'gender')->pluck('value', 'id')->prepend('Odaberite spol', ''),
+            'phone_prefixes' => Keyword::where('keyword', 'phone_prefixes')->orderBy('value')->get()->pluck('value', 'value'),
+            'user' => User::where('id', '=', $id)->first()
+        ]);
+    }
+    public function previewAsUserCareer ($id){
+        return view($this->_path.'new-profile.career', [
+            'sports' => Keyword::where('keyword', 'sport')->pluck('value', 'id')->prepend('Odaberite sport', ''),
+            'position' => Keyword::where('keyword', 'position_football')->pluck('value', 'id')->prepend('Odaberite poziciju', ''),
+            'leg_arm' => Keyword::where('keyword', 'arm_leg')->pluck('value', 'id')->prepend('Odaberite', ''),
+            'user' => User::where('id', '=', $id)->first()
+        ]);
+    }
+    public function previewAsUserClub ($id){
+        $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
+
+        /* Check for end of season ? */
+        if(((int)date('m')) < 6){
+            $current = (date('Y') - 1) . ' / ' . date('Y');
+        }else{
+            $current = date('Y') . ' / ' . (date('Y') + 1);
+        }
+        foreach ($seasons as $key => $val){ if($val == $current) $currentSeason = $key; }
+
+        $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+
+        return view($this->_path.'new-profile.club', [
+            'user' => User::where('id', '=', $id)->first(),
+            'seasons' => $seasons,
+            'currentSeason' => $currentSeason ?? '',
+            'clubData' => $clubData
+        ]);
+    }
+    public function previewAsUserNatTeam ($id){
+        $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+
+        $seasons = Keyword::where('keyword', 'seasons')->orderBy('id', 'DESC')->get()->pluck('value', 'id');
+
+        /* Check for end of season ? */
+        if(((int)date('m')) < 6){
+            $current = (date('Y') - 1) . ' / ' . date('Y');
+        }else{
+            $current = date('Y') . ' / ' . (date('Y') + 1);
+        }
+        foreach ($seasons as $key => $val){ if($val == $current) $currentSeason = $key; }
+
+        $clubData = NatTeamData::where('user_id', Auth::user()->id)->first();
+
+        return view($this->_path.'new-profile.nat-team', [
+            'user' => User::where('id', '=', $id)->first(),
+            'seasons' => $seasons,
+            'countries' => Country::pluck('name_ba', 'id')->prepend('Odaberite državu', ''),
+            'team' => Keyword::where('keyword', 'nat_team')->pluck('value', 'id'),
+            'currentSeason' => $currentSeason ?? '',
+            'clubData' => $clubData
+        ]);
     }
 }

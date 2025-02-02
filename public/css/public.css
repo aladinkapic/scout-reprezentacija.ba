@@ -21096,6 +21096,10 @@ header .menu-wrapper .mw-links .sign-out a {
   font-weight: bold;
 }
 
+.create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a img {
+  height: 16px !important;
+}
+
 .create__new_profile__w .profile__wrapper .profile__wrapper_left .p__w_l_links_w .social_network_wrapper a .fa-check {
   color: #00EBC1;
 }
@@ -21225,6 +21229,14 @@ header .menu-wrapper .mw-links .sign-out a {
   font-size: 14px;
 }
 
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element img {
+  height: 14px;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element .fa-white {
+  display: none;
+}
+
 .create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element p {
   font-weight: bold;
 }
@@ -21237,6 +21249,14 @@ header .menu-wrapper .mw-links .sign-out a {
 .create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active i,
 .create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active p {
   color: #FFFFFF;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active .fa-dark {
+  display: none;
+}
+
+.create__new_profile__w .profile__wrapper .profile__wrapper_right .inner__menu a .im__element.active .fa-white {
+  display: initial;
 }
 
 .cs2-out {

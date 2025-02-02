@@ -60,7 +60,9 @@
                         p{
                             margin: 0px; font-weight: bold;
                         }
-
+                        img{
+                            height: 16px !important;
+                        }
                         .fa-check{
                             color: #00EBC1;
                         }
@@ -133,10 +135,20 @@
                             margin: 0px; color: #333333;
                         }
                         i{font-size: 14px;}
+                        img{
+                            height: 14px;
+                        }
+                        .fa-white{
+                            display: none;
+                        }
                         p{font-weight: bold;}
                         &.active{
                             background: $dark; border: 1px solid $dark;
                             i,p{color: #FFFFFF;}
+                            .fa-dark{
+                                display: none;
+                            }
+                            .fa-white{display: initial;}
                         }
                     }
                 }
