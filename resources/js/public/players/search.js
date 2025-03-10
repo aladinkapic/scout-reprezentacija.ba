@@ -148,10 +148,10 @@ $(document).ready(function() {
         }
     });
 
-    /* Init search bar for mobile version */
+    /* Init search bar for all versions */
     let initSearchBar = function (){
         if($(".rest-of-search-options").length){
-            if(window.innerWidth < 800) {
+            if(window.innerWidth < 800 || true) {
                 if (rest_menu_open === 0) {
                     rest_menu_open = 1;
 

@@ -55,16 +55,16 @@
                     @endif
                 </div>
                 <div class="bottom-white">
-                    <div class="bw-title">
-                        <div class="icon-wrapper">
-                            <img class="pin-img" src="{{ asset('images/icons/info-solid.svg') }}" alt="">
-                        </div>
-                        <h2> {{ __('Detaljne informacije') }} </h2>
-                    </div>
+{{--                    <div class="bw-title">--}}
+{{--                        <div class="icon-wrapper">--}}
+{{--                            <img class="pin-img" src="{{ asset('images/icons/info-solid.svg') }}" alt="">--}}
+{{--                        </div>--}}
+{{--                        <h2> {{ __('Detaljne informacije') }} </h2>--}}
+{{--                    </div>--}}
                     <div class="bw-buttons">
                         @if($player->from_api == 0)
-                            <a href="{{ route('home.players.player-timeline', ['username' => $player->username] ) }}" title="{{ __('Timeline') }}">
-                                <div class="bw-b-button @if($what == 'timeline') active @endif"> <p> {{ __('Timeline') }} </p> </div>
+                            <a href="{{ route('home.players.player-timeline', ['username' => $player->username] ) }}" title="{{ __('Media') }}">
+                                <div class="bw-b-button @if($what == 'timeline') active @endif"> <p> {{ __('Media') }} </p> </div>
                             </a>
                         @endif
                         <a href="{{ route('home.players.player-info', ['username' => $player->username] ) }}" title="{{ __('Detaljne informacije o igraču') }}" class="bw-b-a-btn-{{$player->from_api}}">

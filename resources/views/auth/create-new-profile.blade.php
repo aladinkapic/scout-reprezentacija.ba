@@ -27,11 +27,18 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name"><b>{{ __('Ime i prezime') }}</b></label>
-                                {!! Form::text('name', $user->name ?? '', ['class' => 'form-control required', 'id' => 'name', 'aria-describedby' => 'nameHelp', 'maxlength' => '50']) !!}
-                                <small id="nameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše ime prezime') }}</b></small>
+                                <label for="fname"><b>{{ __('Ime') }}</b></label>
+                                {!! Form::text('fname', $user->fname ?? '', ['class' => 'form-control required', 'id' => 'fname', 'aria-describedby' => 'fnameHelp', 'maxlength' => '50']) !!}
+                                <small id="fnameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše ime') }}</b></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="lname"><b>{{ __('Prezime') }}</b></label>
+                                {!! Form::text('lname', $user->lname ?? '', ['class' => 'form-control required', 'id' => 'lname', 'aria-describedby' => 'lnameHelp', 'maxlength' => '50']) !!}
+                                <small id="lnameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše prezime') }}</b></small>
                             </div>
                         </div>
                     </div>

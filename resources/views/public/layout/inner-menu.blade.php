@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('home.players.player-timeline', ['username' => Auth()->user()->username ]) }}">
+            <a href="{{ route('home.players.player-info', ['username' => Auth()->user()->username ]) }}">
                 <div class="inner__menu_links_link">
                     <i class="fas fa-bullhorn"></i>
                     <p>{{ __('Moj javni profil') }}</p>

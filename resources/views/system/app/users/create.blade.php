@@ -14,6 +14,7 @@
         | <a href="{{route('system.users.preview-wall', ['id' => $user->id])}}"> {{ __('Uredite zid') }} </a>
         | <a href="{{ route('system.users.switch-to-user', ['id' => $user->id ]) }}">{{ __('Prebaci se na korisnika') }}</a>
         | <a href="{{ route('system.users.preview-as-user', ['id' => $user->id]) }}" target="_blank">{{ __('Profil') }}</a>
+        | <a href="{{ route('home.players.player-info', ['username' => $user->username ]) }}" target="_blank">{{ __('Javni profil') }}</a>
     @endif
 @endsection
 
@@ -82,11 +83,21 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name"> <b>{{ __('Ime i prezime') }}</b> </label>
-                                            {!! Form::text('name', $user->name ?? '', ['class' => 'form-control required', 'id' => 'name', 'aria-describedby' => 'nameHelp', isset($preview) ? 'readonly' : '']) !!}
-                                            <small id="nameHelp" class="form-text text-muted"> {{ __('Puno ime i prezime') }} </small>
+                                            <label for="fname"><b>{{ __('Ime') }}</b></label>
+                                            {!! Form::text('fname', $user->fname ?? '', ['class' => 'form-control required', 'id' => 'fname', 'aria-describedby' => 'fnameHelp', 'maxlength' => '50']) !!}
+                                            <small id="fnameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše ime') }}</b></small>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lname"><b>{{ __('Prezime') }}</b></label>
+                                            {!! Form::text('lname', $user->lname ?? '', ['class' => 'form-control required', 'id' => 'lname', 'aria-describedby' => 'lnameHelp', 'maxlength' => '50']) !!}
+                                            <small id="lnameHelp" class="form-text text-muted"><b>{{ __('Unesite Vaše prezime') }}</b></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email"> <b>{{ __('Email') }}</b> </label>
@@ -94,9 +105,7 @@
                                             <small id="emailHelp" class="form-text text-muted"> {{ __('Adresa e-Pošte') }} </small>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="sport"> <b>{{ __('Sport') }}</b> </label>
                                             {!! Form::select('sport', $sport, $user->sport ?? '', ['class' => 'form-control required pick-a-sport', 'id' => 'sport', 'aria-describedby' => 'sportHelp', isset($preview) ? 'disabled => true' : '']) !!}

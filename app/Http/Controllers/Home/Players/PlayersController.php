@@ -77,7 +77,7 @@ class PlayersController extends Controller{
         ]);
     }
     public function getData($username, $what){
-        $player = User::where('username', $username)->first();
+        $player = User::where('username', '=', $username)->first();
         /* Init empty api data var */
         $apiData = []; $length = 0;
 
@@ -112,9 +112,9 @@ class PlayersController extends Controller{
         ]);
     }
     public function preview($username){
-        return $this->getData($username, "timeline");
+        return $this->getData($username, "info");
     }
     public function previewInfo($username){
-        return $this->getData($username, "info");
+        return $this->getData($username, "timeline");
     }
 }

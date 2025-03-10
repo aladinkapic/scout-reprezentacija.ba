@@ -36672,11 +36672,11 @@ $(document).ready(function () {
       closeSearchMenu();
     }
   });
-  /* Init search bar for mobile version */
+  /* Init search bar for all versions */
 
   var initSearchBar = function initSearchBar() {
     if ($(".rest-of-search-options").length) {
-      if (window.innerWidth < 800) {
+      if (window.innerWidth < 800 || true) {
         if (rest_menu_open === 0) {
           rest_menu_open = 1;
           openSearchMenu();

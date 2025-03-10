@@ -30,7 +30,7 @@
                             <button class="btn btn-dark btn-sm yellow-btn"> <p class="m-0">{{ __('Profil igrača') }}</p> </button>
                         </a>
                     @else
-                        <a href="{{route('home.players.player-timeline', ['username' => $user->username] )}}" class="text-center d-block mb-4">
+                        <a href="{{route('home.players.player-info', ['username' => $user->username] )}}" class="text-center d-block mb-4">
                             <button class="btn btn-dark btn-sm yellow-btn"> <p class="m-0">{{ __('Profil igrača') }}</p> </button>
                         </a>
                     @endif

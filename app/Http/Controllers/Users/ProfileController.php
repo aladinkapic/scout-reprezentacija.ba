@@ -28,7 +28,9 @@ class ProfileController extends Controller{
     public function updateInfo (Request $request){
         try{
             $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
+            $request['name'] = $request->fname . ' ' . $request->lname;
             $slug = (new UsersApiController)->constructSlug($request->name);
+
             $totalUsers = User::where('username', $slug)->where('id', '!=', Auth::user()->id)->get();
 
             if($totalUsers->count()){

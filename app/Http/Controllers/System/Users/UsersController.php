@@ -85,6 +85,7 @@ class UsersController extends Controller{
 
         $request['password'] = Hash::make($request->password);
         $request->request->add(['api_token' => hash('sha256', $request->email . '+' . time())]);
+        $request['name'] = $request->fname . ' ' . $request->lname;
 
         $apiController = new UsersApiController();
         $request['username'] = $apiController->getSlug($request->name);
@@ -125,6 +126,7 @@ class UsersController extends Controller{
     }
     public function update(Request $request){
         try {
+            $request['name'] = $request->fname . ' ' . $request->lname;
             $slug = (new UsersApiController)->constructSlug($request->name);
             $totalUsers = User::where('username', $slug)->where('id', '!=', $request->id)->get();
 
@@ -213,6 +215,8 @@ class UsersController extends Controller{
     public function updateProfile(Request $request){
         $request = $this::format($request);
         try {
+            $request['name'] = $request->fname . ' ' . $request->lname;
+
             if(isset($request->name)){
                 $slug = (new UsersApiController)->constructSlug($request->name);
                 $totalUsers = User::where('username', $slug)->where('id', '!=', $request->id)->get();

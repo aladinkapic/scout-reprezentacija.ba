@@ -24,8 +24,8 @@ Route::group(['namespace' => 'Home', 'prefix' => '/', 'middleware' => 'public'],
     });
 
     Route::group(['namespace' => 'Players'], function(){
-        Route::get ('/{username}',                       'PlayersController@preview')->name('home.players.player-timeline');
-        Route::get ('/{username}/info',                  'PlayersController@previewInfo')->name('home.players.player-info');
+        Route::get ('/{username}',                       'PlayersController@preview')->name('home.players.player-info');
+        Route::get ('/{username}/timeline',              'PlayersController@previewInfo')->name('home.players.player-timeline');
     });
 
     /* Clubs preview */

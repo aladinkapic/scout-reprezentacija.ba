@@ -89,6 +89,7 @@ class AuthController extends Controller{
     }
     public function updateBasicInfo (Request $request){
         try{
+            $request['name'] = $request->fname . ' ' . $request->lname;
             $request['birth_date'] = Carbon::parse($request->birth_date)->format('Y-m-d');
             $request['password'] = Hash::make($request->password);
             $request['api_token'] = hash('sha256', $request->email. '+'. time());

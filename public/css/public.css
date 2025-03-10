@@ -18693,7 +18693,7 @@ header .menu-wrapper .mw-links .sign-out a {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-title,
@@ -18705,6 +18705,7 @@ header .menu-wrapper .mw-links .sign-out a {
   height: 80px;
   display: inline-flex;
   justify-content: flex-start;
+  display: none;
 }
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-title .icon-wrapper,
