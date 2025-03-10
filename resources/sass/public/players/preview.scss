@@ -38,6 +38,13 @@
                     position: absolute; left:0px; top:0px; right: 0px; bottom: 0px; margin:auto; max-width: 80%; max-height: 80%;
                 }
             }
+            .mobile-shirt-number{
+                position: absolute; width: 100px; bottom: 20px; right: 0px; height: 100px; justify-content: center; align-items: center;
+                background: $secondary; border-radius: 50%; display: none; border: 2px solid #ffffff;
+                p{
+                    color: #FFFFFF; font-size: 50px; font-weight: bold; margin: 0px; padding: 0px;
+                }
+            }
         }
         .pw-right{
             position: relative; width: calc(100% - 340px); height: 360px;
@@ -473,6 +480,9 @@
                 }
                 .club-icon{
                     margin-left: calc(50% - 160px); bottom:10px;
+                }
+                .mobile-shirt-number{
+                    display: flex; margin-right: calc(50% - 160px); bottom:10px;
                 }
                 .tb-row{}
             }

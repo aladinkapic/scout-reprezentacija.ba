@@ -24,18 +24,11 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6 mt-1">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="email"><b>{{ __('Email adresa') }}</b></label>
                         {!! Form::text('email', Auth()->user()->email ?? '', ['class' => 'form-control email required', 'id' => 'email', 'aria-describedby' => 'emailHelp', 'maxlength' => '50']) !!}
                         <small id="emailHelp" class="form-text text-muted"><b>{{ __('Unesite Vašu email adresu') }}</b></small>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="phone"><b>{{ __('Broj telefona') }}</b></label>
-                        {!! Form::text('phone', Auth()->user()->phone ?? '', ['class' => 'form-control required', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '20']) !!}
-                        <small id="phoneHelp" class="form-text text-muted"><b>{{ __('Unesite Vaš broj telefona') }}</b></small>
                     </div>
                 </div>
             </div>

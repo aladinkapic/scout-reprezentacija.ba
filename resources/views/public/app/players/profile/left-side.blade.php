@@ -7,14 +7,14 @@
             </div>
         @endif
 
-        @if(isset($player->lastClub->clubRel)  or ($player->from_api == 1 and $player->player_id != null))
+{{--        @if(isset($player->lastClub->clubRel)  or ($player->from_api == 1 and $player->player_id != null))--}}
 
-            <div class="tb-row-col-flex tb-row-col-flex-mobile-none">
-                <p class="key"><span>{{ __('Broj dresa') }}</span></p>
-                <p class="value"> {{ $player->lastClub->shirt_number ?? '' }} </p>
-            </div>
+{{--            <div class="tb-row-col-flex tb-row-col-flex-mobile-none">--}}
+{{--                <p class="key"><span>{{ __('Broj dresa') }}</span></p>--}}
+{{--                <p class="value"> {{ $player->lastClub->shirt_number ?? '' }} </p>--}}
+{{--            </div>--}}
 
-        @endif
+{{--        @endif--}}
 
         <div class="tb-row-col-flex">
             <p class="key"><span>{{ __('Snažnija noga') }}</span></p>

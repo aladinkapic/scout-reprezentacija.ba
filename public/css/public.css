@@ -15922,7 +15922,7 @@ header .menu-wrapper .mw-links .sign-out a {
   left: 0px;
   width: 100%;
   height: 50px;
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -15935,8 +15935,8 @@ header .menu-wrapper .mw-links .sign-out a {
   position: relative;
   width: 100%;
   height: 56px;
-  background: #75A5B3;
-  border-top: 1px solid #75A5B3;
+  background: #016AFE;
+  border-top: 1px solid #016AFE;
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
@@ -16098,7 +16098,7 @@ header .menu-wrapper .mw-links .sign-out a {
 
 @media only screen and (max-width: 1000px) {
   .inner__menu_w .inner__menu .inner__menu_profile a {
-    color: #75A5B3;
+    color: #016AFE;
     font-weight: bold;
   }
 }
@@ -16195,7 +16195,7 @@ header .menu-wrapper .mw-links .sign-out a {
   margin: 0px;
   padding: 0px;
   font-weight: bold;
-  color: #75A5B3;
+  color: #016AFE;
 }
 
 .inner__menu_w .inner__menu .inner__menu_links a .active {
@@ -16269,7 +16269,7 @@ header .menu-wrapper .mw-links .sign-out a {
 
   .inner__menu_w .inner__menu .inner__menu_links a .inner__menu_links_link p,
   .inner__menu_w .inner__menu .inner__menu_links a .inner__menu_links_link i {
-    color: #75A5B3;
+    color: #016AFE;
   }
 
   .inner__menu_w .inner__menu .inner__menu_links a .inner__menu_links_link p {
@@ -18524,6 +18524,30 @@ header .menu-wrapper .mw-links .sign-out a {
   max-height: 80%;
 }
 
+.public-container .preview-wrapper .pw-left .mobile-shirt-number,
+.public-container .preview-body-wrapper .pw-left .mobile-shirt-number {
+  position: absolute;
+  width: 100px;
+  bottom: 20px;
+  right: 0px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background: #016AFE;
+  border-radius: 50%;
+  display: none;
+  border: 2px solid #ffffff;
+}
+
+.public-container .preview-wrapper .pw-left .mobile-shirt-number p,
+.public-container .preview-body-wrapper .pw-left .mobile-shirt-number p {
+  color: #FFFFFF;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
 .public-container .preview-wrapper .pw-right,
 .public-container .preview-body-wrapper .pw-right {
   position: relative;
@@ -18716,7 +18740,7 @@ header .menu-wrapper .mw-links .sign-out a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #75A5B3;
+  background: #016AFE;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18770,7 +18794,7 @@ header .menu-wrapper .mw-links .sign-out a {
 
 .public-container .preview-wrapper .pw-right-header .bottom-white .bw-buttons .active,
 .public-container .preview-body-wrapper .pw-right-header .bottom-white .bw-buttons .active {
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 .public-container .preview-wrapper .pw-left,
@@ -18940,7 +18964,7 @@ header .menu-wrapper .mw-links .sign-out a {
   padding-top: 4px;
   font-weight: bolder;
   border-radius: 3px;
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 .public-container .preview-wrapper .pw-left .custom-buttons .button a,
@@ -19138,7 +19162,7 @@ header .menu-wrapper .mw-links .sign-out a {
   width: 30px;
   height: 30px;
   /* background: #142D56; */
-  background: #75A5B3;
+  background: #016AFE;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -19168,7 +19192,7 @@ header .menu-wrapper .mw-links .sign-out a {
 .public-container .preview-body-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row p span {
   font-weight: bold;
   /* color:#142D56; */
-  color: #75A5B3;
+  color: #016AFE;
 }
 
 .public-container .preview-wrapper .pw-right-body .pw-r-b-info .statistics-wrapper .sw-data .sw-data-row:hover,
@@ -19596,6 +19620,12 @@ header .menu-wrapper .mw-links .sign-out a {
 
   .public-container .preview-wrapper .pw-left .club-icon {
     margin-left: calc(50% - 160px);
+    bottom: 10px;
+  }
+
+  .public-container .preview-wrapper .pw-left .mobile-shirt-number {
+    display: flex;
+    margin-right: calc(50% - 160px);
     bottom: 10px;
   }
 
@@ -22200,7 +22230,7 @@ header .menu-wrapper .mw-links .sign-out a {
   margin-top: 20px;
   display: inline-flex;
   padding: 6px 20px;
-  background: #75A5B3;
+  background: #016AFE;
   gap: 8px;
   border-radius: 4px;
   opacity: 1;
@@ -22270,7 +22300,7 @@ header .menu-wrapper .mw-links .sign-out a {
 }
 
 .my__profile__wrapper .left__menu .p__w_l_links_w .social_network_wrapper__psw {
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 .my__profile__wrapper .left__menu .p__w_l_links_w .share-your-links {
@@ -22367,7 +22397,7 @@ header .menu-wrapper .mw-links .sign-out a {
   position: relative;
   height: 24px;
   border: none;
-  background: #75A5B3;
+  background: #016AFE;
   display: flex;
   gap: 8px;
   align-content: center;
@@ -22389,7 +22419,7 @@ header .menu-wrapper .mw-links .sign-out a {
 }
 
 .my__profile__wrapper .content__part table thead {
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 .my__profile__wrapper .content__part table thead tr th {
@@ -22401,7 +22431,7 @@ header .menu-wrapper .mw-links .sign-out a {
 }
 
 .my__profile__wrapper .content__part table tbody tr:hover {
-  background: #75A5B3;
+  background: #016AFE;
 }
 
 .my__profile__wrapper .content__part table tbody tr:hover th,
@@ -22415,11 +22445,11 @@ header .menu-wrapper .mw-links .sign-out a {
 
 .my__profile__wrapper .content__part table tbody tr:hover .table__btn p,
 .my__profile__wrapper .content__part table tbody tr:hover .table__btn i {
-  color: #75A5B3;
+  color: #016AFE;
 }
 
 .my__profile__wrapper .content__part .btn-profile {
-  background: #75A5B3;
+  background: #016AFE;
   color: #FFFFFF;
   font-weight: bold;
 }

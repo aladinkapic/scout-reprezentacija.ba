@@ -285,7 +285,7 @@ class UsersController extends Controller{
         }
         foreach ($seasons as $key => $val){ if($val == $current) $currentSeason = $key; }
 
-        $clubData = ClubData::where('user_id', Auth::user()->id)->first();
+        $clubData = ClubData::where('user_id', $id)->first();
 
         return view($this->_path.'new-profile.club', [
             'user' => User::where('id', '=', $id)->first(),

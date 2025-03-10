@@ -104,7 +104,7 @@
                                 <p> {{ $clubData->yellow_cards ?? '' }} </p>
                             </div>
                         </div>
-                        @if($player->from_api != 1)
+                        @if($player->from_api != 1 and $player->position == 11)
                             <div class="sw-db-row">
                                 <div class="sw-dbr-img sw-dbr-img-rotated">
                                     <img src="{{asset('images/icons/goal.png')}}" alt="">
@@ -224,7 +224,7 @@
                                 <p> {{ $natTeamData->yellow_cards ?? '' }} </p>
                             </div>
                         </div>
-                        @if($player->from_api != 1)
+                            @if($player->from_api != 1 and $player->position == 11)
                             <div class="sw-db-row">
                                 <div class="sw-dbr-img">
                                     <img src="{{asset('images/icons/goal.png')}}" alt="">

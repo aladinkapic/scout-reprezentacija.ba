@@ -60,27 +60,6 @@
                             </div>
                         @endif
                     </div>
-                    <div class="row mt-3">
-{{--                        <div class="col-md-12">--}}
-{{--                            <div class="c-bootstrap-field">--}}
-{{--                                <label for="prefix"> <b>{{ __('Broj telefona') }}</b> </label>--}}
-{{--                                <div class="input-elements">--}}
-{{--                                    {!! Form::select('prefix', $phone_prefixes, $user->prefix ?? '+387', ['class' => 'form-control', 'id' => 'prefix', 'aria-describedby' => 'prefixHelp', 'style' => 'width:80px; margin-right:10px;']) !!}--}}
-
-{{--                                    {!! Form::number('phone', $user->phone ?? '', ['class' => 'form-control', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '13']) !!}--}}
-{{--                                </div>--}}
-{{--                                <small id="prefixHelp" class="form-text text-muted"> <b>{{ __('Unesite Vaš broj telefona') }}</b> </small>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="phone"><b>{{ __('Broj telefona') }}</b></label>
-                                {!! Form::text('phone', isset($user) ? $user->phone : '+387 ', ['class' => 'form-control required', 'id' => 'phone', 'aria-describedby' => 'phoneHelp', 'maxlength' => '20']) !!}
-                                <small id="phoneHelp" class="form-text text-muted"><b>{{ __('Unesite Vaš broj telefona') }}</b></small>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="row mt-3">
                         <div class="col-md-6">

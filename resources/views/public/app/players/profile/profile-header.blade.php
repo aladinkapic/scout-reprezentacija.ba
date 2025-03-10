@@ -29,6 +29,9 @@
                         <img src="{{ asset('images/club-images/' . ($player->lastClub->clubRel->image ?? '')) }}" alt="">
                     </div>
                 @endif
+                <div class="mobile-shirt-number" title="{{ __('Broj dresa') }}">
+                    <p>{{ $player->shirt_number ?? '0' }}</p>
+                </div>
             </div>
             <div class="pw-right pw-right-header">
                 <h1> <b> {{ $player->name ?? '' }} </b> </h1>
